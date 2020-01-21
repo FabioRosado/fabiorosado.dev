@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, withPrefix } from "react"
 import { Link, graphql } from "gatsby"
 import Img from 'gatsby-image'
 // import BackgroundImage from 'gatsby-background-image'
@@ -19,6 +19,8 @@ class IndexPage extends Component {
 
 
  render() {
+   const portfolio = this.props.data.portfolio
+   const blog = this.props.data.blog
    return(
   <Layout>
     <SEO title="Home" keywords={[`FabioRosado`, `developer`,]} />
@@ -89,105 +91,110 @@ class IndexPage extends Component {
             </div>
         </div>
     </div>
-      
     </header>
-    
-                {/* <div className="container-middle center-text">
-                    <h1>Projects</h1>
+    <h1 className="section center-text white-text">Projects</h1>
+    <section className="three-columns section">
+      {portfolio.nodes.map((work) => {
+        return (
+          <div className="project-card drop-shadow">
+            <a href={work.frontmatter.path}>
+            <div className="category small-font">
+              <i className={work.frontmatter.tag_icon}></i> {work.frontmatter.tag}
+            </div>
+            <div className="project-name">
+                <h3 className="white-text">{work.frontmatter.title}</h3>
+            </div>
+            <div className="description">
+                <div className="white-text small-font margin-bottom">
+                    {work.frontmatter.excerpt}
                 </div>
-                <div className="three-columns">
+            </div>
+            <div className="buttons">
+                <a href={work.frontmatter.url} className="trans-button"><i className="fas fa-folder-open"></i> Read more</a>
+                <a href={work.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
+            </div>
+            <img className="project-image" src={work.frontmatter.image} alt={work.frontmatter.title} />
+            <div className="tools-used spaced-text">
+                <p>{work.frontmatter.tech}</p>
+            </div>
             
-                    <div className="project-card drop-shadow">
-                        <a href="{{project.url}}">
-                        <div className="category small-font">
-                            {{ project.tag-icon }} {{ project.tag }}
-                        </div>
-                        <div className="project-name">
-                            <h3 className="white-text">{{project.title}}</h3>
-                        </div>
-                        <div className="description">
-                            <div className="white-text small-font">
-                                {{ project.excerpt | truncate: 165 }}
-                            </div>
-                        </div>
-                        <div className="buttons">
-                            <a href="{{ project.url }}" className="trans-button"><i className="fas fa-folder-open"></i> Read more</a>
-                            <a href="{{ project.source}}" className="trans-button margin-left" target="_blank"><i className="fab fa-github-square"></i> Source Code</a>
-                        </div>
-                        <img className="project-image" src="../assets/images/{{project.image}}">
-                        <div className="tools-used spaced-text">
-                            <p>{{ project.tech }}</p>
-                        </div>
-                        </div>
-                        </a>
-                </div>
-        </div> */}
+            </a>
+        </div>
+        )
+      })}
 
-        <section className="section">
-            <div className="container-middle center-text">
-                <h1><a name="about">About Me</a></h1>
-                <p>
-                    I'm a self-taught developer who loves open source. When not flying for work, I spend a great amount of time either coding or learning new things.
-                    Some of my other passions include gaming, reading, photography and travelling - I've been to 15 different countries spread over 3 continents.
-                </p>
+    </section> 
+    <section className="section">
+        <div className="container-middle center-text">
+            <h1><a name="about">About Me</a></h1>
+            <p>
+                I'm a self-taught developer who loves open source. When not flying for work, I spend a great amount of time either coding or learning new things.
+                Some of my other passions include gaming, reading, photography and travelling - I've been to 15 different countries spread over 3 continents.
+            </p>
+        </div>
+        <div className="three-columns">
+            <div className="about-card drop-shadow">
+                <i className="fas fa-3x fa-language"></i>
+                <h2 className="white-text">Languages</h2>
+                <p className="spaced-text">HTML CSS Python</p>
+                <p className="spaced-text">Javascript SASS</p>
             </div>
-            <div className="three-columns">
-                <div className="about-card drop-shadow">
-                    <i className="fas fa-3x fa-language"></i>
-                    <h2 className="white-text">Languages</h2>
-                    <p className="spaced-text">HTML CSS Python</p>
-                    <p className="spaced-text">Javascript SASS</p>
-                </div>
-                <div className="about-card drop-shadow">
-                    <i className="fas fa-3x fa-toolbox"></i>
-                    <h2 className="white-text">Dev Tools</h2>
-                    <p className="spaced-text">Pycharm Terminal Tox</p>
-                    <p className="spaced-text">AdobeXD Postman Git</p>
-                    <p className="spaced-text">VSCode</p>
-                </div>
-                <div className="about-card drop-shadow">
-                    <i className="fas fa-3x fa-cogs"></i>
-                    <h2 className="white-text">Frameworks</h2>
-                    <p className="spaced-text">VueJS Electron Bootstrap</p>
-                    <p className="spaced-text">Jekyll Bulma React</p>
-                    <p className="spaced-text">Bootstrap</p>
-                </div>
+            <div className="about-card drop-shadow">
+                <i className="fas fa-3x fa-toolbox"></i>
+                <h2 className="white-text">Dev Tools</h2>
+                <p className="spaced-text">Pycharm Terminal Tox</p>
+                <p className="spaced-text">AdobeXD Postman Git</p>
+                <p className="spaced-text">VSCode</p>
             </div>
-        </section>
+            <div className="about-card drop-shadow">
+                <i className="fas fa-3x fa-cogs"></i>
+                <h2 className="white-text">Frameworks</h2>
+                <p className="spaced-text">VueJS Electron Bootstrap</p>
+                <p className="spaced-text">Jekyll Bulma React</p>
+                <p className="spaced-text">Bootstrap TailwindCSS</p>
+            </div>
+        </div>
+    </section>
+    <section className="section">
+      <h1 className="section center-text white-text">Blog</h1>
+      <div className="four-by-four">
+        {blog.nodes.map((post) => {
+          return(
+            <div className="post-card">
+            <a href={post.frontmatter.path}>
+            <div className="description">
+                <p className="white-text small-font margin-bottom">{post.frontmatter.excerpt}</p>
+                <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
+            </div>
+            <div className="card-title">
+                <span className="category"><i class={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
+                <h4 className="white-text">{post.frontmatter.title }}</h4>
+            </div>
+            <img className="post-image" src={post.frontmatter.image} alt={post.frontmatter.title} />
+          </a>
+          </div>
+        )})}
 
-        {/* <div className="section">
-            <div className="container-middle center-text">
-                <h1>Blog</h1>
-            </div>
-            <div className="four-by-four">
-              <a href="{{post.url}}">
-                  <div className="description">
-                      <p className="white-text small-font margin-bottom">{{ post.excerpt | truncate:160 }}</p>
-                      <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
-                  </div>
-                  <div className="card-title">
-                      <span className="category">{{ post.category_icon }} {{ post.categories }}</span>
-                      <h4 className="white-text">{{ post.title }}</h4>
-                  </div>
-                  <img className="post-image" src="{{site.url}}/assets/images/{{post.image}}" alt="{{post.title | escape}}">
-              </a>
-            </div>
-        </div> */}
+      </div>
+    </section>
 
-        {/* <div className="contact-area">
-            <div className="contact-text">
-                <h1>Contact Me</h1>
-                <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
-                <ul className="horizontal-list">
-                    <li><a href="mailto:{{ site.email }}"><button className="white-button">Say Hello</button></a></li>
-                    <li><a href="https://github.com/{{ site.github_username }}" target="_blank"><i className="fab fa-2x fa-github-square"></i></a></li>
-                    <li><a href="https://dev.to/{{ site.dev_username }}/" target="_blank"><i className="fab fa-2x fa-dev"></i></a></li>
-                    <li><a href="https://twitter.com/{{ site.twitter_username }}" target="_blank"><i className="fab fa-2x fa-twitter-square"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}/" target="_blank"><i className="fab fa-2x fa-linkedin"></i></a></li>
-                    <li><a href="https://www.instagram.com/{{ site.instagram_username }}/" target="_blank"><i className="fab fa-2x fa-instagram"></i></a></li>
-                </ul>
-            </div>
-        </div> */}
+    <section className="contact-area">
+      <div className="contact-text">
+        <h1>Contact Me</h1>
+        <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
+        <ul className="horizontal-list">
+            <li><a href="mailto:fabiorosado@outlook.com"><button className="white-button">Say Hello</button></a></li>
+            <li><a href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-github-square"></i></a></li>
+            <li><a href="https://dev.to/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-dev"></i></a></li>
+            <li><a href="https://twitter.com/FabioRosado" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-twitter-square"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-instagram"></i></a></li>
+        </ul>
+    </div>
+  </section>
+
+
+
   </Layout>
   )}
 }
@@ -197,6 +204,40 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
+    blog: allMarkdownRemark(
+      filter: {frontmatter: {categories: {ne: "Projects"}}}, 
+      limit: 8, 
+      sort: {fields: [frontmatter___date], order: DESC}) {
+    nodes {
+      frontmatter {
+        path
+        title
+        subtitle
+        image
+        categories
+        excerpt
+        category_icon
+      }
+    }
+  }
+    portfolio: allMarkdownRemark(
+      filter: {frontmatter: {categories: {eq: "Projects"}}}, 
+      limit: 3,
+      sort:{fields: [frontmatter___date], order: DESC}) {
+      nodes {
+      frontmatter {
+        path
+        excerpt
+        title
+        tech
+        tag
+        tag_icon
+        source
+        image
+        categories
+      }
+    }
+    }
     fabiorosado: file(relativePath: {eq: "fabiorosado.jpg" }) {
       childImageSharp {
         fixed(width: 157) {
