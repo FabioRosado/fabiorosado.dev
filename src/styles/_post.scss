@@ -47,20 +47,20 @@
 .text-container {
   padding: 1rem;
   margin: 0rem 1rem 0rem 1rem;
-  background-color: white;
+  background-color: lighten(color(background-color), 5%);
   border-radius: 10px;
   @include desktop {
     margin: 0rem 4rem 0rem 4rem;
     padding: 4rem 11rem 3rem 11rem;
   }
-  h1 {
-    color: color(secondary-color);
+  h1, h2, h3 {
+    color: color(text-color-light);
     padding-bottom: 1.5rem;
     padding-top: 1rem;
   }
 
   h1:first-of-type {
-    color: color(primary-color);
+    color: color(secondary-color);
   }
 
   ul {

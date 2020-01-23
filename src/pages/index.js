@@ -1,9 +1,7 @@
-import React, { Component, withPrefix } from "react"
+import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Img from 'gatsby-image'
-// import BackgroundImage from 'gatsby-background-image'
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 class IndexPage extends Component {
@@ -22,9 +20,9 @@ class IndexPage extends Component {
    const portfolio = this.props.data.portfolio
    const blog = this.props.data.blog
    return(
-  <Layout>
-    <SEO title="Home" keywords={[`FabioRosado`, `developer`,]} />
-    <Img fluid={this.props.data.background.childImageSharp.fluid} />
+  <>
+    <SEO title="Home" keywords={[`FabioRosado`, `developer`, `python`, `react`, `javascript`]} />
+    <Img className="header-image" fluid={this.props.data.background.childImageSharp.fluid} />
     <header className="header-section">
       <nav className="navbar">
       <div className="navbar-brand">
@@ -45,6 +43,12 @@ class IndexPage extends Component {
           <li>
               <Link to="/#about" aria-label="Link to about me">About</Link>
           </li>
+          <li>
+            <Link to="/blog" aria-label="Link to blog">Blog</Link>
+        </li>
+        <li>
+          <Link to="/portfolio" aria-label="Link to blog">Portfolio</Link>
+        </li>
       </ul>
     </nav>
     <div className="header-container">
@@ -96,7 +100,7 @@ class IndexPage extends Component {
     <section className="three-columns section">
       {portfolio.nodes.map((work) => {
         return (
-          <div className="project-card drop-shadow">
+          <div className="project-card drop-shadow" key={work.frontmatter.title}>
             <a href={work.frontmatter.path}>
             <div className="category small-font">
               <i className={work.frontmatter.tag_icon}></i> {work.frontmatter.tag}
@@ -110,7 +114,7 @@ class IndexPage extends Component {
                 </div>
             </div>
             <div className="buttons">
-                <a href={work.frontmatter.url} className="trans-button"><i className="fas fa-folder-open"></i> Read more</a>
+                <Link to={work.frontmatter.path} className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
                 <a href={work.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
             </div>
             <img className="project-image" src={work.frontmatter.image} alt={work.frontmatter.title} />
@@ -160,15 +164,15 @@ class IndexPage extends Component {
       <div className="four-by-four">
         {blog.nodes.map((post) => {
           return(
-            <div className="post-card">
-            <a href={post.frontmatter.path}>
+            <div className="post-card" key={post.frontmatter.title}>
+            <a href={`/${post.frontmatter.path}`}>
             <div className="description">
                 <p className="white-text small-font margin-bottom">{post.frontmatter.excerpt}</p>
                 <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
             </div>
             <div className="card-title">
-                <span className="category"><i class={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
-                <h4 className="white-text">{post.frontmatter.title }}</h4>
+                <span className="category"><i className={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
+                <h4 className="white-text">{post.frontmatter.title}</h4>
             </div>
             <img className="post-image" src={post.frontmatter.image} alt={post.frontmatter.title} />
           </a>
@@ -192,10 +196,7 @@ class IndexPage extends Component {
         </ul>
     </div>
   </section>
-
-
-
-  </Layout>
+  </>
   )}
 }
 

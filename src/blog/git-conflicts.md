@@ -7,8 +7,7 @@ date:   2017-10-19 14:00:02 +0100
 categories: GitHub
 category_icon: fas fa-code-branch
 image: gitconflict.jpg
-excerpt: Usually a conflict happens when the project was updated but your local repository is out of sync. So when you try to push changes on a file that someone already changed a conflicting message will show so you can choose which version is the right version to use.
-
+excerpt: Learn how to deal with a git conflict, why it happens and how to fix conflicts directly from your editor.
 ---
 
 So you just tried to pull changes from a remote repository and git presents you with the message: 
