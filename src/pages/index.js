@@ -61,7 +61,7 @@ class IndexPage extends Component {
         <p>I’m Fabio, a Portuguese expat living in the UK. I’m currently working for an airline as cabin crew and learning how to code in my free time.</p>
         <h1 className="margin-top">Let's Chat!</h1>
         <ul className="horizontal-list">
-            <li><a href="mailto:"><button className="full-button">Say Hello</button></a></li>
+            <li><a href="mailto:fabiorosado@outlook.com"><button className="full-button">Say Hello</button></a></li>
             <li><a href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer" aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square"></i></a></li>
             <li><a href="https://dev.to/FabioRosado/" target="_blank" rel="noopener noreferrer" aria-label="Link to dev.to Profile"><i className="fab fa-2x fa-dev"></i></a></li>
             <li><a href="https://twitter.com/FabioRosado_" target="_blank" rel="noopener noreferrer" aria-label="Link to Twitter Profile"><i className="fab fa-2x fa-twitter-square"></i></a></li>
