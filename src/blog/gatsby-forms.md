@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2019-03-22 12:50:00
 categories: Gatsby
 category_icon: fab fa-js-square
-image: forms.jpg
+image: ../images/forms.jpg
 excerpt: Submit your forms from your Gatsby website directly to your Airtable in a very easy and simple way.
 ---
 

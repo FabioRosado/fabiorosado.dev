@@ -5,7 +5,7 @@ date:   2019-01-15 10:50:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: 100daysof.png
+image: ../images/100daysof.png
 source: https://github.com/FabioRosado/100daysof
 tech: Jekyll Sass Bulma
 excerpt: A hub for the 100DaysOf challenge and a better way to log and keep track of the user progress.

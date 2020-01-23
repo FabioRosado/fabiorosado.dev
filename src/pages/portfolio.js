@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from '../components/layout'
 
@@ -30,7 +31,7 @@ class Portfolio extends Component {
                                 <Link to={ project.frontmatter.path } class="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
                                 <a href={ project.frontmatter.source} class="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
                             </div>
-                            <img className="project-image" src={project.frontmatter.image} alt={project.frontmatter.title} />
+                            <Img className="project-image" fluid={project.frontmatter.image.childImageSharp.fluid} alt={project.frontmatter.title} />
                             <div className="tools-used spaced-text">
                                 <p>{project.frontmatter.tech }</p>
                             </div>
@@ -56,7 +57,6 @@ export const pageQuery = graphql`
         path
         title
         subtitle
-        image
         categories
         excerpt
         category_icon
@@ -67,6 +67,13 @@ export const pageQuery = graphql`
         tags
         tech
         date(formatString: "dddd Mo, MMM YYYY")
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

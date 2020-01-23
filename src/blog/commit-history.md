@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2017-10-11 10:01:02 +0100
 categories: GitHub
 category_icon: fas fa-code-branch
-image: commits.jpg
+image: ../images/commits.jpg
 excerpt: Learn about git rebase, pulling changes from a master branch and how to keep your git history under control.
 ---
 

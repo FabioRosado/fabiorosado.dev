@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2017-10-11 10:01:02 +0100
 categories: GitHub
 category_icon: fas fa-code-branch
-image: git-recover.jpg
+image: ../images/git-recover.jpg
 excerpt: Deleting files doesn't mean deleted permanently, learn how to turn back time and recover deleted files.
 ---
 

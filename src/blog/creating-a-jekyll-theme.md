@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2017-12-29 16:00:02
 categories: Code
 category_icon:  fa fa-code
-image: niebieski.jpg
+image: ../images/niebieski.jpg
 excerpt: Niebieski is the first theme that I've created from scratch. In this post I look back at what I've learned and the struggles I faced when creating the theme.
 ---
 The first time I tried to customize my blog, I used the minima theme alongside with bootstrap. I was just starting to dab into bootstrap and CSS, so my code was a big, scrambled mess. It was so bad, that the blog looked pretty broken on small screens.

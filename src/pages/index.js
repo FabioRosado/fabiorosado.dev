@@ -1,9 +1,11 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Img from 'gatsby-image'
+
 import "../styles/main.css"
 import '../../static/css/all.min.css'
 
+import Logo from '../images/logo.svg'
 import SEO from "../components/seo"
 
 class IndexPage extends Component {
@@ -29,7 +31,7 @@ class IndexPage extends Component {
       <nav className="navbar">
       <div className="navbar-brand">
           <Link to="/">
-              <img src="logo.svg" width="50" height="50" alt="FabioRosado" />
+              <img src={Logo} width="50" height="50" alt="FabioRosado" />
           </Link>
       </div>
       <button className="full-button visible-xs" id="collapseBtn" type="button" aria-pressed="false" aria-expanded="false" aria-controls="navigation" onClick={this.toggleMenu}>
@@ -119,7 +121,7 @@ class IndexPage extends Component {
                 <Link to={work.frontmatter.path} className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
                 <a href={work.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
             </div>
-            <img className="project-image" src={work.frontmatter.image} alt={work.frontmatter.title} />
+            <Img className="project-image" fluid={work.frontmatter.image.childImageSharp.fluid} alt={work.frontmatter.title} />
             <div className="tools-used spaced-text">
                 <p>{work.frontmatter.tech}</p>
             </div>
@@ -176,7 +178,7 @@ class IndexPage extends Component {
                 <span className="category"><i className={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
                 <h4 className="white-text">{post.frontmatter.title}</h4>
             </div>
-            <img className="post-image" src={post.frontmatter.image} alt={post.frontmatter.title} />
+            <Img className="post-image" fluid={post.frontmatter.image.childImageSharp.fluid} alt={post.frontmatter.title} />
           </a>
           </div>
         )})}
@@ -216,10 +218,16 @@ export const pageQuery = graphql`
         path
         title
         subtitle
-        image
         categories
         excerpt
         category_icon
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
@@ -236,8 +244,14 @@ export const pageQuery = graphql`
         tag
         tag_icon
         source
-        image
         categories
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     }

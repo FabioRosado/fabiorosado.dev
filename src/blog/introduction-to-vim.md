@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2018-04-24 18:10:02
 categories: Terminal
 category_icon: fa fa-terminal 
-image: vim.jpg
+image: ../images/vim.jpg
 excerpt: Vim is still one of the editors that confuses some developers. This introduction will keep you up to speed with this powerful editor.
 ---
 

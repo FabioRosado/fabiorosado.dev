@@ -5,7 +5,7 @@ subtitle: Get the weather data from the user location
 date:   2018-09-04 18:38:00
 categories: Vue
 category_icon: fab fa-vuejs
-image: weatherApp.jpg
+image: ../images/weatherApp.jpg
 excerpt: Learn how to implement HTML5 Geolocation API and VueJs together to get the current location of an user.
 ---
 

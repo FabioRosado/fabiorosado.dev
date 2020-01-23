@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
 
@@ -24,7 +25,7 @@ class Blog extends Component {
                                     <span className="category"><i className={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
                                     <h4 className="white-text">{post.frontmatter.title}</h4>
                                 </div>
-                                <img className="post-image" src={post.frontmatter.image} alt={post.frontmatter.title} />
+                                <Img className="post-image" fluid={post.frontmatter.image.childImageSharp.fluid} alt={post.frontmatter.title} />
                             </Link>
                         </div>
                         )
@@ -48,10 +49,16 @@ export const pageQuery = graphql`
         path
         title
         subtitle
-        image
         categories
         excerpt
         category_icon
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

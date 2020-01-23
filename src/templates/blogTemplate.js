@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,7 +14,7 @@ class Template extends React.Component {
                 <SEO title={frontmatter.title} />
                 <section class="blog-post">
                     <div class="image-container">
-                        <img class="post-image" src={frontmatter.image}  alt={ frontmatter.title} />
+                        <Img class="post-image" fluid={frontmatter.image.childImageSharp.fluid}  alt={ frontmatter.title}  />
                     </div>
                     <div class="post-header">
                         <h3 class="white-text">{frontmatter.categories}</h3>
@@ -46,7 +47,6 @@ export const pageQuery = graphql`
                 path
                 title
                 subtitle
-                image
                 categories
                 excerpt
                 category_icon
@@ -57,6 +57,13 @@ export const pageQuery = graphql`
                 tags
                 tech
                 date(formatString: "dddd Mo, MMM YYYY")
+                image {
+                    childImageSharp {
+                        fluid(maxWidth: 1250, maxHeight: 400) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
             }
             html
         }

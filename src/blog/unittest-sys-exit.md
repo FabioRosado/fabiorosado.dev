@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2019-01-11 18:30:00
 categories: Python
 category_icon: fab fa-python
-image: unittest.jpg
+image: ../images/unittest.jpg
 excerpt: How I solved the issue of testing a function that should call sys.exit() when a yaml file couldn't be safely loaded.
 ---
 In opsdroid, we were trying to update pyyaml to version 4.2b1 in order to fix the security vulnerability of version 3.12 that allows users to run python code from within a `.yaml` file. The fix was rather easy, we simply had to replace `yaml.loader(stream)` to `yaml.loader(stream, Loader=SafeLoader)` but I wanted to add a test that shows that this fix does work.

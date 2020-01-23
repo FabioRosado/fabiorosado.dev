@@ -6,7 +6,7 @@ author: "FabioRosado"
 date:   2017-10-19 14:00:02 +0100
 categories: GitHub
 category_icon: fas fa-code-branch
-image: gitconflict.jpg
+image: ../images/gitconflict.jpg
 excerpt: Learn how to deal with a git conflict, why it happens and how to fix conflicts directly from your editor.
 ---
 

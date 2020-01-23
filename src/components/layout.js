@@ -10,6 +10,7 @@ import { Link } from 'gatsby'
 
 import "../styles/main.css"
 import '../../static/css/all.min.css'
+import Logo from '../images/logo.svg'
 
 class Layout extends React.Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Layout extends React.Component {
       <nav className="navbar">
       <div className="navbar-brand">
           <Link to="/">
-              <img src="logo.svg" width="50" height="50" alt="FabioRosado" />
+              <img src={Logo} width="50" height="50" alt="FabioRosado" />
           </Link>
       </div>
       <button className="full-button visible-xs" id="collapseBtn" type="button" aria-pressed="false" aria-expanded="false" aria-controls="navigation" onClick={this.toggleMenu}>

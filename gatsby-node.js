@@ -23,7 +23,6 @@ exports.createPages = ({ actions, graphql }) => {
                         path
                         title
                         subtitle
-                        image
                         categories
                         excerpt
                         category_icon
