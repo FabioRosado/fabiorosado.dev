@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import Img from 'gatsby-image'
+import "../styles/main.css"
+import '../../static/css/all.min.css'
 
 import SEO from "../components/seo"
 
