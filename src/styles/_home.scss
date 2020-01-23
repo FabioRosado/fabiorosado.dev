@@ -162,8 +162,7 @@
 
 .contact-area {
   color: color(text-color-light);
-  background-image: url(../../static/annie-spratt-608001-unsplash.jpg);
-  background-size: cover;
+  position: relative;
   margin-top: 4rem;
   @include desktop {
     margin-top: 6rem;
@@ -180,11 +179,15 @@
   .contact-text {
     padding: 2rem;
     margin-right: 0rem;
+    position: relative;
+    top: 0;
+    z-index: 20;
     @include desktop {
       padding: 4rem;
       margin-right: 31%;
       margin-left: 31%;
       text-align: justify;
+      position: absolute;
     }
     .fab {
       color: color(text-color-light);

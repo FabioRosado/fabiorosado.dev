@@ -657,8 +657,7 @@ nav #collapseBtn .icon-bar {
 
 .contact-area {
   color: #FFFFFF;
-  background-image: url(../../static/annie-spratt-608001-unsplash.jpg);
-  background-size: cover;
+  position: relative;
   margin-top: 4rem;
 }
 
@@ -679,6 +678,9 @@ nav #collapseBtn .icon-bar {
 .contact-area .contact-text {
   padding: 2rem;
   margin-right: 0rem;
+  position: relative;
+  top: 0;
+  z-index: 20;
 }
 
 @media (min-width: 1160px) {
@@ -687,6 +689,7 @@ nav #collapseBtn .icon-bar {
     margin-right: 31%;
     margin-left: 31%;
     text-align: justify;
+    position: absolute;
   }
 }
 
@@ -868,7 +871,7 @@ footer .navigation .horizontal-list {
 }
 
 .page-header {
-  background-image: url(../../static/blog.jpg);
+  background-image: url(../images/blog.jpg);
   background-size: cover;
   background-color: black;
 }

@@ -187,6 +187,7 @@ class IndexPage extends Component {
     </section>
 
     <section className="contact-area">
+      <Img fluid={this.props.data.contact.childImageSharp.fluid} />
       <div className="contact-text">
         <h1>Contact Me</h1>
         <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
@@ -277,6 +278,13 @@ export const pageQuery = graphql`
       }
     }
     background: file(relativePath: {eq: "header.jpg"}) {
+      childImageSharp {
+        fluid(quality:100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    contact: file(relativePath: {eq: "annie-spratt-608001-unsplash.jpg"}) {
       childImageSharp {
         fluid(quality:100) {
           ...GatsbyImageSharpFluid
