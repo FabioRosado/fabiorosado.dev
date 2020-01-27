@@ -9,6 +9,8 @@ image: ../images/organizeacademy.png
 source: https://organizeacademy.com
 tech: React HTML/SCSS Gatsby
 excerpt: Client website design and code custom css and components. The website is an Academy for empowering women in Portugal.
+showcase: ../images/OA-home.png
+
 ---
 The client asked for a branding, webdesign service for her Academy to empower women in Portugal. After a few meetings and proposals the client and I have agreed on a color scheme and design. I proceeded to build the site and css from grounds up and added the animations to improve the overhall feeling of the site.
 
@@ -28,12 +30,27 @@ Branding wise, I've created two logos for the client. Choose the color scheme an
   - Mobile text on services/workshop needs work - spacing issues
   - Text on contact page should be smaller - keep email on same line
 
-# Images
-
-![Home Page](images/../../AO-home.png)
-
 # Info
 
 **Website:** [https://organizeacademy.com/](https://organizeacademy.com/)
 
 **GitHub repo:** Private Repository
+
+# Images
+
+Home Page
+![Home Page](../images/OA-home.png)
+
+About Page
+![About Page](../images/OA-about.png)
+
+Services Page
+![Services Page](../images/OA-services.png)
+
+Woman Circle Page
+![Woman Circle Page](../images/OA-womancircle.png)
+
+Contact Page
+![Contact Page](../images/OA-contacts.png)
+
+

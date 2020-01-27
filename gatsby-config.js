@@ -34,12 +34,14 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-images-anywhere`,,
-          `gatsby-remark-relative-images`,
+          {resolve:`gatsby-remark-images-anywhere`},
+          {resolve: `gatsby-remark-relative-images`},
           {
             resolve: `gatsby-remark-images`,
             options: {
-              quality: 90,
+              maxWidth: 500,
+              quality: 100,
+              linkImagesToOriginal: true,
               backgroundColor: '#1A2430',
             }
           }
