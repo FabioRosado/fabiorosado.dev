@@ -12,22 +12,22 @@ class Template extends React.Component {
         return (
             <Layout>
                 <SEO title={frontmatter.title} />
-                <section class="blog-post">
-                    <div class="image-container">
-                        <Img class="post-image" fluid={frontmatter.image.childImageSharp.fluid}  alt={ frontmatter.title}  />
+                <section className="blog-post">
+                    <div className="image-container">
+                        <Img className="post-image" fluid={frontmatter.image.childImageSharp.fluid}  alt={ frontmatter.title}  />
                     </div>
-                    <div class="post-header">
-                        <h3 class="white-text">{frontmatter.categories}</h3>
-                        <h1 class="white-text larger">{frontmatter.title}</h1>
-                        <p class="white-text">
-                            <span class="author"><i class="far fa-user"></i> {frontmatter.author || `FabioRosado`}</span>
-                            <span class="time"><i class="far fa-clock"></i> {frontmatter.date}</span>
+                    <div className="post-header">
+                        <h3 className="white-text">{frontmatter.categories}</h3>
+                        <h1 className="white-text larger">{frontmatter.title}</h1>
+                        <p className="white-text">
+                            <span className="author"><i className="far fa-user"></i> {frontmatter.author || `FabioRosado`}</span>
+                            <span className="time"><i className="far fa-clock"></i> {frontmatter.date}</span>
                         </p>
                     </div>
-                    <div class="background"></div>
-                    <div class="post-area">
-                        <div class="text-container">
-                        <h1 class="dark-text">{frontmatter.subtitle}</h1>
+                    <div className="background"></div>
+                    <div className="post-area">
+                        <div className="text-container">
+                        <h1 className="dark-text">{frontmatter.subtitle}</h1>
                         <div dangerouslySetInnerHTML={{__html: html }} />
                         </div>
                     </div>

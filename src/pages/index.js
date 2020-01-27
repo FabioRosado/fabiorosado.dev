@@ -134,7 +134,7 @@ class IndexPage extends Component {
     </section> 
     <section className="section">
         <div className="container-middle center-text">
-            <h1><a name="about">About Me</a></h1>
+            <h1><a href="#about" name="about">About Me</a></h1>
             <p>
                 I'm a self-taught developer who loves open source. When not flying for work, I spend a great amount of time either coding or learning new things.
                 Some of my other passions include gaming, reading, photography and travelling - I've been to 15 different countries spread over 3 continents.

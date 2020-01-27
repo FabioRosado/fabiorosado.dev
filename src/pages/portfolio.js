@@ -12,7 +12,7 @@ class Portfolio extends Component {
         return(
             <Layout>
             <h1 className="section center-text white-text">Portfolio</h1>
-                <section class="projects-container">
+                <section className="projects-container">
                     {projects.nodes.map((project) => {
                         return (
                             <div className="project-card drop-shadow" key={project.frontmatter.title}>
@@ -28,8 +28,8 @@ class Portfolio extends Component {
                                 </div>
                             </div>
                             <div className="buttons">
-                                <Link to={ project.frontmatter.path } class="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
-                                <a href={ project.frontmatter.source} class="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
+                                <Link to={ project.frontmatter.path } className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
+                                <a href={ project.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
                             </div>
                             <Img className="project-image" fluid={project.frontmatter.image.childImageSharp.fluid} alt={project.frontmatter.title} />
                             <div className="tools-used spaced-text">

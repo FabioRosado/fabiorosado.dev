@@ -12,12 +12,12 @@ class Blog extends Component {
         return(
             <Layout>
             <h1 className="section center-text white-text">Blog</h1>
-                <section class="page-container">
+                <section className="page-container">
                     {posts.nodes.map((post) => {
                         return (
-                            <div class="post-card" key={post.frontmatter.title}>
+                            <div className="post-card" key={post.frontmatter.title}>
                             <Link to={post.frontmatter.path}>
-                                <div class="description">
+                                <div className="description">
                                     <p className="white-text small-font margin-bottom">{ post.frontmatter.excerpt }</p>
                                     <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
                                 </div>
