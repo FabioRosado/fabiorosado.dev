@@ -5,11 +5,10 @@ date:   2020-01-26 15:50:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../images/organizeacademy.png
+image: ../images/OA-image.png
 source: https://organizeacademy.com
 tech: React HTML/SCSS Gatsby
 excerpt: Client website design and code custom css and components. The website is an Academy for empowering women in Portugal.
-showcase: ../images/OA-home.png
 
 ---
 The client asked for a branding, webdesign service for her Academy to empower women in Portugal. After a few meetings and proposals the client and I have agreed on a color scheme and design. I proceeded to build the site and css from grounds up and added the animations to improve the overhall feeling of the site.
@@ -53,4 +52,5 @@ Woman Circle Page
 Contact Page
 ![Contact Page](../images/OA-contacts.png)
 
-
+Card Design
+![Card Design](../images/OA-card.png)
