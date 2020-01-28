@@ -21,19 +21,12 @@ function SEO({ description, lang, meta, title, image }) {
             author
           }
         }
-        twitter: file(relativePath: {eq: "small-twitter-card.png"}) {
-          childImageSharp {
-            fixed {
-              src
-            }
-          }
-        }
       }
     `
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const twitterImage = image || `https://fabiorosado.dev${twitter.childImageSharp.fixed.src}`
+  const twitterImage = image || `https://fabiorosado.dev/small-twitter-card.png`
 
   return (
     <Helmet
