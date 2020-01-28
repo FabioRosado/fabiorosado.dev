@@ -19,6 +19,7 @@
   position: relative;
   z-index: 1;
 
+
   .project-image {
     border-radius: 10px 10px 0px 0px;
     overflow: hidden;
@@ -78,9 +79,10 @@
 }
 
 .project-card:hover {
-  img {
-    opacity: .3;
-    transition:all .5s ease-out;
+
+  .project-image {
+    opacity: .2;
+    transition: opacity .5 ease-out;
   }
   .project-name {
     visibility: hidden;

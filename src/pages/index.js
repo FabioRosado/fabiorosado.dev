@@ -125,7 +125,6 @@ class IndexPage extends Component {
             <div className="tools-used spaced-text">
                 <p>{work.frontmatter.tech}</p>
             </div>
-            
             </a>
         </div>
         )

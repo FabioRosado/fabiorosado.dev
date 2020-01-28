@@ -567,10 +567,10 @@ nav #collapseBtn .icon-bar {
   text-align: center;
 }
 
-.project-card:hover img {
-  opacity: .3;
-  -webkit-transition: all .5s ease-out;
-  transition: all .5s ease-out;
+.project-card:hover .project-image {
+  opacity: .2;
+  -webkit-transition: opacity .5 ease-out;
+  transition: opacity .5 ease-out;
 }
 
 .project-card:hover .project-name {
