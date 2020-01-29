@@ -11,7 +11,7 @@ class Template extends React.Component {
         const { frontmatter, html } = markdownRemark
         return (
             <Layout>
-                <SEO title={frontmatter.title} />
+                <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
                 <section className="blog-post">
                     <div className="image-container">
                         <Img className="post-image" fluid={frontmatter.image.childImageSharp.fluid}  alt={ frontmatter.title}  />
