@@ -53,4 +53,3 @@ Random Communities Page
 
 Contact Page
 ![Contact Page](../images/FCT-contact.png)
-
