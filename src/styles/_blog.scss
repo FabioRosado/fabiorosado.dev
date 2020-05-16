@@ -1,7 +1,5 @@
 .page-header {
-  background-image: url(../images/blog.jpg);
-  background-size: cover;
-  background-color: black;
+
   @include desktop {
     padding: 10rem;
   }

@@ -870,11 +870,6 @@ footer .navigation .horizontal-list {
   margin: 0rem 1rem 0rem 1rem;
 }
 
-.page-header {
-  background-image: url(../images/blog.jpg);
-  background-size: cover;
-  background-color: black;
-}
 
 @media (min-width: 1160px) {
   .page-header {
