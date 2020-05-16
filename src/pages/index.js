@@ -70,27 +70,27 @@ class IndexPage extends Component {
         </ul>
       </div>
         <div className="pictures">
-            <div id="box">
-              <div id="shadow" />
-              <div id="frame">
+            <div class="box">
+              <div class="shadow" />
+              <div class="frame">
                 <Img 
                   title="Code"
                   alt="Code"
                   fixed={this.props.data.fabian.childImageSharp.fixed} />
               </div>
             </div>
-            <div id="box">
-              <div id="shadow" />
-              <div id="frame">
+            <div class="box">
+              <div class="shadow" />
+              <div class="frame">
                 <Img
                   title="FabioRosado"
                   alt="FabioRosado"
                   fixed={this.props.data.fabiorosado.childImageSharp.fixed} />
               </div>
             </div>
-            <div id="box">
-              <div id="shadow" />
-              <div id="frame">
+            <div class="box">
+              <div class="shadow" />
+              <div class="frame">
                 <Img
                   title="Photography"
                   alt="Photography"
@@ -191,12 +191,12 @@ class IndexPage extends Component {
         <h1>Contact Me</h1>
         <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
         <ul className="horizontal-list">
-            <li><a href="mailto:fabiorosado@outlook.com"><button className="white-button">Say Hello</button></a></li>
-            <li><a href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-github-square"></i></a></li>
-            <li><a href="https://dev.to/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-dev"></i></a></li>
-            <li><a href="https://twitter.com/FabioRosado" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-twitter-square"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/FabioRosado/" target="_blank" rel="noopener noreferrer"><i className="fab fa-2x fa-instagram"></i></a></li>
+            <li><a href="mailto:fabiorosado@outlook.com" aria-label="contact button"><button className="white-button">Say Hello</button></a></li>
+            <li><a href="https://github.com/FabioRosado" aria-label="Link to github account"><i className="fab fa-2x fa-github-square"></i></a></li>
+            <li><a href="https://dev.to/FabioRosado/" aria-label="Link to dev.to profile"><i className="fab fa-2x fa-dev"></i></a></li>
+            <li><a href="https://twitter.com/FabioRosado" aria-label="Link to twitter profile"><i className="fab fa-2x fa-twitter-square"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to linkedin profile"><i className="fab fa-2x fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to instagram profile"><i className="fab fa-2x fa-instagram"></i></a></li>
         </ul>
     </div>
   </section>
