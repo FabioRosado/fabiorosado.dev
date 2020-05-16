@@ -5,7 +5,7 @@ date:   2020-01-26 15:50:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../images/OA-image.png
+image: ../images/OA-image.jpg
 source: https://organizeacademy.com
 tech: React HTML/SCSS Gatsby
 excerpt: Client website design and code custom css and components. The website is an Academy for empowering women in Portugal.

@@ -5,7 +5,7 @@ date:   2020-01-29 17:50:00 +0000
 categories: Projects
 tag: Design
 tag-icon: fas fa-paint-brush
-image: ../images/mokens.png
+image: ../images/mokens.jpg
 source: https://fabiorosado.dev/mokens
 tech: Design AdobeXD UI
 excerpt: Client work to design and code the page for mokens.io, in the end the client decided to just keep the design and not go ahead with the code.

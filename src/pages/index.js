@@ -283,7 +283,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    contact: file(relativePath: {eq: "annie-spratt-608001-unsplash.jpg"}) {
+    contact: file(relativePath: {eq: "contact.jpg"}) {
       childImageSharp {
         fluid(quality:100) {
           ...GatsbyImageSharpFluid
