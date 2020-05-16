@@ -11,11 +11,11 @@ image: ../images/safari_only.jpg
 excerpt: How I came across the need to set a css rule to apply only to Safari and which media queries combination will allow that.
 ---
 
-While working on [Thumbs Up News](http://thumbsupnews.net), I've noticed a strange UI bug that happened only on Safari when the screen was smaller than 900px height-wise. All the other browsers where okay, but the subscribe button was broken on Safari. The border was pushed up outside the area of the button and was now between the two elements of the menu. This only happened when a user clicked the *categories* button and the sub-menu expanded. I'm assuming that this happens because Apple wants space for its bottom menu?
+While working on [Thumbs Up News](http://thumbsupnews.net), I've noticed a strange UI bug that happened only on Safari, when the screen was smaller than 900px height-wise. All the other browsers where okay, but the subscribe button was broken. The border was pushed up outside the area of the button and was now between the two elements of the menu. This only happened when a user clicked the *categories* button and the sub-menu expanded. I'm assuming that this happens because Apple wants space for its bottom menu?
 
-The menu is set on a fixed position and it seems that Safari will change either the padding, the margin or just some border rules when that fixed element doesn't have enough space vertically to show a margin. My first thought was to use the `-webkit` rule to increase the padding on the button. The issue with this approach was that it fixed the button on Safari but the button was now broken on Chrome. Here started my search on how to apply CSS rules to a specific browser only - in our case Safari.
+The mobile menu is set on a fixed position. It seems that Safari will change either the padding, the margin or just some border rules when that fixed element doesn't have enough space vertically to show some space under the last element. My first thought was to use the `-webkit` rule to increase the padding on the button. Using that rule fixed the issue on Safari but broke on Chrome and this is when my search on how to apply CSS rules to a specific browser started.
 
-I've come across this article written by Ryan - [CSS3 Media Query to target only Internet Explorer (from IE6 to IE11+), Firefox, Chrome, Safari and/or Edge](https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/), if you scroll down you come to this little hack that works on Safari 10.1+.
+After searching for a while, I've come across this article written by Ryan - [CSS3 Media Query to target only Internet Explorer (from IE6 to IE11+), Firefox, Chrome, Safari and/or Edge](https://www.ryadel.com/en/css3-media-query-target-only-ie-ie6-ie11-firefox-chrome-safari-edge/), if you scroll down you come to this little hack that works on Safari 10.1+.
 
 ```css
 @media not all and (min-resolution:.001dpcm) {
@@ -28,9 +28,9 @@ I've come across this article written by Ryan - [CSS3 Media Query to target only
 }
 ```
 
-Well, I am using Sass and that means I can't have an empty `@media` rule. But this was a great starting point for coming up with a solution. I've removed the empty media query to see if the rule would work on Safari and not on any other browser. Surprise, surprise, it worked! Now I decided to play around with the media query rule a bit more to see what works and what doesn't work. 
+I am using Sass on Thumbs Up News and that means I can't have an empty `@media` rule. But this was a great starting point for coming up with a solution. I've removed the empty media query to see if the rule would work on Safari and not on any other browser. Surprise, surprise, it worked! Now I decided to play around with the media query rule a bit more, to see what works and what doesn't work. 
 
-The hack has two parts. You need to use a unit that is not supported by Safari - `dpcm`, `dpi`, `dppx` and you need to set that media query to `not all`. The _not all_ rule is important so chrome doesn't pick it up.
+The Safari only rule hack has two parts. You need to use a unit that is not supported by Safari - `dpcm`, `dpi`, `dppx` and you need to set that media query to `not all`. The _not all_ rule is important so chrome doesn't pick it up.
 
 ## The solution
 
