@@ -585,6 +585,14 @@ nav #collapseBtn .icon-bar {
   margin: 0rem 1rem 1rem 1rem;
 }
 
+@media (max-width: 435px) {
+  .description {
+    left: 15%;
+    -webkit-transform: translate(-9%, -66%);
+            transform: translate(-9%, -66%);
+  }
+}
+
 @media (min-width: 1160px) {
   .description {
     top: 5%;
@@ -746,6 +754,10 @@ footer .navigation .horizontal-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   padding: 2rem;
   margin-right: 0rem;
   position: relative;
@@ -755,9 +767,18 @@ footer .navigation .horizontal-list {
 
 @media (min-width: 1160px) {
   .contact-area .contact-text {
-    padding: 5rem 15rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     text-align: justify;
     position: absolute;
+  }
+}
+
+@media (min-width: 1700px) {
+  .contact-area .contact-text {
+    padding: 5rem 15rem;
   }
 }
 
@@ -783,8 +804,13 @@ footer .navigation .horizontal-list {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
   margin: 0rem 5rem;
+}
+
+@media (min-width: 1160px) {
+  .contact-form {
+    width: 100%;
+  }
 }
 
 .contact-form i {

@@ -80,6 +80,10 @@
   transform: translate(-20%, -50%);
   text-align: center;
   margin: 0rem 1rem 1rem 1rem;
+  @include xsmall {
+    left: 15%;
+    transform: translate(-9%, -66%);
+  }
 
   @include desktop {
     top: 5%;

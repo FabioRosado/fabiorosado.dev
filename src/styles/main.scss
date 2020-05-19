@@ -5,6 +5,7 @@
 @charset "utf-8";
 
 // Define the default values for each variable.
+$extra-small: 435px;
 $desktop-size: 1160px;
 $extra-large-screen:1700px;
 
@@ -40,6 +41,12 @@ $colors: (
   @return map-get($colors, $color-name)
 };
 
+@mixin xsmall {
+  @media(max-width: #{$extra-small}) {
+    @content
+  }
+};
+
 @mixin desktop {
   @media(min-width: #{$desktop-size}) {
     @content
@@ -50,7 +57,7 @@ $colors: (
   @media(min-width: #{$extra-large-screen}) {
     @content
   }
-}
+};
 
 
 // Reset some basic elements

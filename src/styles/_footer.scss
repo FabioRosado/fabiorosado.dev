@@ -57,15 +57,20 @@ footer {
 
   .contact-text {
     display: flex;
+    flex-direction: column-reverse;
     padding: 2rem;
     margin-right: 0rem;
     position: relative;
     top: 0;
     z-index: 20;
     @include desktop {
-      padding: 5rem 15rem;
+      flex-direction: row;
       text-align: justify;
       position: absolute;
+    }
+
+    @include xlarge {
+      padding: 5rem 15rem;
     }
     .fab {
       color: color(text-color-light);
@@ -84,7 +89,11 @@ footer {
 .contact-form {
   display: flex;
   flex-direction: column;
-  width:100%;
+
+  @include desktop {
+    width:100%;
+  }
+  
   margin: 0rem 5rem;
   i {
     margin-right: .5rem;
