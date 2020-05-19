@@ -43,32 +43,9 @@
     visibility: visible;
     position: absolute;
     top: 34%;
-    margin-left: 25%;
-    margin-right: 3rem;
+    left: 45%;
+    transform: translate(-30%, 50%);
     text-shadow: 1px 1px 2px color(primary-color);
-  }
-
-  .description {
-    visibility: hidden;
-    text-align: justify;
-    position: absolute;
-    margin-left: 10%;
-    margin-right: 10%;
-    top: 13%;
-    @include desktop {
-      top: 20%;
-      text-align: center;
-    }
-  }
-  .buttons {
-    visibility: hidden;
-    position: absolute;
-    margin-top: 51%;
-    left: 7%;
-    font-size: medium;
-    @include desktop {
-      left: 12%;
-    }
   }
 
   .tools-used {
@@ -95,6 +72,28 @@
   }
 }
 
+.description {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-20%, -50%);
+  text-align: center;
+  margin: 0rem 1rem 1rem 1rem;
+
+  @include desktop {
+    top: 5%;
+    left: 0;
+    transform: none;
+  }
+
+  @include xlarge {
+    top: 0;
+    left: 20%;
+    transform: translate((-10%, 50%))
+  }
+}
+
 .post-card {
   color: color(secondary-color);
   background-color: color(primary-color);
@@ -110,14 +109,6 @@
     position: relative;
     z-index: -1;
     opacity: .8;
-  }
-
-  .description {
-    visibility: hidden;
-    position: absolute;
-    top: 10%;
-    text-align: center;
-    margin: 0rem 1rem 1rem 1rem;
   }
 
   .card-title {
@@ -141,7 +132,7 @@
 
     h4 {
       margin-top: .5rem;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -159,48 +150,5 @@
   .card-title {
     visibility: hidden;
     transition: all .5 ease-in-out;
-  }
-}
-
-.contact-area {
-  color: color(text-color-light);
-  position: relative;
-  margin-top: 4rem;
-  @include desktop {
-    margin-top: 6rem;
-  }
-
-  h1 {
-    font-size: 60px;
-    font-weight: 400;
-    font-family: $cursive-font;
-    color: color(text-color-light);
-    margin-bottom: 1rem;
-  }
-
-  .contact-text {
-    padding: 2rem;
-    margin-right: 0rem;
-    position: relative;
-    top: 0;
-    z-index: 20;
-    @include desktop {
-      padding: 4rem;
-      margin-right: 31%;
-      margin-left: 31%;
-      text-align: justify;
-      position: absolute;
-    }
-    .fab {
-      color: color(text-color-light);
-    }
-
-    .fab:hover {
-      color: color(secondary-color);
-      transition: color 0.5s ease-out;
-    }
-    .horizontal-list {
-      padding-top: 2rem;
-    }
   }
 }

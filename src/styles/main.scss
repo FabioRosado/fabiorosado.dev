@@ -6,6 +6,7 @@
 
 // Define the default values for each variable.
 $desktop-size: 1160px;
+$extra-large-screen:1700px;
 
 $base-font-family: 'Jura', sans-serif;
 $base-font-size: 18px;
@@ -44,6 +45,12 @@ $colors: (
     @content
   }
 };
+
+@mixin xlarge {
+  @media(min-width: #{$extra-large-screen}) {
+    @content
+  }
+}
 
 
 // Reset some basic elements

@@ -93,6 +93,8 @@ a {
   padding: 8px;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
+  font-size: initial;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .trans-button:hover {
@@ -194,10 +196,12 @@ a {
   padding: 1.5rem;
 }
 
-@media (min-width: 1160px) {
-  .margin-left {
-    margin-left: 1rem;
-  }
+.margin-right {
+  margin-right: 1.5rem;
+}
+
+.margin-left {
+  margin-left: 1rem;
 }
 
 .section {
@@ -254,13 +258,14 @@ a {
           box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.header-image {
+.hero-image {
   display: none;
 }
 
 @media (min-width: 1160px) {
-  .header-image {
+  .hero-image {
     display: block;
+    max-height: 700px;
   }
 }
 
@@ -289,9 +294,16 @@ header .header-container {
 
 @media (min-width: 1160px) {
   header .header-container {
+    padding-top: 0;
     -ms-grid-columns: 3fr 3fr;
         grid-template-columns: 3fr 3fr;
         grid-template-areas: "intro pictures";
+  }
+}
+
+@media (min-width: 1700px) {
+  header .header-container {
+    margin: 0rem 15rem;
   }
 }
 
@@ -357,6 +369,12 @@ header .pictures {
 @media (min-width: 1160px) {
   header .pictures {
     margin: 2rem 0rem 0rem 9rem;
+  }
+}
+
+@media (min-width: 1700px) {
+  header .pictures {
+    margin: 2rem 0rem 0rem 15rem;
   }
 }
 
@@ -526,39 +544,10 @@ nav #collapseBtn .icon-bar {
   visibility: visible;
   position: absolute;
   top: 34%;
-  margin-left: 25%;
-  margin-right: 3rem;
+  left: 45%;
+  -webkit-transform: translate(-30%, 50%);
+          transform: translate(-30%, 50%);
   text-shadow: 1px 1px 2px #1E2A39;
-}
-
-.project-card .description {
-  visibility: hidden;
-  text-align: justify;
-  position: absolute;
-  margin-left: 10%;
-  margin-right: 10%;
-  top: 13%;
-}
-
-@media (min-width: 1160px) {
-  .project-card .description {
-    top: 20%;
-    text-align: center;
-  }
-}
-
-.project-card .buttons {
-  visibility: hidden;
-  position: absolute;
-  margin-top: 51%;
-  left: 7%;
-  font-size: medium;
-}
-
-@media (min-width: 1160px) {
-  .project-card .buttons {
-    left: 12%;
-  }
 }
 
 .project-card .tools-used {
@@ -585,6 +574,35 @@ nav #collapseBtn .icon-bar {
   visibility: visible;
 }
 
+.description {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  -webkit-transform: translate(-20%, -50%);
+          transform: translate(-20%, -50%);
+  text-align: center;
+  margin: 0rem 1rem 1rem 1rem;
+}
+
+@media (min-width: 1160px) {
+  .description {
+    top: 5%;
+    left: 0;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@media (min-width: 1700px) {
+  .description {
+    top: 0;
+    left: 20%;
+    -webkit-transform: translate(-10%, 50%);
+            transform: translate(-10%, 50%);
+  }
+}
+
 .post-card {
   color: #FF721E;
   background-color: #1E2A39;
@@ -601,14 +619,6 @@ nav #collapseBtn .icon-bar {
   position: relative;
   z-index: -1;
   opacity: .8;
-}
-
-.post-card .description {
-  visibility: hidden;
-  position: absolute;
-  top: 10%;
-  text-align: center;
-  margin: 0rem 1rem 1rem 1rem;
 }
 
 .post-card .card-title {
@@ -633,7 +643,7 @@ nav #collapseBtn .icon-bar {
 
 .post-card .card-title h4 {
   margin-top: .5rem;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .post-card:hover .post-image {
@@ -653,58 +663,6 @@ nav #collapseBtn .icon-bar {
   visibility: hidden;
   -webkit-transition: all .5 ease-in-out;
   transition: all .5 ease-in-out;
-}
-
-.contact-area {
-  color: #FFFFFF;
-  position: relative;
-  margin-top: 4rem;
-}
-
-@media (min-width: 1160px) {
-  .contact-area {
-    margin-top: 6rem;
-  }
-}
-
-.contact-area h1 {
-  font-size: 60px;
-  font-weight: 400;
-  font-family: "Dancing Script", cursive;
-  color: #FFFFFF;
-  margin-bottom: 1rem;
-}
-
-.contact-area .contact-text {
-  padding: 2rem;
-  margin-right: 0rem;
-  position: relative;
-  top: 0;
-  z-index: 20;
-}
-
-@media (min-width: 1160px) {
-  .contact-area .contact-text {
-    padding: 4rem;
-    margin-right: 31%;
-    margin-left: 31%;
-    text-align: justify;
-    position: absolute;
-  }
-}
-
-.contact-area .contact-text .fab {
-  color: #FFFFFF;
-}
-
-.contact-area .contact-text .fab:hover {
-  color: #FF721E;
-  -webkit-transition: color 0.5s ease-out;
-  transition: color 0.5s ease-out;
-}
-
-.contact-area .contact-text .horizontal-list {
-  padding-top: 2rem;
 }
 
 footer {
@@ -758,6 +716,96 @@ footer .navigation {
 
 footer .navigation .horizontal-list {
   padding-top: 0;
+}
+
+.contact {
+  padding: 0rem 5rem;
+}
+
+.contact-area {
+  color: #FFFFFF;
+  position: relative;
+  margin-top: 4rem;
+}
+
+@media (min-width: 1160px) {
+  .contact-area {
+    margin-top: 6rem;
+  }
+}
+
+.contact-area h1 {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Dancing Script", cursive;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.contact-area .contact-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2rem;
+  margin-right: 0rem;
+  position: relative;
+  top: 0;
+  z-index: 20;
+}
+
+@media (min-width: 1160px) {
+  .contact-area .contact-text {
+    padding: 5rem 15rem;
+    text-align: justify;
+    position: absolute;
+  }
+}
+
+.contact-area .contact-text .fab {
+  color: #FFFFFF;
+}
+
+.contact-area .contact-text .fab:hover {
+  color: #FF721E;
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
+}
+
+.contact-area .contact-text .horizontal-list {
+  padding-top: 2rem;
+}
+
+.contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin: 0rem 5rem;
+}
+
+.contact-form i {
+  margin-right: .5rem;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: .5rem .75rem;
+  line-height: 1.25;
+  border: 2px solid white;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin-bottom: 1rem;
+  font-family: "Jura", sans-serif;
+  font-size: medium;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #FF721E;
 }
 
 .blog-post {
@@ -869,7 +917,6 @@ footer .navigation .horizontal-list {
 #disqus_thread {
   margin: 0rem 1rem 0rem 1rem;
 }
-
 
 @media (min-width: 1160px) {
   .page-header {

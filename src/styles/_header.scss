@@ -1,7 +1,8 @@
-.header-image {
+.hero-image {
   display: none; 
   @include desktop {
     display: block;
+    max-height: 700px;
   }
 }
 header {
@@ -24,9 +25,14 @@ header {
     "intro"
     "pictures";
     @include desktop {
+      padding-top: 0;
       grid-template-columns: 3fr 3fr;
       grid-template-areas: "intro pictures";
-    } 
+    }
+
+    @include xlarge {
+      margin: 0rem 15rem;
+    }
 }
 
   .intro {
@@ -73,6 +79,10 @@ header {
 
     @include desktop {
       margin: 2rem 0rem 0rem 9rem;
+    }
+
+    @include xlarge {
+      margin: 2rem 0rem 0rem 15rem;
     }
 
     .box:nth-child(2) {

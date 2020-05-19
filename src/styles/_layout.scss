@@ -49,6 +49,8 @@
   border-radius: 5px;
   padding: 8px;
   transition: background-color 0.5s ease-out;
+  font-size: initial;
+  background-color: rgba(0,0,0,0.0);
 }
 
 .trans-button:hover {
@@ -130,10 +132,12 @@
   padding: $padding-unit;
 }
 
+.margin-right {
+  margin-right: $padding-unit;
+}
+
 .margin-left {
-  @include desktop {
     margin-left: 1rem;
-  }
 }
 
 .section {

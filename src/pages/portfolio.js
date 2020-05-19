@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { graphql } from "gatsby"
 
-import Layout from '../components/layout'
+import Layout from "../components/layout"
+import PortfolioCard from "../components/portfolio"
 
 
 class Portfolio extends Component {
@@ -13,31 +13,9 @@ class Portfolio extends Component {
             <Layout>
             <h1 className="section center-text white-text">Portfolio</h1>
                 <section className="projects-container">
-                    {projects.nodes.map((project) => {
-                        return (
-                            <div className="project-card drop-shadow" key={project.frontmatter.title}>
-                            <div className="category small-font">
-                                <i className={ project.frontmatter.tag_icon }></i> {project.frontmatter.tag}
-                            </div>
-                            <div className="project-name">
-                                <h3 className="white-text">{project.frontmatter.title}</h3>
-                            </div>
-                            <div className="description">
-                                <div className="white-text small-font">
-                                    { project.frontmatter.excerpt }
-                                </div>
-                            </div>
-                            <div className="buttons">
-                                <Link to={ project.frontmatter.path } className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
-                                <a href={ project.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
-                            </div>
-                            <Img className="project-image" fluid={project.frontmatter.image.childImageSharp.fluid} alt={project.frontmatter.title} />
-                            <div className="tools-used spaced-text">
-                                <p>{project.frontmatter.tech }</p>
-                            </div>
-                            </div>
-                        )
-                    } )}
+                    {projects.nodes.map((project) => 
+                      <PortfolioCard project={project} key={project.frontmatter.title} /> 
+                      )}
                 </section>
             </Layout>
         )

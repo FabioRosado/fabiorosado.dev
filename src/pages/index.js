@@ -1,60 +1,27 @@
-import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import Img from 'gatsby-image'
+
+import SEO from "../components/seo"
+import Navigation from "../components/navigation"
+import PortfolioCard from "../components/portfolio"
+import WritingCard from "../components/blog"
+import Contact from "../components/contact"
 
 import "../styles/main.css"
 import '../../static/css/all.min.css'
 
-import Logo from '../images/logo.svg'
-import SEO from "../components/seo"
 
-class IndexPage extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showMenu: false,
-      windowWidth: 1240,
-    }
-  }
+const IndexPage = (props) => {
+  const portfolio = props.data.portfolio
+  const blog = props.data.blog
 
-  toggleMenu = () => this.setState(state => ({showMenu: !state.showMenu}))
-
-
- render() {
-   const portfolio = this.props.data.portfolio
-   const blog = this.props.data.blog
-   return(
-  <>
+  return (
+    <>
     <SEO title="Home" keywords={[`FabioRosado`, `developer`, `python`, `react`, `javascript`]} />
-    <Img className="header-image" fluid={this.props.data.background.childImageSharp.fluid} />
+    <Img className="hero-image" fluid={props.data.background.childImageSharp.fluid} />
     <header className="header-section">
-      <nav className="navbar">
-      <div className="navbar-brand">
-          <Link to="/">
-              <img src={Logo} width="50" height="50" alt="FabioRosado" />
-          </Link>
-      </div>
-      <button className="full-button visible-xs" id="collapseBtn" type="button" aria-pressed="false" aria-expanded="false" aria-controls="navigation" onClick={this.toggleMenu}>
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-      </button>
-      <ul className={`${this.state.showMenu ? "show" : "hidden"} navigation`}>
-          <li>
-              <Link to="/" aria-label="Link home">Home</Link>
-          </li>
-          <li>
-              <Link to="/#about" aria-label="Link to about me">About</Link>
-          </li>
-          <li>
-            <Link to="/blog" aria-label="Link to blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/portfolio" aria-label="Link to blog">Portfolio</Link>
-        </li>
-      </ul>
-    </nav>
+     <Navigation />
     <div className="header-container">
       <div className="intro">
         <h1>Hello,</h1>
@@ -70,31 +37,31 @@ class IndexPage extends Component {
         </ul>
       </div>
         <div className="pictures">
-            <div class="box">
-              <div class="shadow" />
-              <div class="frame">
+            <div className="box">
+              <div className="shadow" />
+              <div className="frame">
                 <Img 
                   title="Code"
                   alt="Code"
-                  fixed={this.props.data.fabian.childImageSharp.fixed} />
+                  fixed={props.data.fabian.childImageSharp.fixed} />
               </div>
             </div>
-            <div class="box">
-              <div class="shadow" />
-              <div class="frame">
+            <div className="box">
+              <div className="shadow" />
+              <div className="frame">
                 <Img
                   title="FabioRosado"
                   alt="FabioRosado"
-                  fixed={this.props.data.fabiorosado.childImageSharp.fixed} />
+                  fixed={props.data.fabiorosado.childImageSharp.fixed} />
               </div>
             </div>
-            <div class="box">
-              <div class="shadow" />
-              <div class="frame">
+            <div className="box">
+              <div className="shadow" />
+              <div className="frame">
                 <Img
                   title="Photography"
                   alt="Photography"
-                  fixed={this.props.data.michael.childImageSharp.fixed} />
+                  fixed={props.data.michael.childImageSharp.fixed} />
               </div>
             </div>
         </div>
@@ -102,33 +69,9 @@ class IndexPage extends Component {
     </header>
     <h1 className="section center-text white-text">Projects</h1>
     <section className="three-columns section">
-      {portfolio.nodes.map((work) => {
-        return (
-          <div className="project-card drop-shadow" key={work.frontmatter.title}>
-            <a href={work.frontmatter.path}>
-            <div className="category small-font">
-              <i className={work.frontmatter.tag_icon}></i> {work.frontmatter.tag}
-            </div>
-            <div className="project-name">
-                <h3 className="white-text">{work.frontmatter.title}</h3>
-            </div>
-            <div className="description">
-                <div className="white-text small-font margin-bottom">
-                    {work.frontmatter.excerpt}
-                </div>
-            </div>
-            <div className="buttons">
-                <Link to={work.frontmatter.path} className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
-                <a href={work.frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
-            </div>
-            <Img className="project-image" fluid={work.frontmatter.image.childImageSharp.fluid} alt={work.frontmatter.title} />
-            <div className="tools-used spaced-text">
-                <p>{work.frontmatter.tech}</p>
-            </div>
-            </a>
-        </div>
-        )
-      })}
+      {portfolio.nodes.map((work) => 
+        <PortfolioCard project={work} key={work.frontmatter.title} />
+      )}
 
     </section> 
     <section className="section">
@@ -167,41 +110,15 @@ class IndexPage extends Component {
       <div className="four-by-four">
         {blog.nodes.map((post) => {
           return(
-            <div className="post-card" key={post.frontmatter.title}>
-            <a href={`/${post.frontmatter.path}`}>
-            <div className="description">
-                <p className="white-text small-font margin-bottom">{post.frontmatter.excerpt}</p>
-                <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
-            </div>
-            <div className="card-title">
-                <span className="category"><i className={post.frontmatter.category_icon}></i> {post.frontmatter.categories}</span>
-                <h4 className="white-text">{post.frontmatter.title}</h4>
-            </div>
-            <Img className="post-image" fluid={post.frontmatter.image.childImageSharp.fluid} alt={post.frontmatter.title} />
-          </a>
-          </div>
+            <WritingCard post={post} key={post.frontmatter.title} />
         )})}
 
       </div>
     </section>
+    <Contact />
 
-    <section className="contact-area">
-      <Img fluid={this.props.data.contact.childImageSharp.fluid} />
-      <div className="contact-text">
-        <h1>Contact Me</h1>
-        <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
-        <ul className="horizontal-list">
-            <li><a href="mailto:fabiorosado@outlook.com" aria-label="contact button"><button className="white-button">Say Hello</button></a></li>
-            <li><a href="https://github.com/FabioRosado" aria-label="Link to github account"><i className="fab fa-2x fa-github-square"></i></a></li>
-            <li><a href="https://dev.to/FabioRosado/" aria-label="Link to dev.to profile"><i className="fab fa-2x fa-dev"></i></a></li>
-            <li><a href="https://twitter.com/FabioRosado" aria-label="Link to twitter profile"><i className="fab fa-2x fa-twitter-square"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to linkedin profile"><i className="fab fa-2x fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to instagram profile"><i className="fab fa-2x fa-instagram"></i></a></li>
-        </ul>
-    </div>
-  </section>
   </>
-  )}
+  )
 }
 
 export default IndexPage
@@ -277,13 +194,6 @@ export const pageQuery = graphql`
       }
     }
     background: file(relativePath: {eq: "header.jpg"}) {
-      childImageSharp {
-        fluid(quality:100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    contact: file(relativePath: {eq: "contact.jpg"}) {
       childImageSharp {
         fluid(quality:100) {
           ...GatsbyImageSharpFluid
