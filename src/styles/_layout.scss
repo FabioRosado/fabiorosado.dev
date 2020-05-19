@@ -1,6 +1,9 @@
 // Constant classes
 
 .visible-xs {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
   @include desktop{
     display: none;
   }

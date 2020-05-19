@@ -36,6 +36,12 @@ a {
   display: block;
 }
 
+.visible-xs {
+  position: absolute;
+  right: 3rem;
+  top: 2rem;
+}
+
 @media (min-width: 1160px) {
   .visible-xs {
     display: none;
@@ -480,14 +486,14 @@ nav li a:hover {
   }
 }
 
-nav #collapseBtn {
+nav .full-button {
   position: absolute;
   right: 0;
   top: 1.5rem;
   margin: 0rem 1.5rem;
 }
 
-nav #collapseBtn .icon-bar {
+nav .full-button .icon-bar {
   display: block;
   width: 22px;
   height: 2px;
