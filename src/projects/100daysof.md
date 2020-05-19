@@ -1,5 +1,5 @@
 ---
-path: 100daysoff
+slug: 100daysoff
 title:  100DaysOf
 date:   2019-01-15 10:50:00 +0000
 categories: Projects

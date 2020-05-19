@@ -1,5 +1,5 @@
 ---
-path: handle-form-submission-in-gatsby-with-airtable
+slug: handle-form-submission-in-gatsby-with-airtable
 title:  Handle form submission in Gatsby with Airtable
 subtitle: Send forms directly to your Airtable Base
 author: "FabioRosado"

@@ -1,5 +1,5 @@
 ---
-path: git-merge-conflicts
+slug: git-merge-conflicts
 title:  "Git: Merge Conflicts"
 subtitle: How to fix git conflicts
 author: "FabioRosado"

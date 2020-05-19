@@ -1,5 +1,5 @@
 ---
-path: mokens
+slug: mokens
 title:  Mokens
 date:   2020-01-29 17:50:00 +0000
 categories: Projects

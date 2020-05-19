@@ -1,5 +1,5 @@
 ---
-path: improving-a-classifier-training-speed
+slug: improving-a-classifier-training-speed
 title:  Improving a Classifier Training Speed
 subtitle: Things I've learned while creating a tweets classifier
 author: "FabioRosado"

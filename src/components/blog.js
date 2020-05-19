@@ -8,7 +8,7 @@ const writingCard = (props) => {
     const { frontmatter } = props.post
     return (
         <div className="post-card" key={frontmatter.title}>
-            <Link to={`/${frontmatter.path}`}>
+            <Link to={`/${frontmatter.slug}`}>
             <div className="description">
                 <p className="white-text small-font margin-bottom">{frontmatter.excerpt}</p>
                 <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>

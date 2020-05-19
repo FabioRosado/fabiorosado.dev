@@ -1,5 +1,5 @@
 ---
-path: change-css-safari-only
+slug: change-css-safari-only
 title: Change CSS rules only in Safari
 subtitle: How to apply css rules to safari only
 author: "FabioRosado"

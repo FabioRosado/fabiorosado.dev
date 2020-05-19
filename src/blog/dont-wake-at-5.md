@@ -1,5 +1,5 @@
 ---
-path: dont-wake-up-at-5-am-for-productivity
+slug: dont-wake-up-at-5-am-for-productivity
 title:  Don't wake up at 5 am for productivity
 subtitle: Why you don't have to wake up at 5 am to be productive
 author: "FabioRosado"

@@ -1,5 +1,5 @@
 ---
-path: creating-a-weather-app
+slug: creating-a-weather-app
 title:  Creating a Weather App
 subtitle: Connect to an API using Vue and Axios
 date:   2018-08-25 16:50:00

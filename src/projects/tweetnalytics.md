@@ -1,5 +1,5 @@
 ---
-path: tweetnalytics
+slug: tweetnalytics
 title:  Tweetnalytics
 date:   2018-04-16 09:30:00 +0000
 categories: Projects

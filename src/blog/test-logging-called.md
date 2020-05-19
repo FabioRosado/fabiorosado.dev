@@ -1,5 +1,5 @@
 ---
-path: test-was-logging-called
+slug: test-was-logging-called
 title:  "Test: Was Logging called"
 subtitle:
 author: "FabioRosado"

@@ -20,7 +20,7 @@ exports.createPages = ({ actions, graphql }) => {
             edges {
                 node {
                     frontmatter {
-                        path
+                        slug
                         title
                         subtitle
                         categories
@@ -44,10 +44,10 @@ exports.createPages = ({ actions, graphql }) => {
 
         posts.forEach(({ node }) => {
             createPage({
-                path: node.frontmatter.path,
+                path: node.frontmatter.slug,
                 component: blogTemplate,
                 context: {
-                    path: node.frontmatter.path
+                    slug: node.frontmatter.slug
                 }
             })
         })

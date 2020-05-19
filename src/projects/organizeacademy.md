@@ -1,5 +1,5 @@
 ---
-path: organizeacademy
+slug: organizeacademy
 title:  Organize Academy
 date:   2020-01-26 15:50:00 +0000
 categories: Projects

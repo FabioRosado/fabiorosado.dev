@@ -1,5 +1,5 @@
 ---
-path: opsdroid-skill-words
+slug: opsdroid-skill-words
 title:  Opsdroid Skill - Words
 date:   2018-01-14 09:30:00 +0000
 categories: Projects

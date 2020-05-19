@@ -1,5 +1,5 @@
 ---
-path: command-line-tricks
+slug: command-line-tricks
 title: Command Line Tricks
 subtitle: Quick tricks that will save you time
 author: "FabioRosado"

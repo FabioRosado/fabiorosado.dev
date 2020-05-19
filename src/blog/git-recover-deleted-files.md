@@ -1,5 +1,5 @@
 ---
-path: git-recover-deleted-files
+slug: git-recover-deleted-files
 title:  "Git: Recover Deleted Files"
 subtitle: The day I messed up
 author: "FabioRosado"

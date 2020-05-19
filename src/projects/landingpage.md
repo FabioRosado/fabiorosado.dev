@@ -1,5 +1,5 @@
 ---
-path: quote-and-weather
+slug: quote-and-weather
 title:  Quote and Weather
 date:   2018-08-16 15:25:00
 categories: Projects

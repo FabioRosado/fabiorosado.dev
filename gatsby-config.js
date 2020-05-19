@@ -44,7 +44,8 @@ module.exports = {
               linkImagesToOriginal: true,
               backgroundColor: '#1A2430',
             }
-          }
+          },
+          {resolve: `gatsby-remark-reading-time`}
         ]
       }
     },

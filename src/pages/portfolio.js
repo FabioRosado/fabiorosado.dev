@@ -32,7 +32,7 @@ export const pageQuery = graphql`
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {
       frontmatter {
-        path
+        slug
         title
         subtitle
         categories

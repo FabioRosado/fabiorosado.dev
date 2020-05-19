@@ -1,5 +1,5 @@
 ---
-path: findcommunitiestoday
+slug: findcommunitiestoday
 title:  Find Communities
 date:   2020-01-29 17:50:00 +0000
 categories: Projects

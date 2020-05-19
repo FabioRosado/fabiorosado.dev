@@ -1,5 +1,5 @@
 ---
-path: hacktoberfest
+slug: hacktoberfest
 title:  Hacktoberfest
 subtitle: My first experience
 date:   2017-10-05 11:01:02 +0100

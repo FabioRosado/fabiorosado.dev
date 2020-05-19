@@ -1,5 +1,5 @@
 ---
-path: test-for-aiohttp-clienterroros
+slug: test-for-aiohttp-clienterroros
 title: Test for aiohttp's ClientErrorOS
 subtitle: Using mock side effect function
 author: "FabioRosado"

@@ -1,5 +1,5 @@
 ---
-path: introduction-to-cs
+slug: introduction-to-cs
 title:  Introduction to Computer Science
 subtitle: My Journey 
 author: "FabioRosado"

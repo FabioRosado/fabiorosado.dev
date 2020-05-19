@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,20 +7,18 @@ import SEO from "../components/seo"
 class Template extends React.Component {
     render() {
         const { markdownRemark } = this.props.data
-        const { frontmatter, html } = markdownRemark
+        const { frontmatter, html, fields } = markdownRemark
         return (
             <Layout>
                 <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
                 <section className="blog-post">
-                    <div className="image-container">
-                        <Img className="post-image" fluid={frontmatter.image.childImageSharp.fluid}  alt={ frontmatter.title}  />
-                    </div>
                     <div className="post-header">
                         <h3 className="white-text">{frontmatter.categories}</h3>
                         <h1 className="white-text larger">{frontmatter.title}</h1>
                         <p className="white-text">
-                            <span className="author"><i className="far fa-user"></i> {frontmatter.author || `FabioRosado`}</span>
-                            <span className="time"><i className="far fa-clock"></i> {frontmatter.date}</span>
+                            <span className="author"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
+                            <span className="time"><i className="far fa-clock"/> {frontmatter.date}</span>
+                            <span className="time"><i className="far fa-eye"/> {fields.readingTime.text}</span>
                         </p>
                     </div>
                     <div className="background"></div>
@@ -41,10 +38,10 @@ export default Template
 
 
 export const pageQuery = graphql`
-    query($path: String!) {
-        markdownRemark(frontmatter: { path: { eq: $path } }) {
+    query($slug: String!) {
+        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
             frontmatter {
-                path
+                slug
                 title
                 subtitle
                 categories
@@ -63,6 +60,11 @@ export const pageQuery = graphql`
                             ...GatsbyImageSharpFluid
                         }
                     }
+                }
+            }
+            fields {
+                readingTime {
+                    text
                 }
             }
             html

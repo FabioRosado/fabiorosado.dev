@@ -18,10 +18,10 @@ const PortfolioCard = (props) => {
                 <p className="white-text small-font margin-bottom margin-top">
                     {frontmatter.excerpt}
                 </p>
-                <Link to={`/${frontmatter.path}`} className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
+                <Link to={`/${frontmatter.slug}`} className="trans-button"><i className="fas fa-folder-open"></i> Read more</Link>
                 <a href={frontmatter.source} className="trans-button margin-left" target="_blank" rel="noopener noreferrer"><i className="fab fa-github-square"></i> Source Code</a>
             </div>
-            <Link to={`/${frontmatter.path}`}>
+            <Link to={`/${frontmatter.slug}`}>
             <Img className="project-image" fluid={frontmatter.image.childImageSharp.fluid} alt={frontmatter.title} />
             <div className="tools-used spaced-text">
                 <p>{frontmatter.tech}</p>

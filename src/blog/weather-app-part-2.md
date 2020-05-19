@@ -1,5 +1,5 @@
 ---
-path: weather-app-using-geolocation-and-vue
+slug: weather-app-using-geolocation-and-vue
 title:  Weather App - Using geolocation and Vue
 subtitle: Get the weather data from the user location
 date:   2018-09-04 18:38:00

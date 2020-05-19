@@ -1,5 +1,5 @@
 ---
-path: git-commit-history
+slug: git-commit-history
 title:  "Git: Commit history"
 subtitle: How to keep it under control
 author: "FabioRosado"

@@ -1,5 +1,5 @@
 ---
-path: the-enumerate-built-in-function
+slug: the-enumerate-built-in-function
 title:  The enumerate built-in function
 subtitle: Why you should be using it
 author: "FabioRosado"

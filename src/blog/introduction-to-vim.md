@@ -1,5 +1,5 @@
 ---
-path: introduction-to-vim
+slug: introduction-to-vim
 title:  Introduction to Vim
 subtitle: Learn how to get started with this editor  
 author: "FabioRosado"

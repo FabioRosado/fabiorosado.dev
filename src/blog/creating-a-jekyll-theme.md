@@ -1,5 +1,5 @@
 ---
-path: creating-a-jekyll-theme
+slug: creating-a-jekyll-theme
 title:  Creating A Jekyll Theme
 subtitle: What I've learned 
 author: "FabioRosado"

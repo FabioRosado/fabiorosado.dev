@@ -16,7 +16,7 @@ class Blog extends Component {
                     {posts.nodes.map((post) => {
                         return (
                             <div className="post-card" key={post.frontmatter.title}>
-                            <Link to={post.frontmatter.path}>
+                            <Link to={post.frontmatter.slug}>
                                 <div className="description">
                                     <p className="white-text small-font margin-bottom">{ post.frontmatter.excerpt }</p>
                                     <span className="trans-button small-font">Read More <i className="fas fa-angle-double-right"></i></span>
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {
       frontmatter {
-        path
+        slug
         title
         subtitle
         categories

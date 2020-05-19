@@ -1,5 +1,5 @@
 ---
-path: opsdroid
+slug: opsdroid
 title:  Opsdroid
 date:   2017-11-20 09:30:00 +0000
 categories: Projects
