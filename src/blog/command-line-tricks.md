@@ -15,7 +15,7 @@ Working with the command line can be fun. But the more you use the command line,
 
 Luckily there are some easy to remember commands that will help you cut down time when repeating commands.
 
-# History  - Using reverse-i-search
+## History  - Using reverse-i-search
 
 Reverse-i-search will search through the whole `history` to match a command that contains what you typed. You will need to activate reverse-i-search by pressing the keys `CTRL+R`, your prompt will switch to ```(reverse-i-search)`':```
 
@@ -27,10 +27,11 @@ If you know that you are going to use a command a lot you can write the command 
 
 Then all you need is run the reverse-i-search and search for `#`, your command will be matched straight away. Since the # indicates a start of a comment the terminal will simply ignore the text `#tag`.
 
-## Examples
+### Examples
 
 History:
-```
+
+```shell
   1  git pull origin master #pull-origin-master
   2  git status
   3  git stash
@@ -44,7 +45,7 @@ History:
 
 Start reverse-i-search and type git:
 
-```
+```shell
 (reverse-i-search)`git': git push
 ```
 
@@ -52,14 +53,14 @@ Git push was the last command typed so that's the first match that reverse-i-sea
 
 Now let's use the tag trick to run the first command in our history. Let's reverse-i-search for #
 
-```
+```shell
 (reverse-i-search)`#': git pull origin master #pull-origin-master
 ```
 
-
-# History - Using !
+## History - Using !
 
 If you run the command `history` you can see a long list with all the commands that you have typed in the command line. To re-run a command you can do one of these two ways:
+
 - Type: `!<number of the command>`
 - Type `!<first letters of command>`
 
@@ -67,10 +68,10 @@ For you to use the number of the command you probably would have to run `history
 
 But since you know which command you want to run, you can simply type `!<first letters of command>` and those first letters will be matched to a command. This little trick can save you some precious time.
 
-## Examples
+### Examples
 
 History:
-```
+```shell
   1 ls
   2 cd
   3 cd documents/
@@ -81,7 +82,7 @@ History:
 
 Let's run the last command in our history again by typing `!!`
 
-``` 
+``` shell
 user ~/documents > !!
 ls
 folder
@@ -91,7 +92,7 @@ As you can see the terminal will print the command before running it, this is to
 
 Now let's try to run the second command in our history by using the number reference.
 
-```
+```shell
 user ~/documents > !2
 cd
 user ~ >
@@ -100,7 +101,7 @@ The `cd` command was run and you should be in your home directory now.
 
 Let's say you want to create a folder with the same name in your home directory you can do:
 
-```
+```shell
 user ~ > !mk
 mkdir folder
 user ~ > ls
@@ -108,18 +109,18 @@ folder
 ```
 
 
-# Autocomplete
+## Autocomplete
 
 Typing long commands can take a while, luckily your terminal can autocomplete commands for you, all you need to do is start typing a few letters and press the `TAB` key and the command will be auto-completed.
 
 If you forgot how do you type a command, but you know the first letter, you can type the first letter and press the `TAB` key twice, a long list of all available commands will appear and you can use that to help you.
 
 
-## Examples
+### Examples
 
 Let's look for a command that starts with the letter K:
 
-```
+```shell
 user ~ > K <TAB><TAB>
 kadmin.local     kextfind         keytool          klist            kswitch
 kcc              kextload         kill             kramdown         ktutil
@@ -128,6 +129,5 @@ kcc              kextload         kill             kramdown         ktutil
 As you can see any command that starts with the letter K will be returned.
 
 I hope you find this helpful, let me know if there are more useful commands that I should add to this list!
-
 
 **Credit:** [Photo by Goran Ivos on Unsplash](https://unsplash.com/@goran_ivos)

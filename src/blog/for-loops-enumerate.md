@@ -82,7 +82,7 @@ The Hamming distance is a measure of similarity between two strings of equal len
 In the exercism challenge we have to calculate the Hamming difference between two DNA strands.
 
 Example:
-```
+```git
 GAGCCTACTAACGGGAT
 CATCGTAATGACGGCCT
 ^ ^ ^  ^ ^    ^^

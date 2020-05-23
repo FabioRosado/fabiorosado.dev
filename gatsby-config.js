@@ -45,7 +45,8 @@ module.exports = {
               backgroundColor: '#1A2430',
             }
           },
-          {resolve: `gatsby-remark-reading-time`}
+          {resolve: `gatsby-remark-reading-time`},
+          {resolve: `gatsby-remark-prismjs`}
         ]
       }
     },

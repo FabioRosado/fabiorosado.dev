@@ -59,7 +59,7 @@ gatsby new gatsby-site && cd gatsby-site
 
 Finally, open the folder on your favourite code editor and run the following command to get your site running.
 
-```
+```shell
 gatsby develop
 ```
 
@@ -75,7 +75,7 @@ Then, when you want to use your API key all you need to do is type `process.env.
 
 Let's finally build the form. Create a new page on your `pages` folder, call it `contact` and add the following code to the page.
 
-```react
+```js
 import React from "react"
 
 class Contact extends React.component {
@@ -142,7 +142,7 @@ Notice that I am using backticks on the Authorization header if you want you can
 
 So the full working code will look like this
 
-```react
+```js
 import React from "react"
 
 class Contact extends React.component {

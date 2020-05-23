@@ -25,7 +25,7 @@ Since the reflogs contain information about the old state of branches, it's poss
 
 When you run the command `git reflog` you get a list of all the commands ran on the repository, SHA-1 key, command run and an info message. Here's an example:
 
-```
+```shell
 8ed1518 (HEAD -> master, origin/master) HEAD@{0}: commit: Fix typos and update posts
 0743bc8 HEAD@{1}: rebase -i (finish): returning to refs/heads/master
 0743bc8 HEAD@{2}: rebase -i (fixup): Update projects and hacktoberfest post
@@ -50,7 +50,7 @@ HEAD in Git is the marker that points to a branch reference and the branch point
 
 If you checkout to a specific commit, the following message will appear and warn you that you are currently in a detached state.
 
-```
+```git
 Note: checking out '<SHA-1 key>'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
