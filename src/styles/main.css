@@ -439,10 +439,16 @@ nav {
 
 @media (min-width: 1160px) {
   nav {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 4fr 2.5fr;
-        grid-template-columns: 4fr 2.5fr;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 }
 
@@ -452,7 +458,7 @@ nav .navigation {
 
 @media (min-width: 1160px) {
   nav .navigation {
-    display: block;
+    display: inherit;
   }
 }
 
@@ -1045,7 +1051,7 @@ pre {
 
 @media (min-width: 1160px) {
   pre {
-    margin-left: -51vw;
+    margin-left: -60vw;
     left: 50%;
   }
 }

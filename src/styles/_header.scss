@@ -125,13 +125,14 @@ header {
 nav {
   padding: 1rem 0rem .5rem 3rem;
   @include desktop {
-    display: grid;
-    grid-template-columns: 4fr 2.5fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .navigation {
     list-style-type: none;
     @include desktop {
-      display: block;
+      display: inherit;
     }
   }
   
