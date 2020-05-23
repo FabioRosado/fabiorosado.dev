@@ -52,6 +52,11 @@
     margin: 0rem 4rem 0rem 4rem;
     padding: 4rem 11rem 3rem 11rem;
   }
+
+  @include xlarge {
+    padding: 4rem 28rem 3rem 23rem;
+  }
+  
   h1, h2, h3 {
     color: color(text-color-light);
     padding-bottom: 1.5rem;
