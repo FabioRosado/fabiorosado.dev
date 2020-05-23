@@ -29,11 +29,12 @@ const IndexPage = (props) => {
         <h1 className="margin-top">Let's Chat!</h1>
         <ul className="horizontal-list">
             <li><Link to="/#contact"><button className="full-button">Say Hello</button></Link></li>
-            <li><a href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer" aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square"></i></a></li>
-            <li><a href="https://dev.to/FabioRosado/" target="_blank" rel="noopener noreferrer" aria-label="Link to dev.to Profile"><i className="fab fa-2x fa-dev"></i></a></li>
-            <li><a href="https://twitter.com/FabioRosado_" target="_blank" rel="noopener noreferrer" aria-label="Link to Twitter Profile"><i className="fab fa-2x fa-twitter-square"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/FabioRosado/" target="_blank" rel="noopener noreferrer" aria-label="Link to Linkedin Profile"><i className="fab fa-2x fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/FabioRosado/" target="_blank" rel="noopener noreferrer" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram"></i></a></li>
+            <li><a href="https://github.com/FabioRosado" aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square" /></a></li>
+            <li><a href="https://dev.to/FabioRosado/" aria-label="Link to dev.to Profile"><i className="fab fa-2x fa-dev" /></a></li>
+            <li><a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile"><i className="fab fa-2x fa-twitter-square" /></a></li>
+            <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to Linkedin Profile"><i className="fab fa-2x fa-linkedin" /></a></li>
+            <li><a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch"/></a></li>
+            <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" /></a></li>
         </ul>
       </div>
         <div className="pictures">
@@ -106,7 +107,7 @@ const IndexPage = (props) => {
         </div>
     </section>
     <section className="section">
-      <h1 className="section center-text white-text">Blog</h1>
+      <h1 className="section center-text white-text">Articles</h1>
       <div className="four-by-four">
         {blog.nodes.map((post) => {
           return(

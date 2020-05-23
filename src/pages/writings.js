@@ -10,7 +10,7 @@ class Blog extends Component {
         const posts = this.props.data.blog
         return(
             <Layout>
-            <h1 className="section center-text white-text">Blog</h1>
+            <h1 className="section center-text white-text">Writings</h1>
                 <section className="page-container">
                     {posts.nodes.map((post) => 
                       <WritingCard post={post} key={post.frontmatter.title} />  
