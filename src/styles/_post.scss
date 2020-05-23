@@ -56,14 +56,14 @@
   @include xlarge {
     padding: 4rem 28rem 3rem 23rem;
   }
-  
+
   h1, h2, h3 {
     color: color(text-color-light);
     padding-bottom: 1.5rem;
     padding-top: 1rem;
   }
 
-  h1:first-of-type {
+  h1:nth-child(1) {
     color: color(secondary-color);
   }
 

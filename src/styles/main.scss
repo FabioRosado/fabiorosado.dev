@@ -79,12 +79,18 @@ body {
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+
+  @include xlarge {
+    font-size: 20px;
+  }
+  
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font;
   font-weight: $bold-font-weight;
-  color: color(primary-color);
 }
 
 a {

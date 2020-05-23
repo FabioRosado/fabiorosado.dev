@@ -15,12 +15,19 @@ body {
   font-feature-settings: "kern" 1;
   -webkit-font-kerning: normal;
           font-kerning: normal;
+  word-wrap: break-word;
+  text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1700px) {
+  body {
+    font-size: 20px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Jura", sans-serif;
   font-weight: 700;
-  color: #1E2A39;
 }
 
 a {
@@ -921,7 +928,7 @@ footer .navigation .horizontal-list {
   padding-top: 1rem;
 }
 
-.text-container h1:first-of-type {
+.text-container h1:nth-child(1) {
   color: #FF721E;
 }
 
