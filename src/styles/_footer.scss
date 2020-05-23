@@ -36,7 +36,10 @@ footer {
   }
 }
 .contact {
-  padding: 0rem 5rem;
+  @include desktop {
+    padding: 0rem 5rem;
+  }
+  
 }
 
 .contact-area {
@@ -92,9 +95,10 @@ footer {
 
   @include desktop {
     width:100%;
+    margin: 0rem 5rem;
   }
   
-  margin: 0rem 5rem;
+  
   i {
     margin-right: .5rem;
   }

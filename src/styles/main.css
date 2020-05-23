@@ -732,8 +732,10 @@ footer .navigation .horizontal-list {
   padding-top: 0;
 }
 
-.contact {
-  padding: 0rem 5rem;
+@media (min-width: 1160px) {
+  .contact {
+    padding: 0rem 5rem;
+  }
 }
 
 .contact-area {
@@ -810,12 +812,12 @@ footer .navigation .horizontal-list {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0rem 5rem;
 }
 
 @media (min-width: 1160px) {
   .contact-form {
     width: 100%;
+    margin: 0rem 5rem;
   }
 }
 
