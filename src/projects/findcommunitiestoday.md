@@ -13,11 +13,11 @@ excerpt: An agregator that has communities from different chat services like Sla
 ---
 Find Communities Today was a project that I created to learn React. I've used Gatsby, TailwindCss, Airtable and MongoDB to create this website. It was really fun working on this and I've learned a lot.
 
-The site grew gradually. Initially it was just a list of communities, then I added the search bar, then the pagination on the home page, then the random generator and finally the like/dislike and comment system.
+The site grew gradually. Initially, it was just a list of communities, then I added the search bar, then the pagination on the home page, then the random generator and finally the like/dislike and comment system.
 
 All the forms on the website are connected to Airtable and after submitting communities to Airtable, the process of moving the data from airtable to a markdown file took forever, so I wrote a quick python script using Jinja2 to get the data from Airtable and automatically create the markdown file on the communities folder.
 
-Unfortunately, this project didn't grow as much as I wanted - mostly due to the fact that I haven't really done any marketing for it. Still it gets an occasional visit from time to time and that's why I keep it running.
+Unfortunately, this project didn't grow as much as I wanted - mostly due to the fact that I haven't really done any marketing for it. Still, it gets an occasional visit from time to time and that's why I keep it running.
 
 # Overview
 

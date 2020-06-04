@@ -10,9 +10,9 @@ source: https://github.com/FabioRosado/100daysof
 tech: Jekyll Sass Bulma
 excerpt: A hub for the 100DaysOf challenge and a better way to log and keep track of the user progress.
 ---
-This project is meant to offer a better way to keep track of any #100DaysOf challenges. The site is built with [Jekyll](http://jekyllrb.com) in order to be easy to host it directly from GitHub pages. With this project, you can keep track of your progress through logs, keep track of how many books are you reading or have read,  keep track of projects that you are building for the challenge and a place for you to blog.
+This project is meant to offer a better way to keep track of any #100DaysOf challenges. The site is built with [Jekyll](http://jekyllrb.com) to be easy to host it directly from GitHub pages. With this project, you can keep track of your progress through logs, keep track of how many books are you reading or have read, keep track of projects that you are building for the challenge and a place for you to blog.
 
-You can also see your progress from the right sidebar calendar view - this will keep track of your timeline logs and will show a green square if you have logged something on that day. Finally, there are some achievements that can be unlocked.
+You can also see your progress from the right sidebar calendar view - this will keep track of your timeline logs and will show a green square if you have logged something on that day. Finally, some achievements can be unlocked.
 
 # Overview
 
@@ -33,9 +33,34 @@ You can also see your progress from the right sidebar calendar view - this will 
 
 Last year I participated in the #100DaysOfCode, initially, it was pretty easy to keep track of my progress but around day 30/40 the log was growing so big that I couldn't go back and check when or what I had done on a certain date.
 
-I've also seen how many new people began coding by taking the #100DaysOfCode and I wanted to give them the possibility to have an easy way to create a portfolio from day one, that's the reason why I choose Jekyll. Someone with little to no coding experience can easily set up their own version of the site.
+I've also seen how many new people began coding by taking the #100DaysOfCode and I wanted to give them the possibility to have an easy way to create a portfolio from day one, that's the reason why I choose Jekyll. Someone with little to no coding experience can easily set up their version of the site.
 
-Finally, I thought it would be good to have a way to see the progress at a glance, so the calendar view was added. The achievements was an attempt to add further gamification to the challenge in order to get people motivated throughout the challenge.
+Finally, I thought it would be good to have a way to see the progress at a glance, so the calendar view was added. The achievements was an attempt to add further gamification to the challenge to get people motivated throughout the challenge.This project is meant to offer a better way to keep track of any #100DaysOf challenges. The site is built with [Jekyll](http://jekyllrb.com) to be easy to host it directly from GitHub pages. With this project, you can keep track of your progress through logs, keep track of how many books are you reading or have read, keep track of projects that you are building for the challenge and a place for you to blog.
+
+You can also see your progress from the right sidebar calendar view - this will keep track of your timeline logs and will show a green square if you have logged something on that day. Finally, some achievements can be unlocked.
+
+# Overview
+
+- **The Good**
+ - MVP created under 1.5 weeks by using an Agile approach to the whole process
+ - An easy way to keep track of logs, projects, books and blog posts
+ - Basic achievements that can be unlocked
+- **The Bad**
+ - Used Bulma.io but changed a lot of the CSS styling
+ - The achievements are based only on the number of posts with certain categories
+ - The documentation isn't created in the easiest way to read
+- **The Ugly**
+ - The calendar needs the script to be added to the end of every page
+ - The UI looks a bit wonky on iPad screen resolutions
+ - Unable to click on the categories and tags
+
+# How it all came to be
+
+Last year I participated in the #100DaysOfCode, initially, it was pretty easy to keep track of my progress but around day 30/40 the log was growing so big that I couldn't go back and check when or what I had done on a certain date.
+
+I've also seen how many new people began coding by taking the #100DaysOfCode and I wanted to give them the possibility to have an easy way to create a portfolio from day one, that's the reason why I choose Jekyll. Someone with little to no coding experience can easily set up their version of the site.
+
+Finally, I thought it would be good to have a way to see the progress at a glance, so the calendar view was added. The achievements was an attempt to add further gamification to the challenge to get people motivated throughout the challenge.
 
 # Info
 
