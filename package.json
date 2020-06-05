@@ -1,12 +1,11 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "My time is divided between flying and coding",
+  "version": "0.10.0",
+  "author": "FabioRosado",
   "dependencies": {
     "babel": "^6.23.0",
-    "g": "^2.0.1",
     "gatsby": "^2.19.0",
     "gatsby-cli": "^2.12.24",
     "gatsby-image": "^2.2.34",
@@ -38,7 +37,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
