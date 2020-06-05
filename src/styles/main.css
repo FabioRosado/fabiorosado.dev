@@ -197,6 +197,33 @@ a {
   }
 }
 
+.similar-articles {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+}
+
+@media (min-width: 1160px) {
+  .similar-articles {
+    grid-gap: .5rem;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: repear(2, 1fr);
+        grid-template-rows: repear(2, 1fr);
+  }
+}
+
+.similar-articles .post-card {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1160px) {
+  .similar-articles .post-card {
+    margin-right: 1.5rem;
+  }
+}
+
 .margin-bottom {
   margin-bottom: 1.5rem;
 }

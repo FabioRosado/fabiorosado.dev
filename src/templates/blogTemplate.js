@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import SimilarArticlesList from "../components/SimilarArticles/SimilarArticlesList"
 
 class Template extends React.Component {
     render() {
@@ -29,6 +30,7 @@ class Template extends React.Component {
                         </div>
                     </div>
                     </section>
+                    <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />
             </Layout>
         )
     }

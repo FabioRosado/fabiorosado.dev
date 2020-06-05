@@ -123,6 +123,25 @@
   }
 }
 
+.similar-articles {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+  @include desktop {
+    grid-gap: .5rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repear(2, 1fr);
+  }
+
+  .post-card {
+    margin-bottom: 1rem;
+
+    @include desktop {
+      margin-right: 1.5rem;
+    }
+  }
+}
+
 .margin-bottom {
   margin-bottom: $padding-unit;
 }
