@@ -30,7 +30,8 @@ class Template extends React.Component {
                         </div>
                     </div>
                     </section>
-                    <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />
+                    {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />}
+                   
             </Layout>
         )
     }
