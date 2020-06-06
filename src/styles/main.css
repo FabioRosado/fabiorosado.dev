@@ -1047,6 +1047,12 @@ p, ul {
           margin-block-end: 1em;
 }
 
+.article {
+  max-width: 95%;
+  margin: 0px auto;
+  width: 40em;
+}
+
 .gatsby-highlight {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -1085,6 +1091,7 @@ pre[class*="language-"] {
   margin: .5em 0;
   overflow: auto;
   border-radius: 0.3em;
+  border: 1px solid #6189bd;
 }
 
 :not(pre) > code[class*="language-"],
