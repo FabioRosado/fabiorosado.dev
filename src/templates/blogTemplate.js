@@ -1,41 +1,79 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SimilarArticlesList from "../components/SimilarArticles/SimilarArticlesList"
+import Webmentions from "../components/webmentions/webmentionsComponent"
+import MentionsCounter from "../components/webmentions/counter"
 
-class Template extends React.Component {
-    render() {
-        const { markdownRemark } = this.props.data
-        const { frontmatter, html, fields } = markdownRemark
-        return (
-            <Layout>
-                <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
-                <section className="blog-post">
-                    <div className="post-header">
-                        <h3 className="white-text">{frontmatter.categories}</h3>
-                        <h1 className="white-text larger">{frontmatter.title}</h1>
-                        <p className="white-text">
-                            <span className="author"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
-                            <span className="time"><i className="far fa-clock"/> {frontmatter.date}</span>
-                            <span className="time"><i className="far fa-eye"/> {fields.readingTime.text}</span>
-                        </p>
+
+const Template = (props) => {
+    const [totalMentions, setTotalMentions] = useState(0)
+    const [show, setShow] = useState(false)
+    const { markdownRemark } = props.data
+    const { frontmatter, html, fields } = markdownRemark
+
+    useEffect(() => {
+        const fetchTotalMentions = async () => {
+            const resp = await fetch(
+                `https://webmention.io/api/count.json?target=https://fabiorosado.dev/${frontmatter.slug}/`
+            )
+
+        const { count } = await resp.json()
+
+        setTotalMentions(count)
+        }
+        fetchTotalMentions()
+    }, [frontmatter.slug])
+
+
+    return (
+        <Layout>
+            <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
+            <section className="blog-post">
+                <div className="post-header">
+                    <h3 className="white-text">{frontmatter.categories}</h3>
+                    <h1 className="white-text larger">{frontmatter.title}</h1>
+                    <p className="white-text">
+                        <span className="author"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
+                        <span className="time"><i className="far fa-clock"/> {frontmatter.date}</span>
+                        <span className="time"><i className="far fa-eye"/> {fields.readingTime.text}</span>
+                        <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="time" />
+                    </p>
+                </div>
+                <div className="background" />
+                <div className="post-area">
+                    <div className="text-container">
+                        <div className="article">
+                            <h1 className="dark-text">{frontmatter.subtitle}</h1>
+                            <div dangerouslySetInnerHTML={{__html: html }} />
                     </div>
-                    <div className="background"></div>
-                    <div className="post-area">
-                        <div className="text-container">
-                        <h1 className="dark-text">{frontmatter.subtitle}</h1>
-                        <div dangerouslySetInnerHTML={{__html: html }} />
+                    <div className="webmentions-container">
+                        <h3>Webmentions</h3>
+                        <div>
+                            <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="padding-bottom" />
                         </div>
+                        <button 
+                            className="full-button" 
+                            aria-label="Show all webmentions"
+                            onClick={() => setShow(!show)}
+                        >
+                            Show {totalMentions} Mentions
+                        </button>
                     </div>
-                    </section>
-                    {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />}
-                   
-            </Layout>
-        )
-    }
+
+                    <Webmentions slug={frontmatter.slug} show={`${show ? "visible" : "invisible"}`}/>
+
+                    </div>
+                </div>
+                </section>
+                {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />}
+                
+        </Layout>
+    )
 }
+
 
 export default Template
 
