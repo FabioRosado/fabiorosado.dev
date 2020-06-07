@@ -61,7 +61,7 @@ const Webmentions = ({ slug, show }) => {
     }
 
     return (
-        <section className={`margin-bottom padding-bottom ${show}`}>
+        <section className={`webmentions-list ${show}`}>
         {mentions.map((mention, index) => (
             <div className="webmention" key={index}>
                 <Mention data={mention.data} activity={mention.activity.type} index={index} />

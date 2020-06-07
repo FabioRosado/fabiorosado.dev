@@ -1,5 +1,5 @@
 .webmentions-container {
-    margin-top: $padding-unit * 5;
+    margin-top: $padding-unit * 2;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -16,6 +16,10 @@
     @include desktop {
         flex-direction: row;
     }
+}
+
+.webmentions-list {
+    margin-top: $padding-unit * 1.5;
 }
 
 .webmention {

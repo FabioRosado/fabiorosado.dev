@@ -7,6 +7,9 @@
   .post-header {
     background-color: color(primary-color);
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     @include desktop {
       padding: 4rem 5rem 4rem 16rem;
     }
@@ -29,18 +32,32 @@
   }
 }
 
-.time {
-  padding-left: 2rem;
-  font-size: small;
+.metadata {
+  display: block;
+
+  @include desktop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-direction: row;
+  }
 }
 
-.author {
+.metadata-icons {
+  padding-left: 2rem;
   font-size: small;
 }
 
 .post-area {
   margin-top: -15rem;
   padding-top: 4rem;
+
+  @include desktop {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .text-container {
@@ -50,11 +67,11 @@
   border-radius: 10px;
   @include desktop {
     margin: 0rem 4rem 0rem 4rem;
-    padding: 4rem 11rem 3rem 11rem;
+    padding: 4rem 11rem;
   }
 
   @include xlarge {
-    padding: 4rem 28rem 3rem 23rem;
+    padding: 4rem 28rem;
   }
 
   h1, h2, h3 {

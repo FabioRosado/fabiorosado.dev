@@ -894,6 +894,16 @@ footer .navigation .horizontal-list {
 .blog-post .post-header {
   background-color: #1E2A39;
   padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (min-width: 1160px) {
@@ -922,18 +932,50 @@ footer .navigation .horizontal-list {
   }
 }
 
-.time {
-  padding-left: 2rem;
-  font-size: small;
+.metadata {
+  display: block;
 }
 
-.author {
+@media (min-width: 1160px) {
+  .metadata {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    flex-direction: row;
+  }
+}
+
+.metadata-icons {
+  padding-left: 2rem;
   font-size: small;
 }
 
 .post-area {
   margin-top: -15rem;
   padding-top: 4rem;
+}
+
+@media (min-width: 1160px) {
+  .post-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .text-container {
@@ -946,13 +988,13 @@ footer .navigation .horizontal-list {
 @media (min-width: 1160px) {
   .text-container {
     margin: 0rem 4rem 0rem 4rem;
-    padding: 4rem 11rem 3rem 11rem;
+    padding: 4rem 11rem;
   }
 }
 
 @media (min-width: 1700px) {
   .text-container {
-    padding: 4rem 28rem 3rem 23rem;
+    padding: 4rem 28rem;
   }
 }
 
@@ -1184,7 +1226,7 @@ pre[class*="language-"] {
 }
 
 .webmentions-container {
-  margin-top: 7.5rem;
+  margin-top: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1217,6 +1259,10 @@ pre[class*="language-"] {
         -ms-flex-direction: row;
             flex-direction: row;
   }
+}
+
+.webmentions-list {
+  margin-top: 2.25rem;
 }
 
 .webmention {

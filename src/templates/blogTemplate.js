@@ -35,11 +35,11 @@ const Template = (props) => {
                 <div className="post-header">
                     <h3 className="white-text">{frontmatter.categories}</h3>
                     <h1 className="white-text larger">{frontmatter.title}</h1>
-                    <p className="white-text">
-                        <span className="author"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
-                        <span className="time"><i className="far fa-clock"/> {frontmatter.date}</span>
-                        <span className="time"><i className="far fa-eye"/> {fields.readingTime.text}</span>
-                        <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="time" />
+                    <p className="white-text metadata">
+                        <span className="metadata-icons"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
+                        <span className="metadata-icons"><i className="far fa-clock"/> {frontmatter.date}</span>
+                        <span className="metadata-icons"><i className="far fa-eye"/> {fields.readingTime.text}</span>
+                        <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
                 </div>
                 <div className="background" />
