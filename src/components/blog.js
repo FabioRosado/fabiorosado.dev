@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 
 
 const writingCard = (props) => {
-    console.log(props)
     const { frontmatter } = props.post
     return (
         <div className="post-card" key={frontmatter.title}>
