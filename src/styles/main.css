@@ -880,6 +880,7 @@ footer .navigation .horizontal-list {
 
 .contact-form input:focus, .contact-form textarea:focus {
   border-color: #FF721E;
+  outline: none;
 }
 
 .blog-post {
