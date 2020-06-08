@@ -120,6 +120,38 @@ a {
   color: #1E2A39;
 }
 
+.white-button {
+  cursor: pointer;
+  color: #1E2A39;
+  background: #FFFFFF;
+  font-family: "Jura", sans-serif;
+  font-size: medium;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  padding: 8px;
+  -webkit-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+.white-button:hover {
+  cursor: pointer;
+  color: #1E2A39;
+  background: #FF721E;
+  font-family: "Jura", sans-serif;
+  font-size: small;
+  border: 1px solid #FF721E;
+  border-radius: 5px;
+  padding: 8px;
+  -webkit-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+}
+
+@media (min-width: 1160px) {
+  .white-button:hover {
+    font-size: medium;
+  }
+}
+
 .fab {
   color: #FF721E;
   -webkit-transition: background-color 0.5s ease-out;
@@ -489,20 +521,120 @@ nav li a:hover {
   }
 }
 
-nav .full-button {
+nav .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transform: translate(-100%);
+          transform: translate(-100%);
+  position: fixed;
+  background-color: #1E2A39;
+  top: 0rem;
+  height: 100%;
+  z-index: 40;
+  padding: 4rem;
+  border-right: 1px solid #6189bd;
+}
+
+nav .navbar .menu-button {
+  visibility: visible;
+  padding: .5rem 1rem;
+  position: absolute;
+  top: 2.3rem;
+  right: .5rem;
+}
+
+@media (min-width: 1160px) {
+  nav .navbar {
+    position: relative;
+    background: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-right: 2rem;
+    -webkit-transform: translatex(0%) !important;
+            transform: translatex(0%) !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0rem;
+    border: none;
+  }
+  nav .navbar a {
+    margin-right: 2rem;
+  }
+  nav .navbar .menu-button {
+    visibility: hidden;
+  }
+}
+
+nav .navbar-show {
+  -webkit-transform: translateX(-30%) !important;
+          transform: translateX(-30%) !important;
+  -webkit-transition: all .25s ease 0s;
+  transition: all .25s ease 0s;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 10rem;
+}
+
+nav .navbar-show::-webkit-scrollbar {
+  display: none;
+}
+
+nav .navbar-show a {
+  margin-top: .5rem;
+}
+
+nav .navbar-hide {
+  -webkit-transform: translate(-130%);
+          transform: translate(-130%);
+  -webkit-transition: all .25s ease 0s;
+  transition: all .25s ease 0s;
+}
+
+nav .menu-button {
   position: absolute;
   right: 0;
   top: 1.5rem;
   margin: 0rem 1.5rem;
+  padding: 1rem;
 }
 
-nav .full-button .icon-bar {
+nav .menu-button .gg-menu-right,
+nav .menu-button .gg-menu-right::after,
+nav .menu-button .gg-menu-right::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
   display: block;
-  width: 22px;
+  width: 20px;
   height: 2px;
-  margin: 4px;
-  border-radius: 1px;
-  background-color: #1E2A39;
+  border-radius: 3px;
+  background: currentColor;
+}
+
+nav .menu-button .gg-menu-right::after,
+nav .menu-button .gg-menu-right::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 10px;
+}
+
+nav .menu-button .gg-menu-right::after {
+  top: 6px;
+  width: 14px;
 }
 
 .about-card {

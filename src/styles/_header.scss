@@ -165,19 +165,102 @@ nav {
     }
   }
 
-  .full-button  {
+  .navbar {
+  display: flex;
+  flex-direction: column;
+  transform: translate(-100%);
+  position: fixed;
+  background-color: color(primary-color);
+  top: 0rem;
+  height: 100%;
+  z-index: 40;
+  padding: 4rem;
+  border-right: 1px solid color(border-color);
+
+  .menu-button {
+    visibility: visible;
+    padding: .5rem 1rem;
+    position: absolute;
+    top: 2.3rem;
+    right: .5rem;
+  }
+
+  @include desktop {
+    position: relative;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    margin-right: 2rem;
+    transform: translatex(0%) !important;
+    align-items: center;
+    padding: 0rem;
+    border: none;
+
+    a {
+      margin-right: 2rem;
+    }
+
+    .menu-button {
+      visibility: hidden;
+    }
+
+  }
+
+}
+
+.navbar-show {
+  transform: translateX(-30%) !important;
+  transition: all .25s ease 0s;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 10rem;
+
+  &::-webkit-scrollbar{
+    display: none;
+  }
+
+  a {
+    margin-top: .5rem;
+  }
+}
+
+.navbar-hide {
+  transform: translate(-130%);
+  transition: all .25s ease 0s;
+}
+
+
+  .menu-button  {
     position: absolute;
     right: 0;
     top: 1.5rem;
     margin: 0rem 1.5rem;
+    padding: 1rem;
 
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      margin: 4px;
-      border-radius: 1px;
-      background-color:color(primary-color);
+    .gg-menu-right,
+    .gg-menu-right::after,
+    .gg-menu-right::before {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 3px;
+        background: currentColor
     }
+    .gg-menu-right::after,
+    .gg-menu-right::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        right: 0;
+        width: 10px
+    }
+    .gg-menu-right::after {
+        top: 6px;
+        width: 14px
+    }
+
   }
 }
