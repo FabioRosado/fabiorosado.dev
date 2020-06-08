@@ -1,8 +1,5 @@
 .blog-post {
   overflow-x: hidden;
-  .image-container {
-    width: 100%;
-  }
 
   .post-header {
     background-color: color(primary-color);
@@ -110,8 +107,4 @@
 
 .larger {
   font-size: 3em;
-}
-
-#disqus_thread{
-  margin: 0rem 1rem 0rem 1rem;
 }

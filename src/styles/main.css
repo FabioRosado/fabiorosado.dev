@@ -1,6 +1,5 @@
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
+body, h1, h2, h3, h4,
+p, ul {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +24,7 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
   font-family: "Jura", sans-serif;
   font-weight: 700;
 }
@@ -119,38 +118,6 @@ a {
 
 .trans-button:hover .fab {
   color: #1E2A39;
-}
-
-.white-button {
-  cursor: pointer;
-  color: #1E2A39;
-  background: #FFFFFF;
-  font-family: "Jura", sans-serif;
-  font-size: medium;
-  border: 1px solid #FFFFFF;
-  border-radius: 5px;
-  padding: 8px;
-  -webkit-transition: background-color 0.5s ease-out;
-  transition: background-color 0.5s ease-out;
-}
-
-.white-button:hover {
-  cursor: pointer;
-  color: #1E2A39;
-  background: #FF721E;
-  font-family: "Jura", sans-serif;
-  font-size: small;
-  border: 1px solid #FF721E;
-  border-radius: 5px;
-  padding: 8px;
-  -webkit-transition: background-color 0.5s ease-out;
-  transition: background-color 0.5s ease-out;
-}
-
-@media (min-width: 1160px) {
-  .white-button:hover {
-    font-size: medium;
-  }
 }
 
 .fab {
@@ -262,10 +229,6 @@ a {
   .container-middle {
     margin: 0rem 10rem 5rem 10rem;
   }
-}
-
-.primary-background {
-  background-color: #1E2A39;
 }
 
 /************************************
@@ -719,59 +682,6 @@ nav .full-button .icon-bar {
   transition: all .5 ease-in-out;
 }
 
-footer {
-  background-color: #1E2A39;
-  font-size: medium;
-  color: #FFFFFF;
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: row;
-  padding: 1rem;
-  padding-bottom: 1rem;
-}
-
-@media (min-width: 1160px) {
-  footer {
-    grid-auto-flow: column;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-footer .fa-heart {
-  color: red;
-}
-
-footer .fa-code {
-  color: #FF721E;
-}
-
-footer a {
-  color: #FFFFFF;
-}
-
-footer a:hover {
-  color: #FF721E;
-  -webkit-transition: color .5s ease-out;
-  transition: color .5s ease-out;
-}
-
-footer .navigation {
-  position: relative;
-}
-
-@media (min-width: 1160px) {
-  footer .navigation {
-    position: absolute;
-    right: 0;
-    margin-top: -1rem;
-  }
-}
-
-footer .navigation .horizontal-list {
-  padding-top: 0;
-}
-
 @media (min-width: 1160px) {
   .contact {
     padding: 0rem 5rem;
@@ -866,9 +776,11 @@ footer .navigation .horizontal-list {
 }
 
 .contact-form input, .contact-form textarea {
+  color: #FFFFFF;
   padding: .5rem .75rem;
   line-height: 1.25;
-  border: 2px solid white;
+  border: 1px solid #6189bd;
+  background-color: #1A2430;
   border-radius: .25rem;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -885,10 +797,6 @@ footer .navigation .horizontal-list {
 
 .blog-post {
   overflow-x: hidden;
-}
-
-.blog-post .image-container {
-  width: 100%;
 }
 
 .blog-post .post-header {
@@ -1034,23 +942,6 @@ footer .navigation .horizontal-list {
 
 .larger {
   font-size: 3em;
-}
-
-#disqus_thread {
-  margin: 0rem 1rem 0rem 1rem;
-}
-
-@media (min-width: 1160px) {
-  .page-header {
-    padding: 10rem;
-  }
-}
-
-.page-header h1 {
-  font-size: 80px;
-  text-align: center;
-  color: #FF721E;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .page-container {

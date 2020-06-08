@@ -1,17 +1,3 @@
-.page-header {
-
-  @include desktop {
-    padding: 10rem;
-  }
-
-  h1 {
-    font-size: 80px;
-    text-align: center;
-    color: color(secondary-color);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.10);
-  }
-}
-
 .page-container {
   margin: 2rem;
   display: grid;

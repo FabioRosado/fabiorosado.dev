@@ -30,7 +30,7 @@
     background-color: color(background-color);
     border-radius: 10px;
     padding: $padding-unit;
-    border: 1px solid #6189bd;
+    border: 1px solid color(border-color);
 
     img {
         width: 70px;

@@ -9,7 +9,7 @@ const PortfolioCard = (props) => {
     return (
         <div className="project-card drop-shadow" key={frontmatter.title}>
             <div className="category small-font">
-              <i className={frontmatter.tag_icon}></i> {frontmatter.tag}
+              <i className={`${frontmatter.tag_icon}`}></i> {frontmatter.tag}
             </div>
             <div className="project-name">
                 <h3 className="white-text">{frontmatter.title}</h3>
