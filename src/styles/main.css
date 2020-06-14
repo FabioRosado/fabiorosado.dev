@@ -27,6 +27,7 @@ body {
 h1, h2, h3, h4 {
   font-family: "Jura", sans-serif;
   font-weight: 700;
+  color: #71afff;
 }
 
 a {
@@ -1039,9 +1040,11 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .text-container h1, .text-container h2, .text-container h3 {
-  color: #FFFFFF;
+  font-weight: bold;
+  color: #71afff;
   padding-bottom: 1.5rem;
   padding-top: 1rem;
+  font-size: x-large;
 }
 
 .text-container h1:nth-child(1) {

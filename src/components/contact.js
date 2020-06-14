@@ -25,7 +25,7 @@ const Contact = () => {
         <div className="contact-text">
             <ContactForm />
             <div className="contact">
-                <h1><a href="#contact" name="contact">Contact Me</a></h1>
+                <h1><a className="white-text" href="#contact" name="contact">Contact Me</a></h1>
                 <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
                 <ul className="horizontal-list">
                     <li><a href="https://github.com/FabioRosado" aria-label="Link to github account"><i className="fab fa-2x fa-github-square" /></a></li>

@@ -31,6 +31,7 @@ $colors: (
 
   primary-color: #1E2A39,
   secondary-color: #FF721E,
+  blue-color: #71afff,
 
   border-color: #6189bd,
 
@@ -92,6 +93,7 @@ body {
 h1, h2, h3, h4 {
   font-family: $heading-font;
   font-weight: $bold-font-weight;
+  color: color(blue-color);
 }
 
 a {

@@ -72,9 +72,11 @@
   }
 
   h1, h2, h3 {
-    color: color(text-color-light);
+    font-weight: bold;
+    color: color(blue-color);
     padding-bottom: 1.5rem;
     padding-top: 1rem;
+    font-size: x-large;
   }
 
   h1:nth-child(1) {
