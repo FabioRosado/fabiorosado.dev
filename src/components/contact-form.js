@@ -26,11 +26,11 @@ const ContactForm = () => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
             <label htmlFor="name">Name</label>
-            <input id="name" name="name" ref={register({ required: "Please enter your name."})} placeholder="John Doe" autoComplete="name"/>
+            <input id="name" name="name" aria-label="Your Name" ref={register({ required: "Please enter your name."})} placeholder="John Doe" autoComplete="name"/>
             <label htmlFor="email">Email</label>
-            <input id="email" name="email" ref={register({ required: true, pattern: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/})} placeholder="john.doe@example.com" autoComplete="email" />
+            <input id="email" name="email" aria-label="Your Email" ref={register({ required: true, pattern: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/})} placeholder="john.doe@example.com" autoComplete="email" />
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" ref={register({ required: "You are trying to send a message right?"})} placeholder="Your message here..." />
+            <textarea id="message" name="message" aria-label="Your Message" ref={register({ required: "You are trying to send a message right?"})} placeholder="Your message here..." />
             <button type="submit" className="full-button">{sent ? <><i className="fas fa-thumbs-up" />Message sent Successfully!</> : <><i className="fas fa-paper-plane"/>Say Hello</>}</button>
             {errors.name && errors.name.message}<br />
             {errors.email && "Please enter a valid email."}<br />
