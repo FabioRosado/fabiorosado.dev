@@ -4,8 +4,10 @@ title:  "Git: Recover Deleted Files"
 subtitle: The day I messed up
 author: "FabioRosado"
 date:   2017-10-11 10:01:02 +0100
-categories: GitHub
+categories: Git
 category_icon: fas fa-code-branch
+tags:
+  - tips
 image: ../images/git-recover.jpg
 excerpt: Deleting files doesn't mean deleted permanently, learn how to turn back time and recover deleted files.
 ---

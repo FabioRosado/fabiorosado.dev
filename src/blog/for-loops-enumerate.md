@@ -5,7 +5,10 @@ subtitle: Why you should be using it
 author: "FabioRosado"
 date:   2017-12-05 20:00:02 +0000
 categories: Python
-category_icon:  fa fa-code
+category_icon:  fab fa-python
+tags:
+  - code
+  - challenges
 image: ../images/enumerate.jpg
 excerpt: The enumerate built-in function it's a great way to iterate over something. Your code will be more readable and you have some flexibility when looping.
 ---

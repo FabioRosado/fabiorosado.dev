@@ -4,9 +4,12 @@ title:  "Test: Was Logging called"
 subtitle:
 author: "FabioRosado"
 date:   2018-12-21 12:01:02
-categories: Code
-category_icon: fa fa-code
-tags: Featured
+categories: Python
+category_icon: fab fa-python
+tags: 
+  - tests
+  - code
+  - tips
 image: ../images/testlogging.jpg
 excerpt: An example from opsdroid on how to test if a logging call was made successfully. 
 ---
@@ -18,7 +21,7 @@ Opsdroid uses a file named `configuration.yml` to keep track of all the configur
 
 The `welcome_message` function is a very basic function that uses the `logging.info` to log a quick get started information about Opsdroid.
 
-{% highlight python %}
+```python
 1  def welcome_message(config):
 2      """Add welcome message if set to true in configuration."""
 3      try:
@@ -35,17 +38,17 @@ The `welcome_message` function is a very basic function that uses the `logging.i
 14             LOGGER.info("=" * 40)
 15     except KeyError:
 16         pass
-{% endhighlight %}
+```
 
 # The Test
 
-{% highlight python %}
+```python
 1   def test_welcome_message(self):
 2    config = {"welcome-message": True}
 3    with mock.patch('opsdroid.__main__.LOGGER.info') as logmock:
 4      opsdroid.welcome_message(config)
 5      self.assertTrue(logmock.called)
-{% endhighlight  %}
+```
 
 - We start the function by creating a dummy config file that will always return the welcome message.
 - On line 3 we patch the `LOGGER.info` call from `opsdroid__main__` (where the welcome_message function is located)

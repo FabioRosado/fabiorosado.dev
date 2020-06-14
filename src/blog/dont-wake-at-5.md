@@ -6,6 +6,8 @@ author: "FabioRosado"
 date:   2019-01-23 18:54:00
 categories: Productivity
 category_icon: fas fa-user-clock
+tags:
+  - productivity
 image: ../images/carl-heyerdahl-181868-unsplash.jpg
 excerpt: Why you don't have to wake up at 5 am to be productive and what you should do to change your sleeping schedule
 ---

@@ -4,9 +4,12 @@ title: Test for aiohttp's ClientErrorOS
 subtitle: Using mock side effect function
 author: "FabioRosado"
 date:   2017-12-30 12:01:02 +0100
-categories: Code
-category_icon: fa fa-code
-tags: Featured
+categories: Python
+category_icon: fab fa-python
+tags: 
+  - code
+  - tips
+  - tests
 image: ../images/testlogging.jpg
 excerpt: This is an example on how to use the side_effect function from the unittest module to test if the aiohttp exception ClientOSError was raised. 
 ---

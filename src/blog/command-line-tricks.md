@@ -6,7 +6,9 @@ author: "FabioRosado"
 date:   2018-01-17 09:20:02 +0000
 categories: Terminal
 category_icon: fa fa-terminal
-tags: Featured
+tags: 
+  - tips
+  - bash
 image: ../images/goran-ivos-245581.jpg
 excerpt: Working with the command line can be fun and save you plenty of time. These tricks will help you save even more time when you have to repeat commands. 
 ---

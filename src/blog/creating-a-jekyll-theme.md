@@ -6,6 +6,9 @@ author: "FabioRosado"
 date:   2017-12-29 16:00:02
 categories: Code
 category_icon:  fa fa-code
+tags:
+  - webdev
+  - jekyll
 image: ../images/niebieski.jpg
 excerpt: Niebieski is the first theme that I've created from scratch. In this post I look back at what I've learned and the struggles I faced when creating the theme.
 ---

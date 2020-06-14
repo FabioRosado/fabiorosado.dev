@@ -6,6 +6,10 @@ author: "FabioRosado"
 date:   2019-01-11 18:30:00
 categories: Python
 category_icon: fab fa-python
+tags:
+  - tests
+  - tips
+  - code
 image: ../images/unittest.jpg
 excerpt: How I solved the issue of testing a function that should call sys.exit() when a yaml file couldn't be safely loaded.
 ---

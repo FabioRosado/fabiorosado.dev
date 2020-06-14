@@ -6,6 +6,8 @@ author: "FabioRosado"
 date:   2017-10-24 14:00:02 +0100
 categories: Random
 category_icon:  fa fa-random
+tags:
+  - journey
 image: ../images/computerscience.jpg
 excerpt: How I've started learning how to code and how coding made me want to learn more about Computer Science.
 ---

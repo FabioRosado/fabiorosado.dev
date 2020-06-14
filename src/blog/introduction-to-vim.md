@@ -4,8 +4,11 @@ title:  Introduction to Vim
 subtitle: Learn how to get started with this editor  
 author: "FabioRosado"
 date:   2018-04-24 18:10:02
-categories: Terminal
+categories: Vim
 category_icon: fa fa-terminal 
+tags:
+  - tutorial
+  - terminal
 image: ../images/vim.jpg
 excerpt: Vim is still one of the editors that confuses some developers. This introduction will keep you up to speed with this powerful editor.
 ---

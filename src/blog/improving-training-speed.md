@@ -6,6 +6,9 @@ author: "FabioRosado"
 date:   2018-02-17 18:10:02
 categories: Code
 category_icon: fa fa-code
+tags:
+  - improvements
+  - machine learning
 image: ../images/josh-riemer-729194-unsplash.jpg
 excerpt: A problem that I have encountered while working on a Pybites challenge, libraries used and how I have optimized the tweets classifier to be faster.
 ---

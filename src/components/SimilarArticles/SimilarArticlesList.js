@@ -40,6 +40,7 @@ export default (props) => (
                         title
                         subtitle
                         categories
+                        tags
                         excerpt
                         category_icon
                         image {
@@ -55,7 +56,7 @@ export default (props) => (
             }
         `}
         render={data => {
-            const {categories, currentArticlePath} = props
+            const {categories, tags, currentArticlePath} = props
             
             const articles = getPostsFromQuery(data.posts)
 
@@ -63,6 +64,7 @@ export default (props) => (
                 articles, currentArticlePath
             )
             .setCategories(categories)
+            .setTags(tags)
             .getArticles()
             
             return (

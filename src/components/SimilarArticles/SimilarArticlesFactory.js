@@ -1,85 +1,5 @@
 // import { includes, orderBy } from 'lodash'
-import { orderBy } from 'lodash'
-
-// export class SimilarArticlesFactory {
-//     constructor (articles, currentArticlePath) {
-//         this.articles = articles.filter(
-//             (anArticle) => anArticle.path !== currentArticlePath
-//         )
-
-//         this.currentArticlePath = currentArticlePath
-//         this.maxArticles = 3
-//         this.categories = null
-//     }
-
-//     setMaxArticles(m) {
-//         this.maxArticles = m;
-//         return this;
-//     }
-
-//     setCategories(aCategory) {
-//         this.categories = aCategory
-//     }
-
-//     getArticles() {
-//         const {categories, articles, maxArticles, rating} = this
-//         const identityMap = {}
-
-//         if (!!categories === false) {
-//             console.error("SimilarArticlesFactory: Categories not provided, use SetCategories().")
-//         }
-
-//         const getPath = (articles) => {
-//             return articles.path;
-//         }
-
-//         const addToMap = (article) => {
-//             const path = getPath(article)
-//             let filteredRating = rating.filter(element => {
-//                 return element.node["name"] === article.title
-//             })
-
-//             if (!identityMap.hasOwnProperty(path)) {
-//                 identityMap[path] = {
-//                     article: article,
-//                     ratings: filteredRating[0].node,
-//                     points: 0
-//                 }
-//             }
-//         }
-
-//         const addCategoriesPoints= (article, categories) => {
-//             const addPoint = 2
-//             const path = getPath(article)
-
-//             article.categories.forEach((aCategory) => {
-//                 if (includes(categories, aCategory)) {
-//                     identityMap[path].points += addPoint
-//                 }
-//             })
-//         }
-
-//         const getIdentityMapAsArray = () => {
-//             return Object.keys(identityMap).map((path) => identityMap[path]);
-//         }
-
-//         for (let article of articles) {
-//             addToMap(article)
-//             addCategoriesPoints(article, categories)
-//         }
-
-//         const arrayIdentityMap = getIdentityMapAsArray()
-
-//         const similarArticles = orderBy(
-//             arrayIdentityMap, ['points'], ['desc']
-//         )
-
-//         return similarArticles.splice(0, maxArticles)
-//     }
-// }
-
-
-
+import { includes, orderBy } from 'lodash'
 
 export class SimilarArticlesFactory {
     constructor (articles, currentArticlePath) {
@@ -89,6 +9,7 @@ export class SimilarArticlesFactory {
         this.currentArticlePath = currentArticlePath;
         this.maxArticles = 4;
         this.categories = null;
+        this.tags = []
 
     }
   
@@ -101,10 +22,20 @@ export class SimilarArticlesFactory {
       this.categories = aCategory;
       return this;
     }
+
+    setTags(tagsArray) {
+      this.tags = tagsArray
+      return this
+    }
   
     getArticles() {
-      const {articles, categories, maxArticles } = this;
+      const {articles, categories, tags, maxArticles } = this;
       const identityMap = {};
+
+      if (!!tags === false) {
+        console.error("SimilarArticlesFactory: Tags not provided, use setTags()")
+        return []
+      }
 
       if(!!categories === false ) {
         console.error('SimilarArticlesFactory: Categories not provided, use setCategories().');
@@ -134,6 +65,17 @@ export class SimilarArticlesFactory {
           identityMap[path].points += points;
         }
       }
+
+      function addTagsPoints(article, tags) {
+        const tagPoint = 1;
+        const path = getPath(article);
+
+        article.frontmatter.tags.forEach((aTag) => {
+          if (includes(tags, aTag)) {
+            identityMap[path].points += tagPoint;
+          }
+        })
+      }
   
   
       function getIdentityMapAsArray() {
@@ -143,6 +85,7 @@ export class SimilarArticlesFactory {
       for (let article of articles) {
         addToMap(article);
         addCategoriesPoints(article, categories);
+        addTagsPoints(article, tags)
       }
   
       const arrayIdentityMap = getIdentityMapAsArray();

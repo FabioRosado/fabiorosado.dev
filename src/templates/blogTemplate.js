@@ -68,7 +68,7 @@ const Template = (props) => {
                     </div>
                 </div>
                 </section>
-                {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} currentArticlePath={frontmatter.slug} />}
+                {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />}
                 
         </Layout>
     )

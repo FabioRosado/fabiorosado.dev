@@ -5,6 +5,9 @@ subtitle: My first experience
 date:   2017-10-05 11:01:02 +0100
 categories: adventures
 category_icon:  fa fa-random
+tags:
+  - journey
+  - experience
 image: ../images/hacktoberfest.jpg
 excerpt: A look back on my first hacktoberfest in 2017. What have I learn, what have I contributed to and how I received a shirt.
 ---

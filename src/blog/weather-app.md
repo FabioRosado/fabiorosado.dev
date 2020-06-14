@@ -5,6 +5,9 @@ subtitle: Connect to an API using Vue and Axios
 date:   2018-08-25 16:50:00
 categories: Vue
 category_icon: fab fa-vuejs
+tags:
+  - tutorial
+  - code
 image: ../images/weatherApp.jpg
 excerpt: Using VueJs with Axios to connect to OpenWeatherMap API then we build a simple weather web application.
 ---
