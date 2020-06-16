@@ -1095,15 +1095,16 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .projects-container {
-  margin: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
   display: -ms-grid;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
 
 @media (min-width: 1160px) {
   .projects-container {
-    margin: 3rem;
+    margin: 2rem;
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }

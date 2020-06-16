@@ -13,11 +13,15 @@ class Portfolio extends Component {
         return(
             <Layout>
             <SEO title="FabioRosado | Portfolio" description="Projects done by FabioRosado" />
-            <h1 className="section center-text white-text">Portfolio</h1>
+            <section className="blog-post">
+              <div className="post-header">
+                <h1 className="large white-text">Portfolio</h1>
+              </div>
                 <section className="projects-container">
                     {projects.nodes.map((project) => 
                       <PortfolioCard project={project} key={project.frontmatter.title} /> 
                       )}
+                </section>
                 </section>
             </Layout>
         )

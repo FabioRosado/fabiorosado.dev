@@ -9,11 +9,12 @@
 }
 
 .projects-container {
-  margin: 2rem;
+  padding: 2rem;
+  border-radius: 10px;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   @include desktop {
-    margin: 3rem;
+    margin: 2rem;
     grid-template-columns: repeat(3, 1fr);
   }
 }

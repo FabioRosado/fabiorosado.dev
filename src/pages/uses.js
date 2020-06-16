@@ -14,7 +14,7 @@ const Uses = (props) => {
             <div className="post-header">
                 <h1 className="white-text larger">Uses</h1>
             </div>
-            <div className="background"></div>
+            <div className="background"/>
             <div className="post-area">
                 <div className="text-container">
                 <Img fluid={props.data.gear.childImageSharp.fluid} alt="Gear" /> 

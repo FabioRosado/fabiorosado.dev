@@ -12,12 +12,17 @@ class Blog extends Component {
         return(
             <Layout>
             <SEO title="FabioRosado | Writings" description="I write about code and share quick coding tips." />
-            <h1 className="section center-text white-text">Writings</h1>
-                <section className="page-container">
+              <section className="blog-post">
+                <div className="post-header">
+                  <h1 className="large white-text">Writings</h1>
+                </div>
+                  <section className="page-container">
                     {posts.nodes.map((post) => 
                       <WritingCard post={post} key={post.frontmatter.title} />  
                     )}
-                </section>
+                  </section>
+              
+              </section>
             </Layout>
         )
     }
