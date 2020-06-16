@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 
 import Layout from '../components/layout'
+import SEO from "../components/seo"
 import WritingCard from '../components/blog'
 
 
@@ -10,6 +11,7 @@ class Blog extends Component {
         const posts = this.props.data.blog
         return(
             <Layout>
+            <SEO title="FabioRosado | Writings" description="I write about code and share quick coding tips." />
             <h1 className="section center-text white-text">Writings</h1>
                 <section className="page-container">
                     {posts.nodes.map((post) => 

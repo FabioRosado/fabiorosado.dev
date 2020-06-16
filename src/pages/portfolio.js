@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import PortfolioCard from "../components/portfolio"
 
 
@@ -11,6 +12,7 @@ class Portfolio extends Component {
         const projects = this.props.data.projects
         return(
             <Layout>
+            <SEO title="FabioRosado | Portfolio" description="Projects done by FabioRosado" />
             <h1 className="section center-text white-text">Portfolio</h1>
                 <section className="projects-container">
                     {projects.nodes.map((project) => 
