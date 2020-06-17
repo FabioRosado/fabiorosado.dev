@@ -18,6 +18,8 @@ const Layout = (props) => (
   <>
   <Navigation />
   {props.children}
+
+  <Navigation />
   </>
 )
 

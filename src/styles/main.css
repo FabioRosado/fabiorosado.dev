@@ -571,6 +571,17 @@ nav .navbar .menu-button {
   }
   nav .navbar a {
     margin-right: 2rem;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+  }
+  nav .navbar a:hover {
+    background-color: #FF721E;
+    color: #1E2A39;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
   }
   nav .navbar .menu-button {
     visibility: hidden;
@@ -1123,6 +1134,72 @@ p, ul {
   width: 40em;
 }
 
+.similar-articles-section {
+  padding: 4rem;
+  margin: 4rem 0rem;
+}
+
+.profile-section {
+  padding: 4rem 0rem;
+  margin-top: 2rem;
+  background-color: #1e2a39;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-section .p-name {
+  font-family: "Dancing Script", cursive;
+  font-size: xxx-large;
+}
+
+.profile-section .h-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-section .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1rem;
+}
+
+.profile-section .social i {
+  margin-right: 1rem;
+  color: #FFFFFF;
+}
+
+.profile-section .social a {
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: .5rem;
+}
+
 .gatsby-highlight {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
@@ -1153,6 +1230,7 @@ pre[class*="language-"] {
   -webkit-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+  font-size: large;
 }
 
 /* Code blocks */

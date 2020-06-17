@@ -30,3 +30,47 @@ p, ul {
   margin: 0px auto;
   width: 40em;
 }
+
+.similar-articles-section {
+  padding: 4rem;
+  margin: 4rem 0rem;
+}
+
+.profile-section {
+  padding: 4rem 0rem;
+  margin-top: 2rem;
+  background-color: #1e2a39;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .p-name {
+    font-family: $cursive-font;
+    font-size: xxx-large;
+  }
+
+  .h-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+
+    i {
+      margin-right: 1rem;
+      color: color(text-color);
+    }
+
+    a {
+      color: color(text-color);
+      display: flex;
+      align-items: center;
+      margin-bottom: .5rem;
+
+    }
+  }
+}

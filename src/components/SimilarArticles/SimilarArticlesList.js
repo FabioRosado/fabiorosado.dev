@@ -15,7 +15,7 @@ const getPostsFromQuery = (posts) => {
 }
 
 const SimilarArticlesComponent = ({ articles }) => 
-    <section className="section">
+    <section className="similar-articles-section">
         <h3 className="margin-bottom margin-left">You might also like these</h3>
         <div className="similar-articles">
             {articles.map((article, i) => {

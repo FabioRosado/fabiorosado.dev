@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -70,6 +71,22 @@ const Template = (props) => {
                 </section>
                 {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />}
                 
+                <section className="profile-section">
+                    <div className="h-card">
+                    <Img className="u-photo" fixed={props.data.fabiorosado.childImageSharp.fixed} alt="FabioRosado" />
+                        <a className="p-name u-url" href="https://fabiorosado.dev">FabioRosado</a>
+                    </div>
+                    <div className="social">
+                        
+                            <a href="https://github.com/FabioRosado"  aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square" />FabioRosado</a>
+                            <a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile" rel="me"><i className="fab fa-2x fa-twitter-square" />FabioRosado_</a>
+                            <a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch"/>TheFlyingDev</a>
+                            <a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" />TheFlyingDev</a>
+
+                    
+                    </div>
+                
+                </section>
         </Layout>
     )
 }
@@ -80,6 +97,13 @@ export default Template
 
 export const pageQuery = graphql`
     query($slug: String!) {
+        fabiorosado: file(relativePath: {eq: "FabioRosado.png"}) {
+            childImageSharp {
+                fixed(width: 200, height: 200) {
+                ...GatsbyImageSharpFixed
+                }
+            }
+        }
         markdownRemark(frontmatter: { slug: { eq: $slug } }) {
             frontmatter {
                 slug
