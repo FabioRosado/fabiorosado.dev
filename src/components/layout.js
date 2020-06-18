@@ -6,6 +6,7 @@
  */
 
 import React from "react"
+import { Link } from "gatsby"
 
 import "../styles/main.css"
 import '../../static/css/all.min.css'
@@ -19,7 +20,13 @@ const Layout = (props) => (
   <Navigation />
   {props.children}
 
-  <Navigation />
+  <footer className="navbar padding-bottom">
+    <Link className="white-text margin-right" to="/">Home</Link>
+    <Link className="white-text margin-right" to="/#about">About</Link>
+    <Link className="white-text margin-right" to="/writings">Writings</Link>
+    <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
+    <Link className="white-text margin-right" to="/#contact">Contact</Link>
+  </footer>
   </>
 )
 
