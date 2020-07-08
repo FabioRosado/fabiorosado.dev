@@ -35,11 +35,10 @@ This project evolved with time and there is still a lot of work to do. My main f
 ## Images
 
 Thumbsupnews Home Page
-![Thumbsupnews Home Page](../images/thumbsupnews-index.jpg)
+![Thumbsupnews Home Page](../images/thumbsupnews_index.jpg)
 
 Thumbsupnews Contact Page
-![Thumbsupnews Contact Page](../images/thumbsupnews-contact.jpg)
+![Thumbsupnews Contact Page](../images/thumbsupnews_contact.jpg)
 
 Thumbsupnews Home Page List view
-![Thumbsupnews Home Page List view](../images/thumbsupnews-list.jpg)
-
+![Thumbsupnews Home Page List view](../images/thumbsupnews_list.jpg)
