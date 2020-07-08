@@ -22,7 +22,7 @@ The client also wanted an easy way to add new pictures and work done to the site
 
 # Info
 
-**Website:** [https://www.landl-build.com//](https://www.landl-build.com/)
+**Website:** [https://www.landl-build.com/](https://www.landl-build.com/)
 
 **GitHub repo:** Private
 
