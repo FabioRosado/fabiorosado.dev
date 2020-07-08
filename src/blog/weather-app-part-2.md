@@ -8,7 +8,7 @@ category_icon: fab fa-vuejs
 image: ../images/weatherApp.jpg
 tags:
   - tutorial
-  - code
+  - javascript
 excerpt: Learn how to implement HTML5 Geolocation API and VueJs together to get the current location of an user.
 ---
 

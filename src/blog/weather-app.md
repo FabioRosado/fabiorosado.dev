@@ -7,7 +7,7 @@ categories: Vue
 category_icon: fab fa-vuejs
 tags:
   - tutorial
-  - code
+  - javascript
 image: ../images/weatherApp.jpg
 excerpt: Using VueJs with Axios to connect to OpenWeatherMap API then we build a simple weather web application.
 ---
