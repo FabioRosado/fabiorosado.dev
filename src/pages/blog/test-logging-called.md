@@ -22,32 +22,32 @@ Opsdroid uses a file named `configuration.yml` to keep track of all the configur
 The `welcome_message` function is a very basic function that uses the `logging.info` to log a quick get started information about Opsdroid.
 
 ```python
-1  def welcome_message(config):
-2      """Add welcome message if set to true in configuration."""
-3      try:
-4          if config['welcome-message']:
-5              LOGGER.info("=" * 40)
-6              LOGGER.info("You can customise your opsdroid by modifying "
-7                          "your configuration.yaml")
-8              LOGGER.info("Read more at: "
-9                          "http://opsdroid.readthedocs.io/#configuration")
-10             LOGGER.info("Watch the Get Started Videos at: "
-11                         "http://bit.ly/2fnC0Fh")
-12             LOGGER.info("Install Opsdroid Desktop at: "
-13                         "https://github.com/opsdroid/opsdroid-desktop/releases")
-14             LOGGER.info("=" * 40)
-15     except KeyError:
-16         pass
+  def welcome_message(config):
+      """Add welcome message if set to true in configuration."""
+      try:
+          if config['welcome-message']:
+              LOGGER.info("=" * 40)
+              LOGGER.info("You can customise your opsdroid by modifying "
+                          "your configuration.yaml")
+              LOGGER.info("Read more at: "
+                          "http://opsdroid.readthedocs.io/#configuration")
+             LOGGER.info("Watch the Get Started Videos at: "
+                         "http://bit.ly/2fnC0Fh")
+             LOGGER.info("Install Opsdroid Desktop at: "
+                         "https://github.com/opsdroid/opsdroid-desktop/releases")
+             LOGGER.info("=" * 40)
+     except KeyError:
+         pass
 ```
 
 # The Test
 
 ```python
-1   def test_welcome_message(self):
-2    config = {"welcome-message": True}
-3    with mock.patch('opsdroid.__main__.LOGGER.info') as logmock:
-4      opsdroid.welcome_message(config)
-5      self.assertTrue(logmock.called)
+   def test_welcome_message(self):
+      config = {"welcome-message": True}
+      with mock.patch('opsdroid.__main__.LOGGER.info') as logmock:
+        opsdroid.welcome_message(config)
+        self.assertTrue(logmock.called)
 ```
 
 - We start the function by creating a dummy config file that will always return the welcome message.

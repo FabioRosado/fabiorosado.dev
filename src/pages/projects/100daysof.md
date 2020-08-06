@@ -1,5 +1,5 @@
 ---
-slug: 100daysoff
+slug: 100daysof
 title:  100DaysOf
 date:   2019-01-15 10:50:00 +0000
 categories: Projects
