@@ -1,5 +1,5 @@
 ---
-slug: unittest-how-to-test-sysexit
+slug: unittest-sys-exit
 title:  Unittest -  How to test for sys.exit
 subtitle: How I have managed to test a function that calls sys.exit(1) 
 author: "FabioRosado"
