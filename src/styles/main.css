@@ -959,7 +959,7 @@ nav .menu-button .gg-menu-right::after {
 
 @media (min-width: 1160px) {
   .blog-post .post-header {
-    padding: 4rem 5rem 4rem 16rem;
+    padding: 4rem 5rem;
   }
 }
 
@@ -1204,11 +1204,11 @@ p, ul {
   margin-bottom: 2.5rem;
 }
 
-.language-text {
-  padding: 2px 6px !important;
-  color: #79b3fd !important;
+code {
+  padding: 2px 6px;
+  color: #79b3fd;
   border: 1px solid #1b2530;
-  background-color: #1b2530 !important;
+  background-color: #1b2530;
 }
 
 code[class*="language-"],

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -10,11 +10,38 @@ import MentionsCounter from "../components/webmentions/counter"
 
 
 const Template = (props) => {
+    const data = useStaticQuery(
+        graphql`
+            query {
+                fabiorosado: file(relativePath: {eq: "FabioRosado.png"}) {
+                    childImageSharp {
+                        fixed(width: 200, height: 200) {
+                        ...GatsbyImageSharpFixed
+                    }
+                }
+            }
+            allMdx {
+                nodes {
+                    timeToRead
+                    slug
+                    frontmatter {
+                        date(formatString: "dddd Mo, MMM YYYY")
+                    }
+                }
+            }
+         }
+        `)
+
     const [totalMentions, setTotalMentions] = useState(0)
     const [show, setShow] = useState(false)
-    const { markdownRemark } = props.data
-    const { frontmatter, html, fields } = markdownRemark
-
+    const { frontmatter } = props.pageContext
+    
+    const [postInformation] = data.allMdx.nodes.filter(post => {
+        if (post.slug === frontmatter.slug) {
+            return post
+        }
+        return '' 
+    })
     useEffect(() => {
         const fetchTotalMentions = async () => {
             const resp = await fetch(
@@ -38,17 +65,16 @@ const Template = (props) => {
                     <h1 className="white-text larger">{frontmatter.title}</h1>
                     <p className="white-text metadata">
                         <span className="metadata-icons"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
-                        <span className="metadata-icons"><i className="far fa-clock"/> {frontmatter.date}</span>
-                        <span className="metadata-icons"><i className="far fa-eye"/> {fields.readingTime.text}</span>
+                        <span className="metadata-icons"><i className="far fa-clock"/> {postInformation.frontmatter.date}</span>
                         <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
                 </div>
                 <div className="background" />
-                <div className="post-area">
+                <article className="post-area">
                     <div className="text-container">
                         <div className="article">
                             <h1 className="dark-text">{frontmatter.subtitle}</h1>
-                            <div dangerouslySetInnerHTML={{__html: html }} />
+                            {props.children}
                     </div>
                     <div className="webmentions-container">
                         <h3>Webmentions</h3>
@@ -67,25 +93,21 @@ const Template = (props) => {
                     <Webmentions slug={frontmatter.slug} show={`${show ? "visible" : "invisible"}`}/>
 
                     </div>
-                </div>
+                </article>
                 </section>
                 {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />}
                 
                 <section className="profile-section">
                     <div className="h-card">
-                    <Img className="u-photo" fixed={props.data.fabiorosado.childImageSharp.fixed} alt="FabioRosado" />
+                    <Img className="u-photo" fixed={data.fabiorosado.childImageSharp.fixed} alt="FabioRosado" />
                         <a className="p-name u-url" href="https://fabiorosado.dev">FabioRosado</a>
                     </div>
                     <div className="social">
-                        
                             <a href="https://github.com/FabioRosado"  aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square" />FabioRosado</a>
                             <a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile" rel="me"><i className="fab fa-2x fa-twitter-square" />FabioRosado_</a>
                             <a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch"/>TheFlyingDev</a>
                             <a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" />TheFlyingDev</a>
-
-                    
                     </div>
-                
                 </section>
         </Layout>
     )
@@ -93,46 +115,3 @@ const Template = (props) => {
 
 
 export default Template
-
-
-export const pageQuery = graphql`
-    query($slug: String!) {
-        fabiorosado: file(relativePath: {eq: "FabioRosado.png"}) {
-            childImageSharp {
-                fixed(width: 200, height: 200) {
-                ...GatsbyImageSharpFixed
-                }
-            }
-        }
-        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-            frontmatter {
-                slug
-                title
-                subtitle
-                categories
-                excerpt
-                category_icon
-                author
-                source
-                tag
-                tag_icon
-                tags
-                tech
-                date(formatString: "dddd Mo, MMM YYYY")
-                image {
-                    childImageSharp {
-                        fluid(maxWidth: 1250, maxHeight: 400) {
-                            ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-            fields {
-                readingTime {
-                    text
-                }
-            }
-            html
-        }
-    }
-`

@@ -33,7 +33,7 @@ export default Portfolio
 
 export const pageQuery = graphql`
   query {
-    projects: allMarkdownRemark(
+    projects: allMdx(
       filter: {frontmatter: {categories: {eq: "Projects"}}}, 
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {

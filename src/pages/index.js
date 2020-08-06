@@ -127,7 +127,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    blog: allMarkdownRemark(
+    blog: allMdx(
       filter: {frontmatter: {categories: {ne: "Projects"}}}, 
       limit: 8, 
       sort: {fields: [frontmatter___date], order: DESC}) {
@@ -149,7 +149,7 @@ export const pageQuery = graphql`
       }
     }
   }
-    portfolio: allMarkdownRemark(
+    portfolio: allMdx(
       filter: {frontmatter: {categories: {eq: "Projects"}}}, 
       limit: 3,
       sort:{fields: [frontmatter___date], order: DESC}) {

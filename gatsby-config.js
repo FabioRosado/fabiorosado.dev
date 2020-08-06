@@ -33,9 +33,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          default: require.resolve("./src/templates/blog.js"),
+          projects: require.resolve("./src/templates/projectsTemplate.js") 
+        },
+        gatsbyRemarkPlugins: [
           {resolve:`gatsby-remark-images-anywhere`},
           {resolve: `gatsby-remark-relative-images`},
           {
@@ -47,8 +52,6 @@ module.exports = {
               backgroundColor: '#1A2430',
             }
           },
-          {resolve: `gatsby-remark-reading-time`},
-          {resolve: `gatsby-remark-prismjs`}
         ]
       }
     },
@@ -64,64 +67,5 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-feed`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-            {
-              serialize: ({ query: { site, allMarkdownRemark }}) => {
-                return allMarkdownRemark.edges.map(edge => {
-                  if (edge.node.frontmatter.categories !== "Projects") {
-                    return Object.assign({}, edge.node.frontmatter, {
-                      description: edge.node.frontmatter.excerpt,
-                      category: edge.node.frontmatter.categories,
-                      date: edge.node.frontmatter.date,
-                      url: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
-                      guid: `${site.siteMetadata.siteUrl}/${edge.node.frontmatter.slug}`,
-                      custom_elements: [{"content:encoded": edge.node.html}]
-                    })
-                  }
-                })
-              },
-              query: `
-              {
-                allMarkdownRemark(
-                  filter: {frontmatter: {categories: {ne: "Projects"}}}, 
-                  sort: {fields: [frontmatter___date], order: DESC}
-                ) {
-                  edges {
-                    node {
-                      frontmatter {
-                        excerpt
-                        slug
-                        title
-                        date
-                      }
-                    }
-                  }
-                }
-
-              }`,
-              output: "/rss.xml",
-              title: "FabioRosado RSS Feed",
-          }
-        ]
-      }
-    }
   ]
 }

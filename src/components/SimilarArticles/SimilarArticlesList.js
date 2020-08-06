@@ -31,7 +31,7 @@ export default (props) => (
         query={
             graphql`
                 query {
-                    posts: allMarkdownRemark(
+                    posts: allMdx(
                     filter: {frontmatter: {categories: {ne: "Projects"}}}, 
                     sort: {fields: [frontmatter___date], order: DESC}) {
                     nodes {

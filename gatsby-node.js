@@ -10,11 +10,11 @@ const _ = require("lodash")
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
 
-    const blogTemplate = path.resolve(`src/templates/blogTemplate.js`)
+    const blogTemplate = path.resolve(`src/templates/blog.js`)
 
     return graphql(`
     {
-        allMarkdownRemark(
+        allMdx(
             sort: { order: DESC, fields: frontmatter___date}
         ){
             edges {
@@ -33,6 +33,9 @@ exports.createPages = ({ actions, graphql }) => {
                         tags
                         tech
                     }
+                    id
+                    body
+                    timeToRead
                 }
             }
         }
@@ -40,17 +43,33 @@ exports.createPages = ({ actions, graphql }) => {
         if (result.errors) {
             return Promise.reject(result.errors)
         }
-        const posts = result.data.allMarkdownRemark.edges
+        const posts = result.data.allMdx.edges
 
         posts.forEach(({ node }) => {
             createPage({
                 path: node.frontmatter.slug,
                 component: blogTemplate,
                 context: {
-                    slug: node.frontmatter.slug
+                    slug: node.frontmatter.slug,
+                    id: node.id
                 }
             })
         })
 
     })
 }
+
+// const { createFilePath } = require(`gatsby-source-filesystem`)
+
+// exports.onCreateNode = ({ node, actions, getNode }) => {
+//     const { createNodeField } = actions
+//     if (node.internal.type === `Mdx`) {
+//         const value = createFilePath({ node, getNode})
+
+//         createNodeField({
+//             name: `slug`,
+//             node,
+//             value: value
+//         })
+//     }
+// }
