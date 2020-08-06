@@ -1,5 +1,5 @@
 ---
-slug: test-was-logging-called
+slug: test-logging-called
 title:  "Test: Was Logging called"
 subtitle:
 author: "FabioRosado"

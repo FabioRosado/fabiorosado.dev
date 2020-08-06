@@ -37,11 +37,10 @@ const Template = (props) => {
     const { frontmatter } = props.pageContext
     
     const [postInformation] = data.allMdx.nodes.filter(post => {
-        if (post.slug === frontmatter?.slug) {
-            console.log(frontmatter)
+        if (post.slug === frontmatter.slug) {
             return post
         }
-        return {timeToRead: 0, date: post.date, frontmatter: {slug: post.slug}}
+        return {timeToRead: 0, date: post.date, frontmatter: {slug: frontmatter.slug}}
     })
 
     const { timeToRead } = postInformation
