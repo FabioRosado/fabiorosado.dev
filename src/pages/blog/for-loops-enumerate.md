@@ -9,7 +9,7 @@ category_icon:  fab fa-python
 tags:
   - code
   - challenges
-image: ../images/enumerate.jpg
+image: ../../images/enumerate.jpg
 excerpt: The enumerate built-in function it's a great way to iterate over something. Your code will be more readable and you have some flexibility when looping.
 ---
 The enumerate built-in function it's a great way to iterate over something. Your code will be more readable and you have some flexibility when building a loop. You can use enumerate in any sequence, iterator or another object that supports iteration.

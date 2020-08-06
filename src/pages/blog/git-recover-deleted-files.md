@@ -8,7 +8,7 @@ categories: Git
 category_icon: fas fa-code-branch
 tags:
   - tips
-image: ../images/git-recover.jpg
+image: ../../images/git-recover.jpg
 excerpt: Deleting files doesn't mean deleted permanently, learn how to turn back time and recover deleted files.
 ---
 

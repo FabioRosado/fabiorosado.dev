@@ -9,7 +9,7 @@ category_icon: fa fa-terminal
 tags:
   - tutorial
   - terminal
-image: ../images/vim.jpg
+image: ../../images/vim.jpg
 excerpt: Vim is still one of the editors that confuses some developers. This introduction will keep you up to speed with this powerful editor.
 ---
 

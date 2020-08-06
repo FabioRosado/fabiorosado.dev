@@ -285,6 +285,10 @@ a {
   color: #FFFFFF;
 }
 
+.orange-text {
+  color: #FF721E;
+}
+
 .grey-text {
   color: #57606B;
 }
@@ -1087,6 +1091,11 @@ nav .menu-button .gg-menu-right::after {
 
 .larger {
   font-size: 3em;
+}
+
+.gatsby-resp-image-wrapper {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .page-container {

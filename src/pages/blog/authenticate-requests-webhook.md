@@ -10,7 +10,7 @@ tags:
   - tips
   - backend
   - webhooks
-image: ../images/validate-webhook.jpg
+image: ../../images/validate-webhook.jpg
 excerpt: Twitch suggests that we should pass a `hub.secret` so we can compare sha-256 hashes and check the authenticity of the request. This is how I did it in Python.
 
 ---

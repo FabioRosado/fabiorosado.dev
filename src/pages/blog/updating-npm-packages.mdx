@@ -9,7 +9,7 @@ category_icon: fab fa-npm
 tags: 
   - tips
   - javascript
-image: ../images/update-npm.jpg
+image: ../../images/update-npm.jpg
 excerpt: Keeping your dependencies up to date is not always straightforward, let me share with you how you can keep all your dependencies update by running two commands.
 
 ---
@@ -18,7 +18,7 @@ Today I had to work on project that was 1 year old and a lot of the dependencies
 
 We can run the command `npm outdated` to get a list of all the dependencies that have new releases.
 
-![outdated list](images/outdated.png)
+![outdated list](../../images/outdated.png)
 
 We then need a way to update them all, that’s when another package called `npm-check-updates` comes in handy. This package will upgrade the package.json versions of all outdated dependences.
 
@@ -30,6 +30,6 @@ _Note: You should install this package globally so you can use on other projects
 
 After installing the package you need to run `ncu -u`  on your terminal to upgrade  your package.json.
 
-![updated list](images/updated-list.png)
+![updated list](../../images/updated-list.png)
 
 Finally you can run the command `npm update` to update your dependencies.

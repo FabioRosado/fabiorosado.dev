@@ -7,7 +7,7 @@ tag: Chat Bot
 tag-icon: fas fa-robot
 source: https://github.com/opsdroid/opsdroid
 tech: Python Asyncio NLU
-image: ../images/opsdroid.jpg
+image: ../../images/opsdroid.jpg
 excerpt: An open source chatbot framework written in python. It is designed to be extendable, scalable and simple.
 ---
 While listening to one episode of `Podcast.__init__` I came across Opsdroid. In the end of the show, Jacob Tomlinson says that he would love to have people helping with the project.  

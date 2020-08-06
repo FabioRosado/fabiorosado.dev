@@ -5,7 +5,7 @@ date:   2018-08-16 15:25:00
 categories: Projects
 tag: Landing Page
 tag-icon: fas fa-file
-image: ../images/landingpage.jpg
+image: ../../images/landingpage.jpg
 source: https://github.com/FabioRosado/landing-page
 tech: VueJS Bulma HTML/CSS
 excerpt: A landing page that shows quotes, current weather and time, it also has a list of to do and notes.

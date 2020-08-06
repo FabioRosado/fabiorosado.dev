@@ -20,14 +20,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/src/blog`
+        path: `${__dirname}/src/pages/blog`
       }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,
-        path: `${__dirname}/src/projects`
+        path: `${__dirname}/src/pages/projects`
       }
     },
     `gatsby-transformer-sharp`,
@@ -35,14 +35,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
+        extensions: [`.md`, `.mdx`],
         defaultLayouts: {
-          default: require.resolve("./src/templates/blog.js"),
-          projects: require.resolve("./src/templates/projectsTemplate.js") 
+          default: require.resolve("./src/templates/pageTemplate.js"),
         },
         gatsbyRemarkPlugins: [
-          {resolve:`gatsby-remark-images-anywhere`},
-          {resolve: `gatsby-remark-relative-images`},
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -61,8 +58,8 @@ module.exports = {
         name: `Fabio Rosado Portfolio`,
         short_name: `FabioRosado`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#1A2430`,
+        theme_color: `#FF721E`,
         display: `minimal-ui`,
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },

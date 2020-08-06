@@ -42,6 +42,9 @@ const Template = (props) => {
         }
         return '' 
     })
+
+    const { timeToRead } = postInformation
+
     useEffect(() => {
         const fetchTotalMentions = async () => {
             const resp = await fetch(
@@ -61,11 +64,12 @@ const Template = (props) => {
             <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
             <section className="blog-post">
                 <div className="post-header">
-                    <h3 className="white-text">{frontmatter.categories}</h3>
+                    <h3>{frontmatter.categories}</h3>
                     <h1 className="white-text larger">{frontmatter.title}</h1>
                     <p className="white-text metadata">
-                        <span className="metadata-icons"><i className="far fa-user"/> {frontmatter.author || `FabioRosado`}</span>
-                        <span className="metadata-icons"><i className="far fa-clock"/> {postInformation.frontmatter.date}</span>
+                        <span className="metadata-icons"><i className="far fa-user orange-text"/> {frontmatter.author || `FabioRosado`}</span>
+                        <span className="metadata-icons"><i className="far fa-clock orange-text"/> {postInformation.frontmatter.date}</span>
+                        <span className="metadata-icons"><i className="far fa-eye orange-text"/> {timeToRead > 1 ? `${timeToRead} mins to read` : `${timeToRead} min to read`} </span>
                         <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
                 </div>
@@ -75,7 +79,7 @@ const Template = (props) => {
                         <div className="article">
                             <h1 className="dark-text">{frontmatter.subtitle}</h1>
                             {props.children}
-                    </div>
+                        </div>
                     <div className="webmentions-container">
                         <h3>Webmentions</h3>
                         <div>

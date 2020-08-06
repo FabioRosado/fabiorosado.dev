@@ -9,7 +9,7 @@ category_icon: fa fa-terminal
 tags: 
   - tips
   - bash
-image: ../images/goran-ivos-245581.jpg
+image: ../../images/goran-ivos-245581.jpg
 excerpt: Working with the command line can be fun and save you plenty of time. These tricks will help you save even more time when you have to repeat commands. 
 ---
 

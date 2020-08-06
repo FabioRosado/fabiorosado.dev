@@ -10,7 +10,7 @@ const _ = require("lodash")
 exports.createPages = ({ actions, graphql }) => {
     const { createPage } = actions
 
-    const blogTemplate = path.resolve(`src/templates/blog.js`)
+    const blogTemplate = path.resolve(`src/templates/pageTemplate.js`)
 
     return graphql(`
     {
@@ -58,18 +58,3 @@ exports.createPages = ({ actions, graphql }) => {
 
     })
 }
-
-// const { createFilePath } = require(`gatsby-source-filesystem`)
-
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//     const { createNodeField } = actions
-//     if (node.internal.type === `Mdx`) {
-//         const value = createFilePath({ node, getNode})
-
-//         createNodeField({
-//             name: `slug`,
-//             node,
-//             value: value
-//         })
-//     }
-// }

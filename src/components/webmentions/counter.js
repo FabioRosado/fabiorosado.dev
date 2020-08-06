@@ -23,8 +23,8 @@ const MentionsCounter = ({ postUrl, styles }) => {
 
     return (
         <>
-            <span className={styles}><i className="far fa-heart" /> {likes} {likes > 1 ? "Likes" : "Like"} </span>
-            <span className={styles}><i className="far fa-comment" /> {mentions} {mentions > 1 ? "Comments" : "Comment"}</span>
+            <span className={styles}><i className="far fa-heart orange-text" /> {likes} {likes > 1 ? "Likes" : "Like"} </span>
+            <span className={styles}><i className="far fa-comment orange-text" /> {mentions} {mentions > 1 ? "Comments" : "Comment"}</span>
         </>
     )
 }
