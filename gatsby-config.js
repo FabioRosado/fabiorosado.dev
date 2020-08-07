@@ -64,5 +64,43 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
+        {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        hideAttribution: true,
+        query: `
+        {
+          blog: allMdx(filter: {frontmatter: {categories: {ne: "Projects"}}}) {
+            edges {
+              node {
+                id
+                slug
+                frontmatter {
+                  date
+                }
+              }
+            }
+          }
+          projects: allMdx(filter: {frontmatter: {categories: {eq: "Projects"}}}) {
+            edges {
+              node {
+                id
+                slug
+                frontmatter {
+                  date
+                }
+              }
+            }
+          }
+        }`,
+        mapping: {
+          blog: { sitemap: `blog`},
+          portfolio: { sitemap: `portfolio`},
+          pages: { sitemap: `pages`}
+        },
+        exclude: [`/404/`, `/dev-404-page/`, `/404.html`],
+        addUncaughtPages: true,
+        }
+      },
   ]
 }

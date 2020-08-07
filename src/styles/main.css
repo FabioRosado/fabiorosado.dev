@@ -1238,13 +1238,15 @@ p, ul {
 
 code {
   padding: 2px 6px;
-  color: #79b3fd;
+  color: #78b2fd;
   border: 1px solid #1b2530;
   background-color: #1b2530;
+  border-radius: 5px;
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
+  padding: 0;
   color: #f8f8f2;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
