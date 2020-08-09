@@ -1,0 +1,66 @@
+---
+slug: highlight-text-with-sphinx
+title: Sphinx - How to highlight text
+subtitle: From getting an odd error to understanding sphinx a bit better.
+author: "FabioRosado"
+date:   2020-08-09 14:00:00 +0000
+categories: Python
+category_icon: fab fa-python
+tags: 
+  - errors
+  - documentation
+image: '../../images/sphinx-error.jpg'
+excerpt: How an error in the docs CI made me learn a bit more about RST and how to properly highlight a piece of text. 
+
+---
+
+Error messages can be hard to read. Some errors are just impossible to understand. This is how I felt after getting a failure on CI for opsdroid docs.
+
+
+The error message that I mean said `Inline interpreted text or phrase reference start-string without end-string.`  and here is the error in all its glory! 
+
+```python
+Warning, treated as error:
+ [108](https://github.com/opsdroid/opsdroid/runs/941790940#step:5:108) 
+/home/runner/work/opsdroid/opsdroid/opsdroid/connector/twitch/__init__.py:docstring of opsdroid.connector.twitch.ConnectorTwitch.twitch_webhook_handler:7:Inline interpreted text or phrase reference start-string without end-string.
+```
+
+
+After reading through the error, it didn't make much sense. Perhaps, I forgot to close a sentence with a period?
+
+## Some Context
+
+We migrated to [Sphinx](https://www.sphinx-doc.org) to generate our documentation. 
+
+The great thing about Sphinx is that you can use your [docstrings](https://www.python.org/dev/peps/pep-0257/#what-is-a-docstring)  to write your documentation, so you don't have to re-write the docs twice.
+
+Opsdroid docstrings are pretty good; we aim to give a lot of information to make it easier for new contributors and new coders to understand the codebase faster.
+
+Before Sphinx, we used to write the docstrings, then write the documentation in markdown. This means that we would repeat the process of writing the documentation. We spent too long on it.
+
+My PR that adds a Twitch Connector to opsdroid uses the docstrings as the main documentation;  I tried to highlight code like you would do in markdown - by using the ```.
+
+## Back to the error
+
+After looking for the missing punctuation, everything seemed to be in order, but the docs kept failing.
+
+Luckily another maintainer spotted the issue and shown me how to quickly fix the problem. 
+
+The problem was that in RST back-ticks (```)  are (or can be) used as a reference. To highlight a piece of text, you need to use double back-ticks and finish off with an empty space.
+
+So what you would normally do in markdown won't work in RST.
+
+```markdown
+This is my awesome `code`.
+```
+This code needs to be written like this instead:
+
+```markdown
+This is my awesome ``code`` .
+```
+
+As you can see, understanding the error is hard, and if you never worked with RST you will probably be as puzzled as me. Luckily, [Cadair](https://github.com/Cadair) knew about it and helped me solve this issue!
+
+After making the changes, CI passed and everything worked as expected.
+
+I hope this helps you if you ever encounter this error or if you are trying to highlight a piece of text using Sphinx, but is not working.
