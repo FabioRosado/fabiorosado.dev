@@ -99,9 +99,6 @@
       @include desktop {
         font-size: 60px;
         line-height: 50px;
-        padding-top: 4px;
-        padding-right: 8px;
-        padding-left: 3px;
       }
     }
   }
@@ -115,4 +112,25 @@
 .gatsby-resp-image-wrapper {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+.example {
+  background-color: #1b2530;
+  border-radius: 0.3em;
+  border: 1px solid #6089bd;
+
+  .example-header {
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #6089bd;
+    padding: 1rem;
+    color: #f885cc;
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .example-body {
+    padding: 1rem;
+  }
+
 }

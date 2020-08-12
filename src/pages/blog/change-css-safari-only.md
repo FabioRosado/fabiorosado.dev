@@ -9,6 +9,7 @@ category_icon: fab fa-sass
 tags: 
   - tips
   - webdev
+  - styling
 image: ../../images/safari_only.jpg
 excerpt: How I came across the need to set a css rule to apply only to Safari and which media queries combination will allow that.
 ---

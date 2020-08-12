@@ -1,0 +1,91 @@
+---
+slug: first-letter-spread-multiple-lines
+title: Make the first letter spread multiple lines
+subtitle: A quick trick to make the first letter spread multiple lines.
+author: "FabioRosado"
+date:   2020-08-12 10:50:00 +0000
+categories: SASS/CSS
+category_icon: fab fa-sass
+tags: 
+  - styling
+  - tips
+  - webdev
+image: '../../images/letter-trick.jpg'
+excerpt: A lot of sites make the first letter of a paragraph spread to multiple lines, let me share with you how you can do it.
+---
+
+I've always liked to see articles where the first letter of the first paragraph is much larger and expands a few lines. So I wanted to try and do the same on my personal site.
+
+Since I am using Scss on my site, I will first show you how to do it using CSS. Then how you can do it with CSS, it won't be much of a difference, I'm sure you will be able to understand what's happening.
+
+<div className="example">
+  <div className="example-header">Example</div>
+  <div className="article example-body">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut velit sit amet tellus gravida interdum et eu nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas ac pharetra magna. Nunc tincidunt dolor odio, ut mollis turpis lobortis et. Aenean in vulputate nulla. Vestibulum accumsan ultrices interdum. Integer tempus tellus ipsum, eget tempus leo efficitur non. Ut in dui in turpis pretium luctus. Integer posuere dolor sit amet felis volutpat posuere. Duis congue ut purus at faucibus.</p>
+  </div>
+</div>
+
+
+## Selectors
+
+Since the goal is to transform only the first letter of the first paragraph of your article, we need two selectors, the `:first-of-type` and the `:first-letter`.
+
+By adding the first-of-type selector to the paragraph, it will only apply the rules to the very first paragraph inside the article element. Since we are applying the rules to the first paragraph, we also need to add the first-letter selector to apply the rules only and only to the first letter in the first paragraph.
+
+
+```scss
+  p:first-of-type {
+    &:first-letter {
+      float: left; 
+      color: #FF721E; 
+        font-size: 60px;
+        line-height: 50px;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px;
+    }
+  }
+```
+
+Using the `float` rule, will make the first letter to move to the left and put the rest of the test on the same line as the big letter. We also need to increase the font-size and the line-height, otherwise, the letter will occupy the whole left space and will not allow the rest of the text to move under it.
+
+Finally, I added some padding just to add a bit more space around the letter. If you don't add some padding, the text will stay too close.
+
+## Responsiveness
+
+When users use your site on mobile, the first letter might look way too big. It sure did on my case, so I tweaked the `font-size` and `line-height` a bit, making the first letter smaller then added a media query for a desktop screen and then, increase the letter size back to the previous values.
+
+
+```scss
+  p:first-of-type {
+    &:first-letter {
+      float: left; 
+      color: #FF721E; 
+      font-size: 45px;
+      line-height: 43px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+      @include desktop {
+        font-size: 60px;
+        line-height: 50px;
+      }
+    }
+  }
+```
+
+## CSS Version
+
+Well if you want to use this trick with CSS instead, I got you covered. The rules will look the same. You can just add the two selectors together. Note that you will need to add a media query here if you want to change the size of the letter in smaller screens.
+
+```css
+p:first-of-type:first-letter {
+  float: left;
+  color: #FF721E;
+  font-size: 60px;
+  line-height: 50px;
+}
+```
+
+I hope this helps you add that effect to your site, feel free to share it with me on Twitter [@FabioRosado_](https://twitter.com/FabioRosado_).
+
