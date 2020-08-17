@@ -1,0 +1,35 @@
+---
+slug: global-gitignore
+title: Gitignore a file globally
+subtitle: Ignoring a file globally is easy
+author: "FabioRosado"
+date:   2020-08-17 09:20:02 +0000
+categories: Git
+category_icon: fas fa-code-branch
+tags: 
+  - tips
+image: ../../images/git.jpg
+excerpt: How to ignore a file globally without having to add it every single time to your .gitignore file.
+---
+
+
+Sometimes you might want to exclude a file on every git repository that you have, but you don't want to add that file to .gitignore. In my case, I've been using two files on my projects, a **TODO** and a **NOTES**.
+
+Both of these files are just plain text files. The TODO I'm using to keep all the todos for that project. I find that it works best to have the TODO file on the project folder so I can quickly open and tick off the things that I have been working on than to go to the browser and use trello or another task manager.
+
+The notes file was something that [David Poindexter](https://www.dpoindexter.com/) suggested that I should do. On his projects, he adds a NOTES file where he keeps track of all the things he has worked on, what worked, what didn't and that will help in the future when you have to come back to an old project.
+
+
+## The trick
+
+This was a trick that [Jacob Tomlinson](https://jacobtomlinson.dev/) shared with me when I added my TODO file to [opsdroid](https://opsdroid.dev) .gitignore file. He said that I should add this file on my global .gitignore and pointed me to this Stack Overflow answer - [Global Git Ignore](https://stackoverflow.com/questions/7335420/global-git-ignore/7335487#7335487)
+
+```shell
+git config --global core.excludesfile '~/.gitignore'
+```
+
+This command will allow you to tell git where your .gitignore file is and the `--global` flag will add this file as global, so every single project that you start will look into that file and ignore anything inside it.
+
+The cool thing is that the project's gitignore will also work, so you can have your own file and a project's gitignore working together.
+
+I hope you enjoy this little trick and that it proves useful for you.

@@ -4,7 +4,7 @@ title:  "Git: Merge Conflicts"
 subtitle: How to fix git conflicts
 author: "FabioRosado"
 date:   2017-10-19 14:00:02 +0100
-categories: GitHub
+categories: Git
 category_icon: fas fa-code-branch
 tags:
   - tips
