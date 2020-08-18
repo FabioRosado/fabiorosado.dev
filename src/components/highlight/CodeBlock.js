@@ -12,7 +12,7 @@ export default (props) => {
         const [text, setText] = useState("Copy")
 
         return (
-            <button className="code-copy-button" onClick={e => {
+            <button className="code-copy-button" onClick={() => {
                 navigator.clipboard.writeText(props.content)
                 setText("Copied!")
                 setTimeout(() => { setText("Copy")}, 1000)

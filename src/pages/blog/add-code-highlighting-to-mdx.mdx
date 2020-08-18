@@ -1,0 +1,343 @@
+---
+slug: add-code-highlighting-to-mdx
+title: Add code highlighting to MDX
+subtitle: How to add code highlighting to Gatsby and MDX
+author: "FabioRosado"
+date:   2020-08-18 09:12:00 +0000
+categories: React
+category_icon: fab fa-react
+tags: 
+  - tips
+  - javascript
+image: ../../images/code-highlight.jpg
+excerpt: How to add syntax highlighting to gatsby MDX with prism.
+---
+
+I've recently dropped markdownRemark and started using MDX to write my posts. MDX is great since it allows you to import components and even write code that will be converted as expected. You can also use graphql queries on your posts which is very useful.
+
+I have been using the [gatsby prism plugin](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/?=prism) to get my code highlighting work, but after moving to MDX this plugin stopped working, so I went ahead in search for a way to get the code highlighting working again. [This article](https://codetrain.io/adding-prism-syntax-highlighting-to-gatsby-mdx) did that.
+
+## Dependencies
+
+To get the code highlighting work with MDX, we need to install the [pristm react renderer](https://github.com/FormidableLabs/prism-react-renderer) package.
+
+```shell
+npm install prism-react-renderer
+```
+
+## The Code Block Component
+
+Following the tutorial, I wrote a code block component. I've done some changes to my code block component since I wanted to use my code highlighting theme, I've also added line numbers to each line.
+
+```javascript
+import React from "react"
+import Highlight, { defaultProps } from "prism-react-renderer"
+
+export default (props) => {
+
+    const className = props.children.props.className || 'language-text' //needed for styling``
+
+    const matches = className.match(/language-(?<lang>.*)/)
+
+    return (
+        <div className="gatsby-highlight">
+            <Highlight {...defaultProps} 
+                code={props.children.props.children.trim()} 
+                language={matches && matches.groups 
+                        && matches.groups.lang 
+                        ? matches.groups.lang : ''}
+                theme=''
+            >
+            {({ className, tokens, getLineProps, getTokenProps}) => (
+                <pre className={className}>
+                    <code className={className}>
+                    {tokens.map((line, i) => (
+                        <div className="code-block" key={i} {...getLineProps({line, key:i})}>
+                            <span className="line-number">{i + 1}</span>
+                            {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({token, key})} />
+                            ))}
+                        </div>
+                    ))}
+                    </code>
+                </pre>
+            )}
+            </Highlight>
+        </div>
+    )
+}
+
+```
+
+Notice that I am not passing a theme since I am using my own code highlight theme - you could download one theme from the [official PrismJS repository](https://github.com/PrismJS/prism-themes) and use it instead.
+
+Or if you want, you can just copy [my theme](https://github.com/FabioRosado/fabiorosado.dev/blob/master/src/styles/_syntax-highlighting.scss) and use it.
+
+## Expanding the code block
+
+I've seen [Chris Biscardi](https://www.christopherbiscardi.com/) digital garden and really liked the "header" of his code blocks, so I thought that it could be a nice addition to my code block.
+
+To allow users to copy the code inside a code block, I had to create a function for the copy button and handle the event when someone clicks on it.
+
+```javascript
+import React, { useState } from "react"
+import Highlight, { defaultProps } from "prism-react-renderer"
+
+
+export default (props) => {
+    const className = props.children.props.className || 'language-text'
+
+    const language = className.replace("language-", "")
+    const matches = className.match(/language-(?<lang>.*)/)
+
+    const CopyButton = props => {
+        const [text, setText] = useState("Copy")
+
+        return (
+            <button className="code-copy-button" onClick={() => {
+                navigator.clipboard.writeText(props.content)
+                setText("Copied!")
+                setTimeout(() => { setText("Copy")}, 1000)
+            }}
+            >
+                {text}
+            </button>
+        )
+    }
+
+    return (
+        <div className="gatsby-highlight">
+            <Highlight {...defaultProps} 
+                code={props.children.props.children.trim()} 
+                language={matches && matches.groups && matches.groups.lang ? matches.groups.lang : ''}
+                theme=''
+            >
+            {({ className, tokens, getLineProps, getTokenProps}) => (
+                <pre className={className}>
+                    <div className="code-header">
+                        <span className="language-name">{console.log(language)}{language}</span>
+                        <CopyButton content={props.children.props.children} />
+                    </div>
+                    <code className={className}>
+                    {tokens.map((line, i) => (
+                        <div className="code-block" key={i} {...getLineProps({line, key:i})}>
+                            <span className="line-number">{i + 1}</span>
+                            {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({token, key})} />
+                            ))}
+                        </div>
+                    ))}
+                    </code>
+                </pre>
+            )}
+            </Highlight>
+        </div>
+    )
+}
+```
+
+## Adding Wrapper Component to MDXRenderer
+
+The step 3 of the [adding syntax highlighting to Gatsby Mdx with Prism](https://codetrain.io/adding-prism-syntax-highlighting-to-gatsby-mdx), says that we need to add the code block as a component to the `MDXProvider` and also points to the [MDXRenderer documentation](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/#mdxrenderer).
+
+I have to admit that I couldn't understand fully how to do this. Everything that I tried was failing, luckily [Will Harris](https://www.willharris.dev/) was kind enough to share his repository with me and explained that I should add the component to the `gatsby-browser.js`.
+
+```javascript
+import React from "react"
+import { MDXProvider } from "@mdx-js/react"
+
+import CodeBlock from "./src/components/highlight/CodeBlock"
+
+const component = {
+    pre: CodeBlock
+}
+
+export const wrapRootElement = ({ element }) => {
+    return <MDXProvider components={component}>{element}</MDXProvider>
+}
+```
+
+By adding this bit of code to the `gatsby-browser.js` made the whole code highlighting work. 
+
+If you chose a theme, you should have everything working, if you prefer to build your own, then you can keep on reading and use my theme.
+
+## Code Highlighting Theme
+
+I am using `scss` on this website so the theme that I am going to share with you, will be in scss.
+
+```scss
+.gatsby-highlight {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.code-header {
+	display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid #6089bd;
+    padding: 1rem;
+}
+
+.language-name {
+	padding-right: 1em;
+	color: #ff85cb;
+}
+
+.code-copy-button {
+	color: #79b3fd;
+    background: none;
+    border: none;
+	cursor: pointer;
+}
+
+code {
+  padding: 2px 6px;
+  color: #78b2fd;
+  border: 1px solid #1b2530;
+  background-color: #1b2530;
+  border-radius: 5px;
+}
+
+
+code[class*="language-"],
+pre[class*="language-"] {
+	padding: 0;
+	color: #f8f8f2;
+	background: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	font-size: large;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	overflow: auto;
+	border-radius: 0.3em;
+	border: 1px solid rgb(97, 137, 189);
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar { 
+		display: none; /* Chrome Safari */
+	}
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #1A2430;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.line-number {
+	color: #6272a4;
+    padding-right: 2rem;
+}
+
+.token-line {
+	padding: 0 1em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #6272a4;
+}
+
+.token.punctuation {
+	color: #f8f8f2;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #ff79c6;
+}
+
+.token.boolean,
+.token.number {
+	color: #bd93f9;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #50fa7b;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: #f1fa8c;
+}
+
+.token.keyword {
+	color: #8be9fd;
+}
+
+.token.regex,
+.token.important {
+	color: #ffb86c;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+```
+
+## Share your theme!
+
+If you have used my template to get your own code highlighting and have changed it, I would love to see what you have created! 
+
+You can add your own theme to my [code highlighting theme repository](https://github.com/FabioRosado/code-highlighting-theme).
+
+## References
+
+- [Adding Syntax Highlighting to Gatsby MDX with Prism](https://codetrain.io/adding-prism-syntax-highlighting-to-gatsby-mdx)
+- [Chris Biscardi repository - for the language and copy button](https://www.christopherbiscardi.com/)
+- [Will Harris - for sharing his repo with me](https://www.willharris.dev/)
