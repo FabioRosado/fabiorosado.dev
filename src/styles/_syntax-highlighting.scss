@@ -1,12 +1,15 @@
 .gatsby-highlight {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+	margin: 2.5rem -5%;
+  @include desktop {
+	margin: 2.5rem -20%;
+  }
+  
 }
 
 .code-header {
 	display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid #6089bd;
+    border-bottom: 1px solid lighten(color(primary-color), 20%);
     padding: 1rem;
 }
 
@@ -16,7 +19,7 @@
 }
 
 .code-copy-button {
-	color: #79b3fd;
+	color: color(green-color);
     background: none;
     border: none;
 	cursor: pointer;
@@ -24,9 +27,9 @@
 
 code {
   padding: 2px 6px;
-  color: #78b2fd;
-  border: 1px solid #1b2530;
-  background-color: #1b2530;
+  color: lighten(color(green-color), 20%);
+  border: 1px solid darken(color(primary-color), 7%);
+  background-color: darken(color(primary-color), 7%);
   border-radius: 5px;
 }
 
@@ -57,7 +60,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	overflow: auto;
 	border-radius: 0.3em;
-	border: 1px solid rgb(97, 137, 189);
+	border: 1px solid lighten(color(primary-color), 15%);
 	scrollbar-width: none;
 
 	&::-webkit-scrollbar { 
@@ -67,7 +70,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #1A2430;
+	background: darken(color(primary-color), 7%);;
 }
 
 /* Inline code */

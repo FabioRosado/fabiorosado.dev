@@ -64,7 +64,7 @@ const Template = (props) => {
             <SEO title={`FabioRosado | ${frontmatter.title}`} description={frontmatter.excerpt} />
             <section className="blog-post">
                 <div className="post-header">
-                    <h3>{frontmatter.categories}</h3>
+                    <h3 className="category-text">{frontmatter.categories}</h3>
                     <h1 className="white-text larger">{frontmatter.title}</h1>
                     <p className="white-text metadata">
                         <span className="metadata-icons"><i className="far fa-user orange-text"/> {frontmatter.author || `FabioRosado`}</span>

@@ -7,7 +7,7 @@ p, ul {
 body {
   font: 400 18px/1.5 "Jura", sans-serif;
   color: #FFFFFF;
-  background-color: #1A2430;
+  background-color: #251333;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
   -o-font-feature-settings: "kern" 1;
@@ -27,12 +27,11 @@ body {
 h1, h2, h3, h4 {
   font-family: "Jura", sans-serif;
   font-weight: 700;
-  color: #71afff;
 }
 
 a {
   text-decoration: none;
-  color: #FF721E;
+  color: #FC4056;
 }
 
 .hidden {
@@ -79,8 +78,8 @@ a {
 
 .full-button {
   cursor: pointer;
-  background-color: #FF721E;
-  color: #1E2A39;
+  background-color: #FC4056;
+  color: #271B40;
   font-family: "Jura", sans-serif;
   border: 0;
   border-radius: 5px;
@@ -91,17 +90,17 @@ a {
 }
 
 .full-button:hover {
-  background-color: #ff8842;
-  color: #2a3b50;
+  background-color: #fd6375;
+  color: #362659;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
 
 .trans-button {
   cursor: pointer;
-  color: #FF721E;
+  color: #FC4056;
   font-family: "Jura", sans-serif;
-  border: 1px solid #FF721E;
+  border: 1px solid #FC4056;
   border-radius: 5px;
   padding: 8px;
   -webkit-transition: background-color 0.5s ease-out;
@@ -111,19 +110,19 @@ a {
 }
 
 .trans-button:hover {
-  background-color: #FF721E;
-  color: #1E2A39;
+  background-color: #FC4056;
+  color: #271B40;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
 
 .trans-button:hover .fab {
-  color: #1E2A39;
+  color: #271B40;
 }
 
 .white-button {
   cursor: pointer;
-  color: #1E2A39;
+  color: #271B40;
   background: #FFFFFF;
   font-family: "Jura", sans-serif;
   font-size: medium;
@@ -136,11 +135,11 @@ a {
 
 .white-button:hover {
   cursor: pointer;
-  color: #1E2A39;
-  background: #FF721E;
+  color: #271B40;
+  background: #FC4056;
   font-family: "Jura", sans-serif;
   font-size: small;
-  border: 1px solid #FF721E;
+  border: 1px solid #FC4056;
   border-radius: 5px;
   padding: 8px;
   -webkit-transition: background-color 0.5s ease-out;
@@ -154,13 +153,13 @@ a {
 }
 
 .fab {
-  color: #FF721E;
+  color: #FC4056;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
 
 .fab:hover {
-  color: #ff8238;
+  color: #fc596c;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -286,7 +285,7 @@ a {
 }
 
 .orange-text {
-  color: #FF721E;
+  color: #FC4056;
 }
 
 .grey-text {
@@ -439,7 +438,7 @@ header .pictures .box {
 
 header .pictures .shadow {
   position: absolute;
-  background: #F2F6F9;
+  background: #FC4056;
   width: 160px;
   height: 160px;
   top: 35px;
@@ -451,7 +450,7 @@ header .pictures .frame {
   width: 160px;
   -webkit-clip-path: polygon(52% 10%, 97.81% 50.07%, 51% 88.51%, 2.08% 49.56%);
           clip-path: polygon(52% 10%, 97.81% 50.07%, 51% 88.51%, 2.08% 49.56%);
-  background: #FF721E;
+  background: #0EFB69;
 }
 
 header .pictures .gatsby-image-wrapper {
@@ -512,8 +511,8 @@ nav li a:hover {
   padding: .2rem .5rem .2rem .5rem;
   border-radius: 5px;
   margin: 0rem 5rem 0rem 5rem;
-  background-color: #FF721E;
-  color: #1E2A39;
+  background-color: #FC4056;
+  color: #271B40;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -537,12 +536,12 @@ nav .navbar {
   -webkit-transform: translate(-100%);
           transform: translate(-100%);
   position: fixed;
-  background-color: #1E2A39;
+  background-color: #271B40;
   top: 0rem;
   height: 100%;
   z-index: 40;
   padding: 4rem;
-  border-right: 1px solid #6189bd;
+  border-right: 1px solid #0EFB69;
 }
 
 nav .navbar .menu-button {
@@ -580,8 +579,8 @@ nav .navbar .menu-button {
     transition: all 0.5s ease-out;
   }
   nav .navbar a:hover {
-    background-color: #FF721E;
-    color: #1E2A39;
+    background-color: #FC4056;
+    color: #271B40;
     border-radius: 5px;
     -webkit-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
@@ -653,8 +652,8 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .about-card {
-  background-color: #1E2A39;
-  color: #FF721E;
+  background-color: #271B40;
+  color: #FC4056;
   border-radius: 10px;
   padding: 2rem;
   text-align: center;
@@ -669,8 +668,8 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .project-card {
-  color: #FF721E;
-  background-color: #1E2A39;
+  color: #FC4056;
+  background-color: #271B40;
   border-radius: 10px;
   position: relative;
   z-index: 1;
@@ -690,8 +689,8 @@ nav .menu-button .gg-menu-right::after {
 .project-card .category {
   position: absolute;
   right: 0;
-  color: #1E2A39;
-  background-color: #FF721E;
+  color: #271B40;
+  background-color: #FC4056;
   padding: .5rem 1rem .5rem 1rem;
   border-radius: 0px 10px 0px 10px;
 }
@@ -703,12 +702,12 @@ nav .menu-button .gg-menu-right::after {
   left: 45%;
   -webkit-transform: translate(-30%, 50%);
           transform: translate(-30%, 50%);
-  text-shadow: 1px 1px 2px #1E2A39;
+  text-shadow: 1px 1px 2px #271B40;
 }
 
 .project-card .tools-used {
   margin: 1rem 0rem 1.5rem 0rem;
-  background-color: #1E2A39;
+  background-color: #271B40;
   text-align: center;
 }
 
@@ -768,8 +767,8 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .post-card {
-  color: #FF721E;
-  background-color: #1E2A39;
+  color: #FC4056;
+  background-color: #271B40;
   border-radius: 10px;
   position: relative;
   z-index: 1;
@@ -792,8 +791,8 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .post-card .card-title .category {
-  background-color: #FF721E;
-  color: #1E2A39;
+  background-color: #FC4056;
+  color: #271B40;
   font-family: "Jura", sans-serif;
   border: 0;
   border-radius: 5px;
@@ -802,7 +801,7 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .post-card .card-title .fab {
-  color: #1E2A39;
+  color: #271B40;
 }
 
 .post-card .card-title h4 {
@@ -892,7 +891,7 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .contact-area .contact-text .fab:hover {
-  color: #FF721E;
+  color: #FC4056;
   -webkit-transition: color 0.5s ease-out;
   transition: color 0.5s ease-out;
 }
@@ -926,8 +925,8 @@ nav .menu-button .gg-menu-right::after {
   color: #FFFFFF;
   padding: .5rem .75rem;
   line-height: 1.25;
-  border: 1px solid #6189bd;
-  background-color: #1A2430;
+  border: 1px solid #251333;
+  background-color: #251333;
   border-radius: .25rem;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -938,7 +937,7 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
-  border-color: #FF721E;
+  border-color: #FC4056;
   outline: none;
 }
 
@@ -946,8 +945,12 @@ nav .menu-button .gg-menu-right::after {
   overflow-x: hidden;
 }
 
+.blog-post .category-text {
+  color: #0EFB69;
+}
+
 .blog-post .post-header {
-  background-color: #1E2A39;
+  background-color: #271B40;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -972,7 +975,7 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .blog-post .background {
-  background-color: #1E2A39;
+  background-color: #271B40;
   padding: 6rem;
   margin-top: -1%;
 }
@@ -1036,7 +1039,7 @@ nav .menu-button .gg-menu-right::after {
 .text-container {
   padding: 1rem;
   margin: 0rem 1rem 0rem 1rem;
-  background-color: #233041;
+  background-color: #251333;
   border-radius: 10px;
 }
 
@@ -1055,14 +1058,13 @@ nav .menu-button .gg-menu-right::after {
 
 .text-container h1, .text-container h2, .text-container h3 {
   font-weight: bold;
-  color: #71afff;
   padding-bottom: 1.5rem;
   padding-top: 1rem;
   font-size: x-large;
 }
 
 .text-container h1:nth-child(1) {
-  color: #FF721E;
+  color: #FC4056;
 }
 
 .text-container ul {
@@ -1071,7 +1073,7 @@ nav .menu-button .gg-menu-right::after {
 
 .text-container p:first-of-type:first-letter {
   float: left;
-  color: #FF721E;
+  color: #FC4056;
   font-size: 45px;
   line-height: 43px;
   padding-top: 4px;
@@ -1163,6 +1165,18 @@ p, ul {
   width: 40em;
 }
 
+a {
+  color: #0EFB69;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+  color: #FC4056;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 .similar-articles-section {
   padding: 4rem;
   margin: 4rem 0rem;
@@ -1171,7 +1185,7 @@ p, ul {
 .profile-section {
   padding: 4rem 0rem;
   margin-top: 2rem;
-  background-color: #1e2a39;
+  background-color: #321a46;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1230,8 +1244,13 @@ p, ul {
 }
 
 .gatsby-highlight {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin: 2.5rem -5%;
+}
+
+@media (min-width: 1160px) {
+  .gatsby-highlight {
+    margin: 2.5rem -20%;
+  }
 }
 
 .code-header {
@@ -1241,7 +1260,7 @@ p, ul {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  border-bottom: 1px solid #6089bd;
+  border-bottom: 1px solid #533988;
   padding: 1rem;
 }
 
@@ -1251,7 +1270,7 @@ p, ul {
 }
 
 .code-copy-button {
-  color: #79b3fd;
+  color: #0EFB69;
   background: none;
   border: none;
   cursor: pointer;
@@ -1259,9 +1278,9 @@ p, ul {
 
 code {
   padding: 2px 6px;
-  color: #78b2fd;
-  border: 1px solid #1b2530;
-  background-color: #1b2530;
+  color: #72fda7;
+  border: 1px solid #181027;
+  background-color: #181027;
   border-radius: 5px;
 }
 
@@ -1290,7 +1309,7 @@ pre[class*="language-"] {
 pre[class*="language-"] {
   overflow: auto;
   border-radius: 0.3em;
-  border: 1px solid #6189bd;
+  border: 1px solid #483276;
   scrollbar-width: none;
 }
 
@@ -1301,7 +1320,7 @@ pre[class*="language-"]::-webkit-scrollbar {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #1A2430;
+  background: #181027;
 }
 
 /* Inline code */
@@ -1444,10 +1463,10 @@ pre[class*="language-"] {
           align-items: center;
   margin: 1rem 0rem;
   position: relative;
-  background-color: #1A2430;
+  background-color: #251333;
   border-radius: 10px;
   padding: 1.5rem;
-  border: 1px solid #6189bd;
+  border: 1px solid #0EFB69;
 }
 
 .webmention img {

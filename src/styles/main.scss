@@ -21,21 +21,23 @@ $cursive-font: 'Dancing Script', cursive;
 $spacing-unit: 30px;
 $padding-unit: 1.5rem;
 
+$transition: all .5s ease-in-out;
+
 $colors: (
   text-color: #FFFFFF,
   text-color-grey: #57606B,
   text-color-light: #FFFFFF,
 
-  background-color: #1A2430,
-  background-color-darker: #F2F6F9,
+  background-color: #251333,
+  background-color-darker: #FC4056,
 
-  primary-color: #1E2A39,
-  secondary-color: #FF721E,
-  blue-color: #71afff,
+  primary-color: #271B40,
+  secondary-color: #FC4056,
+  green-color: #0EFB69,
 
-  border-color: #6189bd,
+  border-color: #0EFB69,
 
-  primary-color-transparent: rgba(30, 42, 57, 0.9)
+  primary-color-transparent: rgba(39, 27, 64, 0.9)
 );
 
 
