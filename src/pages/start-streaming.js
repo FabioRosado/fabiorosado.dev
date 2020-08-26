@@ -14,20 +14,18 @@ const StartStreaming = (props) => {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = data => {
-        if (!disabled) {
-            fetch('./.netlify/functions/book-subscribe', {
-                method: "POST",
-                body: JSON.stringify({
-                    first_name: data.name,
-                    email: data.email,
-                })
+        fetch('./.netlify/functions/book', {
+            method: "POST",
+            body: JSON.stringify({
+                first_name: data.name,
+                email: data.email,
             })
-            .then(() => {
-                setDisabled(true)
-                setSent(true)
-            })
-            .catch(e => setError(e))
-        }
+        })
+        .then(() => {
+            setDisabled(true)
+            setSent(true)
+        })
+        .catch(e => setError(e))
 
     }
 
