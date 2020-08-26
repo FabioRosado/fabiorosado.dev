@@ -1,0 +1,140 @@
+---
+slug: add-search-mdx
+title: How to use elasticlunr plugin with MDX
+subtitle: How to use the Gatsby Elasticlunr Plugin with MDX
+author: "FabioRosado"
+date:   2020-08-26 09:20:02 +0000
+categories: React
+category_icon: fab fa-react
+tags: 
+  - gatsby
+  - javascript
+  - mdx
+image: ../../images/mdx-gatsby-search.jpg
+excerpt: A quick introduction on how to use the Elasticlurn Plugin for Gatsby together with MDX to create a search bar component and allow users to search your site.
+
+---
+
+Since I've recently moved from using markdownRemark to MDX on all my Gatsby Sites, the instructions to some plugins might not be that straightforward to follow. Recently, I've created a [Digital Garden](https://theflying.dev) and wanted to add a search bar to it. 
+
+On one of my first Gatsby projects, I had used the [Elasticlurn Plugin for Gatsby](https://www.gatsbyjs.com/plugins/@gatsby-contrib/gatsby-plugin-elasticlunr-search/?=search) to add a search bar to a website. I decided to try and use this plugin since I don't have to use an external service like Algolia.
+
+## Installing and Configuration
+
+Installing the plugin is pretty straightforward. You need to run the command:
+
+```shell
+npm install @gatsby-contrib/gatsby-plugin-elasticlunr-search
+```  
+
+Then on your gatsby-config.js file, you can add the configuration for the plugin. If you read the README.md, you can see that one of the configuration options is the **resolvers**, here you need to replace `MarkdownRemark` for `Mdx`.
+
+```javascript
+ {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `category`, `tags`, `excerpt` ],
+        resolvers: {
+          Mdx: {
+            title: node => node.frontmatter.title,
+            category: node => node.frontmatter.category,
+            tags: node => node.frontmatter.tags,
+            excerpt: node => node.frontmatter.excerpt,
+            slug: node => node.fields.slug
+          }
+        },
+        filter: (node, getNode) => node.frontmatter.category
+      }
+    }
+```
+
+My frontmatter contains all those fields (but the slug). These are the fields that I want users to be able to search. You can choose as many or as little as you want. 
+
+## Search Bar Component
+
+With the plugin installed and configured, we have to create the search bar component. I re-used the component that I had created on the other project. 
+
+_Note: This component needs refactoring. Most of this code was taken from the plugin instructions._
+
+```javascript
+import React, { Component } from "react"
+import { Index } from "elasticlunr"
+import { Link } from "gatsby"
+
+export default class Search extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            query: ``,
+            results: []
+        }
+    }
+
+    render() {
+        console.log(this.state.results.length)
+        return ( 
+            <div className="my-5 relative">
+                <div className="flex justify-center items-center">
+                    <i className="gg-search mr-2" />
+                    <input type="text" value={this.state.query} onChange={this.search} placeholder="Search..." />
+                </div>
+                {this.state.results.length !== 0 ? 
+                    <div className="mt-2 flex flex-col absolute z-10 search-results">
+                        {this.state.results.map(page => (
+                                <Link className="link m-1" to={`${page.slug}`} key={page.title}>
+                                    <span className="underline">{page.title}</span> : <span className="green">{page.tags.join(', ')}</span>
+                                </Link>
+                                
+                        ))}
+                    </div>
+                : ''}
+            </div>
+        )
+    }
+
+    getOrCreateIndex = () =>
+        this.index ? this.index : Index.load(this.props.searchIndex)
+    
+    search = evt => {
+        const query = evt.target.value
+        this.index = this.getOrCreateIndex()
+        this.setState({
+            query,
+            results: this.index
+                .search(query, { expand: true})
+                .map(({ ref }) => this.index.documentStore.getDoc(ref))
+        })
+    }
+}
+```
+
+I want users to get partial matches straight away. So when you type something, you will get all matches first.  Then the query will return fewer results. If you don't want this to happen and return the search results instead, you can remove the `{ expand: true }` parameter from the `search` method.
+
+You can probably see that on this site I am using [TailwindCss](https://tailwindcss.com/). The only bit of CSS that I added outside Tailwind was the `search-results` which adds some styling(colour, spacing) to that div. The reason why I decided to use an absolute position, is because I want the search results to drop down and stay above the content.
+
+## Importing and Using the Search Bar
+
+Now that the search bar component is completed, you can use it anywhere on your site by importing it. But you also need to provide a `searchIndex` to the component. Luckily, the plugin adds a query for you to use.
+
+```graphql
+query {
+    siteSearchIndex {
+        index
+    }
+}
+```
+
+Then you can import the search bar component and use it like this:
+
+```javascript
+<SearchBar  searchIndex={props.data.siteSearchIndex.index} />
+```
+
+That's all there is to add a search bar with elasticlunr plugin and MDX. If you have any issues feel free to reach me on [Twitter @FabioRosado](https://twitter.com/FabioRosado_), I will be happy to give you a hand!
+
+
+## References
+
+- [Elasticlurn Plugin for Gatsby](https://www.gatsbyjs.com/plugins/@gatsby-contrib/gatsby-plugin-elasticlunr-search/?=search)
+- [TailwindCss](https://tailwindcss.com/)
+- [Digital Garden](https:////theflying.dev)
