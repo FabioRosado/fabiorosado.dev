@@ -4,11 +4,14 @@ exports.handler = async (event, context, callback) => {
     const data = JSON.parse(event.body)
     data['api_key'] = process.env.GATSBY_BOOK_API
 
+    console.log(data)
+
     await fetch(process.env.GATSBY_BOOK, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
-        }
+        },
+        body: JSON.stringify(data)
 
     })
     .then( response => {
