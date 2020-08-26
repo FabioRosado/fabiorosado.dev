@@ -48,7 +48,7 @@ const Template = (props) => {
     useEffect(() => {
         const fetchTotalMentions = async () => {
             const resp = await fetch(
-                `https://webmention.io/api/count.json?target=https://fabiorosado.dev/${frontmatter.slug}/`
+                `https://webmention.io/api/count.json?target=https://fabiorosado.dev/blog/${frontmatter.slug}/`
             )
 
         const { count } = await resp.json()
@@ -70,7 +70,7 @@ const Template = (props) => {
                         <span className="metadata-icons"><i className="far fa-user orange-text"/> {frontmatter.author || `FabioRosado`}</span>
                         <span className="metadata-icons"><i className="far fa-clock orange-text"/> {postInformation.frontmatter.date}</span>
                         <span className="metadata-icons"><i className="far fa-eye orange-text"/> {timeToRead > 1 ? `${timeToRead} mins to read` : `${timeToRead} min to read`} </span>
-                        <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="metadata-icons" />
+                        <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
                 </div>
                 <div className="background" />
@@ -83,7 +83,7 @@ const Template = (props) => {
                     <div className="webmentions-container">
                         <h3>Webmentions</h3>
                         <div>
-                            <MentionsCounter postUrl={`https://fabiorosado.dev/${frontmatter.slug}`} styles="padding-bottom" />
+                            <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="padding-bottom" />
                         </div>
                         <button 
                             className="full-button" 

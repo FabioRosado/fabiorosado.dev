@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 
 const getMentions = async(postsPerPage, slug) => {
-    const page = "https://fabiorosado.dev"
+    const page = "https://fabiorosado.dev/"
     const resp = await fetch(
         `https://webmention.io/api/mentions?page=${page}&per-page=${postsPerPage}&target=${slug}`
     )
@@ -15,10 +15,9 @@ const getMentions = async(postsPerPage, slug) => {
 
 const Webmentions = ({ slug, show }) => {
     const [mentions, addMentions] = useState([])
-
     useEffect(() => {
         const fetchMentions = async () => {
-            const olderMentions = await getMentions(50, `https://fabiorosado.dev/${slug}/`)
+            const olderMentions = await getMentions(50, `https://fabiorosado.dev/blog/${slug}/`)
             addMentions([...olderMentions])
         }
         fetchMentions()

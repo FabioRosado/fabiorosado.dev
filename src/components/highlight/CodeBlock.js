@@ -33,7 +33,7 @@ export default (props) => {
             {({ className, tokens, getLineProps, getTokenProps}) => (
                 <pre className={className}>
                     <div className="code-header">
-                        <span className="language-name">{console.log(language)}{language}</span>
+                        <span className="language-name">{language}</span>
                         <CopyButton content={props.children.props.children} />
                     </div>
                     <code className={className}>
