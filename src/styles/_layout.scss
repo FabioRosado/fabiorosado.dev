@@ -92,6 +92,20 @@
   }
 }
 
+.progress-bar-background {
+  border: 1px solid color(secondary-color);
+  height: 20px;
+position: relative;
+
+  span {
+      display: block;
+      height: 100%;
+      background-color: color(green-color);
+      position: relative;
+      overflow: hidden;
+  }
+}
+
 .fab {
   color: color(secondary-color);
   transition: background-color 0.5s ease-out;
@@ -142,25 +156,7 @@
   }
 }
 
-.margin-bottom {
-  margin-bottom: $padding-unit;
-}
 
-.margin-top {
-  margin-top: $padding-unit;
-}
-
-.padding-bottom {
-  padding: $padding-unit;
-}
-
-.margin-right {
-  margin-right: $padding-unit;
-}
-
-.margin-left {
-    margin-left: 1rem;
-}
 
 .section {
   margin: 4rem 2rem 3rem 2rem;
@@ -209,4 +205,77 @@
 
 .drop-shadow {
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.10);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+/************************************
+*     Anything Related to colors!    *
+************************************/
+
+.bg-primary {
+  background-color: color(primary-color) !important;
+}
+
+.bg-background {
+  background-color: color(background-color);
+}
+
+.border-secondary {
+  border-color: color(secondary-color);
+}
+
+.border-color {
+  border-color: color(border-color);
+}
+
+
+
+/************************************
+*     Anything Related to layout!    *
+************************************/
+
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.margin-bottom {
+  margin-bottom: $padding-unit;
+}
+
+.margin-top {
+  margin-top: $padding-unit;
+}
+
+.padding {
+  padding: $padding-unit;
+}
+
+.padding-top {
+  padding-top: $padding-unit;
+}
+
+.margin-right {
+  margin-right: $padding-unit;
+}
+
+.margin-left {
+    margin-left: 1rem;
+}
+
+.centered {
+  width: 50% !important;
+  margin: auto !important;
 }

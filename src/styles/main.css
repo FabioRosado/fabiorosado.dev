@@ -152,6 +152,20 @@ a {
   }
 }
 
+.progress-bar-background {
+  border: 1px solid #FC4056;
+  height: 20px;
+  position: relative;
+}
+
+.progress-bar-background span {
+  display: block;
+  height: 100%;
+  background-color: #0EFB69;
+  position: relative;
+  overflow: hidden;
+}
+
 .fab {
   color: #FC4056;
   -webkit-transition: background-color 0.5s ease-out;
@@ -223,26 +237,6 @@ a {
   }
 }
 
-.margin-bottom {
-  margin-bottom: 1.5rem;
-}
-
-.margin-top {
-  margin-top: 1.5rem;
-}
-
-.padding-bottom {
-  padding: 1.5rem;
-}
-
-.margin-right {
-  margin-right: 1.5rem;
-}
-
-.margin-left {
-  margin-left: 1rem;
-}
-
 .section {
   margin: 4rem 2rem 3rem 2rem;
 }
@@ -295,6 +289,81 @@ a {
 .drop-shadow {
   -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/************************************
+*     Anything Related to colors!    *
+************************************/
+.bg-primary {
+  background-color: #271B40 !important;
+}
+
+.bg-background {
+  background-color: #251333;
+}
+
+.border-secondary {
+  border-color: #FC4056;
+}
+
+.border-color {
+  border-color: #0EFB69;
+}
+
+/************************************
+*     Anything Related to layout!    *
+************************************/
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5rem;
+}
+
+.margin-top {
+  margin-top: 1.5rem;
+}
+
+.padding {
+  padding: 1.5rem;
+}
+
+.padding-top {
+  padding-top: 1.5rem;
+}
+
+.margin-right {
+  margin-right: 1.5rem;
+}
+
+.margin-left {
+  margin-left: 1rem;
+}
+
+.centered {
+  width: 50% !important;
+  margin: auto !important;
 }
 
 .hero-image {
@@ -438,7 +507,7 @@ header .pictures .box {
 
 header .pictures .shadow {
   position: absolute;
-  background: #FC4056;
+  background: #FFFFFF;
   width: 160px;
   height: 160px;
   top: 35px;
@@ -450,7 +519,7 @@ header .pictures .frame {
   width: 160px;
   -webkit-clip-path: polygon(52% 10%, 97.81% 50.07%, 51% 88.51%, 2.08% 49.56%);
           clip-path: polygon(52% 10%, 97.81% 50.07%, 51% 88.51%, 2.08% 49.56%);
-  background: #0EFB69;
+  background: #FC4056;
 }
 
 header .pictures .gatsby-image-wrapper {
@@ -943,6 +1012,7 @@ nav .menu-button .gg-menu-right::after {
 
 .blog-post {
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .blog-post .category-text {

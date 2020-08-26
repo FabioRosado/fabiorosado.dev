@@ -44,7 +44,7 @@ const IndexPage = (props) => {
                 <Img 
                   title="Code"
                   alt="Code"
-                  fixed={props.data.fabian.childImageSharp.fixed} />
+                  fixed={props.data.desk.childImageSharp.fixed} />
               </div>
             </div>
             <div className="box">
@@ -180,7 +180,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    fabian: file(relativePath: {eq: "fabian-grohs-597395-unsplash.jpg"}) {
+    desk: file(relativePath: {eq: "desk.jpg"}) {
       childImageSharp {
         fixed(width: 157) {
           ...GatsbyImageSharpFixed
