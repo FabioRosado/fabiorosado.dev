@@ -8,21 +8,27 @@ import Layout from "../components/layout"
 
 const StartStreaming = (props) => {
     const [sent, setSent] = useState(null)
+    const [error, setError] = useState(null)
+    const [disabled, setDisabled] = useState(false)
+
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = data => {
-        fetch('./netlify/functions/book-subscribe', {
-            method: "POST",
-            body: JSON.stringify({
-                first_name: data.name,
-                email: data.email,
+        if (!disabled) {
+            fetch('./.netlify/functions/book-subscribe', {
+                method: "POST",
+                body: JSON.stringify({
+                    first_name: data.name,
+                    email: data.email,
+                })
             })
-        })
-        .then(() => {
-            setSent(true)
-        })
-        .catch(e => 
-            console.log(`Error: ${e}`))
+            .then(() => {
+                setDisabled(true)
+                setSent(true)
+            })
+            .catch(e => setError(e))
+        }
+
     }
 
     return (
@@ -49,8 +55,9 @@ const StartStreaming = (props) => {
                         <input className="bg-primary  padding border-color" id="name" name="name" aria-label="Your Name" ref={register({ required: "Please enter your name."})} placeholder="Streamy McStream" autoComplete="name" />
                         <label htmlFor="email">Email</label>
                         <input className="bg-primary padding border-color" id="email" name="email" aria-label="Your Email" ref={register({ required: true, pattern: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+/})} placeholder="john.doe@example.com" autoComplete="email" />
-                        <button type="submit" className="full-button bold"> Pre-Order Now!</button>
+                        <button type="submit" className="full-button bold" disabled={disabled}> Pre-Order Now!</button>
                         {sent && <p><i className="fas fa-thumbs-up" />Thank you, for pre-ordering the book! As soon as the book is available, you will receive the discount count and url so you can buy the book.</p>}
+                        {error && <p>An error occurred when sending the form. Please try again.</p>}
                         {errors.name && errors.name.message}<br />
                         {errors.email && "Please enter a valid email."}<br />
                         {errors.message && errors.message.message}<br />

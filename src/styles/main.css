@@ -1168,9 +1168,9 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .example {
-  background-color: #1b2530;
+  background-color: #181027;
   border-radius: 0.3em;
-  border: 1px solid #6089bd;
+  border: 1px solid #533988;
 }
 
 .example .example-header {
@@ -1180,7 +1180,7 @@ nav .menu-button .gg-menu-right::after {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  border-bottom: 1px solid #6089bd;
+  border-bottom: 1px solid #533988;
   padding: 1rem;
   color: #f885cc;
   font-weight: bold;

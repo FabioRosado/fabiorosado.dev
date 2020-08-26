@@ -120,14 +120,14 @@
 }
 
 .example {
-  background-color: #1b2530;
+  background-color: darken(color(primary-color), 7%);
   border-radius: 0.3em;
-  border: 1px solid #6089bd;
+  border: 1px solid lighten(color(primary-color), 20%);
 
   .example-header {
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid #6089bd;
+    border-bottom: 1px solid lighten(color(primary-color), 20%);
     padding: 1rem;
     color: #f885cc;
     font-weight: bold;
