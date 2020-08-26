@@ -4,6 +4,8 @@ exports.handler = async (event, context, callback) => {
     const data = JSON.parse(event.body)
     data['api_key'] = process.env.GATSBY_BOOK_API
 
+    const pass = (body) => {callback(null, {statusCode: 200, body: JSON.stringify(body)})}
+
     try {
         const request = await fetch(process.env.GATSBY_BOOK, {
             method: "POST",
@@ -17,8 +19,8 @@ exports.handler = async (event, context, callback) => {
         const response = await request.json()
     
     
-        await callback({status: response.statusCode, body: response.body})
+        await pass(response)
     } catch(err) {
-        await callback({status: err.statusCode, error: err.message})
+        await pass(error)
     }
 }
