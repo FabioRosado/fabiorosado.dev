@@ -14,7 +14,7 @@ const StartStreaming = (props) => {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = data => {
-        fetch('./.netlify/functions/book', {
+        fetch('/.netlify/functions/book', {
             method: "POST",
             body: JSON.stringify({
                 first_name: data.name,

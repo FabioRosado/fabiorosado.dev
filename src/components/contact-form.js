@@ -6,7 +6,7 @@ const ContactForm = () => {
     const { register, handleSubmit, errors } = useForm()
 
     const onSubmit = data => {
-        fetch('/.netlify/functions/contact', {
+        fetch('./.netlify/functions/contact', {
             method: "POST",
             body: JSON.stringify({
                 chat_id: '639889348',
