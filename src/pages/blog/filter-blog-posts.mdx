@@ -1,0 +1,227 @@
+---
+slug: filter-blog-posts
+title: How to filter all MDX articles by tags
+subtitle: How to create a button to filter articles by tag
+author: "FabioRosado"
+date:   2020-08-31 09:12:00 +0000
+categories: React
+category_icon: fab fa-react
+tags: 
+  - tips
+  - javascript
+  - gatsby
+  - mdx
+image: ../../images/filter-button.jpg
+excerpt: How to create a function to filter articles by tag. On this post I am using the javascript filter method to filter all articles.
+---
+
+One thing I wanted to add to my digital garden was a way for users to choose the topics that they want to see. The motive behind this is that at the moment every article is being shown on the page. You can't really see the tags, categories or excerpt, the only thing you can see is the title.
+
+After adding the [search bar](https://fabiorosado.dev/blog/add-search-mdx) to the digital garden, I thought about adding a button for each tag. When a user clicks the button, it will filter the articles and show only the ones related to that tag.
+
+To build this, the only thing I had to rely on was on the `filter` method provided by javascript. 
+
+## Getting All the Articles
+
+The first thing we need to do is to get all the articles. On the digital garden, I have two types of posts - books and the digital garden ones. 
+
+When querying the graphql, I want to get only the digital garden ones. I am filtering the articles to get the ones that contain `digital-garden` in the slug. I am also sorting the entries by date to show the newest ones first.
+
+```graphql
+query {
+    articles: allMdx(
+    filter: {fields: {slug: {regex: "/digital-garden/"}}}, 
+    sort: {fields: [frontmatter___date], order: DESC}) {
+    nodes {
+      frontmatter {
+        title
+        category
+        excerpt
+        tags
+      }
+      fields {
+        slug
+      }
+    }
+  }
+  tags: allMdx {
+    group(field: frontmatter___tags) {
+      fieldValue
+    }
+  }
+}
+```
+
+## The Filtering Function
+
+Filtering the articles is pretty straightforward. You can filter the articles, by a giving tag like this:
+
+```javascript
+
+const filterArticles = (tag) => {
+    const filtered = allArticles.filter(article => {
+        if (article.frontmatter.tags.includes(tag)) {
+            return article
+        }
+}
+```
+
+_Note: `frontmatter.tags` is a list containing all the tags defined in the frontmatter._
+
+This function will iterate over every article and check if the list of `tags` contains the given tag. Now, something funky happens when you start filtering over and over again. 
+
+If you use the function as it is, you can probably notice that:
+
+- If an article shares two or more tags with others, it will be repeated on the list.
+- If there are repeated articles, the list will grow past the length of all articles.
+
+To tackle those issues, we need to check if the length of the articles filtered isn't, larger than the one containing all articles. We also want to make sure no duplicates are on the list.
+
+
+```javascript
+const filterArticles = (tag) => {
+
+    const filtered = allArticles.filter(article => {
+
+      if (article.frontmatter.tags.includes(tag)) {
+        if (allArticles.length !== articles.length && !articles.includes(article) ) {
+          return article
+        }
+      }
+
+    })
+    
+    setArticles(filtered)
+
+    return
+  }
+```
+
+_Note: I am using the name articles to keep the state of the filtered articles._
+
+## Creating Buttons per tag
+
+We can create a button per tag, by mapping over `frontmatter.tags`. For each tag, we will create a button. On the graphql query we are getting a list of all tags with the query `allMdx { group(field: frontmatter___tags) { fieldValue } }`.
+
+
+```javascript
+{props.data.tags.group.map(
+    tag => <button 
+                key={tag.fieldValue} 
+                onClick={() => filterArticles(tag.fieldValue)} 
+                className="article-category m-2">
+                {tag.fieldValue}
+            </button>)}
+
+```
+
+Now that we know how to generate a button for each tag, but there is one issue with it. What if a user wants to see all articles again? As it is, the articles will be filtered and that's it. 
+
+To fix the issue, we can create another function that will set the state of `articles` to all the articles obtained from the graphql query.
+
+```javascript
+  const getAllArticles = () => {
+    setArticles(allArticles)
+
+    return
+  }
+```
+
+Then we also need to add another button so a user can get all the articles back.
+
+```javascript
+<button onClick={() => getAllArticles()} className="article-category m-2">All</button>
+```
+
+
+## Tie it All Together
+
+We can tie all of these concepts together. Let's create the page containing the buttons and the articles.
+
+```javascript
+import React, { useState } from "react"
+import { graphql } from "gatsby"
+
+import Layout from "../components/layout"
+import Article from "../components/article" // Component with styling for article
+
+
+const DigitalGarden = (props) => {
+  
+  const allArticles = props.data.articles.nodes
+  const [articles, setArticles] = useState(allArticles)
+
+  const filterArticles = (tag) => {
+
+    const filtered = allArticles.filter(article => {
+
+      if (article.frontmatter.tags.includes(tag)) {
+        if (allArticles.length !== articles.length && !articles.includes(article) ) {
+          return article
+        }
+        return article
+      }
+
+    })
+    
+    setArticles(filtered)
+
+    return
+  }
+
+  const getAllArticles = () => {
+    setArticles(allArticles)
+
+    return
+  }
+
+  return (
+
+        <Layout>
+            <h1 className="mb-5 mt-12 plane text-center">Digital Garden</h1>
+            <section className="flex flex-wrap justify-center">
+              <button onClick={() => getAllArticles()} className="article-category m-2">All</button>
+              {props.data.tags.group.map(tag => 
+                <button 
+                  key={tag.fieldValue} 
+                  onClick={() => filterArticles(tag.fieldValue)} 
+                  className="article-category m-2">
+                    {tag.fieldValue}
+                </button>)}
+            </section>
+            <section className="flex flex-col py-12">
+            {articles.map(article => <Article key={article.frontmatter.title} article={article} />)}
+            
+            </section>
+        </Layout>  
+    )
+
+}
+
+export default DigitalGarden
+
+export const pageQuery = graphql`
+{
+  articles: allMdx(
+    filter: {fields: {slug: {regex: "/digital-garden/"}}}, 
+    sort: {fields: [frontmatter___date], order: DESC}) {
+    nodes {
+      frontmatter {
+        title
+        category
+        excerpt
+        tags
+      }
+      fields {
+        slug
+      }
+    }
+  }
+  tags: allMdx {
+    group(field: frontmatter___tags) {
+      fieldValue
+    }
+  }
+}
+`
+```
