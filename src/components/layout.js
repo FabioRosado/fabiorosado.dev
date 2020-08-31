@@ -20,12 +20,11 @@ const Layout = (props) => (
   <Navigation />
   {props.children}
 
-  <footer className="navbar padding-bottom">
+  <footer className="navbar padding">
     <Link className="white-text margin-right" to="/">Home</Link>
-    <Link className="white-text margin-right" to="/#about">About</Link>
     <Link className="white-text margin-right" to="/writings">Writings</Link>
     <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
-    <Link className="white-text margin-right" to="/#contact">Contact</Link>
+    <Link className="white-text margin-right" to="/contact">Contact</Link>
   </footer>
   </>
 )

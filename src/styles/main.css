@@ -90,8 +90,7 @@ a {
 }
 
 .full-button:hover {
-  background-color: #fd6375;
-  color: #362659;
+  background-color: #0EFB69;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -173,7 +172,7 @@ a {
 }
 
 .fab:hover {
-  color: #fc596c;
+  color: #0EFB69;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -905,6 +904,7 @@ nav .menu-button .gg-menu-right::after {
 
 .contact-area {
   color: #FFFFFF;
+  background-color: #271B40;
   position: relative;
   margin-top: 4rem;
 }
@@ -932,10 +932,7 @@ nav .menu-button .gg-menu-right::after {
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
   padding: 2rem;
-  margin-right: 0rem;
   position: relative;
-  top: 0;
-  z-index: 20;
 }
 
 @media (min-width: 1160px) {
@@ -945,7 +942,6 @@ nav .menu-button .gg-menu-right::after {
         -ms-flex-direction: row;
             flex-direction: row;
     text-align: justify;
-    position: absolute;
   }
 }
 
@@ -956,11 +952,13 @@ nav .menu-button .gg-menu-right::after {
 }
 
 .contact-area .contact-text .fab {
-  color: #FFFFFF;
+  color: #FC4056;
+  -webkit-transition: color 0.5s ease-out;
+  transition: color 0.5s ease-out;
 }
 
 .contact-area .contact-text .fab:hover {
-  color: #FC4056;
+  color: #0EFB69;
   -webkit-transition: color 0.5s ease-out;
   transition: color 0.5s ease-out;
 }
@@ -994,7 +992,7 @@ nav .menu-button .gg-menu-right::after {
   color: #FFFFFF;
   padding: .5rem .75rem;
   line-height: 1.25;
-  border: 1px solid #251333;
+  border: 1px solid #533988;
   background-color: #251333;
   border-radius: .25rem;
   -webkit-appearance: none;
@@ -1005,7 +1003,7 @@ nav .menu-button .gg-menu-right::after {
   font-size: medium;
 }
 
-.contact-form input:focus, .contact-form textarea:focus {
+.contact-form input:focus, .contact-form input:hover, .contact-form textarea:focus, .contact-form textarea:hover {
   border-color: #FC4056;
   outline: none;
 }

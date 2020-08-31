@@ -39,8 +39,7 @@
 }
 
 .full-button:hover {
-  background-color: lighten(color(secondary-color), 7%);
-  color: lighten(color(primary-color), 7%);
+  background-color: color(green-color);
   transition: background-color 0.5s ease-out;
 }
 
@@ -111,7 +110,7 @@ position: relative;
   transition: background-color 0.5s ease-out;
 }
 .fab:hover {
-  color: lighten(color(secondary-color), 5%);
+  color: color(green-color);
   transition: background-color 0.5s ease-out;
 }
 

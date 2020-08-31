@@ -77,11 +77,7 @@ const IndexPage = (props) => {
     </section> 
     <section className="section">
         <div className="container-middle center-text">
-            <h1><a className="white-text" href="#about" name="about">About Me</a></h1>
-            <p>
-                I'm a self-taught developer who loves open source. When not flying for work, I spend a great amount of time either coding or learning new things.
-                Some of my other passions include gaming, reading, photography and travelling - I've been to 15 different countries spread over 3 continents.
-            </p>
+            <h1>Tools of Trade</h1>
         </div>
         <div className="three-columns">
             <div className="about-card drop-shadow">
@@ -117,6 +113,12 @@ const IndexPage = (props) => {
       </div>
     </section>
     <Contact />
+    <footer className="navbar padding">
+      <Link className="white-text margin-right" to="/">Home</Link>
+      <Link className="white-text margin-right" to="/writings">Writings</Link>
+      <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
+      <Link className="white-text margin-right" to="/contact">Contact</Link>
+    </footer>
 
   </>
   )

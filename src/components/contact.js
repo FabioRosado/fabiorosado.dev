@@ -1,31 +1,13 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 
 import ContactForm from './contact-form';
 
-const Contact = () => {
-    const { contact } = useStaticQuery(
-        graphql`
-            query {
-                contact: file(relativePath: {eq: "contact.jpg"}) {
-                childImageSharp {
-                    fluid(quality:100) {
-                    ...GatsbyImageSharpFluid
-                        }
-                    }
-                }
-            }
-        `
-    )
-
-    return (
+const Contact = () => (
         <section className="contact-area">
-        <Img fluid={contact.childImageSharp.fluid} style={{maxHeight: '500px'}} />
         <div className="contact-text">
             <ContactForm />
             <div className="contact">
-                <h1><a className="white-text" href="#contact" name="contact">Contact Me</a></h1>
+                <h1>Contact Me</h1>
                 <p>Want to get in touch with me? Request more information about myself or my experience? Would you like to know what is my favourite ice cream or pizza? Send me an email or find me on social media, I will reply as quick as possible. I'm always happy to have a chat!</p>
                 <ul className="horizontal-list">
                     <li><a href="https://github.com/FabioRosado" aria-label="Link to github account"><i className="fab fa-2x fa-github-square" /></a></li>
@@ -38,7 +20,6 @@ const Contact = () => {
             </div>
         </div>
         </section>
-    )
-}
+)
 
 export default Contact

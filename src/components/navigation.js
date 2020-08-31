@@ -25,7 +25,7 @@ const Navigation = () => {
                 <Link className="white-text" to="/#about">About</Link>
                 <Link className="white-text" to="/writings">Writings</Link>
                 <Link className="white-text" to="/portfolio">Portfolio</Link>
-                <Link className="white-text" to="/#contact">Contact</Link>
+                <Link className="white-text" to="/contact">Contact</Link>
             </div>
         </nav>
 )}
