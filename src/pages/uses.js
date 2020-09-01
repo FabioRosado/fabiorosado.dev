@@ -41,7 +41,7 @@ const Uses = (props) => {
                     <h1>Peripherals</h1>
                         <ul>
                             <li>HP 24f Ultra-Slim FHD IPS Monitor</li>
-                            <li>Logitech K380 wireless keyboard</li>
+                            <li>Logitech G413 carbon mechanical keyboard</li>
                             <li>Logitech MX Master 2S Wireless Mouse</li>
                             <li>Anker 4-Port USB 3.0 Ultra Slim Data Hub</li>
                             <li>TaoTronics TT-BH22 - Active Noise Cancelling Headphones</li>
