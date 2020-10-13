@@ -38,12 +38,13 @@ const Template = (props) => {
     
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
+            console.log(post)
             return post
         }
-        return {timeToRead: 0, date: post.date, frontmatter: {slug: frontmatter.slug}}
     })
 
     const { timeToRead } = postInformation
+    const date = postInformation.frontmatter.date || "Thursday 7th, Jul 2020"
 
     useEffect(() => {
         const fetchTotalMentions = async () => {
@@ -68,7 +69,7 @@ const Template = (props) => {
                     <h1 className="white-text larger">{frontmatter.title}</h1>
                     <p className="white-text metadata">
                         <span className="metadata-icons"><i className="far fa-user orange-text"/> {frontmatter.author || `FabioRosado`}</span>
-                        <span className="metadata-icons"><i className="far fa-clock orange-text"/> {postInformation.frontmatter.date}</span>
+                        <span className="metadata-icons"><i className="far fa-clock orange-text"/> {date}</span>
                         <span className="metadata-icons"><i className="far fa-eye orange-text"/> {timeToRead > 1 ? `${timeToRead} mins to read` : `${timeToRead} min to read`} </span>
                         <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
