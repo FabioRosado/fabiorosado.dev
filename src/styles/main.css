@@ -1311,6 +1311,23 @@ a:hover {
   margin-bottom: .5rem;
 }
 
+blockquote {
+  background: #37275C;
+  border-left: 5px solid #FC4056;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  font-style: italic;
+}
+
+blockquote p {
+  display: inline;
+}
+
+hr {
+  border: 1px solid #FC4056;
+  margin: 1.5rem;
+}
+
 .gatsby-highlight {
   margin: 2.5rem -5%;
 }
