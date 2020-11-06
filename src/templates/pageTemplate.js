@@ -38,7 +38,6 @@ const Template = (props) => {
     
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
-            console.log(post)
             return post
         }
     })

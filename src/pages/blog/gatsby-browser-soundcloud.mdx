@@ -1,0 +1,75 @@
+---
+slug: gatsby-browser-soundcloud
+title: How to make an UI element persistent in Gatsby
+subtitle: How to keep the SoundCloud playing with each route change.
+author: "fabiorosado"
+date:   2020-11-06 21:50:00 +0000
+categories: React
+category_icon: fab fa-react
+tags: 
+  - tricks
+  - gatsby
+  - webdev
+image: ../../images/gatsby.png
+excerpt: How to set up an UI element persistent in Gatsby to allow users from Landing in Tech to listen to the latest episode, when navigating the site.
+---
+
+<iframe 
+    className="center"
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/aysyFVflljU" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen 
+/>
+
+When I built the website for [Landing in Tech](https://landingintech.com) I wanted to have a bar on top of the page with the latest episode. 
+
+The idea was to allow users to listen to the episode while browsing the page.
+
+I added the iframe on my `layout.js` file and expected it to work, obviously, it didn't. With each route change, the whole layout reloads which means that you would lose your progress if you started to listen to the episode.
+
+Yesterday, I asked on Twitter if anyone knew a way to fix this issue. [Baz](https://twitter.com/BasileSamel) gave great advice on how to achieve this. He mentioned that Gatsby should have a way to handle this, that was my lightbulb moment - perhaps using the [`gatsby-browser`](https://www.gatsbyjs.com/docs/browser-apis/) api, might do exactly what I needed.
+
+## A lucky strike
+
+I have to admit that I came to the solution by luck. I was scrolling through the browser api pages and came across the `wrapRootElement`.
+
+> "This is useful to set up any Provider components that will wrap your application. For setting persistent UI elements around pages use wrapPageElement."
+> [Gatsby documentation](https://www.gatsbyjs.com/docs/browser-apis/)
+
+After playing around with it, I have realised that both `wrapRootElement` and `wrapPageElement` do what I wanted, but since Gatsby suggests using the former for persistent UI elements, I've used that one instead.
+
+Let's open the `gatsby-browser.js` file and add the SoundCloud iframe inside our Layout.
+
+```js
+const React = require("react")
+const Layout = require("./src/components/layout").default
+
+exports.wrapPageElement = ({ element }) => {
+    return (
+        <Layout>
+            <div className="sound-cloud">
+                <iframe
+                    className="mb-0"
+                    width="100%"
+                    height="20"
+                    scrolling="no"
+                    frameBorder="no"
+                    allow="autoplay"
+                    title="latest episode"
+                    src="https://w.soundcloud.com/player/..."
+                />
+            </div>
+            {element}
+        </Layout>
+    )
+}
+```
+
+# Refactoring Pages
+
+Since I am importing the Layout and using it in `wrapPageElement` that means that each page will have two `Layout` components, the one that I have imported in each page and the one being set in `gatsby-browser`. 
+
+This meant that I had Ito refactor every page and remove the Layout component on every single one. A tedious task, but the end result does exactly what I wanted.

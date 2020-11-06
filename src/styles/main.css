@@ -42,6 +42,13 @@ a {
   display: block;
 }
 
+.center {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .visible-xs {
   position: absolute;
   right: 3rem;
