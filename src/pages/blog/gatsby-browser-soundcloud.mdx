@@ -68,8 +68,13 @@ exports.wrapPageElement = ({ element }) => {
 }
 ```
 
-# Refactoring Pages
+## Refactoring Pages
 
 Since I am importing the Layout and using it in `wrapPageElement` that means that each page will have two `Layout` components, the one that I have imported in each page and the one being set in `gatsby-browser`. 
 
 This meant that I had Ito refactor every page and remove the Layout component on every single one. A tedious task, but the end result does exactly what I wanted.
+
+
+**Update**
+
+After sharing this article on Twitter a lot of great developers told me that I need to add the same to the `gatsby-ssr.js` file, this is because Gatsby uses that file when running gatsby build. So, make sure you add the code to both `gatsby-browser` and `gatsby-ssr` file.
