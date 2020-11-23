@@ -1,0 +1,198 @@
+---
+slug: getting-started-with-nx
+title: Getting started with Nx
+subtitle: Nx allows you to work with monorepos, let's see how you can use this tool.
+author: "fabiorosado"
+date:   2020-11-23 15:00:00 +0000
+categories: Tools
+category_icon: fas fa-tools
+tags: 
+  - react
+  - webdev
+image: ../../images/Nx.png
+excerpt: Nx makes it easy to work with monorepost, this article will show you how you can use Nx for your projects and talks about some basic commands that will help you.
+---
+
+> "Nx is a set of extensible dev tools for monorepos, which helps you develop like Google, Facebook and Microsoft."
+> [Nx website](https://nx.dev/)
+
+Nx makes it easier to work with monorepos, to and libraries that could share code between different apps. Nx also generates unit and e2e tests, it prepares bundling and code-splitting with Webpack. 
+
+I've come in contact with Nx when I created notes for the [egghead course - Scale React Development with Nx](https://egghead.io/playlists/scale-react-development-with-nx-4038) by Juri Strumpflohner. I'd recommend you to watch this free course. What I am going to share here, is just some of the notes that I took.
+
+## Nx Workspace
+
+A workspace contains different files and folders.
+
+- `Apps` folder - contains all the applications we want to host
+- `Libs` folder - contains all the code, usually, applications will link to code inside this folder
+- A single `node_modules` folder for the workspace
+- The `package.json` serves as the global file for packages for the whole workspace
+- `workspace.json` contains all the configuration of your projects and how to build it
+- `nx.json` contains the configuration of the workspace
+
+### Installing Nx and Creating a workspace
+
+To install Nx on your machine you can run the command: 
+
+```shell
+npm install -g nx
+```
+
+Or
+
+```shell
+yarn global add nx
+```
+
+Then you can create and configure a new Nx workspace with the command:
+
+```shell
+npx create-nx-workspace <workspace name>
+```
+
+When you run this command, the CLI will give you a set of options that allows you to create the best workspace for your needs.
+
+- empty
+- oss
+- web components
+- angular
+- angular-nest
+- react
+- react-express
+
+You will also be asked which CLI should be activated in this workspace. The `Angular CLI` or the `Nx CLI` which is used for any workspace.
+
+_**Note:** You can append the flat `--dry-run` to each command, to see what a command will do, without actual changes to your workspace._
+
+## Creating a new App
+
+You can generate apps by using plugins for your Nx CLI. The egghead course is using React so this is what I am going to use. I am also going to be using `yarn` in these examples, but you could use `npm` instead.
+
+First, we need to install the react plugin with the command:
+
+```shell
+yarn add @nrwl/react
+```
+
+_**Note:** You can run the command `yarn list @nrwl/react` to see all the things you can do with this plugin._
+
+After the plugin is installed, you can run the following command to generate a new app.
+
+```shell
+yarn nx generate @nrwl/react:application <name>
+```
+
+You can also replace `generate` for `g` to make this command a bit shorter.
+
+
+## Creating a React Library
+
+To generate a library to be used inside an application, you can run the following command:
+
+```shell
+yarn nx g @nrwl/react:lib <name of library>
+```
+
+When dealing with monorepos, organizing your workspace is important. So you can append the flag `--directory=<name of directory>` to put new libraries inside a directory that contain the name of the app that will be using this library.
+
+
+## Installing npm packages in an Nx workpsace
+
+Since you are using a monorepo, you will have a global `package.json` which means that you can install your packages as normal, by running the command:
+
+```shell
+yarn add <package name>
+```
+
+## Creating a React Component
+
+When generating a component, you can add the flag `--project=<path and name of the library>` to specify which library should use this component. Let's assume that you have a library called `my-awesome-lib` and you are creating the component `header` you need to set the project flag like such: `--project=my-awesome-lib-header`.
+
+```shell
+yarn nx g @nrwl/react:component <name of component> --project=<name of library>
+```
+
+Now that you have the component created, how can you import it?
+
+Have a look at the `tsconfig.base.json` file, look for the `paths` parameter and you can use that to import your components.
+
+For example:
+
+```js
+import { Header } from @my-workspace/my-awesome-lib/header
+```
+
+## Visualising your Monorepo Structure
+
+Nx comes with a visual tool that will create a graph containing all your dependencies and how each thing relates to another.
+
+```shell
+yarn nx dep-graph
+```
+
+A few things that are good to know about the graph representation of your project:
+
+- Applications are represented by squares
+- Libraries are represented by circles
+- The arrows show the libraries that an application imports
+
+## Running Commands, tests and linting
+
+When you create a workspace, Nx will set up a few things for you - tests, linting and any other needed commands.
+
+To run a command it's as easy as:
+
+```shell
+yarn run <app/lib name>:<command>
+```
+
+For example, you can run tests with the command `yarn run my-awesome-app:test`.
+
+What if you want to run a command in more than one application/library? Nx has you covered as well.
+
+```shell
+yarn nx run-many --target=<command> --projects=<app/lib separated by comman> --parallel=<boolean>
+```
+
+That's a lot of flags! Let's have a look at them:
+
+- `--target` is the type of command we want to run - we want to use serve to run both applications
+- `--projects` these are all the applications we want to run in the command, they are comma-separated
+- `--parallel` is used because we want to serve both projects together at the same time
+  - If we don't use it, Nx would run the first project until terminated, before starting the next one
+
+Let's see an example. If we want to run the frontend and backend of our `awesome-project` we can use the command:
+
+```shell
+yarn nx run-many --target=serve --projects=awesome-frontend,awesome-backend --parallel=true
+```
+
+We have to use the `--parallel` flag because we want to run both the backend and frontend at the same time.
+
+## Improving CI runs
+
+When working with monorepos and as our workspace grows, the slower CI will be. Nx provides an `affected` command that will build only the things that have changed.
+
+```shell
+yarn nx affected:<target> --base=<branch - defaults main>
+```
+
+For example, you can run only the tests for only the files that changed in our app with the command:
+
+```shell
+yarn nx affected:test
+```
+
+_**Note:** We can skip the `--base` flag since it will default to the main branch._
+
+## References
+
+
+- [Egghead Course - Scale React Development with Nx](https://egghead.io/playlists/scale-react-development-with-nx-4038)
+- [Egghead notes repository](https://github.com/eggheadio/eggheadio-course-notes/tree/master/scale-react-development-with-nx)
+- [Nx website](https://nx.dev/)
+- [Docs: Why Nx](https://nx.dev/latest/react/getting-started/why-nx)
+- [Docs: Nx run commands](https://nx.dev/latest/react/plugins/workspace/builders/run-commands)
+- [Docs: Nx run-many](https://nx.dev/latest/react/cli/run-many#run-many)
+- [Docs: Nx affected](https://nx.dev/latest/react/cli/affected#affected)
