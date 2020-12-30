@@ -102,5 +102,12 @@ module.exports = {
         addUncaughtPages: true,
         }
       },
+      {
+        resolve: `gatsby-plugin-canonical-urls`,
+        options: {
+          siteUrl: `https://fabiorosado.dev`
+        }
+      },
+       `gatsby-plugin-offline`,
   ]
 }

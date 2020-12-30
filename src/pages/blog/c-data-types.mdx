@@ -1,0 +1,78 @@
+---
+slug: c-data-types
+title: Data Types in C
+subtitle: Notes on how to create variables and available data types in C
+author: "fabiorosado"
+date:   2020-12-30 16:00:00 +0000
+categories: C
+category_icon: fas fa-code
+tags: 
+  - data types
+  - c
+image: ../../images/c.jpg
+excerpt: This article contains my notes from the online course CS50. On week 1 we start learning about C with a quick introduction of data types, how to create variables and the void type.
+---
+
+This is a compilation of the notes from week 1 of [CS50](https://courses.edx.org/courses/course-v1:HarvardX+CS50+X/). On the first week we start learning about C, we learn things such as Data Types, how to create variables and the `void` type.
+
+## Create variables
+
+In C we need to specify the type of the variable and then give it a name. This is a piece of useful information to get out of the way straight away before diving deeper into the data types available.
+
+- `int number;`
+- `char letter;`
+
+If you create multiple variables of the same type, you can specify the type and then the names of all the variables of those types.
+
+- `int height, width;`
+- `float sqrt2, sqrt3, pi;`
+
+After you have declared the data type of the variable, you don't need to specify it again when assigning in values to that variable.
+
+When creating a variable you can either declare a variable or initialize the variable. Seems, fancy but is just either declare the variable without assigning something to it or assigning a value to the variable.
+
+```c
+int number; // declaration
+int n = 17; // initialization
+```
+
+## Int
+
+Is used to store integers, they will always take 4 bytes of memory (32 bits) - this means that the range of value that they can store if limited to 32 bits of information.
+
+- **Range:** −32,767 to +32,767
+- **Format Specifier:**  `%hd`
+
+## Char
+
+Is used to store single characters, they will always take 1 byte of memory (8 bits) - this means the range of the value that can be store is limited to 8 bits of information.
+
+ASCII developed a mapping of characters (A, B, C...) to numeric values in the positive side of the `char` range.
+
+- **Range:** -128 to 127
+- **Format Specifier:** `%c`
+
+
+## Float
+
+Is used to store floating-point values (real numbers), they will take up to 4 bytes of memory (32 bits). When using floats we are limited to how precise that number can be
+
+- **Format Specifier:** `%f`
+
+## Double
+
+Is used to store floating-point values, but use double-precision, they will take up to 8 bytes of memory (64 bits). It allows us to get more precise real numbers
+
+- **Format Specifier:** `%lf`
+
+## Unsigned
+
+Unsigned isn't a data type but is a qualifier. It can double the positive range of a data type, at the cost of disallowing any negative values.
+
+**Example:** If we have an `unsigned int` the range of that data type is: 0 to 65535 vs the regular int which is −32,767 to +32,76.
+
+Also, note that the format specifier for unsigned data types will be different than "regular" ones.
+
+##  Void
+
+This isn't a data type, but a type. Functions can have a `void` return type, which means they don't return a value. The parameter of a function can also be `void`, which means that the function takes no parameters.
