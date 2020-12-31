@@ -1,0 +1,128 @@
+---
+slug: introduction-to-dask
+title: Introduction to Dask
+subtitle: Quick introduction to Dask - What is it, comparison with Pandas, how to install
+author: "fabiorosado"
+date:   2020-12-31 16:00:00 +0000
+categories: Python
+category_icon: fab fa-python
+tags: 
+  - dask 
+  - scaling
+  - data science
+image: ../../images/dask.jpg
+excerpt: This article is a quick introduction about the Python library Dask. Dask allows you to scale libraries such as Pandas, Numpy, Scikit-Learn and much more.
+---
+Dask was developed to scale libraries such as Pandas, NumPy, Scikit-Learn, etc. It can help you scale beyond a single machine. Because Dask has a familiar API, it's easier to scale your work with minimal code rewriting, saving you time.
+
+You can deploy Dask in-house, on the cloud or HPC super-computers. It supports encryption and authentication using TSL/SSL certificates.
+
+>  It is resilient and can handle the failure of worker nodes gracefully and is elastic, and so can take advantage of new nodes added on-the-fly.
+> [Dask docs - Why Dask?](https://docs.dask.org/en/latest/why.html)
+
+## Scaling down to a single computer
+
+Now you might be thinking that Dask is only suited for big and expensive clusters. The great news is that Dask is also suitable to use in a single computer. 
+
+Our computers have become more powerful, having access to multi-core CPUs, large amounts of RAM and Nvme SSD drives. This means that you can use large datasets and use the data however you want with your computer.
+
+> Dask can enable efficient parallel computations on single machines by leveraging their multi-core CPUs and streaming data efficiently from disk. It _can_ run on a distributed cluster, but it doesn’t _have_ to.
+> [Dask docs - Why Dask?](https://docs.dask.org/en/latest/why.html)
+
+You can run single-machine schedulers that are light, require no setup and can run in the same process as the user session. Dask is also good at finding ways to avoid using too much memory.
+
+## Schedulers and Workers
+
+You can run a distributed scheduler in a single machine without the need to create a cluster or connect to the cloud.
+
+To start your scheduler you can use the CLI command
+
+```shell
+dask-scheduler
+```
+
+This will give you a scheduler address that will look like: `tcp://<ip address>:<port>` and a dashboard at  `http://<ip adress>:<port>`, if running locally it will use localhost and port 8786 by default.
+
+To create a worker you can open a new terminal window and use the CLI command
+
+```shell
+dask-worker tcp://<ip adress>:<port>
+```
+
+You will see on your dask scheduler that a new connection was established. You can now open more terminal windows to create more workers.
+
+You might be wondering, why this is relevant. Well, you can use SSH to create workers on a different machine. So if you have a desktop and a laptop, you can run the scheduler and some workers on the desktop and add more workers from the laptop.
+
+You can start an SHH connection with the CLI command:
+
+```shell
+dask-ssh <ip address> <ip address>
+```
+
+_Read more info on the [Dask docs on how to setup an ssh connection](https://docs.dask.org/en/latest/setup/ssh.html)._
+
+
+## Comparing Dask with Pandas
+
+As mentioned before Dask uses a familiar API which means that is easy to start using if you already know other libraries like Pandas or Numpy. 
+
+Let's have a look at how you can create a DataFrame with Pandas and then Dask:
+
+```python
+import pandas as pd
+import dask.dataframe as dd
+
+# Create a pandas dataframe
+df = pd.read_csv('2015-01-01.csv')
+
+# Create a dask dataframe
+df = dd.read_csv('2015-01-01.csv')
+
+```
+
+_**Note:** You can see this example on the official [dask docs](https://docs.dask.org/en/latest/) _
+
+There are some differences that are worth to mention:
+
+- In Dask you need to run `.compute()` to get a result back because data is lazyloaded
+	- For example to calculate the mean of a dataframe you need to run: `df.groupby(df.user\_id).value.mean().compute()`
+- You can load multiple files to your dataframe by using `*.csv`
+	- For example: `df = dd.read_csv('2015-*-*.csv')`
+
+As you can see, the Dask API is familiar enough that you can use the same code with some small changes.
+
+## How to install Dask
+
+You have three ways to install dask:
+
+- Using Anaconda
+	- `conda install dask`
+- Pip
+	- `python -m pip install "dask\[complete\]"`
+- From source
+	- `git clone https://github.com/dask/dask.git && cd dask && python -m pip install`
+
+Have a look at the docs on [how to install Dask](https://docs.dask.org/en/latest/install.html) for a better in-depth explanation on how to install Dask, since the docs show how you can install just some things.
+
+
+## Watch an example
+
+I'd recommend you to watch this quick video explaining how to setup Dask on your machine.
+
+<iframe 
+    className="center"
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/TQM9zIBzNBo" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen 
+/>
+
+
+## References
+
+- [Dask - Install Dask ](https://docs.dask.org/en/latest/install.html)
+- [Dask - CLI commands](https://docs.dask.org/en/latest/setup/cli.html)
+- [Dask - Setting up SSH](https://docs.dask.org/en/latest/setup/ssh.html)
+- [Video - Dask setup: Introduction](https://www.youtube.com/watch?v=TQM9zIBzNBo)
