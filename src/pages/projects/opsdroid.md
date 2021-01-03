@@ -10,86 +10,66 @@ tech: Python Asyncio NLU
 image: ../../images/opsdroid.jpg
 excerpt: An open source chatbot framework written in python. It is designed to be extendable, scalable and simple.
 ---
-While listening to one episode of `Podcast.__init__` I came across Opsdroid. In the end of the show, Jacob Tomlinson says that he would love to have people helping with the project.  
+Opsdroid was the first open-source project that I've contributed to. I've been contributing since September 2017 and later on became a Maintainer for the project. Since I've been contributing to Opsdroid for such a long time, it will be hard to show all that I've done. If you are curious you can see [my list of commits](https://github.com/opsdroid/opsdroid/commits?author=FabioRosado).
 
-I always wanted to contribute to an Open Source project but wasn't sure how to start. One day I checked Osdroid on GitHub, went through the list of issues, forked the repo and read some of the code to try and understand how everything worked.
+As part of the Opsdroid team, I also have to do tasks such as triaging issues, code review PRs, help, guide and mentor new contributors, merge PR's, implement new features and also work with the team to decide plans for the project.
 
-Initially, I was unsure how to help. I doubted that I could do much with the knowledge I had. I even had to read about yaml files and what you do with them. In the end, I helped with documentation (mostly changing README and the example configuration file).
+Let's have a look at a few things that I added to the project.
 
-Jacob has been a pretty amazing person since the first day I've made my first pull request to Opsdroid and he is always ready to give a hand or a piece of advice. Not only I've grown a lot since I started contributing to the project I've also learned new things and ways to write better code.
+## Connectors
 
-# Things I've contributed with
+Connectors are used to receive and send messages from chat services.
 
-- example_configuration.yaml
-  - Added new skills to the file
-  - Added database details
-  - Added connectors details
+- Added the Telegram connector
+- Added the Rocket.chat connector
+- Added the Twitch connector
 
-- include another yaml file inside main configuration file
-  - Added `include constructor` to work with the command `!include` in a yaml file
-  - Created test to assert if a yaml file contains all the data from another yaml file
-  - Updated documentation file referred to the `!include` function
+## Parsers
 
-- Log welcome message with useful info
-  - Created text to be logged
-  - Created function to be called upon start of opsdroid
-  - Added functionality to turn message on/off through the configuration file
-  - Created test to assert if the welcome message was called
+Parses are Natural Language Understanding services that give opsdroid more context.
 
-- [skill-google-it](https://github.com/opsdroid/skill-google-it)
-  - Added more search engines
-  - Updated regex to accept both `google` and `search` commands
-  - Added personalised message to be returned together with the googled link
-  - Updated README title
+- Added the Wit.ai parser
+- Added Recast.ai parser (Now known as SAP Conversational AI)
+- Added IBM Watson parser
+- Updated Dialogflow parser to V2
 
-- [skill-devtools](https://github.com/opsdroid/skill-devtools/)
-  - Added `help` function - returns quick info and useful links
-  - Added `help skills` function - returns active opsdroid skills
-  - Added `clear` function - clears terminal text
-  - Updated README - added the new functions
+## Logging
 
-- [skill-chat](https://github.com/FabioRosado/skill-chat)
-  - Created all the functions
-  - Created `customise.yaml` to allow user to customise opsdroid replies
-  - Created `vocab` List
-  - Modified README from `skill-google-it` to suit the chat skill
+- Done various refactors done to the logging messages
+- Moved logs to appdir location - keeps consistent through all platforms
+- Added filters to logging
+- Added logs rotation
 
-- [skill-weather](https://github.com/FabioRosado/skill-weather/)
-  - Created function to get weather data from `OpenWeatherMap` API
-  - Created `weather` function to get current weather, humidity levels and degrees
-  - Created `cold_outside` function to get information if it's cold outside
-  - Replaced requests with aiohttp to interact with the OpenWeatherMap API
+## Configuration and CLI
 
-- Add [wit.ai](https://wit.ai) parser/matcher support
-  - Created parser by following the api.ai parser as example
-  - Added test cases for the parser and matcher
+- Added configuration validation
+- Added feature to run config validation without having to start the bot
+- Added a flag to CLI to load a config file from a different path
+- Added `list-modules` command to CLI to show a list of active modules
+- Added `build` command to CLI to load and load dependencies without running the bot
+- Changed config layout - use dicts of dicts instead of list of dicts
 
-- Add a test for `aiohttp.ClientOSError` exceptions in parsers
-  - Used wit.ai parser to test ways to catch the ClientOSError exception on a test
-  - Updated api.ai and luis.ai parser tests to include the ClientOSError test
+## Loader
 
-- Add Issue/PR template 
+- Updated loader to prevent the execution of arbitrary code by exploiting a vulnerability in PyYaml load method
+- Refactored some parts of the loader to improve performance
 
-- Rename Api.ai references with Dialogflow
-  - Renamed all Api.ai references to Dialogflow
-  - Created new dialogflow matcher and Added tests for it
-  - Logged deprecation warning on apiai matcher - tested if logging was called
+## Documentation
 
-- Add [Recast.AI](https://recast.ai/) parser/matcher support
-  - Created parser and matcher
-  - Added test cases for the parser and matcher
-  
-- Added/Updated Documentation
-  - Created tutorials to help beginners get started with opsdroid
-  - Updated contributing.md
-  - Updated READMe.md
-  - Added documentation for wit.ai and Recast.AI parser/matcher
-  - Replaced Api.ai reference with new name - Dialogflow
+- Created tutorials to help beginners get started with opsdroid
+- Added VIM tutorial
+- Added examples
+- Updated contributing.md
+- Updated README.md
+- Added documentation for new features
+- Added documentation about using parsers with a different language
 
-- Added typing/thinking delay functionality
-  - Added two functions in `opsdroid.message`: typing, thinking delay
-  - Created tests for the functions
-  - Updated documentation
+## Website
+
+- Designed a new page for the project
+- Coded new page for the project
+- Updated module list on the website
+
 
 # Info
 
