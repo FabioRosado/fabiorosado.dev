@@ -12,8 +12,9 @@ tags:
 image: ../../images/git.jpg
 excerpt: This article contains notes about what I've learned from lesson 6 of Missing Semester - Version Control (git).
 ---
-This article contains notes for the video from lesson 6 of [Missing Semester](https://www.youtube.com/channel/UCuXy5tCgEninup9cGplbiFw) on Version Control and git. I've taken notes of how git works and less about git commands and what they do. I hope these notes prove useful for you, at the bottom of the article you have some great references if you want to go more in-depth on your git learning.
+import Note from "../../components/text-decorations/note"
 
+This article contains notes for the video from lesson 6 of [Missing Semester](https://www.youtube.com/channel/UCuXy5tCgEninup9cGplbiFw) on Version Control and git. I've taken notes of how git works and less about git commands and what they do. I hope these notes prove useful for you, at the bottom of the article you have some great references if you want to go more in-depth on your git learning.
 
 <iframe 
     width="560" 
@@ -40,7 +41,9 @@ Git has a data model that enables features of version control such as keeping tr
 
 A snapshot is what we know as a commit. It contains the history of files, folders and metadata. A snapshot is the top-level tree/directory that is being tracked.
 
-> **Note:** We can track a top-level tree with the command `git init`
+<Note>
+  We can track a top-level tree with the command <code>git init</code>.
+</Note>
 
 We can think of a snapshoot as being built like this:
 
@@ -52,8 +55,9 @@ type commit = struct {
 	snapshot: tree
 }
 ```
-
->**Note:** this is pseudo-code
+<Note>
+This is pseudo-code
+</Note>
 
 In Git terminology, a file is called a "blob" because it's just a bunch of bytes. We can think of blobs as an array of bytes:
 
@@ -79,7 +83,9 @@ This means that the core of git is a simple key-value data store. You can insert
 
 This unique key is the [SHA-1 hash](https://en.wikipedia.org/wiki/SHA-1) of that object and it allows us to access the object with that key.
 
-> **Note:** Using a hash allows us to take a big piece of data and turn it into a short string
+<Note>
+ Using a hash allows us to take a big piece of data and turn it into a short string
+</Note>
 
 Taking the example from that `git log` that I have shown before:
 

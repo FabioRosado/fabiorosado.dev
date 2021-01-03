@@ -20,8 +20,8 @@
 }
 
 p, ul {
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  margin-block-start: .5em;
+  margin-block-end: .5em;
 }
 
 
@@ -85,7 +85,7 @@ a {
   }
 }
 
-blockquote {
+blockquote, aside {
     background: #37275C;
     border-left: 5px solid color(secondary-color);
     margin: 1.5em 10px;
@@ -100,4 +100,109 @@ blockquote {
 hr {
     border: 1px solid color(secondary-color);
     margin: 1.5rem;
+    margin-block-start: 2rem;
 }
+
+
+    .quote::before {
+        content: "“";
+        background-color: color(secondary-color);
+        color: color(background-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        top: 0px;
+        left: 0px;
+        transform: translateX(-50%) translateY(-25%);
+        font-variant: all-small-caps;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.25rem;
+        border-radius: 50%;
+    }
+
+    .information::before {
+        content: "i";
+        background-color: color(secondary-color);
+        color: color(background-color);
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        top: 0px;
+        left: 0px;
+        transform: translateX(-50%) translateY(-25%);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.25rem;
+        border-radius: 50%;
+    }
+
+    .note::before {
+        content: "*";
+        background-color: color(secondary-color);
+        color: color(background-color);
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        top: 0px;
+        left: 0px;
+        transform: translateX(-50%) translateY(-25%);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2.25rem;
+        border-radius: 50%;
+    }
+
+    .warning{
+        position: relative;
+        background-color: #fc40561c;
+        border-left: 5px solid color(secondary-color);
+        margin: 1.5em 10px;
+        padding: 1em;
+        font-style: italic;
+
+        &::before {
+            display: inline-flex;
+            justify-content: center;
+            text-align: center;
+            content: "!";
+            position: absolute;
+            color: color(background-color);
+            width: 35px;
+            height: 35px;
+            top: 0;
+            left: 0;
+            transform: translateX(-50%) translateY(-25%);
+            background-color: color(secondary-color);
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.25rem;
+            clip-path: polygon(50% 0,0 100%,100% 100%);
+        }
+    }
+
+    .highlight {
+        position: relative;
+        background: color(background-light);
+        border-left: 5px solid color(secondary-color);
+        margin: 1.5em 10px;
+        padding: 1em;
+        font-style: italic;
+
+        p {
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            margin-top: .5rem;
+            color: color(light-red);
+        }
+    }

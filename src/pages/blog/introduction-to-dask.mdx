@@ -13,12 +13,18 @@ tags:
 image: ../../images/dask.jpg
 excerpt: This article is a quick introduction about the Python library Dask. Dask allows you to scale libraries such as Pandas, Numpy, Scikit-Learn and much more.
 ---
+import Quote from "../../components/text-decorations/quote"
+import Information from "../../components/text-decorations/information"
+import Note from "../../components/text-decorations/note"
+
 Dask was developed to scale libraries such as Pandas, NumPy, Scikit-Learn, etc. It can help you scale beyond a single machine. Because Dask has a familiar API, it's easier to scale your work with minimal code rewriting, saving you time.
 
 You can deploy Dask in-house, on the cloud or HPC super-computers. It supports encryption and authentication using TSL/SSL certificates.
 
->  It is resilient and can handle the failure of worker nodes gracefully and is elastic, and so can take advantage of new nodes added on-the-fly.
-> [Dask docs - Why Dask?](https://docs.dask.org/en/latest/why.html)
+<Quote>
+ <p>It is resilient and can handle the failure of worker nodes gracefully and is elastic, and so can take advantage of new nodes added on-the-fly.</p>
+ <a href="https://docs.dask.org/en/latest/why.html">Dask docs - Why Dask?</a>
+</Quote>
 
 ## Scaling down to a single computer
 
@@ -26,8 +32,10 @@ Now you might be thinking that Dask is only suited for big and expensive cluster
 
 Our computers have become more powerful, having access to multi-core CPUs, large amounts of RAM and Nvme SSD drives. This means that you can use large datasets and use the data however you want with your computer.
 
-> Dask can enable efficient parallel computations on single machines by leveraging their multi-core CPUs and streaming data efficiently from disk. It _can_ run on a distributed cluster, but it doesn’t _have_ to.
-> [Dask docs - Why Dask?](https://docs.dask.org/en/latest/why.html)
+<Quote>
+  <p>Dask can enable efficient parallel computations on single machines by leveraging their multi-core CPUs and streaming data efficiently from disk. It can run on a distributed cluster, but it doesn’t have to.</p>
+  <a href="https://docs.dask.org/en/latest/why.html">Dask docs - Why Dask?</a>
+</Quote>
 
 You can run single-machine schedulers that are light, require no setup and can run in the same process as the user session. Dask is also good at finding ways to avoid using too much memory.
 
@@ -59,8 +67,9 @@ You can start an SHH connection with the CLI command:
 dask-ssh <ip address> <ip address>
 ```
 
-_Read more info on the [Dask docs on how to setup an ssh connection](https://docs.dask.org/en/latest/setup/ssh.html)._
-
+<Information>
+Read more info on the Dask docs on <a href="https://docs.dask.org/en/latest/setup/ssh.html">how to setup an ssh connection</a>.
+</Information>
 
 ## Comparing Dask with Pandas
 
@@ -80,7 +89,9 @@ df = dd.read_csv('2015-01-01.csv')
 
 ```
 
-_**Note:** You can see this example on the official [dask docs](https://docs.dask.org/en/latest/) _
+<Note>
+  You can see this example on the official <a href="https://docs.dask.org/en/latest/">Dask docs</a>.
+</Note>
 
 There are some differences that are worth to mention:
 
@@ -119,8 +130,8 @@ I'd recommend you to watch this quick video explaining how to setup Dask on your
     allowfullscreen 
 />
 
-
-## References
+---
+**References:**
 
 - [Dask - Install Dask ](https://docs.dask.org/en/latest/install.html)
 - [Dask - CLI commands](https://docs.dask.org/en/latest/setup/cli.html)

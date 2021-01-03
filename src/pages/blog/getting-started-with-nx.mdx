@@ -12,9 +12,13 @@ tags:
 image: ../../images/Nx.png
 excerpt: Nx makes it easy to work with monorepost, this article will show you how you can use Nx for your projects and talks about some basic commands that will help you.
 ---
+import Quote from "../../components/text-decorations/quote"
+import Note from "../../components/text-decorations/note"
 
-> "Nx is a set of extensible dev tools for monorepos, which helps you develop like Google, Facebook and Microsoft."
-> [Nx website](https://nx.dev/)
+<Quote>
+  <p>"Nx is a set of extensible dev tools for monorepos, which helps you develop like Google, Facebook and Microsoft."</p>
+  <a href="https://nx.dev/">Nx website</a>
+</Quote>
 
 Nx makes it easier to work with monorepos, to and libraries that could share code between different apps. Nx also generates unit and e2e tests, it prepares bundling and code-splitting with Webpack. 
 
@@ -63,7 +67,9 @@ When you run this command, the CLI will give you a set of options that allows yo
 
 You will also be asked which CLI should be activated in this workspace. The `Angular CLI` or the `Nx CLI` which is used for any workspace.
 
-_**Note:** You can append the flat `--dry-run` to each command, to see what a command will do, without actual changes to your workspace._
+<Note>
+  You can append the flag <code>--dry-run</code> to each command, to see what a command will do, without actual changes to your workspace.
+</Note>
 
 ## Creating a new App
 
@@ -74,8 +80,9 @@ First, we need to install the react plugin with the command:
 ```shell
 yarn add @nrwl/react
 ```
-
-_**Note:** You can run the command `yarn list @nrwl/react` to see all the things you can do with this plugin._
+<Note>
+  You can run the command <code>yarn list @nrwl/react</code> to see all the things you can do with this plugin.
+</Note>
 
 After the plugin is installed, you can run the following command to generate a new app.
 
@@ -184,9 +191,13 @@ For example, you can run only the tests for only the files that changed in our a
 yarn nx affected:test
 ```
 
-_**Note:** We can skip the `--base` flag since it will default to the main branch._
+<Note>
+  We can skip the <code>--base</code> flag since it will default to the main branch.
+</Note>
 
-## References
+
+---
+**References:**
 
 
 - [Egghead Course - Scale React Development with Nx](https://egghead.io/playlists/scale-react-development-with-nx-4038)

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, h1, h2, h3, h4,
 p, ul {
   margin: 0;
@@ -1133,7 +1134,7 @@ nav .menu-button .gg-menu-right::after {
 
 .text-container h1, .text-container h2, .text-container h3 {
   font-weight: bold;
-  padding-bottom: 1.5rem;
+  padding-bottom: .5rem;
   padding-top: 1rem;
   font-size: x-large;
 }
@@ -1228,10 +1229,10 @@ nav .menu-button .gg-menu-right::after {
 }
 
 p, ul {
-  -webkit-margin-before: 1em;
-          margin-block-start: 1em;
-  -webkit-margin-after: 1em;
-          margin-block-end: 1em;
+  -webkit-margin-before: .5em;
+          margin-block-start: .5em;
+  -webkit-margin-after: .5em;
+          margin-block-end: .5em;
 }
 
 .article {
@@ -1318,7 +1319,7 @@ a:hover {
   margin-bottom: .5rem;
 }
 
-blockquote {
+blockquote, aside {
   background: #37275C;
   border-left: 5px solid #FC4056;
   margin: 1.5em 10px;
@@ -1326,13 +1327,145 @@ blockquote {
   font-style: italic;
 }
 
-blockquote p {
+blockquote p, aside p {
   display: inline;
 }
 
 hr {
   border: 1px solid #FC4056;
   margin: 1.5rem;
+  -webkit-margin-before: 2rem;
+          margin-block-start: 2rem;
+}
+
+.quote::before {
+  content: "“";
+  background-color: #FC4056;
+  color: #251333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  -webkit-transform: translateX(-50%) translateY(-25%);
+          transform: translateX(-50%) translateY(-25%);
+  font-variant: all-small-caps;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.25rem;
+  border-radius: 50%;
+}
+
+.information::before {
+  content: "i";
+  background-color: #FC4056;
+  color: #251333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  -webkit-transform: translateX(-50%) translateY(-25%);
+          transform: translateX(-50%) translateY(-25%);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 50%;
+}
+
+.note::before {
+  content: "*";
+  background-color: #FC4056;
+  color: #251333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  -webkit-transform: translateX(-50%) translateY(-25%);
+          transform: translateX(-50%) translateY(-25%);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.25rem;
+  border-radius: 50%;
+}
+
+.warning {
+  position: relative;
+  background-color: #fc40561c;
+  border-left: 5px solid #FC4056;
+  margin: 1.5em 10px;
+  padding: 1em;
+  font-style: italic;
+}
+
+.warning::before {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  content: "!";
+  position: absolute;
+  color: #251333;
+  width: 35px;
+  height: 35px;
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-50%) translateY(-25%);
+          transform: translateX(-50%) translateY(-25%);
+  background-color: #FC4056;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25rem;
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+          clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.highlight {
+  position: relative;
+  border-left: 5px solid #FC4056;
+  margin: 1.5em 10px;
+  padding: 1em;
+  font-style: italic;
+}
+
+.highlight p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.highlight a {
+  margin-top: .5rem;
+  color: #FAA0AB;
 }
 
 .gatsby-highlight {
