@@ -20,13 +20,13 @@ The client wanted to have a contact form that could send an email to their email
 The client also wanted an easy way to add new pictures and work done to the site and the decision was made to use contentful to source all the media onto the website.
 
 
-# Info
+## Info
 
 **Website:** [https://www.landl-build.com/](https://www.landl-build.com/)
 
 **GitHub repo:** Private
 
-# Images
+## Images
 
 First proposal
 ![First proposal](../../images/landl-proposal.jpg)
