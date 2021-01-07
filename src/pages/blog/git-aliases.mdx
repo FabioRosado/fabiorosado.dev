@@ -1,0 +1,83 @@
+---
+slug: git-aliases
+title:  Git Aliases
+subtitle: Using git with small commands
+author: "FabioRosado"
+date:   2021-01-06 23:00
+categories: Git
+category_icon: fas fa-code-branch
+tags:
+  - aliases
+  - bash
+image: ../../images/git.jpg
+excerpt:  It can be a bit painful to write full git commands over and over again, so I've created a few aliases to shorten the number of keys I have to press while doing git stuff.
+---
+
+Working with git is awesome. I used to just type every command by hand. I've even learned some flags to make things a bit easier, for example using `-u` instead of writing `--set-upstream`. 
+Typing full commands when you are doing one or two commits per day, it's fine. But on my new job, on this first week, I've been cloning repos, creating branches, committing and pushing quite frequently.
+
+So I decided to tick something that had been on my to-do list for ages - create short git aliases!
+
+On this article, I'll share with you the aliases that I've created, but also some others that I have been using for years and I can't live without. Hopefully, this will be useful to you.
+
+
+## Clone and CD into the folder
+
+This is one thing that I find a bit boring, cloning and then changing directory to the cloned repo. There has to be a better way to do this, well you could do something like `git clone <url> && cd $_` but that would mean write more - yeah I'm lazy at times.
+
+I decided to go in search of a good way to deal with this and came across this [stackoverflow answer](https://unix.stackexchange.com/a/97922). It looked like it did what I wanted, after testing, it does!
+
+```bash
+gclone() {
+    git clone "$1" && cd "$(basename "$1" .git)"
+}
+```
+
+Now I can run `gclone <url>` and git will clone the repository and then change the directory into the new folder!
+
+## Useful aliases
+
+There are a few commands that I tend to write all the time.
+
+- git commit -m
+- git commit -am
+- git push -u 
+
+Since I tend to use these so often, why not just creating an alias for each?
+
+```bash
+alias gpuo='git push -u origin'
+alias gpu='git push -u'
+alias gcam='git commit -am'
+alias gc='git commit -m'
+alias gbd='git branch -D'
+```
+
+I've decided to create an alias for when I'm trying to push a new branch to my remote repo which is always origin. This allows me to use the command as `gpuo my-feature` to push my-feature branch to my remote repository. I'm still trying to see if I will ever use the smaller alias `gpu`, if I don't I will probably just replace `gpu` with the `gpuo` one.
+
+## Old aliases
+
+I've been using these two aliases since day one. The log one shows a nice graph of the git logs, while status one shows the git status in a short way. These work great, but I still have to type `git` first, so I decided to make them even shorter because why not.
+
+```bash
+alias gst='git status -s'
+alias glog='log --oneline --decorate --all --graph'
+```
+
+## Full list of aliases
+
+Just in case you want to copy all of these without having to click on each code block, here's the full list of my aliases. Let me know if you have any suggestion for these or if they are useful to you.
+
+```bash
+alias gpuo='git push -u origin'
+alias gpu='git push -u'
+alias gcam='git commit -am'
+alias gc='git commit -m'
+alias gbd='git branch -D'
+alias gst='git status -s'
+alias glog='log --oneline --decorate --all --graph'
+
+gclone() {
+    git clone "$1" && cd "$(basename "$1" .git)"
+}
+```
