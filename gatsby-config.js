@@ -121,6 +121,7 @@ module.exports = {
         respectDNT: true,
         }
       },
+       `gatsby-plugin-robots-txt`,
        `gatsby-plugin-offline`,
   ]
 }

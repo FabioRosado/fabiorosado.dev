@@ -1,0 +1,63 @@
+---
+slug: pyright-worker-threads-missing
+title: Fix worker_threads module missing
+subtitle: How to fix the error "Cannot find module 'worker_threads'"
+author: "fabiorosado"
+date:   2021-01-11 23:00:00
+categories: Node
+category_icon: fab fa-node-js
+tags: 
+  - errors 
+  - hooks
+image: ../../images/nodejs.png
+excerpt: Dask gives you a dashboard when you create a Dask client, in this article I'll share with you how you can install the Dask extension on a JupyterLab notebook.
+---
+At [Coiled](https://coiled.io) we use a few hooks that run with `pre-commit`. This means that before git commits your changes, these hooks will be run and report any failures.  Using `pre-commit` is a great way to spot issues (like linting) before you do At [Coiled](https://coiled.io) we use a few hooks that run with `pre-commit`. This means that before git commits your changes, these hooks will be run and report any failures.  Using `pre-commit` is a great way to spot issues (like linting) before you do your commits.
+
+Everything went fine when I set up my dev environment, the command `pre-commit install` throw no errors when I ran it. But on my first commit, I got an error with `pyright` that apparently couldn't find the `worker_threads` module.
+
+
+## The Problem
+
+Pyright it's a type checker for Python created by Microsoft. This was the first time I was using `pyright` so I have never encountered the error. 
+
+```shell
+pyright..................................................................Failed
+- hook id: pyright
+- exit code: 1
+
+internal/modules/cjs/loader.js:638
+    throw err;
+    ^
+
+Error: Cannot find module 'worker_threads'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.5013 (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright.js:1:597)
+    at s (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright.js:1:723)
+    at Object.4221 (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright-internal.js:1:204756)
+    at s (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright.js:1:723)
+    at Object.8408 (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright-internal.js:1:158250)
+    at s (/home/fabiorosado/.cache/pre-commit/repov31novgl/node_env-system/lib/node_modules/pyright/dist/pyright.js:1:723)
+
+tslint...............................................(no files to check)Skipped
+tsc..................................................(no files to check)Skipped
+```
+
+This error made me unable to use pre-commit, which is a bummer because I kept forgetting to run black to automatically check and lint my code. 
+
+After exploring online, it seems that it might be a node issue, I've tried using Node Version Manager to update node to the latest version (15.3.0), but that didn't work. So, I tried to install the latest node version manually, but that didn't work as well.
+
+## The solution
+
+After going through a few StackOverflow questions and Github issues, I came across this GitHub issue created on the electron repository - [Unable to use NodeJs worker-threads module](https://github.com/electron/electron/issues/18540).
+
+Running this command will be enough to fix the issue.
+
+```shell
+export NODE\_OPTIONS=--experimental-worker
+```
+
+Now I can run `git commit`, and my pre-commit will run without throwing any errors.
