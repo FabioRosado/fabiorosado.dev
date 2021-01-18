@@ -64,64 +64,32 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
-        {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
       options: {
-        hideAttribution: true,
-        query: `
-        {
-          blog: allMdx(filter: {frontmatter: {categories: {ne: "Projects"}}}) {
-            edges {
-              node {
-                id
-                slug
-                frontmatter {
-                  date
-                }
-              }
-            }
-          }
-          projects: allMdx(filter: {frontmatter: {categories: {eq: "Projects"}}}) {
-            edges {
-              node {
-                id
-                slug
-                frontmatter {
-                  date
-                }
-              }
-            }
-          }
-        }`,
-        mapping: {
-          blog: { sitemap: `blog`},
-          portfolio: { sitemap: `portfolio`},
-          pages: { sitemap: `pages`}
-        },
-        exclude: [`/404/`, `/dev-404-page/`, `/404.html`],
-        addUncaughtPages: true,
-        }
-      },
-      {
-        resolve: `gatsby-plugin-canonical-urls`,
-        options: {
-          siteUrl: `https://fabiorosado.dev`
-        }
-      },
-      {
-      resolve: `gatsby-plugin-google-analytics`,
+        output: `sitemap.xml`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-109089626-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        }
-      },
-       `gatsby-plugin-robots-txt`,
-       `gatsby-plugin-offline`,
+        siteUrl: `https://fabiorosado.dev`
+      }
+    },
+    {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      // The property ID; the tracking code won't be generated without it
+      trackingId: "UA-109089626-1",
+      // Defines where to place the tracking script - `true` in the head and `false` in the body
+      head: false,
+      // Setting this parameter is optional
+      anonymize: true,
+      // Setting this parameter is also optional
+      respectDNT: true,
+      }
+    },
+      `gatsby-plugin-robots-txt`,
+      `gatsby-plugin-offline`,
   ]
 }
