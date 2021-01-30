@@ -114,6 +114,17 @@ position: relative;
   transition: background-color 0.5s ease-out;
 }
 
+.two-columns {
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+  @include desktop {
+    grid-auto-flow: column;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
 .three-columns {
   display: grid;
   grid-auto-flow: row;
@@ -262,6 +273,10 @@ position: relative;
   padding: $padding-unit;
 }
 
+.padding-bottom {
+  padding-bottom: $padding-unit;
+}
+
 .padding-top {
   padding-top: $padding-unit;
 }
@@ -277,4 +292,8 @@ position: relative;
 .centered {
   width: 50% !important;
   margin: auto !important;
+}
+
+.justify-center {
+  justify-content: center;
 }

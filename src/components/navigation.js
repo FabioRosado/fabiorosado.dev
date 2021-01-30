@@ -22,7 +22,7 @@ const Navigation = () => {
                 </button>
                 
                 <Link className="white-text" to="/">Home</Link>
-                <Link className="white-text" to="/#about">About</Link>
+                <Link className="white-text" to="/about">About</Link>
                 <Link className="white-text" to="/writings">Writings</Link>
                 <Link className="white-text" to="/portfolio">Portfolio</Link>
                 <Link className="white-text" to="/contact">Contact</Link>

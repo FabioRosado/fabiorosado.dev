@@ -113,6 +113,9 @@
   font-size: 3em;
 }
 
+.large {
+  font-size: 2em !important;
+}
 
 .gatsby-resp-image-wrapper {
   margin-left: 0 !important;
@@ -138,4 +141,16 @@
     padding: 1rem;
   }
 
+}
+
+.red {
+  color: color(secondary-color);
+}
+
+.green {
+  color: color(green-color);
+}
+
+.list-none {
+  list-style-type: none;
 }

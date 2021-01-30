@@ -185,6 +185,21 @@ a {
   transition: background-color 0.5s ease-out;
 }
 
+.two-columns {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+}
+
+@media (min-width: 1160px) {
+  .two-columns {
+    grid-auto-flow: column;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .three-columns {
   display: -ms-grid;
   display: grid;
@@ -356,6 +371,10 @@ a {
   padding: 1.5rem;
 }
 
+.padding-bottom {
+  padding-bottom: 1.5rem;
+}
+
 .padding-top {
   padding-top: 1.5rem;
 }
@@ -371,6 +390,12 @@ a {
 .centered {
   width: 50% !important;
   margin: auto !important;
+}
+
+.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .hero-image {
@@ -1168,6 +1193,10 @@ nav .menu-button .gg-menu-right::after {
   font-size: 3em;
 }
 
+.large {
+  font-size: 2em !important;
+}
+
 .gatsby-resp-image-wrapper {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -1195,6 +1224,18 @@ nav .menu-button .gg-menu-right::after {
 
 .example .example-body {
   padding: 1rem;
+}
+
+.red {
+  color: #FC4056;
+}
+
+.green {
+  color: #0EFB69;
+}
+
+.list-none {
+  list-style-type: none;
 }
 
 .page-container {

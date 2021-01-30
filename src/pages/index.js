@@ -25,8 +25,8 @@ const IndexPage = (props) => {
     <div className="header-container">
       <div className="intro">
         <h1>Hello,</h1>
-        <p>I’m Fabio, a Portuguese expat living in the UK. I’m currently working for an airline as cabin crew and learning how to code in my free time.</p>
-        <h1 className="margin-top">Let's Chat!</h1>
+        <p>I'm the flying dev, a flight attendant by day and a developer by night. I build projects live on twitch, contribute to open source and talk with devs about their journey into tech at <a href="https://landingintech.com">Landing in Tech</a> podcast.</p>
+        <h1>Let's Chat!</h1>
         <ul className="horizontal-list">
             <li><Link to="/#contact"><button className="full-button">Say Hello</button></Link></li>
             <li><a href="https://github.com/FabioRosado" aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square" /></a></li>
