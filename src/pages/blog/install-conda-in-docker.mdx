@@ -1,0 +1,64 @@
+---
+slug: install-conda-in-docker
+title: Install conda in a docker image
+subtitle: How to create a docker image that has conda installed
+author: "fabiorosado"
+date:   2021-02-11 
+categories: Docker
+category_icon: fab fa-docker
+tags: 
+  - conda
+  - docker image
+  - coiled
+image: ../../images/docker.jpg
+excerpt: Learn how you can create a docker image with conda installed based of another.
+---
+import Note from "../../components/text-decorations/note"
+
+
+While working at coiled, I came across the need to install conda in a docker image that didn't come pre-packed with conda.  When you create a [software environment](https://docs.coiled.io/user_guide/software_environment.html) in coiled, we will create a new image based on one of the two:
+
+- Your image if provided by the `container` argument
+- Our base image
+
+In this software environment, we install all the dependencies you specify with the command `coiled.create_software_environment`. If we provide an image that doesn't have conda installed, then creating the software environment will fail if we try to install a dependency with conda. For example:
+
+```python
+import coiled
+
+coiled.create_software_environment(name="conda-test", conda=["dask"])
+
+```
+
+
+## Installing conda in docker
+
+Let's see how you can install conda into a docker image. We will need to create a new `Dockerfile` and decide which python version we will use.  Then we need to go to the [miniconda installation page](https://docs.conda.io/en/latest/miniconda.html) and choose one of the Linux installers for your python version.
+
+<Note>
+    <p>In this article, I will use the Python 3.8 installer, which has the name <code>Miniconda3-latest-Linux-x86_64.sh</code></p>
+</Note>
+
+Let's go ahead and create our Dockerfile. I will add as many commands inside a single `RUN` command because that makes the final image smaller.
+
+```Dockerfile
+FROM <your image without conda>
+
+# Install base utilities
+RUN apt-get update && \
+	apt-get install -y build-essentials  && \
+	apt-get install -y wget &&
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/*
+
+# Install miniconda
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+     /bin/bash ~/miniconda.sh -b -p /opt/conda
+
+# Put conda in path so we can use conda activate
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+```
+
+We can now build this image. This image will have all the things your original image has plus conda, allowing coiled to install the dependencies without problems.
