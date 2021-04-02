@@ -10,5 +10,5 @@ export const ogImageUrl = (author, website, title) => {
         image: `https://fabiorosado.dev/logo.svg`,
         title
     }
-    return `http://image-og-now.sh/og.jpg${objectToQueryParams(params)}`
+    return `https://image-og-now.sh/og.jpg${objectToQueryParams(params)}`
 }
