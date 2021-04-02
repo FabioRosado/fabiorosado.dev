@@ -54,7 +54,7 @@ function SEO({ description, lang, meta, title, image }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -74,9 +74,9 @@ function SEO({ description, lang, meta, title, image }) {
         }
       ].concat(meta)}
     >
-    
-    <link rel="webmention" href="https://webmention.io/fabiorosado.dev/webmention" />
-    <link rel="pingback" href="https://webmention.io/fabiorosado.dev/xmlrpc" />
+
+      <link rel="webmention" href="https://webmention.io/fabiorosado.dev/webmention" />
+      <link rel="pingback" href="https://webmention.io/fabiorosado.dev/xmlrpc" />
 
     </Helmet>
   )
@@ -87,7 +87,7 @@ SEO.defaultProps = {
   meta: [],
   description: ``,
 }
- 
+
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
