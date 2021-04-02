@@ -10,5 +10,5 @@ export const ogImageUrl = (author, website, title) => {
         image: `https://fabiorosado.dev/logo.svg`,
         title
     }
-    return `https://generate-og-image-git-fabio-og-image-spences10.vercel.app//og.jpg${objectToQueryParams(params)}`
+    return `https://generate-og-image-git-fabio-og-image-spences10.vercel.app/og.jpg${objectToQueryParams(params)}`
 }
