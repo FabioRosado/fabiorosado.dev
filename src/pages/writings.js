@@ -46,9 +46,7 @@ export const pageQuery = graphql`
         category_icon
         image {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
