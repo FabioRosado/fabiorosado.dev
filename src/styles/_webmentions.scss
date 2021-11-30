@@ -27,7 +27,7 @@
     align-items: center;
     margin: 1rem 0rem;
     position: relative;
-    background-color: color(background-color);
+    background-color:  lighten(color(background-color), 5%);;
     border-radius: 10px;
     padding: $padding-unit;
     border: 1px solid color(border-color);

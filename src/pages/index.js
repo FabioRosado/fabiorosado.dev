@@ -35,7 +35,7 @@ const IndexPage = (props) => {
               <li><a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile" rel="me"><i className="fab fa-2x fa-twitter-square" /></a></li>
               <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to Linkedin Profile"><i className="fab fa-2x fa-linkedin" /></a></li>
               <li><a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch" /></a></li>
-              <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" /></a></li>
+              <li><a href="https://www.instagram.com/theflyingdev/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" /></a></li>
             </ul>
           </div>
           <div className="pictures">
@@ -90,14 +90,14 @@ const IndexPage = (props) => {
           <div className="about-card drop-shadow">
             <i className="fas fa-3x fa-toolbox"></i>
             <h2 className="white-text">Dev Tools</h2>
-            <p className="spaced-text">Pycharm Terminal Tox</p>
+            <p className="spaced-text">Tmux Terminal Tox</p>
             <p className="spaced-text">AdobeXD Postman Git</p>
-            <p className="spaced-text">VSCode</p>
+            <p className="spaced-text">VSCode Docker AWS</p>
           </div>
           <div className="about-card drop-shadow">
             <i className="fas fa-3x fa-cogs"></i>
             <h2 className="white-text">Frameworks</h2>
-            <p className="spaced-text">VueJS Electron Bootstrap</p>
+            <p className="spaced-text">Django Bootstrap</p>
             <p className="spaced-text">Jekyll Bulma React</p>
             <p className="spaced-text">Bootstrap TailwindCSS</p>
           </div>
