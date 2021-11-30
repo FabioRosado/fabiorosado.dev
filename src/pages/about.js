@@ -1,12 +1,10 @@
 import React from "react"
-import Img from "gatsby-image"
-import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 
-const Uses = (props) => {
+const Uses = () => {
     return (
         <Layout>
         <SEO title="FabioRosado | Uses" description="Gear and Software that I use" />
