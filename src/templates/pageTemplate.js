@@ -114,7 +114,7 @@ const Template = (props) => {
                     <a href="https://github.com/FabioRosado" aria-label="Link to Github Profile"><i className="fab fa-2x fa-github-square" />FabioRosado</a>
                     <a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile" rel="me"><i className="fab fa-2x fa-twitter-square" />FabioRosado_</a>
                     <a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch" />TheFlyingDev</a>
-                    <a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" />TheFlyingDev</a>
+                    <a href="https://www.instagram.com/theflyingdev/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" />TheFlyingDev</a>
                 </div>
             </section>
         </Layout>

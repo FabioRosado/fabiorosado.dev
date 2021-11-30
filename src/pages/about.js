@@ -1,12 +1,10 @@
 import React from "react"
-import Img from "gatsby-image"
-import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 
-const Uses = (props) => {
+const Uses = () => {
     return (
         <Layout>
         <SEO title="FabioRosado | Uses" description="Gear and Software that I use" />
@@ -36,7 +34,7 @@ const Uses = (props) => {
                             <li><a href="https://twitter.com/FabioRosado_" aria-label="Link to Twitter Profile" rel="me"><i className="fab fa-2x fa-twitter-square" /></a></li>
                             <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to Linkedin Profile"><i className="fab fa-2x fa-linkedin" /></a></li>
                             <li><a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch"/></a></li>
-                            <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" /></a></li>
+                            <li><a href="https://www.instagram.com/theflyingdev/" aria-label="Link to Instagram Profile"><i className="fab fa-2x fa-instagram" /></a></li>
                         </ul>
                     
                     </p>

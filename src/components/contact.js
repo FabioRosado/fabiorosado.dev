@@ -15,7 +15,7 @@ const Contact = () => (
                     <li><a href="https://twitter.com/FabioRosado" aria-label="Link to twitter profile"><i className="fab fa-2x fa-twitter-square" /></a></li>
                     <li><a href="https://www.linkedin.com/in/FabioRosado/" aria-label="Link to linkedin profile"><i className="fab fa-2x fa-linkedin" /></a></li>
                     <li><a href="https://twitch.tv/theflyingdev/" aria-label="Link to twitch profile"><i className="fab fa-2x fa-twitch"/></a></li>
-                    <li><a href="https://www.instagram.com/FabioRosado/" aria-label="Link to instagram profile"><i className="fab fa-2x fa-instagram" /></a></li>
+                    <li><a href="https://www.instagram.com/theflyingdev/" aria-label="Link to instagram profile"><i className="fab fa-2x fa-instagram" /></a></li>
                 </ul>
             </div>
         </div>

@@ -44,11 +44,9 @@ export default (props) => (
                         excerpt
                         category_icon
                         image {
-                        childImageSharp {
-                            fluid {
-                            ...GatsbyImageSharpFluid
+                            childImageSharp {
+                                gatsbyImageData
                             }
-                        }
                         }
                     }
                     }

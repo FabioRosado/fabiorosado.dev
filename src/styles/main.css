@@ -555,8 +555,8 @@ header .pictures .frame {
 }
 
 header .pictures .gatsby-image-wrapper {
-  -webkit-clip-path: polygon(53% 11%, 99% 52%, 52% 91%, 3% 51%);
-          clip-path: polygon(53% 11%, 99% 52%, 52% 91%, 3% 51%);
+  -webkit-clip-path: polygon(53% 11%, 97% 50%, 52% 87%, 4% 49%);
+          clip-path: polygon(53% 11%, 97% 50%, 52% 87%, 4% 49%);
   width: 157px;
 }
 
@@ -1729,7 +1729,7 @@ pre[class*="language-"] {
           align-items: center;
   margin: 1rem 0rem;
   position: relative;
-  background-color: #251333;
+  background-color: #321a46;
   border-radius: 10px;
   padding: 1.5rem;
   border: 1px solid #0EFB69;
