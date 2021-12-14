@@ -9,7 +9,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "babel": "^6.23.0",
-    "gatsby": "^4.2.0",
+    "gatsby": "^4.3.0",
     "gatsby-cli": "^4.2.0",
     "gatsby-image": "^3.11.0",
     "gatsby-link": "^4.2.0",
