@@ -1,0 +1,484 @@
+---
+slug: python-dataclasses
+title:  Clean Code with Python Dataclasses
+subtitle: Introduction to Python Dataclasses
+author: "FabioRosado"
+date:   2021-12-14 14:00
+categories: Python
+category_icon: fab fa-python
+tags:
+  - clean-code
+  - dataclasses
+image: ../../images/python.png
+excerpt: Python dataclasses are a powerful feature that allow you to refactor and write cleaner code. This introduction will help you get started with Python dataclasses.
+---
+
+Dataclasses were added to Python 3.7. They are like regular classes but have some essential functions implemented. Because dataclasses are a decorator, you can quickly create a class, for example 
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Person:
+	name: str
+	age: int
+
+```
+
+We can then create Bob the Builder with:
+
+```python
+
+bobthebuilder = Person(name="Bob the Builder", age=33)
+
+print(bobthebuilder)
+# Prints: Person(name="Bob the Builder", age=33)
+
+```
+
+
+One great thing about dataclasses is that you can create one and use the class attributes if you want a specific thing. For example, let's say that we want to know Bob's age
+
+```python
+print(bobthebuilder.age)
+# Prints: 33
+```
+
+Another brilliant thing about dataclasses is that you don't need to implement a class by hand since, by default, dataclasses implement the methods `__init__`, `__repr__` and `__eq__` under the hood. 
+
+You can also enable/disable this behaviour by passing arguments to the decorator. Refer to the [dataclass documentation](https://docs.python.org/3/library/dataclasses.html#module-contents) for more information.
+
+
+## Using dataclasses instead of dictionaries
+
+Let's assume that you are interacting with an API. When you query an endpoint, you might get a dictionary back (usually JSON is turned into a dictionary in Python). 
+
+Providing that the response is always the same, you could use the dictionary to get values from the payload. Or create a Payload dataclass and instantiate the dataclass from the dictionary.
+
+```python
+
+from dataclasses import dataclass
+import requests
+
+@dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: str
+	rating: int
+
+
+result = requests.get("http://fake-book-api/the-pragmatic-programmer")
+payload = result.json()
+
+"""
+Payload is: 
+{
+	"author": "David Thomas, Andrew Hunt",
+	"title": "The Pragmatic Programmer",
+	"isbn": 0135957052,
+	"pages": 352,
+	"publisher": "Addison-Wesley Professional",
+	"rating": 5
+}
+"""
+```
+
+Let's assume that you want to get both the author and rating from your payload. You can easily do such with:
+
+```python
+author = payload.get("author")
+rating = payload.get("rating")
+```
+
+Alternatively, you can use the dataclass payload like such
+
+```python
+book = Book(
+		author=payload.get("author"),
+		title=payload.get("title"),
+		isbn=payload.get("isbn"),
+		pages=payload.get("pages"),
+		publisher=payload.get("publisher"),
+		rating=payload.get("rating")
+	)
+
+print(book.author)
+# Prints: David Thomas, Andrew Hunt
+```
+
+
+### Reason to use dataclasses
+
+Perhaps using a dictionary is enough when you are dealing with an API that returns you the same structure.  But what if you are interacting with more than one API. Or if your API returns a different payload depending on the endpoint, you are querying?
+
+Let's assume that you are now using these two APIs because one has books that the other doesn't:
+
+- http://fake-book-api/
+- http://awesome-fake-book-api/
+
+We have seen the payload that `fake-book-api` returns, but just for reference:
+
+```json
+{
+	"author": "David Thomas, Andrew Hunt",
+	"title": "The Pragmatic Programmer",
+	"isbn": "0135957052",
+	"pages": 352,
+	"publisher": "Addison-Wesley Professional",
+	"rating": 5
+}
+
+```
+
+The new api `awesome-fake-book-api` returns the payload like:
+
+```json
+{
+	"author-name": "Robert C. Martin",
+	"title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+	"isbn-10": "9780132350884",
+	"isbn-13": "978-0132350884",
+	"pages": 464,
+	"weight": "1.54 pounds",
+	"ratings": {
+		"total": 4,
+		"reviews": [
+			{"username": "Bob", "rating": 4, "comment": "Is good!"}
+		]
+	}
+}
+```
+
+This new API doesn't return information about the`publisher`. The `author` key is called `author-name`. The payload also contains values for  both the `isbn-10` and `isbn-13`. Finally, ratings are now a dictionary that contains `total` and `reviews`.
+
+Still, you can refactor the Book dataclass to handle both APIS. For example: 
+
+
+```python
+book = Book(
+	author=payload.get("author") or payload.get("author-name"),
+	title=payload.get("title"),
+	isbn=payload.get("isbn"),
+	pages=payload.get("pages"),
+	publisher=payload.get("publisher", "Unknown"),
+	rating=payload.get("rating") or payload.get("ratings", {}).get("total")
+)
+
+print(book.author)
+# Prints: David Thomas, Andrew Hunt or Robert C. Martin
+```
+
+Okay, that looks a bit ugly, but at least you can keep the dictionary juggling in a single place, and in the rest of your code, you can access the `Book` attributes.
+
+## Constructing a dataclass from a dictionary
+
+Let's be honest. Constructing the Book dataclass as we did before is ugly, but it does the trick. Ideally, we should pass the payload to the dataclass, and the attributes would be filled automatically.
+
+But if you try to pass the payload into the dataclass you get a TypeError exception.
+
+```python
+payload = {
+	"author": "David Thomas, Andrew Hunt",
+	"title": "The Pragmatic Programmer",
+	"isbn": 135957052,
+	"pages": 352,
+	"publisher": "Addison-Wesley Professional",
+	"rating": 5
+}
+
+book = Book(payload)
+# Raises: TypeError: __init__() missing 5 required positional arguments: 'title', 'isbn', 'pages', 'publisher', and 'ratings'
+```
+
+This exception isn't surprising. If we pass the payload to the dataclass, then the whole dictionary is added to the `author` attribute.
+
+If we want to construct our dataclass from a dictionary, we need to add a class method and use that method instead. Let's do that now and add a `from_payload` method to our dataclass.
+
+```python
+
+@dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: str
+	rating: int
+	
+	@classmethod
+	def from_payload(cls, payload: dict):
+		"""Construct the Book class from a dictionary."""
+		author=payload.get("author") or payload.get("author-name")
+		title=payload.get("title")
+		isbn=payload.get("isbn") or payload.get("isbn-10")
+		pages=payload.get("pages"),
+		publisher=payload.get("publisher", "Unknown"),
+		rating=payload.get("rating") or payload.get("ratings", {}).get("total")
+		
+		return cls(
+			author=author,
+			title=title,
+			isbn=isbn,
+			pages=pages,
+			publisher=publisher,
+			rating=rating
+		)
+```
+
+
+The brilliant thing is that we can call the `from_payload` method to construct our Book. The logic is part of the dataclass, which will make our code cleaner. For example:
+
+```python
+payload = {
+	"author": "David Thomas, Andrew Hunt",
+	"title": "The Pragmatic Programmer",
+	"isbn": 135957052,
+	"pages": 352,
+	"publisher": "Addison-Wesley Professional",
+	"rating": 5
+}
+
+book = Book.from_payload(payload)
+
+print(book.title)
+# Prints: The Pragmatic Programmer
+
+```
+
+Another great thing about dataclasses is that you can use the `dataclasses.asdict` method to get a dictionary back from a dataclass. For example:
+
+```python
+import dataclasses
+
+payload = {
+	"author": "David Thomas, Andrew Hunt",
+	"title": "The Pragmatic Programmer",
+	"isbn": 135957052,
+	"pages": 352,
+	"publisher": "Addison-Wesley Professional",
+	"rating": 5
+}
+
+book = Book.from_payload(payload)
+
+print(dataclasses.asdict(book))
+# Prints: {'author': 'David Thomas, Andrew Hunt', 'title': 'The Pragmatic Programmer', 'isbn': 135957052, 'pages': 352, 'publisher': 'Addison-Wesley Professional', 'rating': 5}
+
+dataclasses.asdict(book) == payload # This is True
+
+```
+
+### Real Example
+
+I have recently added a [Gitlab Connector](https://docs.opsdroid.dev/en/stable/connectors/gitlab.html) to [Opsdroid](https://opsdroid.dev/). Opsdroid allows you to emit events based on actions - in GitLab case; these actions come from webhooks.
+
+GitLab webhooks have different structures depending on the action. For example, the payload might have three keys for a username - `user`, `username`, `user_username`.
+
+Instead of dealing with the different payloads for each event that Opsdroid builds for the GitLab connector, I've created a `Payload` dataclass and kept the logic inside a `from_dict` method. 
+
+Would you please look at [the code](https://github.com/opsdroid/opsdroid/blob/master/opsdroid/connector/gitlab/connector.py#L34-L91) for reference and for a working example of what I have shown in here?
+
+
+## Enforcing types
+
+When creating a dataclass, you specify the attribute type, but the dataclass itself doesn't enforce these types. Let's grab our Book example, you could totally pass any type to any of the attributes, and all would be well.
+
+```python
+
+@dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: str
+	rating: int
+
+book = Book(author="Bob", title=12345, isbn=1234, pages="a million!", publisher=None, rating="Magnific")
+
+print(book.title)
+# Prints: 12345
+```
+
+As you can see, typing isn't enforced. This is okay, providing that you are 100% certain what types you are putting in the dataclass. You can also implement a typing check in the `from_payload` to ensure that the types are correct, although if someone builds `Book` directly, that person could bypass your type checking.
+
+### What's the point of enforcing types
+
+You might wonder why you would want to enforce typing in your dataclass. Typing helps you write better and less buggy code because your editor will warn you about issues before you even spot them.
+
+It's also a great way to handle user input. For example, you could build a Payload dataclass to handle input from an API that users can interact.  I did precisely this on a feature that I implemented for Opsdroid where users can submit a [patch request](https://github.com/FabioRosado/opsdroid/blob/fr/command-center/opsdroid/web.py#L383-L416) to the API to update their configuration on the fly.
+
+###  The `__post_init__` method
+
+To add type checking, we need to use the `__post_init__()` method from the dataclass. If your dataclass generates a `__init__()` method under the hood, then `__post_init__()` will be called.
+
+The `__post_init__` allows you to do a few things, such as initializing field values that depend on one or more fields or that you need to add a default value. Let's assume that you want to create a dataclass with default values.
+
+```python
+import dataclasses
+
+@dataclasses.dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: str
+	rating: dict = dataclasses.field(default_factory=dict)
+	
+	def __post_init__(self):
+		if not self.rating:
+			self.rating = {"total": 0, "reviews": []}
+
+book = Book("Robert C. Martin", "Clean Code", "9780132350884", 464, None)
+
+Print(book)
+# Prints: Book(author='Robert C. Martin', title='Clean Code', isbn='9780132350884', pages=464, publisher=None, rating={'total': 0, 'reviews': []})
+
+```
+
+You need to set `dataclasses.field` because dictionaries are mutable, and you can't use a mutable default value.
+
+You can also see that with the code in the `__post_init__`, we only set `self.rating` if this value doesn't exist. If the user provides the value then we aren't setting the default value of `{"total": 0, "reviews": []}`.
+
+There is much more than I can say about dataclasses fields, but I will leave that topic for another article.
+
+### Implementing type checking
+
+To implement type checking for our Book dataclass we need to play with dunder methods. We need to look into `__annotations__` and also `__dict__`. For reference, let's pick up the previous example and see what `__annotations__` and `__dict__` gives us.
+
+```python
+
+book = Book("Robert C. Martin", "Clean Code", "9780132350884", 464, None)
+
+print(book.__annotations__)
+
+# Prints: {'author': <class 'str'>, 'title': <class 'str'>, 'isbn': <class 'str'>, 'pages': <class 'int'>, 'publisher': <class 'str'>, 'rating': <class 'dict'>}
+
+ print(book.__dict__)
+# Prints: {'author': 'Robert C. Martin', 'title': 'Clean Code', 'isbn': '9780132350884', 'pages': 464, 'publisher': None, 'rating': {'total': 0, 'reviews': []}}
+
+```
+
+Since we have both the key and the expected type for each key in `__annotations__`, we can use that to check if the provided key is the expected type or not. Let's now build our `__post__init()`
+
+```python
+
+import dataclasses
+
+@dataclasses.dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: str
+	rating: dict = dataclasses.field(default_factory=dict)
+	
+	def __post_init__(self):
+		if not self.rating:
+			self.rating = {"total": 0, "reviews": []}
+		
+		for name, field_type in self.__annotations__.items():
+			provided_key = self.__dict__[name]
+			
+			if not isinstance(provided_key, field_type):
+				raise TypeError(
+					f"The field '{name}' is of type '{type(provided_key)}', but "
+					f"should be of type '{field_type}' instead."
+				)
+```
+
+
+For reference, our for loop will go through each attribute (author, title, isbn, pages, publisher, rating) and expected type. Then we confirm that the user's value with `self.__dict__[name]` is of the expected type. If not, we raise a `TypeError`.
+
+Now, if we create a book instance with the wrong type, we get the `TypeError`.
+
+```python
+book = Book("Robert C. Martin", "Clean Code", 9780132350884, 464, None)
+
+# Raises TypeError: The field 'isbn' is of type '<class 'int'>', but should be of type '<class 'str'>' instead.
+
+```
+
+You probably noticed that the code failed on the first type check. But we actually have two wrong types for `isbn` and `publisher`. If you wish you could add some logic to let the for loop go through all the fields and raise the `TypeError` at the end.
+
+Note: You can only use this method for exact single types. If you are checking for Optional or Union types, then the check `isinstance` will raise a `TypeError: Subscripted generics cannot be used with class and instance checks`
+
+For example:
+
+```python
+import dataclasses
+from typing import Optional
+
+@dataclasses.dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: Optional[str] # This breaks our type checking
+	rating: dict = dataclasses.field(default_factory=dict)
+	
+	def __post_init__(self):
+		if not self.rating:
+			self.rating = {"total": 0, "reviews": []}
+		
+		for name, field_type in self.__annotations__.items():
+			provided_key = self.__dict__[name]
+			
+			if not isinstance(provided_key, field_type):
+				raise TypeError(
+					f"The field '{name}' is of type '{type(provided_key)}', but "
+					f"should be of type '{field_type}' instead."
+				)
+```
+
+So how do we fix this? If we want to set `publisher` as optional? We can do more dunder magic!
+
+```python
+import dataclasses
+from typing import Optional
+
+@dataclasses.dataclass
+class Book:
+	author: str
+	title: str
+	isbn: str
+	pages: int
+	publisher: Optional[str]
+	rating: dict = dataclasses.field(default_factory=dict)
+	
+	def __post_init__(self):
+		if not self.rating:
+			self.rating = {"total": 0, "reviews": []}
+		
+		for name, field_type in self.__annotations__.items():
+			provided_key = self.__dict__[name]
+			
+			try:
+				type_matches = isinstance(provided_key, field_type)
+			except TypeError:
+				type_matches = isinstance(provided_key, field_type.__args__)
+			
+			if not type_matches:
+				raise TypeError(
+					f"The field '{name}' is of type '{type(provided_key)}', but "
+					f"should be of type '{field_type}' instead."
+				)
+
+# Now this works!
+book = Book("Robert C. Martin", "Clean Code", 9780132350884, 464, None)
+
+```
+
+## That's all folks
+
+
+I hope this long article helped you have a better understanding of dataclasses and how to use them. I enjoy using dataclasses daily, especially when interacting with APIs, since dataclasses allow me to make my code cleaner without the need to implement an entire class by hand.
+
+Please let me know what you think and your use-case for dataclasses!
+
