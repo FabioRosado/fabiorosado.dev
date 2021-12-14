@@ -85,6 +85,27 @@ a {
   }
 }
 
+.filter-search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 10%;
+  justify-content: center;
+
+  @include desktop {
+    margin: 0 20%;
+  }
+
+  @include xlarge {
+    margin: 0 25%;
+  }
+
+  @include xsmall {
+    margin: 0 5%;
+  }
+
+}
+
 blockquote, aside {
     background: #37275C;
     border-left: 5px solid color(secondary-color);

@@ -261,6 +261,14 @@ position: relative;
   flex-direction: column;
 }
 
+.margin {
+  margin: $padding-unit;
+}
+
+.small-margin-right {
+  margin-right: 1rem;
+}
+
 .margin-bottom {
   margin-bottom: $padding-unit;
 }

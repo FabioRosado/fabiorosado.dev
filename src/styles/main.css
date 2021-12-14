@@ -360,6 +360,14 @@ a {
           flex-direction: column;
 }
 
+.margin {
+  margin: 1.5rem;
+}
+
+.small-margin-right {
+  margin-right: 1rem;
+}
+
 .margin-bottom {
   margin-bottom: 1.5rem;
 }
@@ -1360,6 +1368,40 @@ a:hover {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: .5rem;
+}
+
+.filter-search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 1160px) {
+  .filter-search {
+    margin: 0 20%;
+  }
+}
+
+@media (min-width: 1700px) {
+  .filter-search {
+    margin: 0 25%;
+  }
+}
+
+@media (max-width: 435px) {
+  .filter-search {
+    margin: 0 5%;
+  }
 }
 
 blockquote, aside {
