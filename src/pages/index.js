@@ -78,7 +78,7 @@ const IndexPage = (props) => {
       </section>
       <section className="section">
         <div className="container-middle center-text">
-          <h1>Tools of Trade</h1>
+          <h1 className="white-text">Tools of Trade</h1>
         </div>
         <div className="three-columns">
           <div className="about-card drop-shadow">
