@@ -17,15 +17,15 @@ import Navigation from "../components/navigation"
 
 const Layout = (props) => (
   <>
-  <Navigation />
-  {props.children}
+    <Navigation />
+    {props.children}
 
-  <footer className="navbar padding">
-    <Link className="white-text margin-right" to="/">Home</Link>
-    <Link className="white-text margin-right" to="/writings">Writings</Link>
-    <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
-    <Link className="white-text margin-right" to="/contact">Contact</Link>
-  </footer>
+    <footer className="navbar padding bg-primary">
+      <Link className="white-text margin-right" to="/">Home</Link>
+      <Link className="white-text margin-right" to="/articles">Articles</Link>
+      <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
+      <Link className="white-text margin-right" to="/contact">Contact</Link>
+    </footer>
   </>
 )
 

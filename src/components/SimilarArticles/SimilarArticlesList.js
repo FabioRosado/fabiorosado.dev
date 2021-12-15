@@ -14,14 +14,16 @@ const getPostsFromQuery = (posts) => {
     return []
 }
 
-const SimilarArticlesComponent = ({ articles }) => 
+const SimilarArticlesComponent = ({ articles }) =>
     <section className="similar-articles-section">
+        <div className="background" />
         <h3 className="margin-bottom margin-left">You might also like these</h3>
         <div className="similar-articles">
             {articles.map((article, i) => {
                 return (
-                    <WritingCard  post={article.article} key={i} />  
-                )}
+                    <WritingCard post={article.article} key={i} />
+                )
+            }
             )}
         </div>
     </section>
@@ -54,17 +56,17 @@ export default (props) => (
             }
         `}
         render={data => {
-            const {categories, tags, currentArticlePath} = props
-            
+            const { categories, tags, currentArticlePath } = props
+
             const articles = getPostsFromQuery(data.posts)
 
             const SimilarArticles = new SimilarArticlesFactory(
                 articles, currentArticlePath
             )
-            .setCategories(categories)
-            .setTags(tags)
-            .getArticles()
-            
+                .setCategories(categories)
+                .setTags(tags)
+                .getArticles()
+
             return (
                 <SimilarArticlesComponent articles={SimilarArticles} />
             )

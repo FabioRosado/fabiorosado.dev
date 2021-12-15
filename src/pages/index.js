@@ -117,7 +117,7 @@ const IndexPage = (props) => {
       <Contact />
       <footer className="navbar padding">
         <Link className="white-text margin-right" to="/">Home</Link>
-        <Link className="white-text margin-right" to="/writings">Writings</Link>
+        <Link className="white-text margin-right" to="/articles">Articles</Link>
         <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
         <Link className="white-text margin-right" to="/contact">Contact</Link>
       </footer>

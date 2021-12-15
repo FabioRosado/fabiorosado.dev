@@ -34,10 +34,10 @@ const Blog = (props) => {
 
   return (
     <Layout>
-      <SEO title="FabioRosado | Writings" description="I write about code and share quick coding tips." />
+      <SEO title="FabioRosado | Articles" description="I write about code and share quick coding tips." />
       <section className="blog-post">
         <div className="post-header">
-          <h1 className="large white-text">Writings</h1>
+          <h1 className="large white-text">Articles</h1>
           <SearchBar searchIndex={props.data.siteSearchIndex.index} />
           <div className="filter-search">
             <button onClick={() => getAllArticles()} className="full-button small-margin-right margin-top">All</button>
