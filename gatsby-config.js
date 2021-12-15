@@ -90,6 +90,23 @@ module.exports = {
         respectDNT: true,
       }
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `categories`, `tags`, `subtitle`, `excerpt`],
+        resolvers: {
+          Mdx: {
+            title: node => node.frontmatter.title,
+            subtitle: node => node.frontmatter.subtitle,
+            categories: node => node.frontmatter.categories,
+            tags: node => node.frontmatter.tags,
+            excerpt: node => node.frontmatter.excerpt,
+            slug: node => node.frontmatter.slug
+          }
+        },
+        filter: (node, getNode) => node.frontmatter.categories
+      }
+    },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-offline`,
   ]

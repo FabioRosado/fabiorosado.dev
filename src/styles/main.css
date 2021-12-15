@@ -280,6 +280,26 @@ a {
   }
 }
 
+.input {
+  color: #FFFFFF;
+  padding: .5rem .75rem;
+  line-height: 1.25;
+  border: 1px solid #533988;
+  background-color: #251333;
+  border-radius: .25rem;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin-bottom: 1rem;
+  font-family: "Jura", sans-serif;
+  font-size: medium;
+}
+
+.input:focus, .input:hover {
+  border-color: #FC4056;
+  outline: none;
+}
+
 /************************************
 *     Anything Related to Fonts!    *
 ************************************/
@@ -366,6 +386,10 @@ a {
 
 .small-margin-right {
   margin-right: 1rem;
+}
+
+.m-1 {
+  margin: .25rem;
 }
 
 .margin-bottom {
@@ -1248,6 +1272,11 @@ nav .menu-button .gg-menu-right::after {
   list-style-type: none;
 }
 
+.icon {
+  margin-top: 0.5rem;
+  margin-right: .5rem;
+}
+
 .page-container {
   margin: 2rem;
   display: -ms-grid;
@@ -1402,6 +1431,16 @@ a:hover {
   .filter-search {
     margin: 0 5%;
   }
+}
+
+.search-results {
+  position: absolute;
+  background: #251333;
+  padding: 1rem;
+  margin-top: .5rem;
+  margin-left: -5%;
+  border: 1px solid #37275C;
+  z-index: 10;
 }
 
 blockquote, aside {

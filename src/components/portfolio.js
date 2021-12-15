@@ -5,7 +5,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const PortfolioCard = (props) => {
     const { frontmatter } = props.project
-    console.log(frontmatter)
     return (
         <div className="project-card drop-shadow" key={frontmatter.title}>
             <div className="category small-font">

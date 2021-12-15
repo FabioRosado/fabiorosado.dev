@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from '../components/layout'
 import SEO from "../components/seo"
 import WritingCard from '../components/blog'
+import SearchBar from "../components/search/search-bar"
 
 
 const Blog = (props) => {
@@ -15,7 +16,7 @@ const Blog = (props) => {
 
     const filtered = allArticles.filter(article => {
 
-      if (article.frontmatter.categories == category) {
+      if (article.frontmatter.categories === category) {
         if (allArticles.length !== articles.length && !articles.includes(category)) {
           return article
         }
@@ -25,8 +26,6 @@ const Blog = (props) => {
 
     setArticles(filtered)
   }
-
-  console.log(articles)
 
   const getAllArticles = () => {
     setArticles(allArticles)
@@ -39,6 +38,7 @@ const Blog = (props) => {
       <section className="blog-post">
         <div className="post-header">
           <h1 className="large white-text">Writings</h1>
+          <SearchBar searchIndex={props.data.siteSearchIndex.index} />
           <div className="filter-search">
             <button onClick={() => getAllArticles()} className="full-button small-margin-right margin-top">All</button>
             {posts.allCategories.map(category =>
@@ -84,6 +84,9 @@ export const pageQuery = graphql`
     allCategories: group(field: frontmatter___categories) {
       fieldValue
     }
+  }
+  siteSearchIndex {
+    index
   }
 }
 `
