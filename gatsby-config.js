@@ -30,6 +30,13 @@ module.exports = {
         path: `${__dirname}/src/pages/projects`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `books`,
+        path: `${__dirname}/src/pages/books`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
@@ -39,6 +46,7 @@ module.exports = {
         extensions: [`.md`, `.mdx`],
         defaultLayouts: {
           default: require.resolve("./src/templates/pageTemplate.js"),
+          books: require.resolve("./src/templates/bookPageTemplate.js")
         },
         gatsbyRemarkPlugins: [
           {

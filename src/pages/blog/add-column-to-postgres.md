@@ -11,7 +11,6 @@ tags:
   - backend
 image: ../../images/postgres.jpg
 excerpt: Using the command django makemigrations failed, so I had to figure out how to use psql on a docker container and add those columns manually.
-
 ---
 
 While adding new fields to my Django models, running the command `manage.py makemigrations` didn’t create any migrations and I couldn’t do anything because the database table was missing those columns.
