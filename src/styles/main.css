@@ -1310,6 +1310,7 @@ nav .menu-button .gg-menu-right::after {
 
 .book-cover {
   width: 200px;
+  max-height: 290px;
 }
 
 .book {

@@ -57,7 +57,12 @@ const Template = (props) => {
                 <article className="post-area">
                     <div className="text-container">
                         <div className="article">
-                            {props.children ? props.children : <Placeholder message="This notes section is currently empty. They will be uploaded soon..." />}
+                            {props.children ? props.children :
+                                <Placeholder
+                                    message={
+                                        frontmatter.progress == "0%" ?
+                                            "This book doesn't contain any notes because it's still in my to read list. If you think I should pick this one next, please let me know!" :
+                                            "This notes section is currently empty. They will be uploaded soon..."} />}
                         </div>
                     </div>
                 </article>
