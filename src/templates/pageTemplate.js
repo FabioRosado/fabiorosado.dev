@@ -102,7 +102,7 @@ const Template = (props) => {
                     </div>
                 </article>
             </section>
-            {/* {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />} */}
+            {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />}
 
             <section className="profile-section">
                 <div className="h-card">

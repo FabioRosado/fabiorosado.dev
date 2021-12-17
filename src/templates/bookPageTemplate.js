@@ -37,8 +37,6 @@ const Template = (props) => {
         }
     })
 
-    console.log(props.children)
-
 
     return (
         <Layout>

@@ -8,6 +8,20 @@ import Book from "../components/books"
 
 const Books = (props) => {
     const books = props.data.books.nodes
+    const finishedBooks = []
+    const currentlyReading = []
+    const readingList = []
+    console.log(books)
+    books.map(book => {
+        console.log(book)
+        if (book.frontmatter.finished === true) {
+            finishedBooks.push(book)
+        } else if (book.frontmatter.progress === "0%" && book.frontmatter.finished === false) {
+            readingList.push(book)
+        } else {
+            currentlyReading.push(book)
+        }
+    })
 
     return (
         <Layout>
@@ -16,9 +30,22 @@ const Books = (props) => {
                 <div className="post-header">
                     <h1 className="large white-text">Books</h1>
                 </div>
-                <section className="page-container">
-                    {books.map(book => <Book key={book.frontmatter.title} book={book} />)}
-                </section>
+
+                <h2 className="green large center-text padding-top">Currently Reading</h2>
+                <div className="projects-container">
+                    {currentlyReading.map(book =>
+                        <Book key={book.frontmatter.title} book={book} />
+                    )}
+                </div>
+                <h2 className="green large center-text">Books finished</h2>
+                <div className="projects-container m-0">
+                    {finishedBooks.map(book => <Book key={book.frontmatter.title} book={book} />)}
+                </div>
+                <h2 className="green large center-text">Reading List</h2>
+                <div className="projects-container">
+                    {readingList.map(book => <Book key={book.frontmatter.title} book={book} />)}
+                </div>
+
             </section>
         </Layout>
     )

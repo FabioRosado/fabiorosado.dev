@@ -96,6 +96,7 @@ a {
   font-size: medium;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
+  max-width: 160px;
 }
 
 .full-button:hover {
@@ -1309,6 +1310,10 @@ nav .menu-button .gg-menu-right::after {
 
 .book-cover {
   width: 200px;
+}
+
+.book {
+  max-width: 450px;
 }
 
 .page-container {
