@@ -36,10 +36,12 @@
   padding: 8px;
   font-size: medium;
   transition: background-color 0.5s ease-out;
+  max-width: 160px;
 }
 
 .full-button:hover {
   background-color: color(green-color);
+  color: color(primary-color);
   transition: background-color 0.5s ease-out;
 }
 
@@ -167,7 +169,6 @@ position: relative;
 }
 
 
-
 .section {
   margin: 4rem 2rem 3rem 2rem;
   @include desktop {
@@ -198,6 +199,7 @@ position: relative;
       outline: none;
     }
   }
+
 
 
 /************************************
@@ -325,4 +327,33 @@ position: relative;
 
 .justify-center {
   justify-content: center;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: .5rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.my-0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
+.p-2 {
+  padding: .5rem;
 }

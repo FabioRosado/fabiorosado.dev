@@ -16,7 +16,7 @@
       padding: 4rem 5rem;
     }
 
-    .far {
+    .far, .fas {
       padding-right: 0.3rem;
     }
   }
@@ -158,4 +158,14 @@
 .icon {
   margin-top: 0.5rem;
   margin-right: .5rem;
+}
+
+.book-cover {
+  width: 200px;
+  max-height: 290px;
+}
+
+.book {
+  max-width: 450px;
+  // max-height: 265px;
 }

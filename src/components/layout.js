@@ -23,7 +23,8 @@ const Layout = (props) => (
     <footer className="navbar padding bg-primary">
       <Link className="white-text margin-right" to="/">Home</Link>
       <Link className="white-text margin-right" to="/articles">Articles</Link>
-      <Link className="white-text margin-right" to="/portfolio">Portfolio</Link>
+      <Link className="white-text" to="/projects">Projects</Link>
+      <Link className="white-text" to="/books">Books</Link>`
       <Link className="white-text margin-right" to="/contact">Contact</Link>
     </footer>
   </>

@@ -34,7 +34,7 @@ export default (props) => (
             graphql`
                 query {
                     posts: allMdx(
-                    filter: {frontmatter: {categories: {ne: "Projects"}}}, 
+                    filter: {frontmatter: {categories: {nin: ["books","Projects"]}}}, 
                     sort: {fields: [frontmatter___date], order: DESC}) {
                     nodes {
                     frontmatter {

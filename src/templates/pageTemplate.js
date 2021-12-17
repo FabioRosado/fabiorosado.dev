@@ -44,7 +44,7 @@ const Template = (props) => {
     })
 
     const { timeToRead } = postInformation
-    const date = postInformation.frontmatter.date || "Thursday 7th, Jul 2020"
+    const date = postInformation.frontmatter.date
 
     useEffect(() => {
         const fetchTotalMentions = async () => {
@@ -59,7 +59,6 @@ const Template = (props) => {
         fetchTotalMentions()
     }, [frontmatter.slug])
 
-
     return (
         <Layout>
             <SEO
@@ -72,7 +71,7 @@ const Template = (props) => {
                     <h1 className="white-text larger">{frontmatter.title}</h1>
                     <p className="white-text metadata">
                         <span className="metadata-icons"><i className="far fa-user orange-text" /> {frontmatter.author || `FabioRosado`}</span>
-                        <span className="metadata-icons"><i className="far fa-clock orange-text" /> {date}</span>
+                        <span className="metadata-icons"><i className="far fa-clock orange-text" /> {date ? date : "Thursday 7th, Jul 2020"}</span>
                         <span className="metadata-icons"><i className="far fa-eye orange-text" /> {timeToRead > 1 ? `${timeToRead} mins to read` : `${timeToRead} min to read`} </span>
                         <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
@@ -95,7 +94,7 @@ const Template = (props) => {
                                 onClick={() => setShow(!show)}
                             >
                                 Show {totalMentions} Mentions
-                        </button>
+                            </button>
                         </div>
 
                         <Webmentions slug={frontmatter.slug} show={`${show ? "visible" : "invisible"}`} />

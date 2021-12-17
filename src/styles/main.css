@@ -96,10 +96,12 @@ a {
   font-size: medium;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
+  max-width: 160px;
 }
 
 .full-button:hover {
   background-color: #0EFB69;
+  color: #271B40;
   -webkit-transition: background-color 0.5s ease-out;
   transition: background-color 0.5s ease-out;
 }
@@ -429,6 +431,35 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: .5rem;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.my-0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.mb-2 {
+  margin-bottom: .5rem;
+}
+
+.p-2 {
+  padding: .5rem;
 }
 
 .hero-image {
@@ -1104,7 +1135,7 @@ nav .menu-button .gg-menu-right::after {
   }
 }
 
-.blog-post .post-header .far {
+.blog-post .post-header .far, .blog-post .post-header .fas {
   padding-right: 0.3rem;
 }
 
@@ -1275,6 +1306,15 @@ nav .menu-button .gg-menu-right::after {
 .icon {
   margin-top: 0.5rem;
   margin-right: .5rem;
+}
+
+.book-cover {
+  width: 200px;
+  max-height: 290px;
+}
+
+.book {
+  max-width: 450px;
 }
 
 .page-container {
