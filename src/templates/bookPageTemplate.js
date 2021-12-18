@@ -62,7 +62,9 @@ const Template = (props) => {
                                     message={
                                         frontmatter.progress === "0%" ?
                                             "This book doesn't contain any notes because it's still in my to read list. If you think I should pick this one next, please let me know!" :
-                                            "This notes section is currently empty. They will be uploaded soon..."} />}
+                                            "This notes section is currently empty. They will be uploaded soon..."}
+                                />
+                            }
                         </div>
                     </div>
                 </article>
