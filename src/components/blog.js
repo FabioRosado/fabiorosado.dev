@@ -6,6 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const writingCard = (props) => {
     const { frontmatter } = props.post
+    console.log(frontmatter)
     return (
         <div className="post-card" key={frontmatter.title}>
             <Link to={`/blog/${frontmatter.slug}`}>

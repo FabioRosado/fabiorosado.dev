@@ -30,7 +30,7 @@ const Template = (props) => {
         `)
 
     const { frontmatter } = props.pageContext
-
+    console.log(data.allMdx.nodes)
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
             return post
@@ -60,7 +60,7 @@ const Template = (props) => {
                             {props.children ? props.children :
                                 <Placeholder
                                     message={
-                                        frontmatter.progress == "0%" ?
+                                        frontmatter.progress === "0%" ?
                                             "This book doesn't contain any notes because it's still in my to read list. If you think I should pick this one next, please let me know!" :
                                             "This notes section is currently empty. They will be uploaded soon..."} />}
                         </div>

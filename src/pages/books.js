@@ -11,9 +11,7 @@ const Books = (props) => {
     const finishedBooks = []
     const currentlyReading = []
     const readingList = []
-    console.log(books)
     books.map(book => {
-        console.log(book)
         if (book.frontmatter.finished === true) {
             finishedBooks.push(book)
         } else if (book.frontmatter.progress === "0%" && book.frontmatter.finished === false) {

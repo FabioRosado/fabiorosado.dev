@@ -1235,6 +1235,12 @@ nav .menu-button .gg-menu-right::after {
 
 .text-container ul {
   padding-left: 3rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.text-container li {
+  margin-bottom: .3rem;
 }
 
 .text-container p:first-of-type:first-letter {

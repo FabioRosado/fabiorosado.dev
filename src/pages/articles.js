@@ -64,7 +64,7 @@ export default Blog
 export const pageQuery = graphql`
   query {
     blog: allMdx(
-      filter: {frontmatter: {categories: {nin: ["books", "Projects", "cheatsheets"]}}}, 
+      filter: {frontmatter: {categories: {nin: ["books", "Projects", "cheatsheet"]}}}, 
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {
       frontmatter {

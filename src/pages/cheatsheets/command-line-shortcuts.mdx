@@ -1,0 +1,70 @@
+---
+slug: command-line-shortcuts
+title: Command Line Shortcuts
+subtitle: Cheatsheet for command line shortcuts
+author: "FabioRosado"
+date:   2020-08-26 09:20:02 +0000
+categories: cheatsheet
+category_icon: fas fa-file-alt
+tags:
+  - terminal
+  - cheatsheet
+image: ../../images/vim.jpg
+excerpt: Cheatsheet for command line shortcuts
+---
+import Note from "../../components/text-decorations/note"
+
+This was originally posted on my [theflyingdev](https://theflying.dev/digital-garden/command-line-shortcuts/) page.
+
+<div className="flex justify-center mt-12">
+  <iframe 
+      width="560" 
+      height="315" 
+      src="https://www.youtube.com/embed/yZZmW3KTYr4" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen 
+  />
+
+</div>
+
+<Note>
+When I recorded this video, I thought the shortcut <code>CTRL+U</code> was deleting the line, but it's just cutting the whole line, you can paste the text with <code>CTRL+Y</code>.
+</Note>
+
+## Shortcuts for moving around
+
+Let's be honest how many times do we write a command, just to notice that around the beginning of the line there is a mistake and we delete everything and type the command again? These shortcuts will help you move the cursor easier without the need to delete the whole thing.
+
+- `CTRL + A` - Moves the cursor to the beginning of the line
+- `CTRL + E` - Moves the cursor to the end of the line
+- `CTRL + arrow keys` - Moves the cursor from word to word 
+- `ALT + B` - Moves the cursor back from word to word
+- `ALT + F` - Moves cursors forward from word to word
+
+
+## Cutting and pasting
+
+
+- `CTRL + W` - Cut the word left of the cursor
+- `CTRL + K` - Cut the entire text at the right of the cursor
+- `CTRL + U` - Cut the entire line
+- `CTRL + Y` - Paste the previous cut text
+- `ALT  + W` - Cut the entire text at the left of the cursor
+
+## Text manipulation
+
+- `CTRL + T` - Swap two letters between the cursor
+  - Example: `this` if the cursor is between the **h** and **i** it turns into `tihs`
+- `ESC + T` - Swap two words between the cursor
+  - Example: `this text` will become `text this`
+- `ESC + U` - Uppercases text right of the cursor - moves cursor to the end of word
+- `CTRL + Q` - Deletes text from line - clears line only
+
+## Other useful shortcuts
+
+- `CTRL + L` - Clears the terminal -> No need to write `clear` all the time!
+- `CTRL + R` - Reverse search your history for a term
+  - Use `CTRL + R` again to cycle through results
+- `!!` Repeat the last command used in the terminal
+- Use `sudo !!` to repeat the last command with `sudo`

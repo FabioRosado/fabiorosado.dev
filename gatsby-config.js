@@ -37,6 +37,13 @@ module.exports = {
         path: `${__dirname}/src/pages/books`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `cheatsheets`,
+        path: `${__dirname}/src/pages/cheatsheets`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-image`,
