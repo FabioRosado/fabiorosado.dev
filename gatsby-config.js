@@ -114,12 +114,12 @@ module.exports = {
             title: node => node.frontmatter.title,
             subtitle: node => node.frontmatter.subtitle,
             categories: node => node.frontmatter.categories,
-            tags: node => node.frontmatter.tags,
-            excerpt: node => node.frontmatter.excerpt,
+            tags: node => node.frontmatter?.tags,
+            excerpt: node => node.frontmatter?.excerpt,
             slug: node => node.frontmatter.slug
           }
         },
-        filter: (node, getNode) => node.frontmatter.categories
+        filter: (node, getNode) => node.frontmatter.categories !== "books"
       }
     },
     `gatsby-plugin-robots-txt`,

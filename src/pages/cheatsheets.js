@@ -3,24 +3,22 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import WritingCard from "../components/blog"
+import CheatsheetCard from "../components/cheatsheet"
 
 
 const CheatSheets = (props) => {
     const cheatsheets = props.data.cheatsheets
-
-    console.log(cheatsheets)
 
     return (
         <Layout>
             <SEO title="FabioRosado | Projects" description="Projects done by FabioRosado" />
             <section className="blog-post">
                 <div className="post-header">
-                    <h1 className="large white-text">Projects</h1>
+                    <h1 className="large white-text">Cheatsheets</h1>
                 </div>
                 <section className="projects-container">
                     {cheatsheets.nodes.map((cheatsheet) =>
-                        <WritingCard post={cheatsheet} key={cheatsheet.frontmatter.title} />
+                        <CheatsheetCard post={cheatsheet} key={cheatsheet.frontmatter.title} />
                     )}
                 </section>
             </section>
@@ -40,6 +38,7 @@ export const pageQuery = graphql`
                     subtitle
                     categories
                     excerpt
+                    tags
                     category_icon
                     image {
                         childImageSharp {
