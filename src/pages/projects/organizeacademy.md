@@ -5,7 +5,7 @@ date:   2020-01-26 15:50:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../../images/OA-image.jpg
+image: ../../images/projects/OA-image.jpg
 source: https://organizeacademy.com
 tech: React HTML/SCSS Gatsby
 excerpt: Client website design and code custom css and components. The website is an Academy for empowering women in Portugal.
@@ -38,19 +38,19 @@ Branding wise, I've created two logos for the client. Choose the colour scheme a
 # Images
 
 Home Page
-![Home Page](../../images/OA-home.png)
+![Home Page](../../images/projects/OA-home.png)
 
 About Page
-![About Page](../../images/OA-about.png)
+![About Page](../../images/projects/OA-about.png)
 
 Services Page
-![Services Page](../../images/OA-services.png)
+![Services Page](../../images/projects/OA-services.png)
 
 Woman Circle Page
-![Woman Circle Page](../../images/OA-womancircle.png)
+![Woman Circle Page](../../images/projects/OA-womancircle.png)
 
 Contact Page
-![Contact Page](../../images/OA-contacts.png)
+![Contact Page](../../images/projects/OA-contacts.png)
 
 Card Design
-![Card Design](../../images/OA-card.png)
+![Card Design](../../images/projects/OA-card.png)

@@ -9,7 +9,7 @@ category_icon: fab fa-js-square
 tags: 
   - tutorial
   - serverless
-image: ../../images/forms.jpg
+image: ../../images/gatsby.png
 excerpt: Submit your forms from your Gatsby website directly to your Airtable in a very easy and simple way.
 ---
 

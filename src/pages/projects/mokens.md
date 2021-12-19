@@ -5,7 +5,7 @@ date:   2020-01-29 17:50:00 +0000
 categories: Projects
 tag: Design
 tag-icon: fas fa-paint-brush
-image: ../../images/mokens.jpg
+image: ../../images/projects/mokens.jpg
 source: https://fabiorosado.dev/mokens
 tech: Design AdobeXD UI
 excerpt: Client work to design and code the page for mokens.io, in the end the client decided to just keep the design and not go ahead with the code.
@@ -26,16 +26,16 @@ Unfortunately, the client didn't want to go ahead with the full code of the webs
 ## Images
 
 Home Page - Dark Theme
-![Home Page Dark Theme](../../images/mokens-dark.png)
+![Home Page Dark Theme](../../images/projects/mokens-dark.png)
 
 Expanded Card Details - Dark Theme
-![Expanded Card Details Dark Theme](../../images/mokens-dark-card.png)
+![Expanded Card Details Dark Theme](../../images/projects/mokens-dark-card.png)
 
 Home Page - Light Theme
-![Home Page Light Theme](../../images/mokens-light.png)
+![Home Page Light Theme](../../images/projects/mokens-light.png)
 
 Expanded Card Details - Light Theme
-![Expanded Card Details Light Theme](../../images/mokens-light-card.png)
+![Expanded Card Details Light Theme](../../images/projects/mokens-light-card.png)
 
 Card Design Proposal
-![Card Design Proposal](../../images/mokens-card-design.png)
+![Card Design Proposal](../../images/projects/mokens-card-design.png)

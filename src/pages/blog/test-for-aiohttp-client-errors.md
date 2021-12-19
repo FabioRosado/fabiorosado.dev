@@ -10,7 +10,7 @@ tags:
   - code
   - tips
   - tests
-image: ../../images/testlogging.jpg
+image: ../../images/python.png
 excerpt: This is an example on how to use the side_effect function from the unittest module to test if the aiohttp exception ClientOSError was raised. 
 ---
 One of the issues of opsdroid was to bump the test coverage of the parsers.  Aiohttp is used to connect to the different API's  and a `ClientOSError` exception is raised, when the client fails to connect to the parser API.

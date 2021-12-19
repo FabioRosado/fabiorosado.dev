@@ -8,7 +8,7 @@ categories: Git
 tags: 
   - tips
 category_icon: fas fa-code-branch
-image: ../../images/commits.jpg
+image: ../../images/git.png
 excerpt: Learn about git rebase, pulling changes from a master branch and how to keep your git history under control.
 ---
 

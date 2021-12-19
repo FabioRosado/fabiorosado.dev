@@ -9,7 +9,7 @@ category_icon: fa fa-code
 tags:
   - improvements
   - machine learning
-image: ../../images/josh-riemer-729194-unsplash.jpg
+image: ../../images/python.png
 excerpt: A problem that I have encountered while working on a Pybites challenge, libraries used and how I have optimized the tweets classifier to be faster.
 ---
 [Pybites challenge 07](https://pybit.es/codechallenge07.html) challenges us to create a sentiment analysis script that takes tweets related to a term and does some analysis in order to give us a positive/negative percentage of the general opinion of a term.

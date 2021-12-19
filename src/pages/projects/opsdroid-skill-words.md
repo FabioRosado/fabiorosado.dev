@@ -5,7 +5,7 @@ date:   2018-01-14 09:30:00 +0000
 categories: Projects
 tag: Chat Bot
 tag-icon: fas fa-robot
-image: ../../images/opsdroid-skill.jpg
+image: ../../images/projects/opsdroid-skill.jpg
 source: https://github.com/opsdroid/skill-words
 tech: Python NLTK Opsdroid
 excerpt: A skill to be used with Opsdroid that takes advantage of the NLTK library to allow opsdroid to translate or define a word. 

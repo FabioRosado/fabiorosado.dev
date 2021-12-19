@@ -1643,6 +1643,10 @@ hr {
   color: #FAA0AB;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .gatsby-highlight {
   margin: 2.5rem -5%;
 }

@@ -9,7 +9,7 @@ category_icon:  fa fa-code
 tags:
   - webdev
   - jekyll
-image: ../../images/niebieski.jpg
+image: ../../images/jekyll.png
 excerpt: Niebieski is the first theme that I've created from scratch. In this post I look back at what I've learned and the struggles I faced when creating the theme.
 ---
 The first time I tried to customize my blog, I used the minima theme alongside with bootstrap. I was just starting to dab into bootstrap and CSS, so my code was a big, scrambled mess. It was so bad, that the blog looked pretty broken on small screens.
@@ -66,5 +66,3 @@ Looking back, I've also realised how much time I've spent on little details. Som
 All this time spent creating the theme, made me put on hold my other things. I didn't do any courses, nor did I contribute to Open Source, all my time was being used in designing the theme. Now that the theme is pretty much finished, I feel the urge to catch up with the time and do a million things in a day.
 
 Finally, I would like to say how much I enjoyed working with Liquid. It is such a nice language, that allowed me to shape every page of the theme without any issues. From time to time, I had to read the documentation, but that is expected. Liquid sure helped me keep the code short and allowed me to modify a lot of things with their control flow.
-
-**Credit:** [Photo by Galymzhan Abdugalimov on Unsplash](https://unsplash.com/photos/ICW6QYOcdlg)
