@@ -119,7 +119,7 @@ module.exports = {
             slug: node => node.frontmatter.slug
           }
         },
-        filter: (node, getNode) => node.frontmatter.categories !== "books"
+        filter: (node, getNode) => node.frontmatter.categories !== "Books"
       }
     },
     `gatsby-plugin-robots-txt`,

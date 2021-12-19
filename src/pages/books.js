@@ -53,7 +53,7 @@ export default Books
 
 export const pageQuery = graphql`
     query {
-        books: allMdx(filter: {frontmatter: {categories: {eq: "books"}}}) {
+        books: allMdx(filter: {frontmatter: {categories: {eq: "Books"}}}) {
             nodes {
                 frontmatter {
                     author

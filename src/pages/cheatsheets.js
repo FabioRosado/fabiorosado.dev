@@ -30,7 +30,7 @@ export default CheatSheets
 
 export const pageQuery = graphql`
     query {
-        cheatsheets: allMdx(filter: {frontmatter: {categories: {eq: "cheatsheet"}}}) {
+        cheatsheets: allMdx(filter: {frontmatter: {categories: {eq: "Cheatsheet"}}}) {
             nodes {
                 frontmatter {
                     slug

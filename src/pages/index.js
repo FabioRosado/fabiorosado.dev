@@ -132,7 +132,7 @@ export default IndexPage
 export const pageQuery = graphql`
   query {
     blog: allMdx(
-      filter: {frontmatter: {categories: {nin: ["books", "Projects", "cheatsheet"]}}}, 
+      filter: {frontmatter: {categories: {nin: ["Books", "Projects", "Cheatsheet"]}}}, 
       limit: 8, 
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {
