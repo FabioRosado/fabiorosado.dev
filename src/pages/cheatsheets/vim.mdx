@@ -54,7 +54,7 @@ import Note from "../../components/text-decorations/note"
 - `dw` - delete to next word
 - `d2w` - delete two words from cursor
 - `d$` or `D` - delete to the end of the line from where the cursor is
-- `dd` - delete the whole line
+- `dd` - delete the whole line (cut)
 - `x` - delete character
 - `s` - delete character and insert
 - `S` - delete line and insert
@@ -69,6 +69,17 @@ import Note from "../../components/text-decorations/note"
 - `u` - undo changes
 - `gU<direction>` - uppercase character in chosen direction
 - `gu<direction` - lowercase character in chosen direction
+
+## Copy and pasting
+
+- `dd` - cut the whole line
+- `d<direction>` - cut character in chosen direction
+- `yy` - copy the whole line
+- `y<direction>` - copy the character in chosen direction
+- `p` - paste content
+- `P` - paste before cursor
+- `"*p` - paste from system clipboard
+- `"*y` - copy to system clipboard
 
 ## Search for things
 
