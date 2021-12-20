@@ -9,13 +9,13 @@ category_icon: fa fa-terminal
 tags: 
   - tips
   - bash
-image: ../../images/goran-ivos-245581.jpg
+image: ../../images/cheatsheets/commandline-shortcuts.png
 excerpt: Working with the command line can be fun and save you plenty of time. These tricks will help you save even more time when you have to repeat commands. 
 ---
 
 Working with the command line can be fun. But the more you use the command line, the more you realise that you end up repeating commands over and over again in your workflow.
 
-Luckily there are some easy to remember commands that will help you cut down time when repeating commands.
+Luckily there are some easy to remember commands that will help you cut down time when repeating commands. You might also be interested in checking the [command line shortcut cheatsheet](../cheatsheets/command-line-shortcuts)
 
 ## History  - Using reverse-i-search
 
@@ -131,5 +131,3 @@ kcc              kextload         kill             kramdown         ktutil
 As you can see any command that starts with the letter K will be returned.
 
 I hope you find this helpful, let me know if there are more useful commands that I should add to this list!
-
-**Credit:** [Photo by Goran Ivos on Unsplash](https://unsplash.com/@goran_ivos)

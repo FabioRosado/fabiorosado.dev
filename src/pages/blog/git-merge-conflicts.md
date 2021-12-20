@@ -8,7 +8,7 @@ categories: Git
 category_icon: fas fa-code-branch
 tags:
   - tips
-image: ../../images/gitconflict.jpg
+image: ../../images/git.png
 excerpt: Learn how to deal with a git conflict, why it happens and how to fix conflicts directly from your editor.
 ---
 

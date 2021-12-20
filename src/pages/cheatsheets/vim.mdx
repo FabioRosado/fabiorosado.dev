@@ -1,0 +1,123 @@
+---
+slug: vim
+title: Vim
+subtitle: Cheatsheet for the editor VIM
+author: "FabioRosado"
+date:   2020-08-26 09:20:02 +0000
+categories: Cheatsheet
+category_icon: fas fa-file-alt
+tags: 
+  - vim
+  - editor
+  - terminal
+  - cheatsheet
+image: ../../images/vim.png
+excerpt: Cheatsheet for the editor VIM
+---
+import Note from "../../components/text-decorations/note"
+
+## Vim Modes
+
+- `esc` - Normal Modes
+- `i` - Insert Mode
+- `v` - Visual Mode
+- `R` - Replace Mode
+
+## Colon commands
+
+- `:w` - write/save file
+- `w <filename>` - white to provided filename
+- `:q` - quit vim
+- `:q!` - force quit vim (changes will be discarded)
+- `:set number` - shows line numbers
+- `:set nonumber` - hides line numbers
+
+
+## Moving Around
+
+- `h` or `arrow left` - move the cursor one character to the left
+- `l` or `arrow right` - move the cursor one character to the right
+- `j` or `arrow down` - move the cursor one line down
+- `k` or `arrow up` - move the cursor one line up
+- `0` - move the cursor to the beginning of the line
+- `$` - move the cursor to the end of the line
+- `w` - move the cursor one word forward
+- `b` - move the cursor one word back
+- `gg` - move to the beginning of the file (line 1)
+- `G` - move to the end of the line (last line)
+- `o` - adds an empty line below the cursor, moves the cursor to that line, enters edit mode
+- `O` - adds an empty line above the cursor, moves the cursor to that line, enters edit mode
+
+## Deleting things
+
+- `de` - delete from where the cursor is until the end of the current word
+- `dw` - delete to next word
+- `d2w` - delete two words from cursor
+- `d$` or `D` - delete to the end of the line from where the cursor is
+- `dd` - delete the whole line (cut)
+- `x` - delete character
+- `s` - delete character and insert
+- `S` - delete line and insert
+- `C` - delete until the end of line and insert
+
+## Editing things
+
+- `a` - append enter insert mode one char right of cursor
+- `A` - append from end of line
+- `r` - replace one character on cursor
+- `R` - enter replace mode
+- `u` - undo changes
+- `gU<direction>` - uppercase character in chosen direction
+- `gu<direction` - lowercase character in chosen direction
+
+## Copy and pasting
+
+- `dd` - cut the whole line
+- `d<direction>` - cut character in chosen direction
+- `yy` - copy the whole line
+- `y<direction>` - copy the character in chosen direction
+- `p` - paste content
+- `P` - paste before cursor
+- `"*p` - paste from system clipboard
+- `"*y` - copy to system clipboard
+
+## Search for things
+
+- `:?<term>` - searches for that term from the cursor down
+- `:/<term>` - searches for that term from the cursor up
+- `*` - search whole word from the cursor down
+- `#` - search whole word from the cursor up
+- `n` - go to the next searched term
+- `N` - go to the previous searched term
+
+## Replacing things
+
+- `:s/<search term>/<replace term>` - search for and replace term in the current line and replace
+- `:%s/<search term>/<replace term>` - search for and replace term in the whole file
+- `:{from, to}s/<search term>/<replace term> ` - search for and replace term from line `from` to line `to`
+
+### Flags that you can use
+
+<Note>
+Flags can be used at the end of the search command for example <code>:s/bob/bobthebuilder/g</code> you can also combine flag together.
+</Note>
+
+- `g` - search and replace globaly in the file
+- `i` - ignore case when searching
+- `c` - ask confirmation before replacing 
+
+### Useful search/replace commands
+
+- `:2,10s/^/#/` - comments lines from 2 to 10
+- `:2,10/^#/` - uncomment lines from 2 to 10
+- `:%s/\s\+$//e` - remove trailing white space at the end of each line
+ 
+
+## Tabs
+
+- `vim -p <filename> <filename>` open file in a separate tab
+- `:tabnew` - opens a new tab page with an empty window
+- `:tabc` - close current tab
+- `:tabc!` - force close current tab discarding changes
+- `tabn` - move to next tab
+- `tabN` - move to previous tab

@@ -931,6 +931,11 @@ nav .menu-button .gg-menu-right::after {
   }
 }
 
+.cheatsheet {
+  width: 500px;
+  margin: 0 auto;
+}
+
 .post-card {
   color: #FC4056;
   background-color: #271B40;
@@ -989,6 +994,56 @@ nav .menu-button .gg-menu-right::after {
 
 .post-card:hover .card-title {
   visibility: hidden;
+  -webkit-transition: all .5 ease-in-out;
+  transition: all .5 ease-in-out;
+}
+
+.cheatsheet-card {
+  color: #FC4056;
+  background-color: #271B40;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cheatsheet-card .image {
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  opacity: .6;
+}
+
+.cheatsheet-card .card-title {
+  position: absolute;
+  bottom: 0;
+  margin: 0rem 1rem 1rem 1rem;
+}
+
+.cheatsheet-card .card-title .category {
+  background-color: #FC4056;
+  color: #271B40;
+  font-family: "Jura", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: small;
+}
+
+.cheatsheet-card .card-title .fab {
+  color: #271B40;
+}
+
+.cheatsheet-card .card-title h4 {
+  margin-top: .5rem;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cheatsheet-card:hover .image {
+  opacity: .3;
+  overflow: hidden;
   -webkit-transition: all .5 ease-in-out;
   transition: all .5 ease-in-out;
 }
@@ -1235,6 +1290,12 @@ nav .menu-button .gg-menu-right::after {
 
 .text-container ul {
   padding-left: 3rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.text-container li {
+  margin-bottom: .3rem;
 }
 
 .text-container p:first-of-type:first-letter {
@@ -1630,6 +1691,10 @@ hr {
 .highlight a {
   margin-top: .5rem;
   color: #FAA0AB;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .gatsby-highlight {

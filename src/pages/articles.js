@@ -40,9 +40,9 @@ const Blog = (props) => {
           <h1 className="large white-text">Articles</h1>
           <SearchBar searchIndex={props.data.siteSearchIndex.index} />
           <div className="filter-search">
-            <button onClick={() => getAllArticles()} className="full-button small-margin-right margin-top">All</button>
+            <button onClick={() => getAllArticles()} className="full-button small-margin-right margin-top pointer">All</button>
             {posts.allCategories.map(category =>
-              <button key={category.fieldValue} onClick={() => filterArticles(category.fieldValue)} className="full-button small-margin-right margin-top">
+              <button key={category.fieldValue} onClick={() => filterArticles(category.fieldValue)} className="full-button small-margin-right pointer margin-top">
                 {category.fieldValue}
               </button>
             )}
@@ -64,7 +64,7 @@ export default Blog
 export const pageQuery = graphql`
   query {
     blog: allMdx(
-      filter: {frontmatter: {categories: {nin: ["books", "Projects", "cheatsheets"]}}}, 
+      filter: {frontmatter: {categories: {nin: ["Books", "Projects", "Cheatsheet"]}}}, 
       sort: {fields: [frontmatter___date], order: DESC}) {
     nodes {
       frontmatter {

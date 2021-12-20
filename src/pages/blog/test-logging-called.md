@@ -10,7 +10,7 @@ tags:
   - tests
   - code
   - tips
-image: ../../images/testlogging.jpg
+image: ../../images/python.png
 excerpt: An example from opsdroid on how to test if a logging call was made successfully. 
 ---
 While creating a function that uses `logging.info` to log useful information on the first run of [Opsdroid](https://github.com/opsdroid/opsdroid) the percentage of `coverall` dropped quite a bit. To counter that a test had to be created to assert if the `logging.info` was called or not.

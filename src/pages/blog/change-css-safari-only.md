@@ -10,7 +10,7 @@ tags:
   - tips
   - webdev
   - styling
-image: ../../images/safari_only.jpg
+image: ../../images/css.png
 excerpt: How I came across the need to set a css rule to apply only to Safari and which media queries combination will allow that.
 ---
 

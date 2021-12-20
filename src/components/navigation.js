@@ -26,6 +26,7 @@ const Navigation = () => {
                 <Link className="white-text" to="/articles">Articles</Link>
                 <Link className="white-text" to="/projects">Projects</Link>
                 <Link className="white-text" to="/books">Books</Link>
+                <Link className="white-text" to="/cheatsheets">Cheatsheets</Link>
                 <Link className="white-text" to="/contact">Contact</Link>
             </div>
         </nav>

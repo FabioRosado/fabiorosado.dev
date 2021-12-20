@@ -5,7 +5,7 @@ date:   2020-01-29 17:50:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../../images/FCT.jpg
+image: ../../images/projects/FCT.jpg
 source: https://findcommunities.today
 tech: Gatsby TailwindCSS MongoDB
 excerpt: An agregator that has communities from different chat services like Slack, Discord, Facebook, Telegram and more.
@@ -43,13 +43,13 @@ Unfortunately, this project didn't grow as much as I wanted - mostly due to the 
 # Images
 
 Home Page
-![Home Page](../../images/FCT-Home.png)
+![Home Page](../../images/projects/FCT-Home.png)
 
 Community Page
-![Community Page](../../images/FCT-makerlog.png)
+![Community Page](../../images/projects/FCT-makerlog.png)
 
 Random Communities Page
-![Random Communities Page](../../images/FCT-Random.png)
+![Random Communities Page](../../images/projects/FCT-Random.png)
 
 Contact Page
-![Contact Page](../../images/FCT-contact.png)
+![Contact Page](../../images/projects/FCT-contact.png)

@@ -5,7 +5,7 @@ date:   2020-07-08 11:00:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../../images/thumbsupnews.jpg
+image: ../../images/projects/thumbsupnews.jpg
 source: https://github.com/FabioRosado/thumbsupnews
 tech: Django Docker NextJS
 excerpt: Classify positive news from RSS feeds and show them on a single place. This project is hosted on DO and being served from docker and nginx.
@@ -35,10 +35,10 @@ This project evolved with time and there is still a lot of work to do. My main f
 ## Images
 
 Thumbsupnews Home Page
-![Thumbsupnews Home Page](../../images/thumbsupnews_index.jpg)
+![Thumbsupnews Home Page](../../images/projects/thumbsupnews_index.jpg)
 
 Thumbsupnews Contact Page
-![Thumbsupnews Contact Page](../../images/thumbsupnews_contact.jpg)
+![Thumbsupnews Contact Page](../../images/projects/thumbsupnews_contact.jpg)
 
 Thumbsupnews Home Page List view
-![Thumbsupnews Home Page List view](../../images/thumbsupnews_list.jpg)
+![Thumbsupnews Home Page List view](../../images/projects/thumbsupnews_list.jpg)

@@ -5,7 +5,7 @@ date:   2020-05-27 15:00:00 +0000
 categories: Projects
 tag: Website
 tag-icon: fas fa-file
-image: ../../images/landl.jpg
+image: ../../images/projects/landl.jpg
 source: https://www.landl-build.com/
 tech: Contentful Gatsby MailGun
 excerpt: Client work to design and code the page for the LandL Build building company, used mailgun to connect contact forms directly to email.
@@ -29,19 +29,19 @@ The client also wanted an easy way to add new pictures and work done to the site
 ## Images
 
 First proposal
-![First proposal](../../images/landl-proposal.jpg)
+![First proposal](../../images/projects/landl-proposal.jpg)
 
 LandL Build Home Page
-![LandL Build Home Page](../../images/landl-index.jpg)
+![LandL Build Home Page](../../images/projects/landl-index.jpg)
 
 LandL Build About Page
-![LandL Build About Page](../../images/landl-about.jpg)
+![LandL Build About Page](../../images/projects/landl-about.jpg)
 
 LandL Build Portfolio Page
-![LandL Build Portfolio Page](../../images/landl-portfolio.jpg)
+![LandL Build Portfolio Page](../../images/projects/landl-portfolio.jpg)
 
 LandL Build Contact Page
-![LandL Build Contact Page](../../images/landl-contact.jpg)
+![LandL Build Contact Page](../../images/projects/landl-contact.jpg)
 
 LandL Build Portfolio Item Page
-![LandL Build Portfolio Item Page](../../images/landl-work.jpg)
+![LandL Build Portfolio Item Page](../../images/projects/landl-work.jpg)

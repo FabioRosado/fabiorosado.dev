@@ -11,9 +11,7 @@ const Books = (props) => {
     const finishedBooks = []
     const currentlyReading = []
     const readingList = []
-    console.log(books)
     books.map(book => {
-        console.log(book)
         if (book.frontmatter.finished === true) {
             finishedBooks.push(book)
         } else if (book.frontmatter.progress === "0%" && book.frontmatter.finished === false) {
@@ -55,7 +53,7 @@ export default Books
 
 export const pageQuery = graphql`
     query {
-        books: allMdx(filter: {frontmatter: {categories: {eq: "books"}}}) {
+        books: allMdx(filter: {frontmatter: {categories: {eq: "Books"}}}) {
             nodes {
                 frontmatter {
                     author
