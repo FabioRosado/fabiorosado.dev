@@ -30,7 +30,6 @@ const Template = (props) => {
         `)
 
     const { frontmatter } = props.pageContext
-    console.log(data.allMdx.nodes)
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
             return post

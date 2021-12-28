@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
@@ -8,7 +8,8 @@ import SimilarArticlesList from "../components/SimilarArticles/SimilarArticlesLi
 import Webmentions from "../components/webmentions/webmentionsComponent"
 import MentionsCounter from "../components/webmentions/counter"
 import { ogImageUrl } from "../components/utils"
-
+import TableOfContents from "../components/table-of-contents"
+import slugify from "slugify"
 
 const Template = (props) => {
     const data = useStaticQuery(
@@ -27,7 +28,9 @@ const Template = (props) => {
                     slug
                     frontmatter {
                         date(formatString: "dddd Mo, MMM YYYY")
+                        title
                     }
+                    tableOfContents
                 }
             }
          }
@@ -35,8 +38,8 @@ const Template = (props) => {
 
     const [totalMentions, setTotalMentions] = useState(0)
     const [show, setShow] = useState(false)
+    const [hideTableOfContents, setHideTableOfContents] = useState(null)
     const { frontmatter } = props.pageContext
-
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
             return post
@@ -45,8 +48,11 @@ const Template = (props) => {
 
     const { timeToRead } = postInformation
     const date = postInformation.frontmatter.date
+    const subtitleSlug = slugify(frontmatter.subtitle, { replacement: '-', lower: true })
 
     useEffect(() => {
+        setHideTableOfContents(localStorage.getItem("toc"))
+        postInformation.tableOfContents.items.unshift({ url: `#${subtitleSlug}`, title: frontmatter.subtitle })
         const fetchTotalMentions = async () => {
             const resp = await fetch(
                 `https://webmention.io/api/count.json?target=https://fabiorosado.dev/blog/${frontmatter.slug}/`
@@ -58,7 +64,6 @@ const Template = (props) => {
         }
         fetchTotalMentions()
     }, [frontmatter.slug])
-
     return (
         <Layout>
             <SEO
@@ -80,7 +85,8 @@ const Template = (props) => {
                 <article className="post-area">
                     <div className="text-container">
                         <div className="article">
-                            <h1 className="dark-text">{frontmatter.subtitle}</h1>
+                            <h1 className="dark-text" id={subtitleSlug}>{frontmatter.subtitle}</h1>
+                            {!hideTableOfContents ? <TableOfContents items={postInformation.tableOfContents.items} subtitleSlug={subtitleSlug} /> : ""}
                             {props.children}
                         </div>
                         <div className="webmentions-container">

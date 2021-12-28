@@ -65,6 +65,7 @@ module.exports = {
               backgroundColor: '#1A2430',
             }
           },
+          `gatsby-remark-autolink-headers`
         ]
       }
     },
