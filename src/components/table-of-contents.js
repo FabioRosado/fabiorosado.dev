@@ -27,7 +27,6 @@ function useActiveId(itemIds, subtitleSlug) {
                 }
                 entries.forEach((entry) => {
                     if (entry.target.id === subtitleSlug) {
-                        console.log(reachedEnd)
                         if (!entry.isIntersecting && !reachedEnd) {
                             setPastSubtitle(true)
                         } else {
@@ -54,10 +53,13 @@ function useActiveId(itemIds, subtitleSlug) {
 
         return () => {
             itemIds.forEach((id) => {
-                observer.unobserve(document.getElementById(id));
+                const element = document.getElementById(id)
+                if (element) {
+                    observer.unobserve(element);
+                }
             });
         };
-    }, [itemIds, subtitleSlug]);
+    }, [itemIds, subtitleSlug, reachedEnd, lastEntry]);
     return { activeId: activeId, pastSubtitle: pastSubtitle }
 }
 
@@ -82,7 +84,6 @@ const renderItems = (items, activeId) => (
 const TableOfContents = props => {
     const idList = getIds(props.items)
     const { width } = useWindowDimensions()
-    console.log(width)
 
     let { activeId, pastSubtitle } = useActiveId(idList, props.subtitleSlug)
 

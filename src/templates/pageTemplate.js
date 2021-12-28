@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
@@ -38,7 +38,6 @@ const Template = (props) => {
 
     const [totalMentions, setTotalMentions] = useState(0)
     const [show, setShow] = useState(false)
-    const [hideTableOfContents, setHideTableOfContents] = useState(null)
     const { frontmatter } = props.pageContext
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
@@ -51,7 +50,6 @@ const Template = (props) => {
     const subtitleSlug = slugify(frontmatter.subtitle, { replacement: '-', lower: true })
 
     useEffect(() => {
-        setHideTableOfContents(localStorage.getItem("toc"))
         postInformation.tableOfContents.items.unshift({ url: `#${subtitleSlug}`, title: frontmatter.subtitle })
         const fetchTotalMentions = async () => {
             const resp = await fetch(
@@ -63,7 +61,10 @@ const Template = (props) => {
             setTotalMentions(count)
         }
         fetchTotalMentions()
-    }, [frontmatter.slug])
+        return () => {
+            postInformation.tableOfContents.items.shift()
+        }
+    }, [frontmatter, subtitleSlug, postInformation])
     return (
         <Layout>
             <SEO
@@ -86,7 +87,7 @@ const Template = (props) => {
                     <div className="text-container">
                         <div className="article">
                             <h1 className="dark-text" id={subtitleSlug}>{frontmatter.subtitle}</h1>
-                            {!hideTableOfContents ? <TableOfContents items={postInformation.tableOfContents.items} subtitleSlug={subtitleSlug} /> : ""}
+                            <TableOfContents items={postInformation.tableOfContents.items} subtitleSlug={subtitleSlug} />
                             {props.children}
                         </div>
                         <div className="webmentions-container">
