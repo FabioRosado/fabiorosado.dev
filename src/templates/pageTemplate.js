@@ -48,9 +48,12 @@ const Template = (props) => {
     const { timeToRead } = postInformation
     const date = postInformation.frontmatter.date
     const subtitleSlug = slugify(frontmatter.subtitle, { replacement: '-', lower: true })
+    const tableOfContents = postInformation.tableOfContents?.items
 
     useEffect(() => {
-        postInformation.tableOfContents.items.unshift({ url: `#${subtitleSlug}`, title: frontmatter.subtitle })
+        if (tableOfContents) {
+            tableOfContents.unshift({ url: `#${subtitleSlug}`, title: frontmatter.subtitle })
+        }
         const fetchTotalMentions = async () => {
             const resp = await fetch(
                 `https://webmention.io/api/count.json?target=https://fabiorosado.dev/blog/${frontmatter.slug}/`
@@ -62,9 +65,11 @@ const Template = (props) => {
         }
         fetchTotalMentions()
         return () => {
-            postInformation.tableOfContents.items.shift()
+            if (tableOfContents) {
+                tableOfContents.shift()
+            }
         }
-    }, [frontmatter, subtitleSlug, postInformation])
+    }, [frontmatter, subtitleSlug, tableOfContents])
     return (
         <Layout>
             <SEO
@@ -87,7 +92,7 @@ const Template = (props) => {
                     <div className="text-container">
                         <div className="article">
                             <h1 className="dark-text" id={subtitleSlug}>{frontmatter.subtitle}</h1>
-                            <TableOfContents items={postInformation.tableOfContents.items} subtitleSlug={subtitleSlug} />
+                            {tableOfContents ? <TableOfContents items={tableOfContents} subtitleSlug={subtitleSlug} /> : ""}
                             {props.children}
                         </div>
                         <div className="webmentions-container">

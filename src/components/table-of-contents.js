@@ -22,6 +22,7 @@ function useActiveId(itemIds, subtitleSlug) {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
+                console.log(entries)
                 if (!lastEntry) {
                     setLastEntry(entries.slice(-1)[0])
                 }
