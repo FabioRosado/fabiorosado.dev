@@ -1,7 +1,7 @@
 ---
 slug: test-logging-called
 title:  "Test: Was Logging called"
-subtitle:
+subtitle: How to test if a log was emited
 author: "FabioRosado"
 date:   2018-12-21 12:01:02
 categories: Python
