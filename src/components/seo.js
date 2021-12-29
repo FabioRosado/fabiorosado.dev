@@ -26,7 +26,7 @@ function SEO({ description, lang, meta, title, image }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const twitterImage = image || `https://fabiorosado.dev/small-twitter-card.png`
+  const twitterImage = image || `https://res.cloudinary.com/fabiorosado/image/upload/q_100/c_fit,co_rgb:0efb69,l_text:orbitron_50_style_bold_text_align_center:fabiorosado.dev,w_1012/v1605190182/theflyingdev_og_whvovy.png`
 
   return (
     <Helmet
