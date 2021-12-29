@@ -53,7 +53,8 @@ module.exports = {
         extensions: [`.md`, `.mdx`],
         defaultLayouts: {
           default: require.resolve("./src/templates/pageTemplate.js"),
-          books: require.resolve("./src/templates/bookPageTemplate.js")
+          books: require.resolve("./src/templates/bookPageTemplate.js"),
+          projects: require.resolve('./src/templates/projectsTemplate.js')
         },
         gatsbyRemarkPlugins: [
           {
@@ -65,6 +66,7 @@ module.exports = {
               backgroundColor: '#1A2430',
             }
           },
+          `gatsby-remark-autolink-headers`
         ]
       }
     },

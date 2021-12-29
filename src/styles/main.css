@@ -1378,6 +1378,42 @@ nav .menu-button .gg-menu-right::after {
   max-width: 450px;
 }
 
+.table-of-contents-fixed {
+  position: fixed;
+  z-index: 10;
+  width: 17%;
+  right: 1.5rem;
+  background-color: #22122f;
+  border: 1px solid #533988;
+  padding: 1rem;
+  top: 1rem;
+}
+
+.table-of-contents {
+  padding: 1rem;
+  margin: 2.5rem 0;
+  background-color: #22122f;
+  border: 1px solid #533988;
+}
+
+@media (min-width: 1160px) {
+  .table-of-contents {
+    margin: 2.5rem -20%;
+  }
+}
+
+.list-style-none {
+  list-style-type: none;
+}
+
+.font-large {
+  font-size: large;
+}
+
+.font-medium {
+  font-size: medium;
+}
+
 .page-container {
   margin: 2rem;
   display: -ms-grid;

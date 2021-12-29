@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SimilarArticlesList from "../components/SimilarArticles/SimilarArticlesList"
-import Webmentions from "../components/webmentions/webmentionsComponent"
-import MentionsCounter from "../components/webmentions/counter"
 import { ogImageUrl } from "../components/utils"
-import TableOfContents from "../components/table-of-contents"
-import slugify from "slugify"
 
 const Template = (props) => {
     const data = useStaticQuery(
@@ -36,8 +31,6 @@ const Template = (props) => {
          }
         `)
 
-    const [totalMentions, setTotalMentions] = useState(0)
-    const [show, setShow] = useState(false)
     const { frontmatter } = props.pageContext
     const [postInformation] = data.allMdx.nodes.filter(post => {
         if (post.slug === frontmatter.slug) {
@@ -47,29 +40,7 @@ const Template = (props) => {
 
     const { timeToRead } = postInformation
     const date = postInformation.frontmatter.date
-    const subtitleSlug = slugify(frontmatter.subtitle, { replacement: '-', lower: true })
-    const tableOfContents = postInformation.tableOfContents?.items
 
-    useEffect(() => {
-        if (tableOfContents) {
-            tableOfContents.unshift({ url: `#${subtitleSlug}`, title: frontmatter.subtitle })
-        }
-        const fetchTotalMentions = async () => {
-            const resp = await fetch(
-                `https://webmention.io/api/count.json?target=https://fabiorosado.dev/blog/${frontmatter.slug}/`
-            )
-
-            const { count } = await resp.json()
-
-            setTotalMentions(count)
-        }
-        fetchTotalMentions()
-        return () => {
-            if (tableOfContents) {
-                tableOfContents.shift()
-            }
-        }
-    }, [frontmatter, subtitleSlug, tableOfContents])
     return (
         <Layout>
             <SEO
@@ -84,37 +55,17 @@ const Template = (props) => {
                         <span className="metadata-icons"><i className="far fa-user orange-text" /> {frontmatter.author || `FabioRosado`}</span>
                         <span className="metadata-icons"><i className="far fa-clock orange-text" /> {date ? date : "Thursday 7th, Jul 2020"}</span>
                         <span className="metadata-icons"><i className="far fa-eye orange-text" /> {timeToRead > 1 ? `${timeToRead} mins to read` : `${timeToRead} min to read`} </span>
-                        <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="metadata-icons" />
                     </p>
                 </div>
                 <div className="background" />
                 <article className="post-area">
                     <div className="text-container">
                         <div className="article">
-                            <h1 className="dark-text" id={subtitleSlug}>{frontmatter.subtitle}</h1>
-                            {tableOfContents ? <TableOfContents items={tableOfContents} subtitleSlug={subtitleSlug} /> : ""}
                             {props.children}
                         </div>
-                        <div className="webmentions-container">
-                            <h3>Webmentions</h3>
-                            <div>
-                                <MentionsCounter postUrl={`https://fabiorosado.dev/blog/${frontmatter.slug}`} styles="padding-bottom" />
-                            </div>
-                            <button
-                                className="full-button"
-                                aria-label="Show all webmentions"
-                                onClick={() => setShow(!show)}
-                            >
-                                Show {totalMentions} Mentions
-                            </button>
-                        </div>
-
-                        <Webmentions slug={frontmatter.slug} show={`${show ? "visible" : "invisible"}`} />
-
                     </div>
                 </article>
             </section>
-            {frontmatter.categories === "Projects" ? "" : <SimilarArticlesList categories={frontmatter.categories} tags={frontmatter.tags} currentArticlePath={frontmatter.slug} />}
 
             <section className="profile-section">
                 <div className="h-card">
