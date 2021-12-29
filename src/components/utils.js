@@ -1,14 +1,4 @@
-const objectToQueryParams = obj => {
-    const params = Object.entries(obj).map(([key, value]) => `${key}=${value}`)
-    return "?" + params.join('&')
-}
-
 export const ogImageUrl = (author, website, title) => {
-    const params = {
-        author,
-        website,
-        image: `https://fabiorosado.dev/logo.svg`,
-        title
-    }
-    return `https://generate-og-image-git-fabio-og-image-spences10.vercel.app/og.jpg${objectToQueryParams(params)}`
+    const ogTitle = title.replace(/\s+/g, "%20").toUpperCase()
+    return `https://res.cloudinary.com/fabiorosado/image/upload/q_100/c_fit,co_rgb:0efb69,l_text:orbitron_50_style_bold_text_align_center:${ogTitle},w_1012/v1605190182/theflyingdev_og_whvovy.png`
 }
