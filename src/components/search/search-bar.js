@@ -15,7 +15,7 @@ export default class Search extends Component {
     render() {
         return (
             <div className="my-5 relative">
-                <div className="flex justify-center items-center margin-top">
+                <div className={this.props.center ? "flex margin-top justify-center items-center" : "flex margin-top"}>
                     <i className="fas fa-search icon" />
                     <input type="text" value={this.state.query} onChange={this.search} placeholder="Search..." className="input" />
                 </div>

@@ -13,19 +13,19 @@ const Book = (props) => {
             </div>
             <div className="flex flex-col pl-6">
                 <p className="my-0 red">Title:</p>
-                <p className="my-0">{frontmatter.title}</p>
+                <p className="my-0 white-text">{frontmatter.title}</p>
                 <p className="my-0 red">Author:</p>
-                <p className="my-0">{frontmatter.author}</p>
+                <p className="my-0 white-text">{frontmatter.author}</p>
                 {frontmatter.progress === "0%" ? "" : <>
                     <p className="red my-0">Progress:</p>
-                    <div className="mt-0">
+                    <div className="mt-0 white-text">
                         <div className="progress-bar-background">
                             <span style={{ width: frontmatter.progress }} className="progress-bar" />
                         </div>
                         {frontmatter.progress}
                     </div>
                     <div className="flex flex-col mt-2">
-                        <Link to={frontmatter.slug} className="full-button flex justify-center">Read my notes</Link>
+                        <Link to={`/books/${frontmatter.slug}`} className="full-button flex justify-center">Read my notes</Link>
                     </div>
                 </>
                 }

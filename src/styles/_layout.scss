@@ -127,6 +127,10 @@ position: relative;
 }
 
 
+.grid-gap {
+  grid-gap: 3rem;
+}
+
 .three-columns {
   display: grid;
   grid-auto-flow: row;
@@ -291,6 +295,10 @@ position: relative;
   margin: .25rem;
 }
 
+.ml-5 {
+  margin-left: .5rem;
+}
+
 .margin-bottom {
   margin-bottom: $padding-unit;
 }
@@ -305,6 +313,10 @@ position: relative;
 
 .padding-bottom {
   padding-bottom: $padding-unit;
+}
+
+.padding-left {
+  padding-left: $padding-unit;
 }
 
 .padding-top {
@@ -326,6 +338,14 @@ position: relative;
 
 .justify-center {
   justify-content: center;
+}
+
+.pl-1 {
+  padding-left: .25rem;
+}
+
+.pr-1 {
+  padding-right: .25rem;
 }
 
 .pl-6 {

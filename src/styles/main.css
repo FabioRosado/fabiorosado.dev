@@ -203,6 +203,10 @@ a {
   }
 }
 
+.grid-gap {
+  grid-gap: 3rem;
+}
+
 .three-columns {
   display: -ms-grid;
   display: grid;
@@ -394,6 +398,10 @@ a {
   margin: .25rem;
 }
 
+.ml-5 {
+  margin-left: .5rem;
+}
+
 .margin-bottom {
   margin-bottom: 1.5rem;
 }
@@ -408,6 +416,10 @@ a {
 
 .padding-bottom {
   padding-bottom: 1.5rem;
+}
+
+.padding-left {
+  padding-left: 1.5rem;
 }
 
 .padding-top {
@@ -431,6 +443,14 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.pl-1 {
+  padding-left: .25rem;
+}
+
+.pr-1 {
+  padding-right: .25rem;
 }
 
 .pl-6 {
@@ -821,7 +841,6 @@ nav .menu-button .gg-menu-right::after {
   color: #FC4056;
   border-radius: 10px;
   padding: 2rem;
-  text-align: center;
 }
 
 .about-card h2 {
@@ -1046,6 +1065,40 @@ nav .menu-button .gg-menu-right::after {
   overflow: hidden;
   -webkit-transition: all .5 ease-in-out;
   transition: all .5 ease-in-out;
+}
+
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  justify-items: right;
+  justify-self: right;
+  -ms-flex-line-pack: right;
+      align-content: right;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  margin-right: 1.5rem;
+}
+
+.reading-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (min-width: 1160px) {
