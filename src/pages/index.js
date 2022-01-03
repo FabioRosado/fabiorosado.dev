@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from 'gatsby-image'
+import Img from "gatsby-image"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 import SEO from "../components/seo"
@@ -8,14 +8,18 @@ import Navigation from "../components/navigation"
 import PortfolioCard from "../components/portfolio"
 import WritingCard from "../components/blog"
 import Contact from "../components/contact"
+import SearchBar from "../components/search/search-bar"
+import Book from "../components/books"
 
 import "../styles/main.css"
 import '../../static/css/all.min.css'
 
-
 const IndexPage = (props) => {
   const portfolio = props.data.portfolio
   const blog = props.data.blog
+  const books = props.data.books.nodes
+  const book = books[Math.floor(Math.random() * books.length)]
+  const cheatsheets = props.data.cheatsheets
 
   return (
     <>
@@ -69,42 +73,12 @@ const IndexPage = (props) => {
           </div>
         </div>
       </header>
-      <h1 className="section center-text white-text">Projects</h1>
-      <section className="three-columns section">
-        {portfolio.nodes.map((work) =>
-          <PortfolioCard project={work} key={work.frontmatter.title} />
-        )}
-
-      </section>
-      <section className="section">
-        <div className="container-middle center-text">
-          <h1 className="white-text">Tools of Trade</h1>
-        </div>
-        <div className="three-columns">
-          <div className="about-card drop-shadow">
-            <i className="fas fa-3x fa-language"></i>
-            <h2 className="white-text">Languages</h2>
-            <p className="spaced-text">HTML CSS Python</p>
-            <p className="spaced-text">Javascript SASS</p>
-          </div>
-          <div className="about-card drop-shadow">
-            <i className="fas fa-3x fa-toolbox"></i>
-            <h2 className="white-text">Dev Tools</h2>
-            <p className="spaced-text">Tmux Terminal Tox</p>
-            <p className="spaced-text">AdobeXD Postman Git</p>
-            <p className="spaced-text">VSCode Docker AWS</p>
-          </div>
-          <div className="about-card drop-shadow">
-            <i className="fas fa-3x fa-cogs"></i>
-            <h2 className="white-text">Frameworks</h2>
-            <p className="spaced-text">Django Bootstrap</p>
-            <p className="spaced-text">Jekyll Bulma React</p>
-            <p className="spaced-text">Bootstrap TailwindCSS</p>
-          </div>
-        </div>
-      </section>
       <section className="section">
         <h1 className="section center-text white-text">Articles</h1>
+        <div className="search-container">
+          <p className="font-large white-text padding-left">Looking for something?</p>
+          <SearchBar searchIndex={props.data.siteSearchIndex.index} center={false} />
+        </div>
         <div className="four-by-four">
           {blog.nodes.map((post) => {
             return (
@@ -113,6 +87,62 @@ const IndexPage = (props) => {
           })}
 
         </div>
+      </section>
+
+      <section className="two-columns section grid-gap">
+        <div className="reading-section">
+          <h2 className="white-text ml-5 margin-bottom">Currently Reading</h2>
+          <div className="about-card dropshadow">
+            <Book key={book.frontmatter.title} book={book} />
+          </div>
+        </div>
+        <div>
+          <h2 className="white-text ml-5 margin-bottom">Latest Cheatsheets</h2>
+          <div className="about-card dropshadow margin-bottom">
+            <ul className="list-none">
+              {cheatsheets.nodes.map((cheatsheet) =>
+                <li key={cheatsheet.frontmatter.title}>
+                  <Link to={`/cheatsheets/${cheatsheet.frontmatter.slug}`}>{cheatsheet.frontmatter.title}</Link>
+                </li>
+              )}
+            </ul>
+          </div>
+          <h2 className="white-text margin-bottom ml-5">Tools of Trade</h2>
+          <div className="about-card dropshadow">
+            <img className="pr-1" src="https://img.shields.io/badge/OS-MacOS-informational?style=flat&logo=apple&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/OS-Manjaro-informational?style=flat&logo=manjaro&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Editor-VSCode-informational?style=flat&logo=visual-studio-code&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Editor-Vim-informational?style=flat&logo=vim&Color=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Terminal-Tmux-informational?style=flat&logo=tmux&logoColor=white&Color=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Shell-Zsh-informational?style=flat&logo=powershell&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Code-bash-informational?style=flat&logo=gnu-bash&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=javascript&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Code-React-informational?style=flat&logo=react&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-Docker-informational?style=flat&logo=docker&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-Git-informational?style=flat&logo=git&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-Postman-informational?style=flat&logo=postman&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-Gatsby-informational?style=flat&logo=gatsby&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-TailwindCss-informational?style=flat&logo=tailwind-css&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-NextJS-informational?style=flat&logo=next.js&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Tools-Django-informational?style=flat&logo=postman&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Cloud-Netlify-informational?style=flat&logo=netlify&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Cloud-Digital_Ocean-informational?style=flat&logo=digitalocean&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Cloud-AWS-informational?style=flat&logo=amazon-aws&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Cloud-GCP-informational?style=flat&logo=google-cloud&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Other-Adobe_XD-informational?style=flat&logo=adobe-XD&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Other-Photoshop-informational?style=flat&logo=adobe-photoshop&logoColor=white&color=FC354C" alt="" />
+            <img className="pr-1" src="https://img.shields.io/badge/Other-Audition-informational?style=flat&logo=adobe-audition&logoColor=white&color=FC354C" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <h1 className="section center-text white-text">Projects</h1>
+      <section className="three-columns section">
+        {portfolio.nodes.map((work) =>
+          <PortfolioCard project={work} key={work.frontmatter.title} />
+        )}
+
       </section>
       <Contact />
       <footer className="navbar padding">
@@ -173,6 +203,39 @@ export const pageQuery = graphql`
       }
     }
     }
+    books: allMdx(filter: {frontmatter: {categories: {eq: "Books"}, progress: {ne:"0%"}, finished:{ne: true}}}) {
+        nodes {
+            frontmatter {
+                author
+                progress
+                title
+                amazon
+                slug
+                finished
+                image {
+                    childImageSharp {
+                        gatsbyImageData
+                    }
+                }
+            }
+        }
+    }
+    cheatsheets: allMdx(
+        filter: {frontmatter: {categories: {eq: "Cheatsheet"}}}, 
+        limit: 5,
+        sort: {fields: [frontmatter___date], order: DESC}) {
+        nodes {
+            frontmatter {
+                slug
+                title
+                subtitle
+                categories
+                excerpt
+                tags
+                category_icon
+            }
+        }
+    }
     fabiorosado: file(relativePath: {eq: "fabiorosado.jpg" }) {
       childImageSharp {
             gatsbyImageData
@@ -195,5 +258,9 @@ export const pageQuery = graphql`
         }
       }
     }
+    siteSearchIndex {
+      index
+    }
   }
 `
+

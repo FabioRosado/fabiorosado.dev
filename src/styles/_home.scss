@@ -3,7 +3,6 @@
   color: color(secondary-color);
   border-radius: 10px;
   padding: 2rem;
-  text-align: center;
   h2 {
     padding: 1rem 0rem 1rem 0rem;
   }
@@ -212,4 +211,21 @@
     transition: all .5 ease-in-out;
   }
 
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  justify-items: right;
+  justify-self: right;
+  align-content: right;
+  align-items: end;
+  margin-right: $padding-unit;
+}
+
+.reading-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
