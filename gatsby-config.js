@@ -85,7 +85,34 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `sitemap.xml`
+        query: `
+              {
+                allSitePage {
+                  nodes {
+                    path
+                    pageContext
+                  }
+                }
+                allMdx {
+                  nodes {
+                    ... on Mdx {
+                      slug
+                      frontmatter {
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+        resolveSiteUrl: () => `https://fabiorosado.dev`,
+        serialize: (props) => {
+          const date = props.pageContext?.frontmatter?.date || '2022-01-08'
+          return {
+            url: props.path,
+            lastmod: date
+          }
+        }
       }
     },
     {
