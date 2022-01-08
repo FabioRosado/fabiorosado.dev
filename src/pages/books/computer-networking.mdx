@@ -3,9 +3,51 @@ slug: computer-networking
 title: Computer Networking A Top-Down Approach
 categories: Books
 author: Ross Kurose
-date: 2021-12-16
+date: 2022-01-08
 progress: "44%"
 finished: false
 image: ../../images/books/computer_networking.jpg
 amazon: "http://example.com"
 ---
+
+The book Computer Networking - A Top-Down Approach is a great book if you want to learn about networking. As the title mentions, the authors start by giving you an overview before drilling deeper into more complex topics. It's been pretty easy to follow from page 1 and the graphs and images really help with understanding some concepts.
+
+## Term definitions
+
+- **Packet Switching** - To send a message from a source end system to a destination end system, the source breaks long messages into smaller chunks of data known as **packets**.
+- **Store-and-forward transmition** - The packet switch needs to received the entire packet before it can begin transmiting the first bit of the packet onto the outbound link.
+- **Queue delays** - Are variable and depend on the level of congesiton in the network. Since the amount of buffer space in the switch is finite, an arriving packet might find that the buffer is full with other packets waiting for transmision.
+- **Packet loss** - When the buffer is full, either the arriving packet or packets in the queue will be dropped.
+
+## Sockets
+
+This is a software interface in which a process sends aand receives messages from the network. A socket is the interface between the application layer and the transport layer within a host.
+
+**Layers:**
+
+- Application
+- Network
+- Link
+- Physical
+
+Sockets are the API between the application and the network, the application developer has control of everything at the application layer, but has little control of the transport layer other than choice of transport protocol and sometimes set some transport-layer parameters such as maximum buffer and segment sizes.
+
+## Protocols
+
+### TCP
+
+This protocol includes a connection-oriented and a reliable data transfer service. Connection-oriented service means that the client and the server exchange  transport-layer control information with each other before the application-layer messages begin to flow. This exchange is called handshake, after the hanshake we can say that a TCP connection exists between sockets. 
+
+The TCP connection is a full-duplex connection, this means that the two processes can send messages to each other at the same time. TCP is also a reliable data transfer service, that means that processes can rely on TCP to deliver all data sent without error and in the proper order. Note that when the applicatio finishes sending messages it must teardown the connection.
+
+### TCP Sockets
+
+Once the TCP server is running, the TCP client can initialize a TCP connection tot he server, this is done in the client program by creating a TCP socket. When the client creates its TCP socket, it specifies the address of the welcoming socket in the server, namely the IP address of the server. After creating the socket, the client initializes a three-way handshake and establishes a TCP connection to the server. This three-way handshake takes places at the transport layer and its invisible to both client and server.
+
+### UDP
+
+This protocol is connectionless, which means that there is no handhsake such as in TCP before the two processes start to communicate. UDP is an unreliable data transfer service, which means that it provides no guarantee that the message will ever arrive to its destination. Messages that do arrive at the receiving process may arrive out of order.
+
+### SMTP
+
+This protocol is used while sending emails and relies on TCP to send messages.  SMTP establishes a TCP connection on port 25, it performs a handshake before sending messages as per norm in a TCP connection. In the handshake the SMTP client indicates the email address of the sender and the email of the recipient, once the handshake completes the email message is sent.
