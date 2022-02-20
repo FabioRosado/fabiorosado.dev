@@ -1,0 +1,45 @@
+---
+slug: django-postgresql-tests
+title:  Fix django postgresql permissions denied on tests
+subtitle: How to fix the permissions denied error when using pytest-django
+author: "FabioRosado"
+date:   2022-02-20 14:00:00
+categories: Python
+category_icon: fab fa-python 
+tags:
+  - django
+  - tests
+image: ../../images/django.png
+excerpt: Learn what additional permissions you need to add to your user to get django to run tests with a postgresql database.
+---
+
+We use postgresql for our database at work. But I was still using the sqlite database for my dev environment. Usually, using a different databse was fine since I didn't have to implement many changes in the queries we had. 
+
+Although, that changed last week, and I had to install postgresql to run our tests. That was because the tests were failing on our CI, but locally they were passing. It all came to the slight differences between sqlite and postgresql.
+
+After installing postgresql, creating a user and a database, I tried to run the tests but got an exception, and all the tests failed with a Permissions Error. This error was a bit surprising since I had created the database, and my user had all the permissions. Looking at the traceback, I noticed the following exception:
+
+```python
+django.db.utils.ProgrammingError: permission denied to create database
+```
+
+We are using `pytest-django` and the `django_db_setup` fixture to create a test database, run the tests and check the output. So the issue was that my user had all the permissions for the database that I created, but not for creating new databases. With that in mind, it seemed obvious what I needed to do, give my user permissions to create databases!
+
+## Giving permissions to the user
+
+When you install postgresql (on linux at least), a new user `postgresql` will be added, you can then use this user to start `psql` and then create databases and users.
+
+```bash
+sudo su - postgresql
+psql
+```
+
+Inside `psql` we can now give permissions to the user I created to create databases.
+
+```
+ALTER USER fabiorosado CREATEDB;
+```
+
+Now that the user has permission to create databases, we can go back to try and run the tests. A new testing database gets created, and the tests run successfully (they were also green, which is great!).
+
+I hope this helps you if you ever encounter this permissions error.
