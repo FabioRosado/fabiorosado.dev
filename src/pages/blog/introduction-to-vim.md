@@ -17,9 +17,12 @@ Vim stands for vi improved and is a command-line text editor installed with ever
 
 Let's start with the basics. How do you open Vim?
 
-If you are running Linux or macOS, you most likely have Vim installed already, so you can open your terminal and run the command `vim <filename/path of file>` to edit that file. 
+If you are running Linux or MacOS is most likely that you have vim installed already so you can just open your terminal and run the command `vim <filename/path of file>` to edit that file. 
 
-Don't forget to check the [vim cheatsheet](../cheatcheets/vim) so you can check the commands that this article mentions. You can also download an image with all these commands.
+
+Vi usually comes with linux distributions. If you are on windows you could download it from [vim.org](https://www.vim.org/download.php).
+
+Don't forget to check the [vim cheatsheet](../cheatcheets/vim) so you can check the commands that this article talks about. You can also download an image with all these commands.
 
 # Vim Modes
 
