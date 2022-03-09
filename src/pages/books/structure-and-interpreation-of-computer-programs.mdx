@@ -3,9 +3,111 @@ slug: structure-and-interpreation-of-computer-programs
 title: Structure and Interpretation of Computer Programs
 categories: Books
 author:  Harold Abelson
-date: 2021-12-16
-progress: "0%"
+date: 2022-03-09
+progress: "6%"
 finished: false
 image: ../../images/books/structure-and-interpreation-of-computer-programs.jpg
 amazon: "http://example.com"
 ---
+
+import Quote from "../../components/text-decorations/quote.js"
+
+These notes will be evergrowing as I read the book and take the video courses on the [MIT Open Courseware site](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/index.htm).
+Feel free to reach out and chat about the book or any of the notes you may find here!
+
+<p>Computational Processes -> Manipulate Data</p>
+<p>└> Evolution by a pattern of rules called program</p>
+
+## Lisp
+
+Includes new data objects:
+- Atoms
+- Lists
+
+Procedures are processes that can be represented and manipulated as Lisp data.
+
+<Quote>
+The ability to represent procedures as data also makes Lisp and excellent language for writing programs that must manipulate other program's data, such as interpreters and compilers that support computer languages.
+</Quote>
+
+### Expressions using primitive procedures
+
+Basic math operations using list
+
+Addition
+
+```lisp
+(+ 137 349)
+```
+
+Subtraction
+
+```lisp
+(- 1000 334)
+```
+
+Multiplication
+
+```lisp
+(* 5 99)
+```
+
+Division
+
+```lisp
+(/ 10 5)
+```
+
+
+## Variables
+
+<Quote>
+A critical aspect of a programming language is the means it provides for using names to refer to computational objects. We say that the name identifies a *variable* whose *value* is the object.
+</Quote>
+
+In Lisp we can create variables using **define**.
+
+```lisp
+(define size 2)
+```
+
+Defining the *size* variable causes the interpreter to associate the value `2` with the name `size`. We can then use this variable by name:
+
+```lisp
+(* 5 size)
+```
+
+The possibility of associating values to variables and using them later means that the interpreter must maintain some memory that keeps track of name-object pairs. This memory is called the global environment.
+
+### Combinations
+
+Are expressions formed by delimiting a list of expressions within parentheses. The leftmost element in the list is called the *operator* and the other elements are called the *operands*.
+
+Combinations can be evaluated by:
+- Evaluating the subexpression in the combination, for example with `(* 2 (+ 1 1))` we will evaluate first `(+1 1)`
+- Apply the procedure that is the value of the operator to the operands of the subexpression
+
+The evaluation rule is *recursive* because we need to evaluate each subexpression in the combination to evaluate the whole combination.
+
+<Quote>
+(...) recursion is a very powerful technique for dealing with hierarchical, treelike objects. In fact, the "percolate values upward" form of the evaluation rule is an example of a general kind of process known as *tree accumulation*.
+</Quote>
+
+### Compound Procedures
+
+We can create a procedure definition, by giving a name to a compound procedure and then referencing it as a unit. For example:
+
+```lisp
+(define (square x)(* x x))
+```
+
+<Quote>
+<p>The general form of a procedure definition is</p>
+<p><code>(define (⟨name⟩ ⟨formal parameters⟩)⟨body⟩)</code></p>
+</Quote>
+We can now use these compound procedures to build other procedures for example:
+
+```lisp
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+```
