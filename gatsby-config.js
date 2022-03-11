@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Fabio Rosado`,
-    description: `My time is divided between flying and coding`,
+    description: `Ex-flight attendant turned software engineer`,
     author: `@FabioRosado`,
     siteUrl: `https://fabiorosado.dev/`
 
@@ -63,7 +63,7 @@ module.exports = {
               maxWidth: 500,
               quality: 100,
               linkImagesToOriginal: true,
-              backgroundColor: '#1A2430',
+              backgroundColor: '#251333',
             }
           },
           `gatsby-remark-autolink-headers`
@@ -73,11 +73,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Fabio Rosado Portfolio`,
+        name: `Fabio Rosado - TheFlyingDev`,
         short_name: `FabioRosado`,
         start_url: `/`,
-        background_color: `#1A2430`,
-        theme_color: `#FF721E`,
+        background_color: `#251333`,
+        theme_color: `#FC4056`,
         display: `minimal-ui`,
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },

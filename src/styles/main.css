@@ -993,6 +993,10 @@ nav .menu-button .gg-menu-right::after {
   color: #271B40;
 }
 
+.post-card .card-title .fa-brands {
+  margin-right: .3rem;
+}
+
 .post-card .card-title h4 {
   margin-top: .5rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
@@ -1243,7 +1247,7 @@ nav .menu-button .gg-menu-right::after {
   }
 }
 
-.blog-post .post-header .far, .blog-post .post-header .fas {
+.blog-post .post-header .far, .blog-post .post-header .fas, .blog-post .post-header .fab, .blog-post .post-header .fa-brands {
   padding-right: 0.3rem;
 }
 
