@@ -1,0 +1,114 @@
+---
+slug: bash
+title: Bash Scripting
+subtitle: Cheatsheet Bash scripting
+author: "FabioRosado"
+date:   2022-03-11
+categories: Cheatsheet
+category_icon: fas fa-file-alt
+tags: 
+  - bash
+  - terminal
+  - cheatsheet
+image: ../../images/vim.png
+excerpt: Cheatsheet for Bash scripting
+---
+
+import Note from "../../components/text-decorations/note"
+
+This cheatsheet will have more code snippets on how to do something in bash. It will be a bit different from some other cheatsheets where I show a list of commands.
+
+## Basics
+
+- `echo` - print text to the terminal
+  - `echo Hello world!` - prints 'Hello world!'
+
+### Variables
+
+- `COLOR="green"` - create variable `COLOR` and set it to green, you can then use it such as:
+  - `echo $COLOR`
+  - `echo "$COLOR"`
+  - `echo "${COLOR}"`
+  - `echo "My favourite color is $COLOR!"`
+
+<Note>
+  You need to use double quotes if you want to print text and variable. Using <code>echo 'my favourite color is $COLOR'</code> would print <code>my favourite color is $COLOR </code> to the terminal 
+</Note>
+
+### Arrays
+
+- `COLORS=("red", "green", "blue")` - Define an array of colors
+- `echo ${COLORS[0]}` - Print first element in the array
+- `echo ${COLORS[-1]}` - Print last element in the array
+- `echo ${COLORS[@]}` - Prints all elements separated by a space
+- `echo ${#COLORS[@]}` - Prints the number of elements in the array
+
+### Loops
+
+For loops:
+
+```bash
+for item in ${MYLIST[@]}; do
+  echo $item
+done
+```
+
+```bash
+for ((i=0; i < 10; i++)); do
+  echo $i
+done
+```
+
+```bash
+for i in {1..10}; do
+  echo "Iteration number: $i"
+done
+```
+
+While loop: 
+
+```bash
+while true; do
+  echo "HELLO!"
+done
+```
+
+
+### Conditionals
+
+Conditionals follow the familiar if statements:
+
+```bash
+if [ $COLOR != "green" ]; then
+  echo "Your favourite color isn't green"
+fi
+```
+
+You can use `[[ ... ]]` to get a status of 0 or 1 depending on the evaluation of the conditional expression inside ``[[]]``.
+
+- `[[ -z STRING ]]` - Empty string
+- `[[ -n STRING ]]` - Not empty string
+- `[[ -e FILE ]]` - File exists
+- `[[ -r FILE ]]` - File is readable
+- `[[ -d PATH ]]` - PATH is a directory
+- `[[ -w FILE ]]` - File is writeable
+- `[[ -s FILE ]]` - File size is larger than 0 bytes
+- `[[ -x FILE ]]` - File is executable
+- `[[ STRING == STRING ]]` - Both strings are equal
+- `[[ STRING != STRING ]]` - Strings aren't equal
+- `[[ STRING =~ STRING ]]` - Test STRING against a regex pattern
+- `[[ NUM -eq NUM]]` - Both numbers are equal
+- `[[ NUM -ne NUM ]]` - Numbers aren't equal
+- `[[ NUM -lt NUM ]]` - First NUM is less than second NUM
+- `[[ NUM -le NUM ]]` - First NUM is less or equal than second NUM
+- `[[ NUM -gt NUM ]]` - First NUM is greater than second NUM
+- `[[ NUM -ge NUM ]]` - First NUM is greater or equal than second NUM
+- `[[ ! EXPRESSION ]]` - Not
+- `[[ EXPRESSION && EXPRESSION ]]` - And 
+- `[[ EXPRESSION || EXPRESSION ]]` - Or
+
+## References
+
+- [Bash Reference Manual](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html)
+- [Devhints](https://devhints.io/bash#conditionals)
+- [LearnXinYMinutes - Bash](https://learnxinyminutes.com/docs/bash/)
