@@ -3,14 +3,14 @@ slug: bash
 title: Bash Scripting
 subtitle: Cheatsheet Bash scripting
 author: "FabioRosado"
-date:   2022-03-11
+date: 2022-03-11
 categories: Cheatsheet
 category_icon: fas fa-file-alt
-tags: 
+tags:
   - bash
   - terminal
   - cheatsheet
-image: ../../images/commandline-shortcuts.png
+image: ../../images/cheatsheets/commandline-shortcuts.png
 excerpt: Cheatsheet for Bash scripting
 ---
 
@@ -32,7 +32,9 @@ This cheatsheet will have more code snippets on how to do something in bash. It 
   - `echo "My favourite color is $COLOR!"`
 
 <Note>
-  You need to use double quotes if you want to print text and variable. Using <code>echo 'my favourite color is $COLOR'</code> would print <code>my favourite color is $COLOR </code> to the terminal 
+  You need to use double quotes if you want to print text and variable. Using{" "}
+  <code>echo 'my favourite color is $COLOR'</code> would print{" "}
+  <code>my favourite color is $COLOR </code> to the terminal
 </Note>
 
 ### Arrays
@@ -65,14 +67,13 @@ for i in {1..10}; do
 done
 ```
 
-While loop: 
+While loop:
 
 ```bash
 while true; do
   echo "HELLO!"
 done
 ```
-
 
 ### Conditionals
 
@@ -84,7 +85,7 @@ if [ $COLOR != "green" ]; then
 fi
 ```
 
-You can use `[[ ... ]]` to get a status of 0 or 1 depending on the evaluation of the conditional expression inside ``[[]]``.
+You can use `[[ ... ]]` to get a status of 0 or 1 depending on the evaluation of the conditional expression inside `[[]]`.
 
 - `[[ -z STRING ]]` - Empty string
 - `[[ -n STRING ]]` - Not empty string
@@ -104,7 +105,7 @@ You can use `[[ ... ]]` to get a status of 0 or 1 depending on the evaluation of
 - `[[ NUM -gt NUM ]]` - First NUM is greater than second NUM
 - `[[ NUM -ge NUM ]]` - First NUM is greater or equal than second NUM
 - `[[ ! EXPRESSION ]]` - Not
-- `[[ EXPRESSION && EXPRESSION ]]` - And 
+- `[[ EXPRESSION && EXPRESSION ]]` - And
 - `[[ EXPRESSION || EXPRESSION ]]` - Or
 
 ## References
