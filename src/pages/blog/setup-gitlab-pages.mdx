@@ -3,10 +3,10 @@ slug: setup-gitlab-pages
 title: How to setup Gitlab pages from a folder
 subtitle: Deploying a site to gitlab pages when using monorepos
 author: "FabioRosado"
-date:   2022-03-11 13:12:00 +0000
+date: 2022-03-11 13:12:00 +0000
 categories: CI
-category_icon: fa-brands fa-gitlab
-tags: 
+category_icon: fab fa-gitlab
+tags:
   - ci
   - pages
   - gitlab
@@ -14,13 +14,11 @@ image: ../../images/gitlab.jpg
 excerpt: When using monorepos it can be a bit confusing how to deploy to gitlab pages from a specific folder, this article will help you with it.
 ---
 
-
-This article will help you set up Gitlab pages from a specific folder in your repository. Let's assume that your documentation is living inside your project repository and built using [Sphinx](https://www.sphinx-doc.org/). 
+This article will help you set up Gitlab pages from a specific folder in your repository. Let's assume that your documentation is living inside your project repository and built using [Sphinx](https://www.sphinx-doc.org/).
 
 To deploy your documentation site with Pages, you need to run a CI job to build the site. Gitlab will take care of the rest. You don't need to worry about domain names or Gitlab instance configurations if you do not use a dedicated Gitlab instance.
 
 When your documentation is deployed, the URL will look similar to this `https://<username or organisation>.gitlab.io/<repo name>`
-
 
 ## Getting Gitlab CI setup
 
@@ -48,7 +46,7 @@ image: python:3.8-alpine
 stages:
   - checks
   - deploy
- 
+
 test-docs:
   stage: checks
   script:
@@ -57,7 +55,7 @@ test-docs:
     - sphinx-build -b html . preview
   artifacts:
     expose_as: "docs-preview"
-    paths: 
+    paths:
       - preview/
 ```
 
@@ -67,19 +65,23 @@ The script portion of the job will install the dependencies and then build your 
 
 The artifacts portion will allow Gitlab to expose the built docs to you so you can see a preview of your documentation. Gitlab will add a collapsed section to the CI pipeline status once the CI has finished so you can see the built.
 
-
 ![Gitlab pipeline](../../images/gitlab-artifact.png)
-
 
 <Note>
 
-<p>If you struggle with building the pages, I recommend that you check the <a href="https://gitlab.com/pages" target="_blank" rel="noopener noreferrer">Gitlab examples websites</a> to see how to get your chosen static site deployed Gitlab.</p>
+<p>
+  If you struggle with building the pages, I recommend that you check the{" "}
+  <a href="https://gitlab.com/pages" target="_blank" rel="noopener noreferrer">
+    Gitlab examples websites
+  </a>{" "}
+  to see how to get your chosen static site deployed Gitlab.
+</p>
 
 </Note>
 
 ### Creating the second job - Deploying to pages
 
-The second job will be similar to our `test-docs` one, with some minor changes. We will change the stage to deploy, we will add a rule to run the job only when it's added to the `production` branch, and we will call this job `pages`. 
+The second job will be similar to our `test-docs` one, with some minor changes. We will change the stage to deploy, we will add a rule to run the job only when it's added to the `production` branch, and we will call this job `pages`.
 
 ```yaml
 pages:
@@ -92,7 +94,7 @@ pages:
     - sphinx-build -b html . public
   artifacts:
     expose_as: "docs-deploy-preview"
-    paths: 
+    paths:
       - public/
 ```
 
@@ -112,10 +114,9 @@ pages:
     - sphinx-build -b html . public
   artifacts:
     expose_as: "docs-deploy-preview"
-    paths: 
+    paths:
       - public/
 ```
-
 
 ## Tie it all together
 
@@ -129,7 +130,7 @@ image: python:3.8-alpine
 stages:
   - checks
   - deploy
- 
+
 test-docs:
   stage: checks
   script:
@@ -138,7 +139,7 @@ test-docs:
     - sphinx-build -b html . preview
   artifacts:
     expose_as: "docs-preview"
-    paths: 
+    paths:
       - preview/
 pages:
   stage: deploy
@@ -151,6 +152,6 @@ pages:
     - sphinx-build -b html . public
   artifacts:
     expose_as: "docs-deploy-preview"
-    paths: 
+    paths:
       - public/
 ```

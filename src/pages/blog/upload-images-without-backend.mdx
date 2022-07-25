@@ -1,0 +1,257 @@
+---
+slug: upload-images-without-backend
+title: How to upload and display images without backend
+subtitle: Using localStorage to save the image and display it on each visit
+author: "FabioRosado"
+date: 2022-07-25 09:30:02 +0000
+categories: Typescript
+category_icon: fa fa-code
+tags:
+  - typescript
+  - frontend
+image: ../../images/typescript.png
+excerpt: Learn how to allow users to upload a profile picture in your site/app and display on each visit without needing a backend.
+---
+
+I have been working on updating the [web client](https://github.com/opsdroid/opsdroid-web) for [opsdroid](https://opsdroid.dev). This new version comes with a new UI and some nice features, such as a theme selector, allowing you to set your username and profile picture.
+
+The problem with the web client is that I didn't want to run a backend or have opsdroid save the user's avatar. Ideally, a user would be able to upload their picture from the client settings, and when a user sends a message to opsdroid, the image should be the one that was uploaded.
+
+## Attack Plan
+
+The idea is pretty straightforward to implement. This was what I started with:
+
+- An input that allows users to upload their image
+- Convert the image into base64
+- Save the base64 in state
+- Update the message component to use that image
+- Make sure the image persists on new sessions/reloads
+
+## Implementation
+
+The web client is written in React/Typescript, so the example I will give here will use the same stack. This is worth noting because when handling files, you need to dance with typing to make typescript happy.
+
+We are also using [pullstate]() as our main state manager, but in this article, I'll use React's useState hook to make it easier to understand.
+
+### Creating the Component
+
+Since we will be using `useState` we need to create a type for the state.
+
+```typescript
+type userSettingsState = {
+  username: string
+  avatar?: string
+}
+```
+
+We will set a default for `username`, but not for `avatar` since this will be the base64 string for the uploaded image. This means that `avatar` will be either `undefined | string`.
+
+Let's now build the `UserSettings` component and use our `useSettingsState`.
+
+```typescript
+type userSettingsState = {
+  username: string
+  avatar?: string
+}
+
+export const UserSettings = (): React.ReactElement => {
+  const [userSettings, setUserSettings] = React.useState<userSettingsState>({
+    username: "bob-the-builder",
+  })
+
+  const updateUsername = (e: React.FormEvent<HTMLInputElement>) => {}
+
+  const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {}
+
+  return (
+    <div>
+      <h2 className="flex align-items-center">User Settings</h2>
+      <div className="flex flex-column padding-left">
+        <div className="flex align-items-center">
+          <p className="padding-right settings-text">Username</p>
+          <input
+            type="text"
+            id="username"
+            placeholder={username}
+            defaultValue={username}
+            onChange={updateUsername}
+          />
+        </div>
+        <div className="flex align-items-center">
+          <p className="padding-right settings-text">Avatar</p>
+          <input type="file" onChange={updateAvatar} />
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+### Creating the helper functions for state
+
+We now have two functions to fill, `updateUsername` and `updateAvatar`. All we need to do for the username is get the value from the input.
+
+```typescript
+const updateUsername = (e: React.FormEvent<HTMLInputElement>) => {
+  setUserSettings({
+    username: e.currentTarget.value,
+    // set avatar to whatever avatar is set
+    avatar: avatar,
+  })
+}
+```
+
+This one was pretty straightforward. The fun begins when we try to update the user's profile picture.
+
+Since we are using an input to upload the image, we can get the image details with `e.target.files[0]` , but this doesn't work since typescript will throw an error at you saying that you are trying to access an attribute (files) that doesn't exist in the object.
+
+```typescript
+Property 'files' does not exist on type 'EventTarget'.
+```
+
+The trick here is setting the type of `e.target` to `HTMLInputElement`, by doing this, we can then access the files property.
+
+```typescript
+const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {
+  const target = e.target as HTMLInputElement
+  const avatar = target.files[0]
+}
+```
+
+This will still give you an error since files is possibly `null`. To fix that, we can check if `target.files` exists and if it has any element inside.
+
+```typescript
+const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files.length) {
+      const avatar = target.files[0];
+}
+```
+
+Now that we have the image file details, we can use [FileReader](https://developer.mozilla.org/en-US/docs/Web/API/FileReader) to get the representation of the image as a base64 encoded string. Once we have the base64 encoded string, we can update our `userSettings` state with this. Note that FileReader methods are async.
+
+```typescript
+const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files.length) {
+      const avatar = target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(avatar);
+      reader.onload = () => {
+        const result = reader.result as string;
+        if (result) {
+	      setUserSettings({
+			  username: username,
+			  avatar: result
+	      })
+        }
+      };
+    }
+```
+
+### Persisting data
+
+With opsdroid web client, we are persisting a lot of data through cookies, although we won't be able to store the base64 encoded string of the user profile picture because this string is too large. The option here is using [local storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to persist the profile picture and fetch it when we reload/restart the client.
+
+```typescript
+const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files.length) {
+      const avatar = target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(avatar);
+      reader.onload = () => {
+        const result = reader.result as string;
+        if (result) {
+	      setUserSettings({
+			  username: username,
+			  avatar: result
+	      })
+	      localStorage.setItem("profile-picture", result)
+        }
+      };
+    }
+```
+
+We can then update our initial state to get the data from local storage if it exists.
+
+```typescript
+const [userSettings, setUserSettings] = React.useState<userSettingsState>({
+  username: localStorage.getItem("username") || "bob-the-builder",
+  avatar: localStorage.getItem("profile-picture") || undefined,
+})
+```
+
+## That's all
+
+Now users can upload images, and we can save them to local storage and show them when the users come back. It's much better to have a backend so you can save and fetch the image. But, for this use case, local storage seems good enough.
+
+Here's the full code:
+
+```typescript
+type userSettingsState = {
+  username: string;
+  avatar?: string;
+}
+
+export const UserSettings = (): React.ReactElement => {
+
+	const [ userSettings, setUserSettings] = React.useState<userSettingsState>({
+		username: localStorage.getItem("username") || "bob-the-builder",
+		avatar: localStorage.getItem("profile-picture") || undefined
+	});
+
+	const updateUsername = (e: React.FormEvent<HTMLInputElement>) => {
+		setUserSettings({
+			username: e.currentTarget.value,
+			// set avatar to whatever avatar is set
+			avatar: avatar
+		})
+	};
+
+	const updateAvatar = (e: React.FormEvent<HTMLInputElement>) => {
+	    const target = e.target as HTMLInputElement;
+	    if (target.files && target.files.length) {
+	      const avatar = target.files[0];
+	      const reader = new FileReader();
+	      reader.readAsDataURL(avatar);
+	      reader.onload = () => {
+	        const result = reader.result as string;
+	        if (result) {
+		      setUserSettings({
+				  username: username,
+				  avatar: result
+		      })
+		      localStorage.setItem("profile-picture", result)
+	        }
+	      };
+	    }
+
+	return (
+		<div>
+			<h2 className="flex align-items-center">
+			  User Settings
+			</h2>
+			<div className="flex flex-column padding-left">
+				<div className="flex align-items-center">
+					<p className="padding-right settings-text">Username</p>
+					<input
+					  type="text"
+					  id="username"
+					  placeholder={username}
+					  defaultValue={username}
+					  onChange={updateUsername}
+					/>
+				</div>
+				<div className="flex align-items-center">
+				    <p className="padding-right settings-text">Avatar</p>
+					<input
+					  type="file"
+					  onChange={updateAvatar}
+					/>
+				</div>
+			</div>
+		</div>
+	);
+};
+```
