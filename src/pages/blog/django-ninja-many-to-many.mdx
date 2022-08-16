@@ -1,0 +1,264 @@
+---
+slug: django-ninja-many-to-many
+title: Django Ninja Schemas and Many To Many
+subtitle: How to return an attribute from a ManytoMany relationship
+author: "fabiorosado"
+date: 2022-08-16 13:00:00 +0000
+categories: Python
+category_icon: fab fa-python
+tags:
+  - django
+  - backend
+  - api
+image: ../../images/django-ninja.jpg
+excerpt: How to return an attribute from a many-to-many object relationship from a Django Ninja API endpoint.
+---
+
+import Note from "../../components/text-decorations/note"
+
+On a recent project, I am using [Django Ninja](https://django-ninja.rest-framework.com) instead of [Django Rest Framework](https://www.django-rest-framework.org/) mainly because I wanted to have better control over typing and also because it's slightly easier to implement.
+
+When writing the tests and the API for the project, it was clear that the ManyToMany relationship between the two models failed the validation.
+
+## The Code
+
+These are the models. As you can see, we have a HabitCategory and a Habit. Each Habit can have a Category.
+
+```python
+class HabitCategory(models.Model):
+    title = models.CharField(max_length=255)
+    icon = models.ImageField(null=True, blank=True)
+
+
+class Habit(models.Model):
+    created_at = models.DateTimeField(blank=False, auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=1000)
+    post = models.TextField(blank=True)
+    category = models.ManyToManyField(HabitCategory, blank=True)
+    visibility = models.CharField(
+        max_length=10,
+        choices=HabitVisibilityChoices.choices,
+        default=HabitVisibilityChoices.PUBLIC,
+    )
+```
+
+The test itself is pretty basic. It makes a `GET` request and tries to assert that the representation of the object is correct. It might be worth mentioning that I have created fixtures to create a test object, user and Django client.
+
+```python
+def test_get_habit(habit_with_updates_and_interactions, django_client):
+    habit_id = habit_with_updates_and_interactions.id
+    response = django_client.get(reverse("api-v1:habit", kwargs={"pk": habit_id}))
+
+    assert response.status_code == 200
+    habit = response.json()
+    assert habit.title == "Think about my parents"
+```
+
+Finally, let's have a look at the view and the Schema:
+
+```python
+class HabitSchema(ModelSchema):
+    user: UserSchema
+    category: List[str]
+    total_updates: int
+    total_thumbs_up: int
+    total_comments: int
+
+    class Config:
+        model = Habit
+        model_fields = [
+            "id",
+            "created_at",
+            "user",
+            "title",
+            "post",
+            "visibility",
+            "category",
+        ]
+
+@router.get(url_name="habit", path="/habit/{pk}", response=HabitSchema)
+def get_habit(request: HttpRequest, pk: int):
+    return get_object_or_404(Habit, pk=pk, user=request.user)
+```
+
+I am using a `UserSchema` and a `HabitCategorySchema`, which should give me just the `user.username` and the `habit_category.title`. But when the tests run, the following validation error pops up:
+
+```python
+pydantic.error_wrappers.ValidationError: 1 validation error for NinjaResponseSchema
+response -> category -> 0
+  field required (type=value_error.missing)
+```
+
+Okay, so it seems that the category doesn't have a title. This isn't surprising since the category has a ManyToMany relationship.
+
+## Addressing the problem
+
+We can remove the `category: HabitCategorySchema` mention in the Schema, and the tests will pass, but the category isn't what we expect.
+
+```python
+# Updated Schema without category
+class HabitSchema(ModelSchema):
+	user: UserSchema
+    total_updates: int
+    total_thumbs_up: int
+    total_comments: int
+
+    class Config:
+        model = Habit
+        model_fields = [
+            "id",
+            "created_at",
+            "user",
+            "title",
+            "post",
+            "visibility",
+            "category",
+        ]
+
+# Response from the API
+{
+    'id': 5,
+    'created_at': '2022-08-16T09:11:48.041358+00:00',
+    'user': {
+        'username': 'batman'
+    },
+    'title': 'Think about my parents',
+    'post': 'They were awesome',
+    'visibility': 'private',
+    'category': [14],
+    'total_updates': 2,
+    'total_thumbs_up': 3,
+    'total_comments': 2
+}
+```
+
+As you can see, `category` is now available, but it's returning a list and the HabitCategory id. But what we want is the title from this specific category.
+
+The trick is to write a static method to fetch the category title.
+
+```python
+class HabitSchema(ModelSchema):
+	user: UserSchema
+	category: List[str]
+    total_updates: int
+    total_thumbs_up: int
+    total_comments: int
+
+    class Config:
+        model = Habit
+        model_fields = [
+            "id",
+            "created_at",
+            "user",
+            "title",
+            "post",
+            "visibility",
+            "category",
+        ]
+
+	@staticmethod
+	def resolve_category(obj):
+		return [category.title for category in obj.category.all()]
+```
+
+This will iterate over all the object categories and return the title for us. Note that we also need to add `category: List[str]` to the Schema. When we run the tests, the API will now return:
+
+```python
+{
+    'id': 5,
+    'created_at': '2022-08-16T09:23:19.361886+00:00',
+    'user': {
+        'username': 'batman'
+    },
+    'title': 'Think about my parents',
+    'post': 'They were awesome',
+    'visibility': 'private',
+    'category': [
+        'Family'
+    ],
+    'total_updates': 2,
+    'total_thumbs_up': 3,
+    'total_comments': 2
+}
+```
+
+## Other alternatives
+
+This article wouldn't be completed if I didn't show other ways to achieve a similar result. But you could use either of these alternatives and get good results. In my case, I wanted the `category` to be a list of strings.
+
+### Using the HabitCategorySchema
+
+We could pass the HabitCategorySchema to the Habit Schema, and it would work. For example:
+
+```python
+
+class HabitSchema(ModelSchema):
+    created_at: datetime.datetime
+    user: UserSchema
+    title: str
+    post: str
+    category: List[HabitCategorySchema]
+    visibility: str
+    total_updates: int
+    total_thumbs_up: int
+    total_comments: int
+
+    class Config:
+        model = Habit
+        model_fields = [
+            "id",
+            "created_at",
+            "user",
+            "title",
+            "post",
+            "visibility",
+            "category",
+        ]
+
+# The API returns:
+{
+    'id': 5,
+    'created_at': '2022-08-16T09:28:25.872980+00:00',
+    'user': {
+        'username': 'batman'
+    },
+    'title': 'Think about my parents',
+    'post': 'They were awesome',
+    'visibility': 'private',
+    'category': [
+        {'title': 'Family'}
+    ],
+    'total_updates': 2,
+    'total_thumbs_up': 3,
+    'total_comments': 2
+}
+```
+
+The response is a bit more complex, but maybe that's okay for your use case.
+
+## Using a one-liner(ish)
+
+Depending on your model, you may be able to use the `create_schema` function to make Django Ninja create the Schema for us. Under the hood, the `ModelSchema` class uses this function to generate the Schema, and we can also remove a lot of our code and use the
+
+<Note>
+  You should add the <code>exclude</code> or <code>fields</code> params when
+  using this approach. Otherwise, <code>create_schema</code> will return all
+  model fields, which can expose unwanted data such as hashed passwords.
+</Note>
+
+```python
+HabitSchema = create_schema(Habit, depth=1)
+```
+
+I couldn't make `create_schema` work for this particular case and decided not to spend more time on this approach.
+
+I hope this helps!
+
+---
+
+**References:**
+
+- [Django Ninja](https://django-ninja.rest-framework.com/)
+- [Docs: using create_schema](https://django-ninja.rest-framework.com/guides/response/django-pydantic-create-schema/)
+- [Issue: Flatten Many to Many](https://github.com/vitalik/django-ninja/issues/456#issuecomment-1145307851)
