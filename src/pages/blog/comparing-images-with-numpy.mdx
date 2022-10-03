@@ -1,0 +1,132 @@
+---
+slug: comparing-images-with-numpy
+title: How to compare two images using NumPy
+subtitle: Comparing two images using NumPy and pillow
+author: "FabioRosado"
+date: 2022-10-03 11:00:00 +0000
+categories: Python
+category_icon: fab fa-python
+tags:
+  - ci
+  - tests
+  - python
+image: ../../images/python.png
+excerpt: While working on adding tests to Pyscript I came across a use case where I had to check if an example image is always generated the same.
+---
+
+import Quote from "../../components/text-decorations/quote"
+import Note from "../../components/text-decorations/note"
+
+Lately, I've been contributing to [Pyscript](https://github.com/pyscript/pyscript) in my free time. Most of my contributions have been tackling the [epic to improve test coverage](https://github.com/pyscript/pyscript/issues/679). I also find it helpful to start looking at or creating tests when getting started on a new project. 
+
+Pyscript has a lot of [examples](https://pyscript.net/examples/) in the repository, and the tests use these for integration tests. One of the examples uses NumPy and Matplotlib to generate a graph ([see the example](https://pyscript.net/examples/matplotlib.html)). Initially, I had no idea how to test this since the page renders the graph in an `img` tag.
+
+Luckily, [Madhur Tandon](https://github.com/madhur-tandon) pointed me in the right direction. The suggestion:
+
+<Quote>
+  <p>One approach could be to compare the underlying numpy data for the image rendered through the canvas along with a reference image uploaded to the repository.</p>
+  <a href="https://github.com/pyscript/pyscript/pull/773#discussion_r974138341">Github Review</a>
+</Quote>
+
+In this article, I will describe how I wrote the test to confirm that the two images are the same by using NumPy. Although, all credits go to Madhur and the code you can [find in the matplotlib_pyodide](https://github.com/pyodide/matplotlib-pyodide/blob/fbfe472e6acaf081855d02c3a4e52d6cb6b7b03d/matplotlib_pyodide/html5_canvas_backend.py#L72) package.
+
+## The Requirements
+
+Here's all we need to test that the two images are the same:
+
+- An image to use as a reference
+- [Pillow](https://python-pillow.org/)
+- [Numpy](https://numpy.org/)
+
+We will use Pillow to create the image from bytes and then NumPy to confirm that both images are identical. This
+
+We need an image to use as a reference because the matplotlib example generates the graph each time the example is run. We want to ensure that if breaking changes are introduced that cause the image to be different, we will know immediately by the test failure.
+
+## The Test
+
+The graph produced by Matplotlib is being added to the page by passing its base64 encoded string as the source. Since we have the base64 encoded string in the source of the image, we can get the image and then read its `src` attribute.
+
+Pyscript uses [Playwright](https://playwright.dev/python/) for the integration tests, so we can use playwright to fetch the image source. Also, this page contains a single image, so we don't need to worry about being specific about which to grab.
+
+```python
+# First get image from the page and then get the src details
+img_src = self.page.wait_for_selector("img").get_attribute("src")
+# Replace anything that is not the base64 string
+img_src = img_src.replace("data:image/png;charset=utf-8;base64,", "")
+# Finally, decode the base64 string to get the image bytes
+img_bytes = base64.b64decode(img_src)
+```
+
+We need to recreate the image from its bytes and generate a NumPy array from it.
+
+```python
+import io
+import numpy as np
+from PIL import Image
+# Recreate image using pillow
+img = Image.open(io.BytesIO(img_bytes))
+# Generate the numpy array
+img_data = np.asarray(img)
+```
+
+### Create the NumPy array from the reference image
+
+Now we need to do the same for our reference image. Since we have the image stored, we can open it with Pillow and generate the NumPy array. If you are unfamiliar with Pillow, this library allows you to open images directly, so you don't need to open them as bytes first.
+
+```python
+import os
+dir = os.path.dirname(__file__)
+with Image.open(os.path.join(dir, "test_assets", "tripcolor.png")) as image:
+  ref_data = np.asarray(image)
+```
+
+## Comparing the two images
+
+We now have the representation of the two images as a Numpy array. We can compare both images by subtracting both arrays and get the mean. If both images are the same, then the result of the subtraction will be an array filled with zeros, and the mean returned should be 0.0
+
+```python
+deviation = np.mean(np.abs(img_data - ref_data))
+# Confirm that both are the same image - should return 0.0
+assert deviation == 0.0
+```
+
+That's all there is to it. Again let me reiterate that this code came from the [pyodide matplotlib package](https://github.com/pyodide/pyodide/blob/b0dc19e4a169c9dcf97e21fe0ac2c635a0900f13/packages/matplotlib/test_matplotlib.py#L72).
+
+
+## The whole code
+
+Here's the whole code in case you need it - note that it contains some testing machinery that Pyscript uses.
+
+```python
+import io
+import numpy as np
+from PIL import Image
+
+
+def test_matplotlib(self):
+    self.goto("examples/matplotlib.html")
+    self.wait_for_pyscript()
+    assert self.page.title() == "Matplotlib"
+    wait_for_render(self.page, "*", "<img src=['\"]data:image")
+    # The image is being rended using base64, lets fetch its source
+    # and replace everything but the actual base64 string.\
+    img_src = self.page.wait_for_selector("img").get_attribute("src").replace("data:image/png;charset=utf-8;base64,", "")
+    # Finally, let's  get the np array from the previous data
+    img_data = np.asarray(Image.open(io.BytesIO(base64.b64decode(img_src))))
+    with Image.open(
+        os.path.join(os.path.dirname(__file__), "test_assets", "tripcolor.png"),
+    ) as image:
+        ref_data = np.asarray(image)
+    # Now that we have both images data as a numpy array
+    # let's confirm that they are the same
+    deviation = np.mean(np.abs(img_data - ref_data))
+    assert deviation == 0.0
+```
+
+---
+**References:**
+
+- [Pyscript testing PR](https://github.com/pyscript/pyscript/pull/773)
+- [Madhur Tandon suggestion](https://github.com/pyscript/pyscript/pull/773#discussion_r974138341)
+- [Pyodide Matplotlib get image pixel data code](https://github.com/pyodide/matplotlib-pyodide/blob/fbfe472e6acaf081855d02c3a4e52d6cb6b7b03d/matplotlib_pyodide/html5_canvas_backend.py#L72)
+- [Pyodide Matplotlib image comparison code](https://github.com/pyodide/pyodide/blob/b0dc19e4a169c9dcf97e21fe0ac2c635a0900f13/packages/matplotlib/test_matplotlib.py#L72)
