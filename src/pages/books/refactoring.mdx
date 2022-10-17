@@ -3,9 +3,62 @@ slug: refactoring
 title: "Refactoring: Impoving the Design of Existing Code"
 categories: Books
 author: Martin Fowler
-date: 2021-12-16
-progress: "10%"
+date: 2022-10-17
+progress: "22%"
 finished: false
 image: ../../images/books/refactoring.jpg
 amazon: "http://example.com"
 ---
+
+> "Whenever I do refactoring, the first step is always the same. I need to ensure I have a solid set of tests for that section of the code. The tests are essential because even though I will follow refactorings structured to avoid most of the opportunities for introducing bugs, I'm still human and still make mistakes."
+
+> "Although it takes time to build the tests, I end up saving that time, with considerable interest, by spending less time debugging."
+
+> "Testing after each change means that when I make a mistake, I only have a small change to consider in order to spot the error, which makes it far easier to find and fix."
+
+> "This is the essence of the refactoring process: small changes and testing after each change."
+
+> "The first foundation for refactoring is self-testing code. By this, I mean that there is a suite of automated tests that I can run and be confident that, if I made an error in my programming, some test will fail.
+
+## Version control
+
+> "I use a version control system, such as git or mercurial, that allows me to make private commits. I commit after each successful refactoring, so I can easily get back to a working state should I mess up later."
+
+How many times did we got into refactoring a piece of code, forgot to commit and then spent hours trying to figure out what change broke things?
+
+## Tests
+
+> To do refactoring properly, I need a solid suite of tests to spot my inevitable mistakes. Even with automated refactoring tools, many of my refactorings will still need checking via a test suite.
+
+> (...) one of the most useful times to write tests is before I start programming. When I need to add a feature, I begin by writing the tests.
+
+> By writing the tests, I'm asking myself what needs to be done to add the function. Writing the test also concentrates me on the interface rather than implementation (always a good thing)
+
+> When you get a bug report, start by writing as unit test that exposes the bug
+
+## Code Smells
+
+- **Mysterious name:** "When you can't think of a good name for something, it's often a sign of a deeper design malaise."
+- **Duplicated code:** "Duplication means that every time you read these copies, you need to read them carefully to see if there's any difference. If you need to change the duplicated code, you have to find an catch each duplication."
+- **Long function:** "Since the early days of programming, people have realised that the longer a function is, the more difficult it is to understand."
+- **Long parameter list:**: "(...) long parameter lists are often confusing in their own right."
+- **Global data:** "The problem with global data is that it can be modified from anywhere in the code base, and there's no mechanism to discover which bit of code touched it"
+- **Mutable data:** "(...) data should never change and that updating a data structure should always return a new copy of the structure with the change, leaving the old data pristine."
+- **Divergent change:** "Divergent change occurs when one module is often changed in different ways for different reasons."
+- **Shotgun surgery:** "(...) everytime you make a change, you have to make a lot of little edits to a lot of different classes. When the changes are all over the place, they are hard to find, and its easy to miss an important change."
+- **Feature envy:** "(...) occurs when a function in one module spends mroe time communicating with functions or data inside another module than it does within its own module. (...) The fundamental rule of thumb is to put things together that change together."
+- **Data clumps:** "Often, you'll see the same three or four data items together in a lot of places: as fields in a couple of classes, as parameters in many method signatures. Bunches of data that hang around together really ought to find a home together."
+- **Primitive obsession:** "We find that many programmers are curiously reluctant to create their own fundamental types which are useful for their domain (...) a proper type can often include consistent display logic for when it needs to be displayed (...)."
+- **Repeated switches:** "(...) when the same conditional switching logic (either in a switch/case statement or in a cascade of if/else statements) pops up in different places. The problem with such duplicate switches is that, whenever you add a clause, you have to find all the switches and update them."
+- **Loops:** "We find that pipeline operations, such as filter and map, help us quickly see the elements that are included in the processing and what is done with them."
+- **Lazy element:** "We like using program elements to add structure - prividing opportunities for variation, reuse, or just having more helpful names. But sometimes the structure isn't needed."
+- **Speculative generality:** "You get it when people say, 'Oh I think we'll need the ability to do this kind of thing someday' and thus add all sorts of hooks and special cases to handle things that aren't required. (...) speculative generality can be spotted when the only users of a function or class are test cases."
+- **Temporary field:** "Sometimes you see a class in which a field is set only in certain circumstances. Such code is difficult to understand, because you expect an object to need all of its fields."
+- **Message chains:** "You see message chains when a client asks one object for another object (...). Navigating this way means the client is coupled to the strucutre of the navigation. Any change to the intermediate relationships causes the client to have to change."
+- **Middle man:** "You look at a class interface and find half the methods are delegating to this other class."
+- **Insider trading:** "If modules have common interests, try to create a third module to keep that commonality in a well-regulated vehicle, or (...) make another module act as an intermediary."
+- **Large class:** "When a class is trying to do too much, it often shows up as too many fields. When a class has too many fields, duplicated code cannot be far behind."
+- **Alternative classes with different interfaces:** "One of the great benefits of using classes is the support for substitution, allowing one class swap in for another in times of need. But this only works if their interfaces are the same."
+- **Data class:** "These classes may have public fields. (...) Look for wheere these getting and setting methods are used by other classes. Try to use Move Function to move behaviour into the data class."
+- **Refused bequest:** "Subclasses get to inherit the methods and data of their parents. (...) if the subclass is reusing behaviour but does not want to support the interface of the superclass."
+- **Comments:** "It's surprising how often you look at thickly commented code and notice that comments are there because code is bad."
