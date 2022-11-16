@@ -1,0 +1,257 @@
+---
+slug: running-pyscript-in-react
+title: How to run PyScript in React
+subtitle: Trying to run PyScript in React can be a bit tricky.
+author: "fabiorosado"
+date: 2022-11-16 13:00:00 +0000
+categories: PyScript
+category_icon: fas fa-code
+tags:
+  - python
+  - javascript
+  - pyscript
+  - react
+image: ../../images/pyscript.png
+excerpt: Exploration on how to run Pyscript in a React (NextJS) app, this article explores issues and solutions to run PyScript in a React app. 
+---
+A user asked a [question in the pyscript community discord](https://discord.com/channels/972017612454232116/972020206538997822/1042051056630247456) saying that when trying to use pyscript in a NextJS app, the following would occur:
+
+```python
+PythonError: Traceback (most recent call last): File "/lib/python3.10/asyncio/futures.py", line 201, in result raise self._exception File "/lib/python3.10/asyncio/tasks.py", line 232, in step result = coro.send(None) File "/lib/python3.10/site-packages/_pyodide/_base.py", line 506, in eval_code_async await CodeRunner( File "/lib/python3.10/site-packages/_pyodide/_base.py", line 241, in init__ self.ast = next(self._gen) File "/lib/python3.10/site-packages/_pyodide/_base.py", line 142, in _parse_and_compile_gen mod = compile(source, filename, mode, flags | ast.PyCF_ONLY_AST) File "", line 1 for i in range(9): print(i) def func(): print('function works') ^^^ SyntaxError: invalid syntax
+```
+
+From the exception, the code was all in the same line; this was odd. After asking for the code, the user said that the code looked like this:
+
+```python
+<py-script>
+for i in range(9):
+   print(i)
+
+def func():
+   print('function works')
+</py-script>
+```
+
+Something was stripping all the white spaces. If you know Python, indentation is part of the language, so if we strip whitespaces Python will throw a `SyntaxError` - this was exactly what was happening
+
+## Setting up Pyscript
+
+Before we dig into how to solve the above problem, let's first see how to install PyScript. If you go to [pyscript.net](https://pyscript.net) you can get the needed scripts to install pyscript. The user was using NextJS, and NextJS allows you to create a `_document` file so you can create a custom document. [See the docs](https://nextjs.org/docs/advanced-features/custom-document). All you need to do is add this file to your `pages` folder.
+
+```tsx
+import { Html, Head, Main, NextScript } from 'next/document'
+import Script from "next/script"
+
+export default function Document() {
+  return (
+    <Html>
+      <Head>
+      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+        <Script defer src="https://pyscript.net/latest/pyscript.js" strategy='beforeInteractive'/>
+        </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+```
+
+Then we can add the `py-script` tag in the `index.tsx` file to start playing with pyscript.
+
+```tsx
+export default function Home() {
+  return (
+	<div>
+		<py-script>
+			for i in range(9):
+			   print(i)
+			
+			def func():
+			   print('function works')
+		</py-script>
+    </div>
+  )
+}
+```
+
+## Digging into the problem
+
+Now that we have pyscript installed, we can start looking into why the whitespace was being stripped. Looking at the DevTools console, under the sources tab, the `index.js` was compiled like this:
+
+```js
+  (/*!*************************!*\
+      !*** ./pages/index.tsx ***!
+      \*************************/
+    /***/
+    function(module, __webpack_exports__, __webpack_require__) {
+
+        "use strict";
+        eval(__webpack_require__.ts("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Home; }\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"./node_modules/react/jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction Home() {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"py-script\", {\n            children: \"for i in range(9): print(i) def func(): print('function works')\"\n        }, void 0, false, {\n            fileName: \"/Users/fabiorosado/test/test/pages/index.tsx\",\n            lineNumber: 4,\n            columnNumber: 3\n        }, this)\n    }, void 0, false, {\n        fileName: \"/Users/fabiorosado/test/test/pages/index.tsx\",\n        lineNumber: 3,\n        columnNumber: 2\n    }, this);\n}\n_c = Home;\nvar _c;\n$RefreshReg$(_c, \"Home\");\n\n\n;\n    // Wrapped in an IIFE to avoid polluting the global scope\n    ;\n    (function () {\n        var _a, _b;\n        // Legacy CSS implementations will `eval` browser code in a Node.js context\n        // to extract CSS. For backwards compatibility, we need to check we're in a\n        // browser context before continuing.\n        if (typeof self !== 'undefined' &&\n            // AMP / No-JS mode does not inject these helpers:\n            '$RefreshHelpers$' in self) {\n            // @ts-ignore __webpack_module__ is global\n            var currentExports = module.exports;\n            // @ts-ignore __webpack_module__ is global\n            var prevExports = (_b = (_a = module.hot.data) === null || _a === void 0 ? void 0 : _a.prevExports) !== null && _b !== void 0 ? _b : null;\n            // This cannot happen in MainTemplate because the exports mismatch between\n            // templating and execution.\n            self.$RefreshHelpers$.registerExportsForReactRefresh(currentExports, module.id);\n            // A module can be accepted automatically based on its exports, e.g. when\n            // it is a Refresh Boundary.\n            if (self.$RefreshHelpers$.isReactRefreshBoundary(currentExports)) {\n                // Save the previous exports on update so we can compare the boundary\n                // signatures.\n                module.hot.dispose(function (data) {\n                    data.prevExports = currentExports;\n                });\n                // Unconditionally accept an update to this module, we'll check if it's\n                // still a Refresh Boundary later.\n                // @ts-ignore importMeta is replaced in the loader\n                module.hot.accept();\n                // This field is set when the previous version of this module was a\n                // Refresh Boundary, letting us know we need to check for invalidation or\n                // enqueue an update.\n                if (prevExports !== null) {\n                    // A boundary can become ineligible if its exports are incompatible\n                    // with the previous exports.\n                    //\n                    // For example, if you add/remove/change exports, we'll want to\n                    // re-execute the importing modules, and force those components to\n                    // re-render. Similarly, if you convert a class component to a\n                    // function, we want to invalidate the boundary.\n                    if (self.$RefreshHelpers$.shouldInvalidateReactRefreshBoundary(prevExports, currentExports)) {\n                        module.hot.invalidate();\n                    }\n                    else {\n                        self.$RefreshHelpers$.scheduleUpdate();\n                    }\n                }\n            }\n            else {\n                // Since we just executed the code for the module, it's possible that the\n                // new exports made it ineligible for being a boundary.\n                // We only care about the case when we were _previously_ a boundary,\n                // because we already accepted this update (accidental side effect).\n                var isNoLongerABoundary = prevExports !== null;\n                if (isNoLongerABoundary) {\n                    module.hot.invalidate();\n                }\n            }\n        }\n    })();\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9pbmRleC50c3guanMiLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUE7QUFBZSxTQUFTQSxPQUFPO0lBQzdCLHFCQUNELDhEQUFDQztrQkFDQSw0RUFBQ0M7c0JBQVU7Ozs7Ozs7Ozs7O0FBU2IsQ0FBQztLQVp1QkYiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9fTl9FLy4vcGFnZXMvaW5kZXgudHN4PzA3ZmYiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gSG9tZSgpIHtcbiAgcmV0dXJuIChcblx0PGRpdj5cblx0XHQ8cHktc2NyaXB0PlxuXHRcdFx0Zm9yIGkgaW4gcmFuZ2UoOSk6XG5cdFx0XHQgICBwcmludChpKVxuXHRcdFx0XG5cdFx0XHRkZWYgZnVuYygpOlxuXHRcdFx0ICAgcHJpbnQoJ2Z1bmN0aW9uIHdvcmtzJylcblx0XHQ8L3B5LXNjcmlwdD5cbiAgICA8L2Rpdj5cbiAgKVxufSJdLCJuYW1lcyI6WyJIb21lIiwiZGl2IiwicHktc2NyaXB0Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./pages/index.tsx\n"));
+    })
+```
+
+This may be a bit hard to look into, so lets focus on the pyscript tag itself:
+
+```js
+children: \"for i in range(9): print(i) def func(): print('function works')\"\n  }
+```
+
+As you can see, all the whitespace was stripped. Also, our Python code was all in the same line.
+
+## Looking into whitespace being stripped
+
+Since this was the result of the compiled code, I thought this might be coming from the compilation step. So I went to the [Babel repl](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=DwBwngtAzgxgTgSxAFwHwCgAEmBmB7OTBIgO0zgEMSBzAUwAoBOASgC4tsRETl6Fn06ACa0cuAK4kY9Nh0xcEPegHIckmMgR4yAdwIBrKMoHAA9OGjwkaIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.20.4&externalPlugins=&assumptions=%7B%7D) and pasted the pyscript code, this converted the code into:
+
+```js
+"use strict";
+
+/*#__PURE__*/React.createElement("py-script", null, "for i in range(9): print(i) def func(): print('function works')");
+```
+
+Interesting, the code is being turned into a `React.createElement`. Looking more into this, I discovered that JSX would strip whitespaces, which was why our Python code was being added to the same line with indentation stripped off.
+
+## Trying to fix the issue
+
+Since the issue was coming from JSX, I thought that perhaps we could handle white space by using `{" "}`, the code inside the `py-script` tag was pretty ugly, but it seemed to work!
+
+```tsx
+<py-script>
+for i in range(9):{"\n"}
+{" "}{" "}print(i){"\n"}
+{"\n"}
+def func():{"\n"}
+{" "}{" "}print('function works'){"\n"}
+</py-script>
+```
+
+This is a pretty terrible way to write Python. But progress is progress. Looking at the documentation on [React without JSX](https://reactjs.org/docs/react-without-jsx.html), it seems we could create a component that should run our code as is without JSX transforming it. If this works, perhaps I could make a `PyScript` component that would skip JSX altogether.
+
+```ts
+import React from "react";
+
+export class PyScript extends React.Component {
+  render() {
+    return React.createElement("py-script", null, this.props.children);
+  }
+}
+```
+
+Now with this component, I tried to pass the Python code and see if it worked.
+
+```tsx
+import { PyScript } from "../components/pyscript"
+
+export default function Home() {
+  return (
+       <PyScript>
+      for i in range(9):
+          print(i)
+  
+      def func():
+          print('function works')
+      </PyScript>
+    )
+}
+```
+
+Unfortunately, this threw the same error as before. For some reason, the code inside `PyScript` was still being converted. An idea popped into my head. Perhaps I could wrap the contents into a string. In theory, it should work since the component creates the `py-script` tag with the code we are sending.
+
+```tsx
+import { PyScript } from "../components/pyscript"
+
+export default function Home() {
+  return (
+       <PyScript>
+       {`
+	      for i in range(9):
+	          print(i)
+	  
+	      def func():
+	          print('function works')
+      `}
+      </PyScript>
+    )
+}
+```
+
+This worked with a slight problem. It was running the code twice. Unfortunately, I still need to figure out why this is happening and will need to dig deeper into it.
+
+## The Fix
+
+So far, I have made a lot of progress on how to get pyscript to work in React. The last thing I wanted to try was to use [`dangerouslySetInnerHTML`](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) to see if that could fix the issue of running the code twice.
+
+```tsx
+export default function Home() {
+  return (
+    <div
+      dangerouslySetInnerHTML={{__html:
+    `
+    <py-script>
+    for i in range(9):
+        print(i)
+
+    def func():
+        print('function works')
+    </py-script>
+    `}}
+    />
+    )
+}
+```
+
+Great news! This worked, and ran the code a single time! 
+
+To make things a bit cleaner, I added the PyScript code to its variable and passed it directly to `__html`.
+
+```tsx
+export default function Home() {
+  const pyscript = `
+    <py-script>
+    for i in range(9):
+        print(i)
+
+    def func():
+        print('function works')
+    </py-script>
+  `
+
+  return (
+    <div
+      dangerouslySetInnerHTML={{__html: pyscript}}
+    />
+    )
+}
+```
+
+Finally, I tried to replace the `div` with the `py-script` tag to see if that would work. Great news! It does!
+
+```tsx
+export default function Home() {
+  const pyscript = `
+    for i in range(9):
+        print(i)
+
+    def func():
+        print('function works')
+  `
+
+  return (
+    <py-script
+      dangerouslySetInnerHTML={{__html: pyscript}}
+    />
+    )
+}
+```
+
+This is where I stopped digging since it works as expected. I'm planning to look into why the component was causing pyscript to run twice. Once I have an answer, I'll update this post.
+
+---
+*Reference:*
+
+- [Pyscript Discord Community](https://discord.gg/BYB2kvyFwm)
+- [NextJS Docs - Create custom document](https://nextjs.org/docs/advanced-features/custom-document)
+- [Babel Repl](https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=DwBwngtAzgxgTgSxAFwHwCgAEmBmB7OTBIgO0zgEMSBzAUwAoBOASgC4tsRETl6Fn06ACa0cuAK4kY9Nh0xcEPegHIckmMgR4yAdwIBrKMoHAA9OGjwkaIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.20.4&externalPlugins=&assumptions=%7B%7D)
+- [React docs - React without JSX](https://reactjs.org/docs/react-without-jsx.html)
+- [React docs - dangerouslySetInnerHTML](https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml)
