@@ -22,7 +22,7 @@ export default class Search extends Component {
                 {this.state.results.length !== 0 ?
                     <div className="flex flex-col search-results">
                         {this.state.results.map(page =>
-                            <Link className="link m-1" to={`${page.slug}`} key={page.title}>
+                            <Link className="link m-1" to={`/blog/${page.slug}`} key={page.title}>
                                 <span className="underline">{page.title}</span> <span className="white-text">: </span><span className="orange-text">{page.categories}</span>
                             </Link>
 
