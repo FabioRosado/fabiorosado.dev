@@ -1,0 +1,195 @@
+---
+slug: dynamodb-create-use-index
+title: How to create and use indexes in DynamoDB
+subtitle: Let's learn how to create and use indexes in DynamoDB
+author: "fabiorosado"
+date:   2023-02-11 15:20:02 +0000
+categories: Git
+category_icon: fas fa-code-branch
+tags: 
+  - dynamodb
+  - aws
+  - database
+image: ../../images/dynamodb.png
+excerpt: This article will show you how to create an use indexes in DynamoDB using the python library aioboto3.
+---
+Creating indexes in DynamoDB allows you to index your data for a specific attribute(s), enabling you to create new access patterns. Let's assume that in your DynamoDB table, you are storing **Books**. You may have your table set up like this:
+
+- Partition key: Book Title
+- Sort key: Publisher
+
+Each book may have different attributes:
+
+- `Author` (string)
+- `Pages` (integer)
+- `Language` (string)
+- `PublicationDate` (string)
+- `ISBN10` (integer)
+
+If you want to access any book that a particular Author wrote, you can create an index for this attribute, which allows you to access any book that an Author wrote.
+
+Let's see how you can do that. This article will use [Python library aioboto3](https://pypi.org/project/aioboto3/).
+
+## Creating the index
+
+You can create indexes by specifying an attribute as a partition key or two attributes, one for the partition key and one for the sort key. 
+
+### On new table creation
+
+If you are starting with a new table, you can create your index alongside your table. The only requirement is to specify the attribute you want to use in your index. Note that when making your indexes at Table creation, your partition key must have the Key Type `HASH` .
+
+For example:
+
+```python
+async def create_table_and_index()
+	"""Create DynamoDB table with index."""
+	session = aioboto3.Session()
+	async with session.resource("dynamodb") as dynamodb:
+		table = await dynamodb.create_table(
+			TableName="Books",
+			KeySchema=[
+				{"AttributeName": "BookTitle", "KeyType": "HASH"},  # Partition key
+				{"AttributeName": "Publisher", "KeyType": "RANGE"},  # Sort key
+			],
+			AttributeDefinitions=[
+				#
+				# Table attributes.
+				#
+				{"AttributeName": "BookTitle", "AttributeType": "S"},
+				{"AttributeName": "Publisher", "AttributeType": "S"},
+				#
+				# Index attributes.
+				#
+				{"AttributeName": "Author", "AttributeType": "S"},
+			],
+			GlobalSecondaryIndexes=[
+				{
+					"IndexName": "author-index",
+					"KeySchema": [
+						{"AttributeName": "Author", "KeyType": "HASH"},
+						{"AttributeName": "Publisher", "KeyType": "RANGE"},
+					],
+					"Projection": {
+						"ProjectionType": "ALL",
+					},
+				}
+			],
+		)
+
+		await table.wait_until_exists()
+```
+
+Let's look at what we are doing:
+
+-  Key Schema: These are our partition and short keys. The partition key must be of type `HASH`. 
+- Attribute Definitions: Here, we can specify all the attributes. If you are starting from fresh, you should include your attributes at table creation. In this example, we only add `Author` to create the index.
+- Global Secondary Indexes:  This is a list of secondary indexes to be created. We need to give the index a name, a key schema and a Projection.
+
+For the `KeySchema`, we included Author as the partition key and Publisher as the short key in, allowing us to query the index by Author to get all books or by Author and a specific Publisher.
+
+The `ProjectionType` we chose `ALL` which will copy all the attributes into the index. Note that by doing this, you will consume double the space, but it means that you don't need to copy attributes manually. You can also choose which attributes to copy over with `INCLUDE`.
+
+You may want to look at the [boto3 - create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Client.create_table) for a full description of all the things you can specify when creating your table and indexes.
+
+### Waiting for a table
+
+You need to wait for the table to be created before you can use it. 
+
+```python
+await table.wait_until_exists()
+```
+
+This is why we are calling `wait_until_exists`. This method will call to `describe_table` every 20 seconds until either the table is created or it is called `describe_table` 25 times (roughly after 8 minutes). An error is returned if the table isn't created after this time.
+
+## Updating an existing table
+
+You can create an index on an existing table as well. There are a few ways to do it:
+
+- Through the [AWS console](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-6.html)
+- Using the AWS CLI
+- Through another boto call
+
+### Using the AWS CLI
+
+If you have the AWS CLI installed on your machine, you can run the following command to create an index on your table:
+
+```bash
+aws dynamodb update-table \
+    --table-name Books \
+    --attribute-definitions AttributeName=Author,AttributeType=S \
+    --global-secondary-index-updates \
+        "[{\"Create\":{\"IndexName\": \"author-index\",\"KeySchema\":[{\"AttributeName\":\"Author\",\"KeyType\":\"HASH\"}], \
+        \"ProvisionedThroughput\": {\"ReadCapacityUnits\": 10, \"WriteCapacityUnits\": 5      },\"Projection\":{\"ProjectionType\":\"ALL\"}}}]"
+```
+
+### Using aioboto3
+
+If you prefer to use aioboto3 to update your table, you can use the following command. 
+
+```python
+async def create_index()
+	"""Create DynamoDB index."""
+	session = aioboto3.Session()
+	async with session.resource("dynamodb") as dynamodb:
+		table = await dynamodb.update_table(
+			TableName="Books",
+			AttributeDefinitions=[
+				#
+				# Table attributes.
+				#
+				{"AttributeName": "BookTitle", "AttributeType": "S"},
+				{"AttributeName": "Publisher", "AttributeType": "S"},
+				#
+				# Index attributes.
+				#
+				{"AttributeName": "Author", "AttributeType": "S"},
+			],
+			GlobalSecondaryIndexes=[
+				{
+					"IndexName": "author-index",
+					"KeySchema": [
+						{"AttributeName": "Author", "KeyType": "HASH"},
+						{"AttributeName": "Publisher", "KeyType": "RANGE"},
+					],
+					"Projection": {
+						"ProjectionType": "ALL",
+					},
+				}
+			],
+		)
+
+		await table.wait_until_exists()
+```
+
+As you can see, the code to create an index on an existing table is the same as the one that we use when creating a table.
+
+## Using Indexes
+
+Now that we have seen how we can create indexes to query our data by a specific attribute. Let's see how we can query the index. You can use the `query` method and specify which index to query by passing the index name.
+
+```python
+async def get_author(author_name: str):
+	"""Get Author by using its index."""
+	session = aioboto3.Session()
+	async with session.resource("dynamodb") as dynamodb:
+		result = await table.query(
+			IndexName="author-index",
+			ExpressionAttributeValues={
+				":author": author_name,
+			},
+			KeyConditionExpression=(
+				"Author=:author"
+			),
+		)
+	
+```
+
+In this example, we create a variable `author` by using `:` under the `ExpressionAttributeValue`. We could call this anything we wanted, for example, `:author_name`.
+
+Then under `KeyConditionExpression`, we are saying that if `Author` equals the variable `:author`, return that. 
+
+## The end
+
+At first, when working with DynamoDB, indexes seemed difficult to understand - mostly because I didn't believe it would be this easy to create and query one.
+
+I hope this article is helpful for you and that you can use it in your DynamoDB journey!
