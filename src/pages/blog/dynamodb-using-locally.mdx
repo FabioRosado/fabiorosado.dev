@@ -1,0 +1,123 @@
+---
+slug: dynamodb-using-locally
+title: How to setup DynamoDB locally
+subtitle: You don't need AWS credentials to try DynamoDB
+author: "fabiorosado"
+date:   2023-02-14 09:20:02 +0000
+categories: Databases
+category_icon: fas fa-database
+tags: 
+  - dynamodb
+  - aws
+  - database
+  - python
+image: ../../images/dynamodb.png
+excerpt: This article will show you how to setup DynamoDB locally, so you can test your code without having to use your AWS account.
+---
+While writing code for DynamoDB, I started by creating a class to fake how DynamoDB could work, there were a lot of flaws in the logic, but it worked - it was mostly just putting dictionaries into a global dict.
+
+This worked okay when all I had to do was put/get items, but when it came time to use other things, such as `query` with different filters, variable names and `begins_with` statements, it became hard to use the fake class.
+
+Luckily, AWS created [DynamoDB Local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html), which allows you to setup a local DynamoDB that works. You can use all the commands available in your SDK and test your code as if using your  AWS account.
+
+## Using Docker
+
+DynamoDB Local requires you to have the Java Runtime Environment. If you use Java and have JRE installed, you can follow the installation details in the [DynamoDB Local documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html).
+
+I didn't want to install the Java Runtime Environment on my computer, so Docker was the way to go. This example will use the most straightforward recipe to get DynamoDB Local installed.
+
+Let's start by creating a `docker-compose.yml` file and adding all the required things:
+
+```yaml
+version: "3.8"
+services:
+  dynamodb:
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    environment:
+      - AWS_ACCESS_KEY_ID=""
+      - AWS_SECRET_ACCESS_KEY=""
+      - AWS_SESSION_TOKEN=""
+      - AWS_DEFAULT_REGION=us-east-1
+```
+
+Note that we are passing some environment variables, they need to be set, but you don't need your real AWS credentials.
+
+Now, all we need to do is run the `docker-compose up` to pull the image and run DynamoDB Local. DynamoDB will be available at `http://localhost:8000`.
+
+### Using DynamoDB Local 
+
+Now that we have the database running locally, we need to do one more thing - use it instead of the AWS service. When creating our client or resource, we need to pass `endpoint_url="http://localhost:8000"`  In this article, I'll use the Python library  `aioboto3`.
+
+```python
+import aioboto
+
+async def put_item(item: dict):
+	"""Put item in the local dynamodb."""
+	session = aioboto.Session()
+	async with session.resource("dynamodb", "us-east-1", endpoint_url="http://localhost:8000") as dynamodb:
+	table = await dynamodb.Table("Books")
+	
+	await table.put(Item=item)
+	
+```
+
+
+If you run this command, you will see that it will fail because the table doesn't exist in your DynamoDB Local. You will have to create a new table before using your local database.
+
+## Creating a table
+
+Let's copy the code from the example in the [How to create and use indexes in DynamoDB]() article. We can create a new table with:
+
+```python
+async def create_table_and_index()
+	"""Create DynamoDB table with index."""
+	session = aioboto3.Session()
+	async with session.resource("dynamodb") as dynamodb:
+		table = await dynamodb.create_table(
+			TableName="Books",
+			KeySchema=[
+				{"AttributeName": "BookTitle", "KeyType": "HASH"},  # Partition key
+				{"AttributeName": "Publisher", "KeyType": "RANGE"},  # Sort key
+			],
+			AttributeDefinitions=[
+				#
+				# Table attributes.
+				#
+				{"AttributeName": "BookTitle", "AttributeType": "S"},
+				{"AttributeName": "Publisher", "AttributeType": "S"},
+				#
+				# Index attributes.
+				#
+				{"AttributeName": "Author", "AttributeType": "S"},
+			],
+			GlobalSecondaryIndexes=[
+				{
+					"IndexName": "author-index",
+					"KeySchema": [
+						{"AttributeName": "Author", "KeyType": "HASH"},
+						{"AttributeName": "Publisher", "KeyType": "RANGE"},
+					],
+					"Projection": {
+						"ProjectionType": "ALL",
+					},
+				}
+			],
+		)
+
+		await table.wait_until_exists()
+```
+
+Once you run the above command, if you have the AWS CLI installed locally, you can run the following command in your terminal to confirm that the table was indeed created:
+
+```bash
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+```
+
+You should see our `Books` table. Now you can run the `put_item` to add a new item to the database.
