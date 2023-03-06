@@ -75,6 +75,11 @@ async def create_table_and_index()
 					},
 				}
 			],
+			# There are required on table creation
+			ProvisionedThroughput={
+				"ReadCapacityUnits": 10,
+				"WriteCapacityUnits": 10,
+			},
 		)
 
 		await table.wait_until_exists()

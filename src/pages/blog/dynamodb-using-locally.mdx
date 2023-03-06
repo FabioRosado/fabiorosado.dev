@@ -76,7 +76,7 @@ If you run this command, you will see that it will fail because the table doesn'
 Let's copy the code from the example in the [How to create and use indexes in DynamoDB]() article. We can create a new table with:
 
 ```python
-async def create_table_and_index()
+async def create_table_and_index():
 	"""Create DynamoDB table with index."""
 	session = aioboto3.Session()
 	async with session.resource("dynamodb") as dynamodb:
@@ -109,6 +109,11 @@ async def create_table_and_index()
 					},
 				}
 			],
+			# There are required on table creation
+			ProvisionedThroughput={
+				"ReadCapacityUnits": 10,
+				"WriteCapacityUnits": 10,
+			},
 		)
 
 		await table.wait_until_exists()
