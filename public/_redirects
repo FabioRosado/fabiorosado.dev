@@ -1,0 +1,15 @@
+/writings /articles/ 301
+/about /#about 301
+/about/ /#about 301
+/uses /#about 301
+/uses/ /#about 301
+/contact /#contact 301
+/contact/ /#contact 301
+/blog/cheatsheets/command-line-shortcuts /cheatsheets/command-line-shortcuts/ 301
+/blog/cheatcheets/vim /cheatsheets/vim/ 301
+/cheatsheets/lunarvim/%22./vim.mdx%22 /cheatsheets/vim/ 301
+/projects/opsdroid-skill-words/2017-10-01-opsdroid.md /projects/opsdroid/ 301
+/tweetnalytics /projects/tweetnalytics/ 301
+/books /410.html 410
+/books/ /410.html 410
+/books/* /410.html 410

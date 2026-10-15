@@ -1,0 +1,50 @@
+---
+import '../styles/content.css';
+import PageHeader from './PageHeader.astro';
+
+const {
+  title,
+  description = 'Portfolio and technical writing by Fabio Rosado, Senior Software Engineer.',
+  socialTitle = title,
+  image = 'https://res.cloudinary.com/fabiorosado/image/upload/q_100/c_fit,co_rgb:0efb69,l_text:orbitron_50_style_bold_text_align_center:fabiorosado.dev,w_1012/v1605190182/theflyingdev_og_whvovy.png',
+  noindex = false,
+  homepage = false,
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#251333" />
+    <title>{title} | Fabio Rosado</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@FabioRosado" />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+  </head>
+  <body class={homepage ? 'homepage' : 'content-page'}>
+    <a href="#main">Skip to content</a>
+    <PageHeader />
+    <main id="main" class={homepage ? 'portfolio comp-frame' : 'content-main'}><slot /></main>
+    {!homepage && (
+      <footer class="page-footer">
+        <p><strong>Fabio Rosado</strong><span>Senior Software Engineer</span></p>
+        <nav aria-label="Footer social links">
+          <a href="https://www.linkedin.com/in/FabioRosado/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </footer>
+    )}
+  </body>
+</html>

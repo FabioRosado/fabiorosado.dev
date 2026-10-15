@@ -1,0 +1,394 @@
+{
+  "schemaVersion": 1,
+  "auditedOn": "2026-10-14",
+  "site": "https://fabiorosado.dev",
+  "trailingSlash": "preserve trailing slashes on all page routes; root stays /",
+  "counts": {
+    "preservedRoutes": 62,
+    "retiredRoutes": 20,
+    "existingRedirects": 1,
+    "proposedRetirementRedirects": 3
+  },
+  "preservedRoutes": {
+    "/": "src/pages/index.js",
+    "/articles/": "src/pages/articles.js",
+    "/cheatsheets/": "src/pages/cheatsheets.js",
+    "/projects/": "src/pages/projects.js",
+    "/blog/add-code-highlighting-to-mdx/": "src/pages/blog/add-code-highlighting-to-mdx.mdx",
+    "/blog/add-column-to-postgres/": "src/pages/blog/add-column-to-postgres.md",
+    "/blog/add-search-mdx/": "src/pages/blog/add-search-mdx.mdx",
+    "/blog/authenticate-requests-webhook/": "src/pages/blog/authenticate-requests-webhook.md",
+    "/blog/c-data-types/": "src/pages/blog/c-data-types.mdx",
+    "/blog/change-css-safari-only/": "src/pages/blog/change-css-safari-only.md",
+    "/blog/command-line-tricks/": "src/pages/blog/command-line-tricks.md",
+    "/blog/comparing-images-with-numpy/": "src/pages/blog/comparing-images-with-numpy.mdx",
+    "/blog/creating-a-jekyll-theme/": "src/pages/blog/creating-a-jekyll-theme.md",
+    "/blog/creating-a-weather-app/": "src/pages/blog/creating-a-weather-app.md",
+    "/blog/dask-dashboard-inside-notebook/": "src/pages/blog/dask-dashboard-inside-notebook.mdx",
+    "/blog/django-ninja-many-to-many/": "src/pages/blog/django-ninja-many-to-many.mdx",
+    "/blog/django-postgresql-tests/": "src/pages/blog/django-postgresql-tests.mdx",
+    "/blog/dynamodb-create-use-index/": "src/pages/blog/dynamodb-create-use-index.mdx",
+    "/blog/dynamodb-using-locally/": "src/pages/blog/dynamodb-using-locally.mdx",
+    "/blog/filter-blog-posts/": "src/pages/blog/filter-blog-posts.mdx",
+    "/blog/first-letter-spread-multiple-lines/": "src/pages/blog/first-letter-spread-multiple-lines.mdx",
+    "/blog/gatsby-browser-soundcloud/": "src/pages/blog/gatsby-browser-soundcloud.mdx",
+    "/blog/getting-started-with-nx/": "src/pages/blog/getting-started-with-nx.mdx",
+    "/blog/git-aliases/": "src/pages/blog/git-aliases.mdx",
+    "/blog/git-commit-history/": "src/pages/blog/git-commit-history.md",
+    "/blog/git-merge-conflicts/": "src/pages/blog/git-merge-conflicts.md",
+    "/blog/git-recover-deleted-files/": "src/pages/blog/git-recover-deleted-files.md",
+    "/blog/global-gitignore/": "src/pages/blog/global-gitignore.mdx",
+    "/blog/handle-form-submission-in-gatsby-with-airtable/": "src/pages/blog/handle-form-submission-in-gatsby-with-airtable.md",
+    "/blog/highlight-text-with-sphinx/": "src/pages/blog/highlight-text-with-sphinx.mdx",
+    "/blog/improving-a-classifier-training-speed/": "src/pages/blog/improving-a-classifier-training-speed.md",
+    "/blog/install-conda-in-docker/": "src/pages/blog/install-conda-in-docker.mdx",
+    "/blog/introduction-to-dask/": "src/pages/blog/introduction-to-dask.mdx",
+    "/blog/introduction-to-vim/": "src/pages/blog/introduction-to-vim.md",
+    "/blog/pyright-worker-threads-missing/": "src/pages/blog/pyright-worker-threads-missing.mdx",
+    "/blog/python-dataclasses/": "src/pages/blog/python-dataclasses.mdx",
+    "/blog/running-pyscript-in-react/": "src/pages/blog/running-pyscript-in-react.mdx",
+    "/blog/setup-gitlab-pages/": "src/pages/blog/setup-gitlab-pages.mdx",
+    "/blog/test-for-aiohttp-client-errors/": "src/pages/blog/test-for-aiohttp-client-errors.md",
+    "/blog/test-logging-called/": "src/pages/blog/test-logging-called.md",
+    "/blog/the-enumerate-built-in-function/": "src/pages/blog/the-enumerate-built-in-function.md",
+    "/blog/unittest-sys-exit/": "src/pages/blog/unittest-sys-exit.md",
+    "/blog/updating-npm-packages/": "src/pages/blog/updating-npm-packages.mdx",
+    "/blog/upload-images-without-backend/": "src/pages/blog/upload-images-without-backend.mdx",
+    "/blog/version-control-git/": "src/pages/blog/version-control-git.mdx",
+    "/blog/weather-app-using-geolocation-and-vue/": "src/pages/blog/weather-app-using-geolocation-and-vue.md",
+    "/cheatsheets/bash/": "src/pages/cheatsheets/bash.mdx",
+    "/cheatsheets/command-line-shortcuts/": "src/pages/cheatsheets/command-line-shortcuts.mdx",
+    "/cheatsheets/docker/": "src/pages/cheatsheets/docker.mdx",
+    "/cheatsheets/lunarvim/": "src/pages/cheatsheets/lunarvim.mdx",
+    "/cheatsheets/vim/": "src/pages/cheatsheets/vim.mdx",
+    "/projects/100daysof/": "src/pages/projects/100daysof.md",
+    "/projects/findcommunitiestoday/": "src/pages/projects/findcommunitiestoday.md",
+    "/projects/landingintech/": "src/pages/projects/landingintech.mdx",
+    "/projects/landlbuild/": "src/pages/projects/landlbuild.md",
+    "/projects/mokens/": "src/pages/projects/mokens.md",
+    "/projects/opsdroid-skill-words/": "src/pages/projects/opsdroid-skill-words.md",
+    "/projects/opsdroid/": "src/pages/projects/opsdroid.md",
+    "/projects/organizeacademy/": "src/pages/projects/organizeacademy.md",
+    "/projects/quote-and-weather/": "src/pages/projects/quote-and-weather.md",
+    "/projects/thumbsupnews/": "src/pages/projects/thumbsupnews.md",
+    "/projects/tweetnalytics/": "src/pages/projects/tweetnalytics.md"
+  },
+  "retiredRoutes": {
+    "/books/": {
+      "source": "src/pages/books.js",
+      "response": 410,
+      "reason": "Books archive and reading tracker are removed; no equivalent archive remains."
+    },
+    "/books/apprenticeship-patterns/": {
+      "source": "src/pages/books/apprenticeship-patterns.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/clean-code/": {
+      "source": "src/pages/books/clean-code.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/code-complete/": {
+      "source": "src/pages/books/code-complete.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/code/": {
+      "source": "src/pages/books/code.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/computer-networking/": {
+      "source": "src/pages/books/computer-networking.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/cybersecurity-essentials/": {
+      "source": "src/pages/books/cybersecurity-essentials.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/design-patterns/": {
+      "source": "src/pages/books/design-patterns.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/designing-distributed-systems/": {
+      "source": "src/pages/books/designing-distributed-systems.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/from-architectures-to-operating-systems/": {
+      "source": "src/pages/books/from-architectures-to-operating-systems.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/linux-kernel-programming/": {
+      "source": "src/pages/books/linux-kernel-programming.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/operating-systems-three-easy-pieces/": {
+      "source": "src/pages/books/operating-systems-three-easy-pieces.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/pragmatic-thinking-and-learning/": {
+      "source": "src/pages/books/pragmatic-thinking-and-learning.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/refactoring/": {
+      "source": "src/pages/books/refactoring.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/structure-and-interpreation-of-computer-programs/": {
+      "source": "src/pages/books/structure-and-interpreation-of-computer-programs.mdx",
+      "response": 410,
+      "reason": "Keep the existing misspelled URL in the retirement list; no replacement identified."
+    },
+    "/books/the-effective-engineer/": {
+      "source": "src/pages/books/the-effective-engineer.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/books/the-pragmatic-programmer/": {
+      "source": "src/pages/books/the-pragmatic-programmer.mdx",
+      "response": 410,
+      "reason": "Book notes removed; no one-to-one replacement identified."
+    },
+    "/about/": {
+      "source": "src/pages/about.js",
+      "response": 301,
+      "target": "/#about",
+      "condition": "Move the useful biographical content into the homepage section first."
+    },
+    "/uses/": {
+      "source": "src/pages/uses.js",
+      "response": 301,
+      "target": "/#about",
+      "condition": "Include any retained setup facts in the concise homepage section; otherwise return 410."
+    },
+    "/contact/": {
+      "source": "src/pages/contact.js",
+      "response": 301,
+      "target": "/#contact",
+      "condition": "Homepage must provide a working static contact or social link; no form/backend."
+    }
+  },
+  "existingRedirects": [
+    {
+      "from": "/writings",
+      "to": "/articles/",
+      "source": "static/_redirects",
+      "preserve": true,
+      "note": "Normalize the target to the preserved trailing-slash archive route."
+    }
+  ],
+  "internalLinkRedirects": [
+    {
+      "from": "/blog/cheatsheets/command-line-shortcuts",
+      "to": "/cheatsheets/command-line-shortcuts/",
+      "source": "src/content/blog/command-line-tricks.md"
+    },
+    {
+      "from": "/blog/cheatcheets/vim",
+      "to": "/cheatsheets/vim/",
+      "source": "src/content/blog/introduction-to-vim.md"
+    },
+    {
+      "from": "/cheatsheets/lunarvim/%22./vim.mdx%22",
+      "to": "/cheatsheets/vim/",
+      "source": "src/content/cheatsheets/lunarvim.mdx"
+    },
+    {
+      "from": "/projects/opsdroid-skill-words/2017-10-01-opsdroid.md",
+      "to": "/projects/opsdroid/",
+      "source": "src/content/projects/opsdroid-skill-words.md"
+    },
+    {
+      "from": "/tweetnalytics",
+      "to": "/projects/tweetnalytics/",
+      "source": "src/content/projects/thumbsupnews.md"
+    }
+  ],
+  "newHomepageLinks": [
+    "https://followingimperfectly.com",
+    "https://metadenscripts.com"
+  ],
+  "fallback": {
+    "source": "src/pages/404.js",
+    "replacement": "Astro custom 404 page",
+    "response": 404
+  },
+  "supportingRoutes": {
+    "/robots.txt": "Astro public/robots.txt",
+    "/sitemap-index.xml": "Astro sitemap index endpoint",
+    "/sitemap-0.xml": "Astro sitemap URL set",
+    "/410.html": "Custom response body for retired book routes"
+  },
+  "redirectHosting": {
+    "format": "Netlify-compatible _redirects file",
+    "evidence": "The live site responds with Netlify headers, and the Gatsby source already ships static/_redirects.",
+    "verifyBeforeDeploy": "Confirm the preview returns HTTP 410 for retired book URLs and 301 for homepage-section redirects."
+  },
+  "contentExceptions": [
+    {
+      "route": "/projects/organizeacademy/",
+      "source": "src/pages/projects/organizeacademy.md",
+      "sourceText": "![About Page](../../images/projects/OA-about.png)",
+      "replacement": "**About Page**",
+      "reason": "OA-about.png is absent from the source image directories and Git history, and the live asset URL returns 404. Keep its label rather than substituting a different screenshot."
+    }
+  ],
+  "mediaAccessibility": {
+    "/cheatsheets/command-line-shortcuts/": {
+      "images": [
+        {
+          "source": "../../images/cheatsheets/terminal_shortcuts_light.png",
+          "alt": "Terminal shortcuts reference in light theme, with sections for navigation, cutting and pasting, text editing, and other commands"
+        },
+        {
+          "source": "../../images/cheatsheets/terminal_shortcuts_dark.png",
+          "alt": "Terminal shortcuts reference in dark theme, with sections for navigation, cutting and pasting, text editing, and other commands"
+        }
+      ],
+      "iframes": ["Video: command line shortcuts"]
+    },
+    "/blog/version-control-git/": {
+      "images": [
+        {
+          "source": "../../images/main_branch.png",
+          "alt": "Git commit history diagram showing three commits connected along the main branch"
+        },
+        {
+          "source": "../../images/git_branch.png",
+          "alt": "Git commit diagram showing a feature branch splitting from a three-commit main branch"
+        },
+        {
+          "source": "../../images/gitcommit.png",
+          "alt": "Terminal git log graph showing commit hashes and references across parallel branches",
+          "count": 2
+        }
+      ],
+      "iframes": ["Video: Missing Semester lesson on Git version control"]
+    },
+    "/blog/gatsby-browser-soundcloud/": {
+      "iframes": ["Video: keeping a Gatsby UI element persistent during navigation"]
+    },
+    "/blog/dask-dashboard-inside-notebook/": {
+      "images": [
+        {
+          "source": "../../images/dask_client.png",
+          "alt": "Jupyter Notebook output showing a Dask client dashboard URL and a cluster with four workers and 16 cores"
+        }
+      ],
+      "iframes": ["Video: installing and using the Dask JupyterLab extension"]
+    },
+    "/blog/introduction-to-dask/": {
+      "iframes": ["Video: setting up Dask on a machine"]
+    },
+    "/projects/100daysof/": {
+      "coverAlt": "Screenshot of the 100DaysOf dashboard with a profile sidebar and daily challenge entries."
+    },
+    "/projects/findcommunitiestoday/": {
+      "coverAlt": "Screenshot of the Find Communities Today directory with community filters and searchable listings."
+    },
+    "/projects/landingintech/": {
+      "coverAlt": "Landing in Tech logo: a red airplane above the podcast name on a dark plum background."
+    },
+    "/projects/landlbuild/": {
+      "coverAlt": "Screenshot of a home services website with a hero message and service categories."
+    },
+    "/projects/mokens/": {
+      "coverAlt": "Screenshot of the Mokens landing page with a crypto-collectibles hero and buy, sell, and trade sections."
+    },
+    "/projects/opsdroid-skill-words/": {
+      "coverAlt": "Wooden letter tiles spelling open source and skill."
+    },
+    "/projects/opsdroid/": {
+      "coverAlt": "Opsdroid robot logo and wordmark."
+    },
+    "/projects/organizeacademy/": {
+      "coverAlt": "Screenshot of the Organize Academy homepage with a Portuguese headline and a portrait."
+    },
+    "/projects/quote-and-weather/": {
+      "coverAlt": "Screenshot of a quote and weather dashboard over a night landscape."
+    },
+    "/projects/thumbsupnews/": {
+      "coverAlt": "Screenshot of Thumbs Up News with positive and negative stories shown in colored cards."
+    },
+    "/projects/tweetnalytics/": {
+      "coverAlt": "Photo of a tablet displaying Tweetnalytics charts and analytics."
+    }
+  },
+  "notes": [
+    "All page paths above preserve the current trailing-slash convention.",
+    "No /blog/ archive route exists in the current Gatsby source; /articles/ is the article archive.",
+    "All book routes have no identified equivalent replacement and are proposed as 410 Gone, subject to hosting support verification.",
+    "The unneeded /twitch redirect has been removed; /writings remains.",
+    "Confirm the homepage anchor content and redirect responses in the deployment preview before cutover."
+  ],
+  "sourceContentHashes": {
+    "/blog/add-code-highlighting-to-mdx/": "a18d08f9fe3d2cfae0466d4e0ac359268e24dc15c7064d2afc006717bd3d36b9",
+    "/blog/add-column-to-postgres/": "318e1afc1575c902bb2b280dbd4ebfdcf85f20df7bc234cb2ab6c4b45d30209d",
+    "/blog/add-search-mdx/": "83a018068c1456e7c343f60bb57ac16f5de673b790a34381b681aebcaa06ad84",
+    "/blog/authenticate-requests-webhook/": "45eceeea284ec90ac4245b5639cfd6b1dae9ec79c4abc3baaa7b43f2d8f2df88",
+    "/blog/c-data-types/": "3f3d4678dd1751d0973b3e11691157bc562c2515a2631b3d6df235463b5980ce",
+    "/blog/change-css-safari-only/": "8b2619cda8884a42a423c95c9d954aff55a816b54e18e4b733f0b7f1cc288baf",
+    "/blog/command-line-tricks/": "0f3e00d5ee78c7056f158b47a016b0b00dfe4cd4321782b0404e024477ff90ce",
+    "/blog/comparing-images-with-numpy/": "b1c2418f93186c72cda12a513a331c3af51b532a2949c609635e01cd44867967",
+    "/blog/creating-a-jekyll-theme/": "0c7f939034f884fc8ede4ff56467503e008bc4c77847cc2501a93b39b73b665c",
+    "/blog/creating-a-weather-app/": "19ed96d1d684d6159d4fa513a6a59f1bcc5d190cc476340bb8fc8186304d4464",
+    "/blog/dask-dashboard-inside-notebook/": "1aa3a2df676919f233f83edcfd83f05f6540a82754b9b207f6a0bab78353929e",
+    "/blog/django-ninja-many-to-many/": "2bd165a39fa5e8cf019a285476f596284aba13127b3e28141b8799d60978be02",
+    "/blog/django-postgresql-tests/": "6e82b060a0e01af773d9e26bde777d45401057b31e00e1b39156c3168d4676a7",
+    "/blog/dynamodb-create-use-index/": "c7d254ad686c9d8949c1b0e30fd0ca8ee04365b52b471732eeda1182024328cc",
+    "/blog/dynamodb-using-locally/": "fa3861afe3ece38882da660f8918222fdb04d0f9b16ceca73020fee749838301",
+    "/blog/filter-blog-posts/": "28662a0623dc8ef463f2bd151fdc96475429bb0b3c08e5c52d0566b642c1cc99",
+    "/blog/first-letter-spread-multiple-lines/": "778705afc8e15bbbb65dde185b442dcf219a4845b118f5c37bb2310749ddbe3d",
+    "/blog/gatsby-browser-soundcloud/": "0b6a891632bf5b364d8de6284de9b7ab86e0959db184f32765716a1e263ba488",
+    "/blog/getting-started-with-nx/": "9c6232992fac64084b9958ccf580bc4560d4f8bbb4dc817e99b4ecd05ae4604a",
+    "/blog/git-aliases/": "379d142058a124bc3a4485b3e38559e3b3d35f9ebe2c85dbd8dfdadd26aa8de4",
+    "/blog/git-commit-history/": "0fe2a3add2fd9c887a9dfea0385aacc82cb021707e7a368f36d9c261801b2269",
+    "/blog/git-merge-conflicts/": "fe6893b1fc244c8930e2fdb7a0a26daefc073f569991a52554be69c9957c6de5",
+    "/blog/git-recover-deleted-files/": "712dc7f10e0fb584819513e31dd824d05fd64f023ace0bb462ef0dcc6c00ba1d",
+    "/blog/global-gitignore/": "59bc1621fa46e30d084bec1e0d2ca02d3cd2802fe373e8912ee01fde0244da0a",
+    "/blog/handle-form-submission-in-gatsby-with-airtable/": "18eba1e2154eabc6aef7259e5c2617bfc81a33dd06963f304c40c99bbf4e5f9c",
+    "/blog/highlight-text-with-sphinx/": "e978cc642c87118aac9347219ac1170680e54f886fcf73bf70d9883d9022f711",
+    "/blog/improving-a-classifier-training-speed/": "2cd24adc19c17eb892d120f76db231edec679762bee5f52d78d887a3419df0f7",
+    "/blog/install-conda-in-docker/": "7ae33d660f2f51715a498889d21a49acf8df6d72da851f6b0d3ea5391917da21",
+    "/blog/introduction-to-dask/": "7d98586b6bdc6a303c2641281a01f060961997a851b894e7de47932d70412f68",
+    "/blog/introduction-to-vim/": "7e081c33988a61676f395481c83b986975b7febbda3f7059d18ab09c184e8817",
+    "/blog/pyright-worker-threads-missing/": "b69ec0d018cd40039df13bbb107f3fa37bdbe17590c19197aad81ce3d89eb957",
+    "/blog/python-dataclasses/": "497ce5732a30ecf0a947404786ad14353f2e5b33adf4b810a9d0e82b55f366d4",
+    "/blog/running-pyscript-in-react/": "1048eee0985a209870f2842bc9acc46518657a9a0a484c2db33e6cb9c22855e1",
+    "/blog/setup-gitlab-pages/": "19826eb9da22024dab31d99b2870c5dee16126c43fd7be2ba8035ee10c186293",
+    "/blog/test-for-aiohttp-client-errors/": "7909574ae88d80e7c670cde9ee7dc1eb76546d6cff60357809f0151be1651692",
+    "/blog/test-logging-called/": "849d5bd6744a7ff71d35e2bbe6dc8db1e5c7b24a6f83707c7b91d6b2afcea101",
+    "/blog/the-enumerate-built-in-function/": "1435ff33e30665c97cba9b750040f637c059f8f2b53f990691ce3e1a9683d0ba",
+    "/blog/unittest-sys-exit/": "2950654fe4bbba1121563cb465517efb5b79930733f300d14645915cf00468ca",
+    "/blog/updating-npm-packages/": "23ae3bc559887cb76368bb6206116ff104b0f438f0dd8bd2bdf7a354b01f5c81",
+    "/blog/upload-images-without-backend/": "bc7a639d49cf5d815a00af6c49d619b099e5b137d075c767d882e059131f5f9d",
+    "/blog/version-control-git/": "4ad3f689c7d4fdd108418932f862b3cfbb75e79231057e3a4268be797f08f115",
+    "/blog/weather-app-using-geolocation-and-vue/": "b333dbe51906683cad91b7d1af8291bab31dfb8103eec16cf2fc8cc327caf2e8",
+    "/cheatsheets/bash/": "23ab5a6aeb43be5ca3173193752f2775c568ed503e5f9fa99bf2303ab70cf68f",
+    "/cheatsheets/command-line-shortcuts/": "72ae683613a38bb612f7843055053755f7ea5f808677a8f3805763710c4c80c2",
+    "/cheatsheets/docker/": "9ad4923558882ba859f7b71ffabf72ccbcfd60b8fb46b8e2306ab493992bbf8d",
+    "/cheatsheets/lunarvim/": "eb9672b8c30d6257c8b7473add3cc3dc3f9590a698b7cf41b30d7b4af4edaa25",
+    "/cheatsheets/vim/": "33447a6f04bf524f5c7b9d814b304385476fb1627b86fcfdfcd901145e3f577d",
+    "/projects/100daysof/": "1d7bde60e30481aadfcedad86df0890230b3d2ec3889e7ebad9ae5b2e46ec9d1",
+    "/projects/findcommunitiestoday/": "036450eb02a9b9ee4e620032570be15e5e406c0832cab0605c04b70b3024ea6a",
+    "/projects/landingintech/": "64cbef7de62bd1b2964aa4faceca0fef717ab88660f83b3d68b981e0952ebaab",
+    "/projects/landlbuild/": "768265b72da6edd8fd90f86621ac8be9196b998ff5c41672c8a4daee30f83c37",
+    "/projects/mokens/": "1f1270a95737b074f939d86ce737f2aa26eae9e4a6c7c7b4b60e74682723235c",
+    "/projects/opsdroid-skill-words/": "6b71c49d76a514ed22ef8472e91cfcdd27440de07467e513227d5b90dd9f9a38",
+    "/projects/opsdroid/": "36545df8346e343d7a2c59cad60e43c493ba132b54de0fa99f6698d61d5a2402",
+    "/projects/organizeacademy/": "267b35951682805d0231b980435c4c3db0867dec5d3e9660b20b2cbbf1c8c960",
+    "/projects/quote-and-weather/": "d88f2a1dce83d78f27456d5ba5b297bf1b3f03d40665867a10aecf22cd40b80f",
+    "/projects/thumbsupnews/": "484efd41997d6620f0147c6e0f3d468d4f2ccdf04755fbb24b1d32e3e6e433f6",
+    "/projects/tweetnalytics/": "88a336d47acb95b0ad6e4e1a87c66a3eb5bea8488b830a21626fe788c1e261df"
+  }
+}

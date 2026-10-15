@@ -1,0 +1,151 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import heroArchitecture from '../assets/hero-architecture.png';
+import PageLayout from '../components/PageLayout.astro';
+import '../styles/homepage-layout.css';
+import '../styles/homepage.css';
+
+const articles = await getCollection('blog');
+const featuredTitles = [
+  'How to setup DynamoDB locally',
+  'How to create and use indexes in DynamoDB',
+  'How to run PyScript in React',
+];
+const featuredArticles = featuredTitles.map((title) => {
+  const article = articles.find((entry) => entry.data.title === title);
+  if (!article) throw new Error(`Homepage article not found: ${title}`);
+  return article;
+});
+
+const arrow = '<svg viewBox="0 0 24 24" focusable="false"><path d="M4 12h15M13 5l7 7-7 7"/></svg>';
+---
+
+<PageLayout
+  homepage
+  title="Senior Software Engineer"
+  socialTitle="Fabio Rosado — Senior Software Engineer"
+  description="Fabio Rosado is a Senior Software Engineer. Explore his projects, technical articles, and cheatsheets."
+>
+  <section class="hero" aria-labelledby="intro-title">
+    <h1 class="hero-heading" id="intro-title">
+      <span class="r-hero-name-first hero-name-first">Fabio</span>
+      <span class="r-hero-name-second hero-name-second">Rosado</span>
+    </h1>
+    <p class="r-hero-role hero-role">Senior Software Engineer</p>
+    <p class="r-hero-summary hero-summary">I build backend systems and developer tools for reliable software.</p>
+    <figure class="r-hero-geometry hero-systems">
+      <Image
+        src={heroArchitecture}
+        alt="Conceptual software architecture: layered purple components around a coral core, connected by green signal paths."
+        class="hero-architecture"
+        width={1280}
+        widths={[480, 768, 1280]}
+        sizes="(max-width: 700px) calc(100vw - 44px), (max-width: 1050px) 680px, 46vw"
+        format="webp"
+        quality={82}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </figure>
+  </section>
+
+  <span class="r-projects-separator horizontal-rule" aria-hidden="true"></span>
+
+  <section id="projects" class="projects" aria-labelledby="projects-heading">
+    <span class="r-projects-heading-rule section-rule" aria-hidden="true"></span>
+    <h2 class="r-projects-heading section-label" id="projects-heading">Featured projects</h2>
+
+    <a
+      class="project-card r-project-one-frame"
+      href="https://followingimperfectly.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-labelledby="following-title"
+    >
+      <div class="project-copy project-copy-one">
+        <span class="project-endpoint"><svg class="project-endpoint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9"/><path d="M17 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h6"/></svg>followingimperfectly.com</span>
+        <h3 class="project-title-wrap project-title-wrap-one" id="following-title">
+          <span class="r-project-one-title project-title project-title-one">Following Imperfectly</span>
+        </h3>
+        <p class="project-description">A writing space for reading Scripture, studying the Christian faith, and keeping notes.</p>
+        <div class="project-metadata">
+          <span class="project-field">Focus</span>
+          <ul class="project-tags" aria-label="Project focus">
+            <li>Web</li><li>Reading</li><li>Study</li><li>Notes</li>
+          </ul>
+        </div>
+      </div>
+      <span class="r-project-one-arrow project-arrow" aria-hidden="true"><span class="arrow-icon" set:html={arrow}></span></span>
+    </a>
+
+    <a
+      class="project-card r-project-two-frame"
+      href="https://metadenscripts.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-labelledby="metaden-title"
+    >
+      <div class="project-copy project-copy-two">
+        <span class="project-endpoint"><svg class="project-endpoint-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-9 9"/><path d="M17 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h6"/></svg>metadenscripts.com</span>
+        <h3 class="project-title-wrap project-title-wrap-two" id="metaden-title">
+          <span class="r-project-two-title project-title project-title-two">MetaDen Scripts</span>
+        </h3>
+        <p class="project-description">Configurable roleplay systems for jobs, inventories, permissions, and player progression.</p>
+        <div class="project-metadata">
+          <span class="project-field">Technology</span>
+          <ul class="project-tags" aria-label="Supported technologies and frameworks">
+            <li>Lua</li><li>ESX</li><li>QBCore</li><li>QBox</li><li>Standalone</li>
+          </ul>
+        </div>
+      </div>
+      <span class="r-project-two-arrow project-arrow" aria-hidden="true"><span class="arrow-icon" set:html={arrow}></span></span>
+    </a>
+  </section>
+
+  <span class="r-writing-divider writing-divider" aria-hidden="true"></span>
+
+  <section class="writing" aria-labelledby="writing-heading">
+    <span class="r-writing-heading-rule section-rule" aria-hidden="true"></span>
+    <h2 class="r-writing-heading section-label" id="writing-heading">Latest writing</h2>
+    <ul class="article-list">
+      {featuredArticles.map((article, index) => (
+        <li class:list={['article-row', `r-article-${['one', 'two', 'three'][index]}`]}>
+          <a href={`/blog/${article.data.slug}/`}>{article.data.title}</a>
+          <span class:list={['article-arrow', `r-article-${['one', 'two', 'three'][index]}-arrow`]} aria-hidden="true" set:html={arrow}></span>
+        </li>
+      ))}
+    </ul>
+    <span class="r-article-rule-one article-rule article-rule-one" aria-hidden="true"></span>
+    <span class="r-article-rule-two article-rule article-rule-two" aria-hidden="true"></span>
+    <span class="r-article-rule-three article-rule article-rule-three" aria-hidden="true"></span>
+    <a class="r-all-articles all-articles" href="/articles/">View all articles <span class="arrow-icon" aria-hidden="true" set:html={arrow}></span></a>
+  </section>
+
+  <span class="r-content-rule horizontal-rule" aria-hidden="true"></span>
+
+  <section id="about" class="about" aria-labelledby="about-heading">
+    <span class="r-about-heading-rule section-rule" aria-hidden="true"></span>
+    <h2 class="r-about-heading section-label" id="about-heading">About</h2>
+    <p class="r-about-copy about-copy">I took an unconventional path from aviation to software engineering.</p>
+  </section>
+
+  <span class="r-connect-divider connect-divider" aria-hidden="true"></span>
+
+  <footer id="contact" class="contact" aria-labelledby="connect-heading">
+    <span class="r-connect-heading-rule section-rule" aria-hidden="true"></span>
+    <h2 class="r-connect-heading section-label" id="connect-heading">Connect</h2>
+    <nav class="contact-links" aria-label="Social links">
+      <a class="r-social-linkedin contact-link" href="https://www.linkedin.com/in/FabioRosado/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M19 0H5C2.24 0 0 2.24 0 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5ZM7.2 20.1H3.8V9h3.4v11.1ZM5.5 7.5a1.97 1.97 0 1 1 0-3.94 1.97 1.97 0 0 1 0 3.94Zm14.6 12.6h-3.4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85v5.5H9.4V9h3.27v1.52h.05c.45-.86 1.56-1.77 3.22-1.77 3.44 0 4.08 2.26 4.08 5.2v6.15Z" />
+        </svg>
+      </a>
+      <a class="r-social-github contact-link" href="https://github.com/FabioRosado" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .1.8 2.48 3.63 1.77.1-.74.4-1.25.7-1.54-2.5-.29-5.13-1.25-5.13-5.57 0-1.23.44-2.23 1.16-3.02-.12-.29-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.55.23 2.69.11 2.98.72.79 1.16 1.79 1.16 3.02 0 4.33-2.63 5.28-5.14 5.56.4.35.75 1.03.75 2.08v3.1c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z" />
+        </svg>
+      </a>
+    </nav>
+  </footer>
+</PageLayout>

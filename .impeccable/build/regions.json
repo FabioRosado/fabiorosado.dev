@@ -1,0 +1,613 @@
+{
+  "allowUncovered": true,
+  "regions": [
+    {
+      "id": "site-name",
+      "kind": "text",
+      "box": {
+        "x": 0.04362,
+        "y": 0.023438,
+        "w": 0.151042,
+        "h": 0.042969
+      },
+      "note": "\u201cFabio Rosado\u201d wordmark, with Rosado in coral."
+    },
+    {
+      "id": "nav-projects",
+      "kind": "text",
+      "box": {
+        "x": 0.39974,
+        "y": 0.03125,
+        "w": 0.048828,
+        "h": 0.03125
+      },
+      "note": "Projects navigation link."
+    },
+    {
+      "id": "nav-articles",
+      "kind": "text",
+      "box": {
+        "x": 0.454427,
+        "y": 0.03125,
+        "w": 0.049479,
+        "h": 0.03125
+      },
+      "note": "Articles navigation link."
+    },
+    {
+      "id": "nav-cheatsheets",
+      "kind": "text",
+      "box": {
+        "x": 0.519531,
+        "y": 0.03125,
+        "w": 0.070964,
+        "h": 0.03125
+      },
+      "note": "Cheatsheets navigation link."
+    },
+    {
+      "id": "nav-about",
+      "kind": "text",
+      "box": {
+        "x": 0.61849,
+        "y": 0.03125,
+        "w": 0.040365,
+        "h": 0.03125
+      },
+      "note": "About anchor link."
+    },
+    {
+      "id": "nav-social-divider",
+      "kind": "chrome",
+      "box": {
+        "x": 0.752604,
+        "y": 0.035156,
+        "w": 0.001953,
+        "h": 0.027344
+      },
+      "note": "Thin vertical rule before social links."
+    },
+    {
+      "id": "nav-linkedin",
+      "kind": "text",
+      "box": {
+        "x": 0.783203,
+        "y": 0.03125,
+        "w": 0.051432,
+        "h": 0.03125
+      },
+      "note": "LinkedIn social link."
+    },
+    {
+      "id": "nav-github",
+      "kind": "text",
+      "box": {
+        "x": 0.847005,
+        "y": 0.03125,
+        "w": 0.046875,
+        "h": 0.03125
+      },
+      "note": "GitHub social link."
+    },
+    {
+      "id": "nav-dev",
+      "kind": "text",
+      "box": {
+        "x": 0.912109,
+        "y": 0.03125,
+        "w": 0.03125,
+        "h": 0.03125
+      },
+      "note": "DEV social link."
+    },
+    {
+      "id": "nav-external-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.944661,
+        "y": 0.03125,
+        "w": 0.013021,
+        "h": 0.03125
+      },
+      "note": "Small diagonal external-link arrow beside DEV."
+    },
+    {
+      "id": "header-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.0,
+        "y": 0.091797,
+        "w": 1.0,
+        "h": 0.001953
+      },
+      "note": "Fine plum divider below navigation."
+    },
+    {
+      "id": "hero-eyebrow-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.046875,
+        "y": 0.120117,
+        "w": 0.03776,
+        "h": 0.00293
+      },
+      "note": "Short electric-green horizontal rule."
+    },
+    {
+      "id": "hero-eyebrow",
+      "kind": "text",
+      "box": {
+        "x": 0.098307,
+        "y": 0.109375,
+        "w": 0.198568,
+        "h": 0.024414
+      },
+      "note": "Tracked electric-green label \u201cSENIOR SOFTWARE ENGINEER\u201d."
+    },
+    {
+      "id": "hero-name-first",
+      "kind": "text",
+      "box": {
+        "x": 0.044271,
+        "y": 0.144531,
+        "w": 0.234375,
+        "h": 0.099609
+      },
+      "note": "First display line \u201cFabio\u201d, set in warm white."
+    },
+    {
+      "id": "hero-name-second",
+      "kind": "text",
+      "box": {
+        "x": 0.044271,
+        "y": 0.243164,
+        "w": 0.309245,
+        "h": 0.099609
+      },
+      "note": "Second display line \u201cRosado\u201d, set in coral."
+    },
+    {
+      "id": "hero-role",
+      "kind": "text",
+      "box": {
+        "x": 0.046875,
+        "y": 0.350586,
+        "w": 0.397135,
+        "h": 0.052734
+      },
+      "note": "Display serif role \u201cSenior Software Engineer\u201d."
+    },
+    {
+      "id": "hero-summary",
+      "kind": "text",
+      "box": {
+        "x": 0.046875,
+        "y": 0.411133,
+        "w": 0.309896,
+        "h": 0.056641
+      },
+      "note": "Two-line description \u201cSoftware work, technical writing, and an archive.\u201d"
+    },
+    {
+      "id": "hero-projects-action",
+      "kind": "control",
+      "box": {
+        "x": 0.046875,
+        "y": 0.482422,
+        "w": 0.147135,
+        "h": 0.046875
+      },
+      "note": "Coral button with label \u201cView my projects\u201d and a small right arrow."
+    },
+    {
+      "id": "hero-articles-action",
+      "kind": "control",
+      "box": {
+        "x": 0.219401,
+        "y": 0.485352,
+        "w": 0.103516,
+        "h": 0.039062
+      },
+      "note": "Text link \u201cRead Articles\u201d with a fine green underline."
+    },
+    {
+      "id": "hero-tagline",
+      "kind": "text",
+      "box": {
+        "x": 0.82487,
+        "y": 0.123047,
+        "w": 0.08138,
+        "h": 0.085938
+      },
+      "note": "Small stacked mono statement \u201cBETTER SOFTWARE BRIGHTER DAYS\u201d."
+    },
+    {
+      "id": "hero-geometry",
+      "kind": "chrome",
+      "box": {
+        "x": 0.482422,
+        "y": 0.085938,
+        "w": 0.455729,
+        "h": 0.432617
+      },
+      "note": "Flat coral circle, plum diagonal ribbons, rules, squares and dot fields; responsive CSS geometry, not an image.",
+      "codeDrawn": true
+    },
+    {
+      "id": "projects-separator",
+      "kind": "chrome",
+      "box": {
+        "x": 0.0,
+        "y": 0.546875,
+        "w": 1.0,
+        "h": 0.00293
+      },
+      "note": "Fine plum divider below the hero."
+    },
+    {
+      "id": "projects-heading-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.046875,
+        "y": 0.569336,
+        "w": 0.002604,
+        "h": 0.02832
+      },
+      "note": "Short vertical electric-green rule."
+    },
+    {
+      "id": "projects-heading",
+      "kind": "text",
+      "box": {
+        "x": 0.098307,
+        "y": 0.5625,
+        "w": 0.150391,
+        "h": 0.027344
+      },
+      "note": "Tracked label \u201cFEATURED PROJECTS\u201d."
+    },
+    {
+      "id": "project-one-frame",
+      "kind": "chrome",
+      "box": {
+        "x": 0.046875,
+        "y": 0.604492,
+        "w": 0.30013,
+        "h": 0.207031
+      },
+      "note": "Fine outlined panel for Following Imperfectly."
+    },
+    {
+      "id": "project-one-art",
+      "kind": "chrome",
+      "box": {
+        "x": 0.047526,
+        "y": 0.605469,
+        "w": 0.114583,
+        "h": 0.205078
+      },
+      "note": "Abstract flat coral disc and plum geometric field; code-drawn shapes, not product imagery.",
+      "codeDrawn": true
+    },
+    {
+      "id": "project-one-title",
+      "kind": "text",
+      "box": {
+        "x": 0.138672,
+        "y": 0.694336,
+        "w": 0.139974,
+        "h": 0.082031
+      },
+      "note": "Two-line serif project link \u201cFollowing Imperfectly\u201d."
+    },
+    {
+      "id": "project-one-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.308594,
+        "y": 0.75293,
+        "w": 0.01888,
+        "h": 0.033203
+      },
+      "note": "Small right-pointing project link arrow."
+    },
+    {
+      "id": "project-two-frame",
+      "kind": "chrome",
+      "box": {
+        "x": 0.35612,
+        "y": 0.604492,
+        "w": 0.296224,
+        "h": 0.207031
+      },
+      "note": "Fine outlined panel for MetaDen Scripts."
+    },
+    {
+      "id": "project-two-art",
+      "kind": "chrome",
+      "box": {
+        "x": 0.483073,
+        "y": 0.605469,
+        "w": 0.16862,
+        "h": 0.205078
+      },
+      "note": "Flat diagonal coral and plum bands with an electric-green dot field.",
+      "codeDrawn": true
+    },
+    {
+      "id": "project-two-title",
+      "kind": "text",
+      "box": {
+        "x": 0.378255,
+        "y": 0.694336,
+        "w": 0.119141,
+        "h": 0.082031
+      },
+      "note": "Two-line serif project link \u201cMetaDen Scripts\u201d."
+    },
+    {
+      "id": "project-two-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.615234,
+        "y": 0.75293,
+        "w": 0.01888,
+        "h": 0.033203
+      },
+      "note": "Small right-pointing project link arrow."
+    },
+    {
+      "id": "writing-divider",
+      "kind": "chrome",
+      "box": {
+        "x": 0.673828,
+        "y": 0.577148,
+        "w": 0.001302,
+        "h": 0.211914
+      },
+      "note": "Thin vertical plum divider between projects and writing."
+    },
+    {
+      "id": "writing-heading-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.725911,
+        "y": 0.569336,
+        "w": 0.002604,
+        "h": 0.02832
+      },
+      "note": "Short vertical electric-green rule."
+    },
+    {
+      "id": "writing-heading",
+      "kind": "text",
+      "box": {
+        "x": 0.747396,
+        "y": 0.5625,
+        "w": 0.136719,
+        "h": 0.027344
+      },
+      "note": "Tracked label \u201cLATEST WRITING\u201d."
+    },
+    {
+      "id": "article-one",
+      "kind": "text",
+      "box": {
+        "x": 0.727865,
+        "y": 0.611328,
+        "w": 0.224609,
+        "h": 0.033203
+      },
+      "note": "Article link \u201cHow to setup DynamoDB locally\u201d."
+    },
+    {
+      "id": "article-one-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.945312,
+        "y": 0.610352,
+        "w": 0.013672,
+        "h": 0.032227
+      },
+      "note": "Small right arrow at the end of the first article row."
+    },
+    {
+      "id": "article-rule-one",
+      "kind": "chrome",
+      "box": {
+        "x": 0.727865,
+        "y": 0.650391,
+        "w": 0.22526,
+        "h": 0.001953
+      },
+      "note": "Fine horizontal separator after the first article."
+    },
+    {
+      "id": "article-two",
+      "kind": "text",
+      "box": {
+        "x": 0.727865,
+        "y": 0.665039,
+        "w": 0.219401,
+        "h": 0.048828
+      },
+      "note": "Two-line article link \u201cHow to create and use indexes in DynamoDB\u201d."
+    },
+    {
+      "id": "article-two-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.945312,
+        "y": 0.666992,
+        "w": 0.013672,
+        "h": 0.043945
+      },
+      "note": "Small right arrow at the end of the second article row."
+    },
+    {
+      "id": "article-rule-two",
+      "kind": "chrome",
+      "box": {
+        "x": 0.727865,
+        "y": 0.722656,
+        "w": 0.22526,
+        "h": 0.001953
+      },
+      "note": "Fine horizontal separator after the second article."
+    },
+    {
+      "id": "article-three",
+      "kind": "text",
+      "box": {
+        "x": 0.727865,
+        "y": 0.736328,
+        "w": 0.216797,
+        "h": 0.035156
+      },
+      "note": "Article link \u201cHow to run PyScript in React\u201d."
+    },
+    {
+      "id": "article-three-arrow",
+      "kind": "control",
+      "box": {
+        "x": 0.945312,
+        "y": 0.735352,
+        "w": 0.013672,
+        "h": 0.035156
+      },
+      "note": "Small right arrow at the end of the third article row."
+    },
+    {
+      "id": "article-rule-three",
+      "kind": "chrome",
+      "box": {
+        "x": 0.727865,
+        "y": 0.772461,
+        "w": 0.22526,
+        "h": 0.001953
+      },
+      "note": "Fine horizontal separator after the third article."
+    },
+    {
+      "id": "all-articles",
+      "kind": "control",
+      "box": {
+        "x": 0.727865,
+        "y": 0.783203,
+        "w": 0.120443,
+        "h": 0.03418
+      },
+      "note": "Text link \u201cView all articles\u201d with electric-green underline and arrow."
+    },
+    {
+      "id": "content-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.0,
+        "y": 0.827148,
+        "w": 1.0,
+        "h": 0.001953
+      },
+      "note": "Fine plum divider above the about and contact row."
+    },
+    {
+      "id": "about-heading-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.047526,
+        "y": 0.856445,
+        "w": 0.002604,
+        "h": 0.026367
+      },
+      "note": "Short vertical electric-green rule."
+    },
+    {
+      "id": "about-heading",
+      "kind": "text",
+      "box": {
+        "x": 0.099609,
+        "y": 0.848633,
+        "w": 0.067708,
+        "h": 0.032227
+      },
+      "note": "Tracked label \u201cABOUT\u201d."
+    },
+    {
+      "id": "about-copy",
+      "kind": "text",
+      "box": {
+        "x": 0.047526,
+        "y": 0.904297,
+        "w": 0.285156,
+        "h": 0.060547
+      },
+      "note": "Concise about sentence \u201cSoftware work, technical writing, and an archive.\u201d"
+    },
+    {
+      "id": "connect-divider",
+      "kind": "chrome",
+      "box": {
+        "x": 0.673828,
+        "y": 0.849609,
+        "w": 0.001302,
+        "h": 0.110352
+      },
+      "note": "Thin vertical plum divider before the contact links."
+    },
+    {
+      "id": "connect-heading-rule",
+      "kind": "chrome",
+      "box": {
+        "x": 0.722656,
+        "y": 0.856445,
+        "w": 0.002604,
+        "h": 0.026367
+      },
+      "note": "Short vertical electric-green rule."
+    },
+    {
+      "id": "connect-heading",
+      "kind": "text",
+      "box": {
+        "x": 0.744792,
+        "y": 0.848633,
+        "w": 0.099609,
+        "h": 0.032227
+      },
+      "note": "Tracked label \u201cCONNECT\u201d."
+    },
+    {
+      "id": "social-linkedin",
+      "kind": "control",
+      "box": {
+        "x": 0.724609,
+        "y": 0.913086,
+        "w": 0.044922,
+        "h": 0.075195
+      },
+      "note": "Outlined square social link with a small LinkedIn icon."
+    },
+    {
+      "id": "social-github",
+      "kind": "control",
+      "box": {
+        "x": 0.790365,
+        "y": 0.913086,
+        "w": 0.044922,
+        "h": 0.075195
+      },
+      "note": "Outlined square social link with a small GitHub icon."
+    },
+    {
+      "id": "social-dev",
+      "kind": "control",
+      "box": {
+        "x": 0.846354,
+        "y": 0.913086,
+        "w": 0.044922,
+        "h": 0.075195
+      },
+      "note": "Outlined square social link with the DEV wordmark."
+    }
+  ]
+}

@@ -1,0 +1,318 @@
+--- before/src/pages/index.astro
++++ after/src/pages/index.astro
+@@ -1,5 +1,7 @@
+ ---
+ import { getCollection } from 'astro:content';
++import { Image } from 'astro:assets';
++import heroArchitecture from '../assets/hero-architecture.png';
+ import PageLayout from '../components/PageLayout.astro';
+ import '../styles/homepage-layout.css';
+ import '../styles/homepage.css';
+@@ -50,13 +52,19 @@
+     </h1>
+     <p class="r-hero-role hero-role">Senior Software Engineer</p>
+     <p class="r-hero-summary hero-summary">I build backend systems and developer tools for reliable software.</p>
+-    <figure class="r-hero-geometry hero-systems" aria-labelledby="systems-caption">
+-      <figcaption class="systems-caption" id="systems-caption">Engineering focus</figcaption>
+-      <ol class="systems-flow">
+-        <li class="systems-stage"><span class="systems-node" aria-hidden="true"></span><span>Backend systems</span></li>
+-        <li class="systems-stage"><span class="systems-node" aria-hidden="true"></span><span>Developer tools</span></li>
+-        <li class="systems-stage"><span class="systems-node" aria-hidden="true"></span><span>Reliable software</span></li>
+-      </ol>
++    <figure class="r-hero-geometry hero-systems">
++      <Image
++        src={heroArchitecture}
++        alt="Conceptual software architecture: layered purple components around a coral core, connected by green signal paths."
++        class="hero-architecture"
++        width={1280}
++        widths={[480, 768, 1280]}
++        sizes="(max-width: 700px) calc(100vw - 44px), (max-width: 1050px) 680px, 46vw"
++        format="webp"
++        quality={82}
++        loading="eager"
++        fetchpriority="high"
++      />
+     </figure>
+   </section>
+ 
+@@ -74,14 +82,17 @@
+       aria-labelledby="following-title"
+     >
+       <div class="project-copy project-copy-one">
+-        <span class="project-kind">Writing / study</span>
++        <span class="project-endpoint">followingimperfectly.com</span>
+         <h3 class="project-title-wrap project-title-wrap-one" id="following-title">
+           <span class="r-project-one-title project-title project-title-one">Following Imperfectly</span>
+         </h3>
+         <p class="project-description">A writing space for reading Scripture, studying the Christian faith, and keeping notes.</p>
+-        <ul class="project-tags" aria-label="Project focus">
+-          <li>Web</li><li>Reading</li><li>Study</li><li>Notes</li>
+-        </ul>
++        <div class="project-metadata">
++          <span class="project-field">Focus</span>
++          <ul class="project-tags" aria-label="Project focus">
++            <li>Web</li><li>Reading</li><li>Study</li><li>Notes</li>
++          </ul>
++        </div>
+       </div>
+       <span class="r-project-one-arrow project-arrow" aria-hidden="true"><span class="arrow-icon" set:html={arrow}></span></span>
+     </a>
+@@ -94,14 +105,17 @@
+       aria-labelledby="metaden-title"
+     >
+       <div class="project-copy project-copy-two">
+-        <span class="project-kind">Game server / scripting</span>
++        <span class="project-endpoint">metadenscripts.com</span>
+         <h3 class="project-title-wrap project-title-wrap-two" id="metaden-title">
+           <span class="r-project-two-title project-title project-title-two">MetaDen Scripts</span>
+         </h3>
+         <p class="project-description">Configurable roleplay systems for jobs, inventories, permissions, and player progression.</p>
+-        <ul class="project-tags" aria-label="Supported technologies and frameworks">
+-          <li>Lua</li><li>ESX</li><li>QBCore</li><li>QBox</li><li>Standalone</li>
+-        </ul>
++        <div class="project-metadata">
++          <span class="project-field">Technology</span>
++          <ul class="project-tags" aria-label="Supported technologies and frameworks">
++            <li>Lua</li><li>ESX</li><li>QBCore</li><li>QBox</li><li>Standalone</li>
++          </ul>
++        </div>
+       </div>
+       <span class="r-project-two-arrow project-arrow" aria-hidden="true"><span class="arrow-icon" set:html={arrow}></span></span>
+     </a>
+--- before/src/styles/homepage.css
++++ after/src/styles/homepage.css
+@@ -115,96 +115,8 @@
+   color: var(--muted);
+   font: 400 clamp(14px, 1.25vw, 19px)/1.45 Manrope, sans-serif;
+ }
+-.hero-systems {
+-  margin: 0;
+-  overflow: hidden;
+-  border: 1px solid var(--line);
+-  background: linear-gradient(116deg, rgb(48 22 59 / 70%), rgb(30 14 41 / 92%));
+-}
+-.systems-caption {
+-  position: absolute;
+-  top: 10%;
+-  left: 3%;
+-  display: flex;
+-  align-items: center;
+-  gap: 12px;
+-  color: var(--muted);
+-  font: 600 clamp(10px, 0.8vw, 12px)/1.2 var(--mono);
+-  letter-spacing: 0.16em;
+-  text-transform: uppercase;
+-}
+-.systems-caption::before {
+-  width: 28px;
+-  height: 1px;
+-  background: var(--green);
+-  content: '';
+-}
+-.systems-flow {
+-  position: absolute;
+-  top: 25%;
+-  right: 8%;
+-  bottom: 6%;
+-  left: 8%;
+-  display: grid;
+-  margin: 0;
+-  padding: 0;
+-  grid-template-columns: 1fr;
+-  grid-template-rows: repeat(3, minmax(0, 1fr));
+-  list-style: none;
+-}
+-.systems-flow::before {
+-  position: absolute;
+-  top: 15px;
+-  bottom: 15px;
+-  left: 15px;
+-  width: 1px;
+-  background: linear-gradient(180deg, var(--coral), var(--green) 35%, var(--green) 100%);
+-  content: '';
+-}
+-.systems-stage {
+-  z-index: 1;
+-  display: grid;
+-  min-width: 0;
+-  align-items: center;
+-  justify-items: start;
+-  grid-template-columns: 30px minmax(0, 1fr);
+-  gap: 14px;
+-  color: var(--paper);
+-  font: 700 clamp(10px, 1.05vw, 16px)/1.35 Manrope, sans-serif;
+-  text-align: left;
+-}
+-.systems-node {
+-  position: relative;
+-  display: grid;
+-  width: 30px;
+-  height: 30px;
+-  place-items: center;
+-  border: 1px solid var(--green);
+-  border-radius: 4px;
+-  background: var(--plum);
+-}
+-.systems-node::before {
+-  position: absolute;
+-  top: 50%;
+-  left: 100%;
+-  width: 14px;
+-  height: 1px;
+-  transform: translateY(-50%);
+-  background: var(--line);
+-  content: '';
+-}
+-.systems-node::after {
+-  width: 8px;
+-  height: 8px;
+-  border-radius: 1px;
+-  background: var(--green);
+-  content: '';
+-}
+-.systems-stage:first-child .systems-node {
+-  border-color: var(--coral);
+-  background: var(--coral);
+-}
+-.systems-stage:first-child .systems-node::after { background: var(--plum); }
++.hero-systems { display: flex; margin: 0; align-items: center; justify-content: center; }
++.hero-architecture { display: block; width: 100%; height: 100%; object-fit: contain; }
+ 
+ .section-label {
+   color: var(--green);
+@@ -231,7 +143,7 @@
+   flex-direction: column;
+ }
+ .project-copy-one, .project-copy-two { left: 7.5%; width: 84%; }
+-.project-kind {
++.project-endpoint {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+@@ -239,11 +151,10 @@
+   padding-bottom: 8px;
+   border-bottom: 1px solid var(--line);
+   color: var(--green);
+-  font: 600 clamp(9px, 0.75vw, 11px)/1.2 var(--mono);
+-  letter-spacing: 0.14em;
+-  text-transform: uppercase;
+-}
+-.project-kind::before {
++  font: 500 clamp(10px, 0.75vw, 11px)/1.2 var(--mono);
++  letter-spacing: 0.02em;
++}
++.project-endpoint::before {
+   width: 6px;
+   height: 6px;
+   flex: 0 0 6px;
+@@ -266,22 +177,24 @@
+   color: var(--muted);
+   font: 400 clamp(11px, 0.86vw, 13px)/1.45 Manrope, sans-serif;
+ }
+-.project-tags {
++.project-metadata {
+   display: flex;
+-  margin-top: auto !important;
+-  padding: 0;
++  margin-top: auto;
++  padding-top: 10px;
++  align-items: baseline;
+   flex-wrap: wrap;
+-  gap: 5px;
+-  list-style: none;
+-}
+-.project-tags li {
+-  padding: 4px 6px;
+-  border: 1px solid rgb(14 251 105 / 50%);
++  gap: 8px 12px;
++  border-top: 1px solid var(--line);
++}
++.project-field {
+   color: var(--green);
+-  font: 600 clamp(10px, 0.75vw, 11px)/1 var(--mono);
+-  letter-spacing: 0.1em;
++  font: 600 clamp(9px, 0.7vw, 10px)/1.2 var(--mono);
++  letter-spacing: 0.08em;
+   text-transform: uppercase;
+ }
++.project-tags { display: flex; padding: 0; flex-wrap: wrap; gap: 6px 10px; list-style: none; }
++.project-tags li { color: var(--paper); font: 500 clamp(10px, 0.75vw, 11px)/1.2 var(--mono); }
++
+ .project-card:hover .project-title { color: var(--green); }
+ .project-arrow { position: absolute; z-index: 2; top: 13% !important; right: 4%; bottom: auto !important; left: auto !important; width: 22px !important; height: 22px !important; display: block; color: var(--paper); }
+ .project-arrow svg { transition: transform 180ms ease; }
+@@ -316,7 +229,7 @@
+ .contact-link svg { width: 44%; height: 44%; fill: currentColor; stroke: none; }
+ .contact-link-dev { font-size: clamp(12px, 1.1vw, 17px); font-weight: 800; letter-spacing: -0.08em; }
+ 
+-@media (max-width: 900px) {
++@media (max-width: 1050px) {
+   .portfolio {
+     display: flex;
+     width: 100%;
+@@ -351,52 +264,18 @@
+   .hero > :not(.hero-systems) { position: relative; z-index: 2; }
+   .hero-systems {
+     position: relative !important;
+-    top: auto !important;
+-    right: auto !important;
+-    left: auto !important;
++    inset: auto !important;
+     width: 100% !important;
+     height: auto !important;
++    max-width: 680px;
+     margin-top: 8px;
+-    padding: 15px 14px 16px;
+-    border: 1px solid var(--line);
+-    background: linear-gradient(116deg, rgb(48 22 59 / 70%), rgb(30 14 41 / 92%));
++    align-self: center;
+   }
++  .hero-architecture { height: auto; max-height: 360px; }
+   .hero-heading { display: flex; margin-top: 8px; flex-direction: column; }
+   .hero-name-first, .hero-name-second { font-size: clamp(66px, 17vw, 110px); line-height: 0.82; }
+   .hero-role { max-width: 100%; margin-top: 4px; font-size: clamp(27px, 7vw, 42px); white-space: normal; }
+   .hero-summary { max-width: 34ch; margin-top: 4px; font-size: 14px; line-height: 1.55; }
+-  .systems-caption { position: static; font-size: 10px; }
+-  .systems-flow {
+-    position: relative;
+-    top: auto;
+-    right: auto;
+-    bottom: auto;
+-    left: auto;
+-    margin-top: 13px;
+-    grid-template-columns: 1fr;
+-    grid-template-rows: none;
+-    gap: 13px;
+-  }
+-  .systems-flow::before {
+-    top: 13px;
+-    bottom: 13px;
+-    left: 13px;
+-    right: auto;
+-    width: 1px;
+-    height: auto;
+-    background: linear-gradient(180deg, var(--coral), var(--green) 35%, var(--green));
+-  }
+-  .systems-stage {
+-    display: grid;
+-    grid-template-columns: 27px 1fr;
+-    justify-items: start;
+-    gap: 12px;
+-    font-size: 12px;
+-    text-align: left;
+-  }
+-  .systems-node { width: 27px; height: 27px; }
+-  .systems-node::before { width: 12px; }
+-  .systems-node::before { display: none; }
+ 
+   .projects { position: relative; display: grid; padding: 27px 0 29px; grid-template-columns: 1fr; gap: 13px; }
+   .section-label { font-size: 10px; }
+@@ -408,7 +287,7 @@
+   .project-title-wrap { position: static !important; width: auto !important; }
+   .project-title { position: static !important; display: block; font-size: clamp(18px, 5.4vw, 23px); }
+   .project-description { max-width: 34ch; margin-top: 7px !important; font-size: 13px; line-height: 1.5; }
+-  .project-tags { margin-top: 12px !important; gap: 5px; }
++  .project-metadata { margin-top: 16px; }
+   .project-tags li { font-size: 10px; }
+   .project-arrow { position: absolute !important; top: 17px !important; right: 13px !important; bottom: auto !important; left: auto !important; width: 21px !important; height: 21px !important; }
+ 

@@ -1,0 +1,48 @@
+---
+import slugify from 'slugify';
+import PageLayout from './PageLayout.astro';
+
+const { entry, Content, headings, kind } = Astro.props;
+const {
+  title,
+  subtitle,
+  author = 'FabioRosado',
+  date,
+  categories,
+  excerpt = subtitle,
+  image,
+  image_alt = '',
+} = entry.data;
+const subtitleId = subtitle ? slugify(subtitle, { replacement: '-', lower: true }) : undefined;
+const articleImage = image?.replace(/^\.\.\/\.\.\/images\//, '/images/');
+const socialTitle = `FabioRosado | ${title}`;
+const ogTitle = encodeURIComponent(title).toUpperCase();
+const socialImage = `https://res.cloudinary.com/fabiorosado/image/upload/q_100/c_fit,co_rgb:0efb69,l_text:orbitron_50_style_bold_text_align_center:${ogTitle},w_1012/co_rgb:fc4056,g_south_east,l_text:orbitron_25_style_boldr:fabiorosado.dev,r_0,x_15,y_20/v1605190182/theflyingdev_og_whvovy.png`;
+const toc = subtitleId ? [{ slug: subtitleId, text: subtitle }, ...headings] : headings;
+---
+
+<PageLayout title={socialTitle} socialTitle={socialTitle} description={excerpt} image={socialImage}>
+  <article class="content-article" data-kind={kind}>
+    <header class="content-header">
+      <h1>{title}</h1>
+      {categories && <p class="content-category">{categories}</p>}
+      <p class="content-byline">
+        <span>{author}</span>
+        {date && <time datetime={new Date(date).toISOString()}>{new Date(date).toLocaleDateString('en-GB', { dateStyle: 'long', timeZone: 'UTC' })}</time>}
+      </p>
+    </header>
+    {articleImage && <img src={articleImage} alt={image_alt} />}
+    {subtitle && <h2 class="content-subtitle" id={subtitleId}>{subtitle}</h2>}
+    {kind !== 'projects' && toc.length > 0 && (
+      <details open>
+        <summary>Table of contents</summary>
+        <ol>
+          {toc.map((heading) => <li><a href={`#${heading.slug}`}>{heading.text}</a></li>)}
+        </ol>
+      </details>
+    )}
+    <section data-content-body>
+      <Content />
+    </section>
+  </article>
+</PageLayout>

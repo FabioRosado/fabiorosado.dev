@@ -1,0 +1,284 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-10-14T19:06:09.493Z",
+  "comp": ".impeccable/mocks/identity-hero.png",
+  "direction": "30b69946",
+  "breakpoint": "1536x1024",
+  "artifact": null,
+  "phase": "hero",
+  "phases": {
+    "comps": {
+      "status": "closed",
+      "openedAt": "2026-10-14T19:06:09.492Z",
+      "closedAt": "2026-10-14T19:07:27.284Z",
+      "attempts": 7,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "3 comps, 1 approved",
+        "approved": ".impeccable/mocks/identity-hero.png",
+        "at": "2026-10-14T19:07:27.284Z"
+      },
+      "forced": null
+    },
+    "spec": {
+      "status": "closed",
+      "openedAt": "2026-10-14T19:07:27.300Z",
+      "closedAt": "2026-10-14T19:15:27.464Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "55 regions, 0 plates, 24 text regions measured",
+        "at": "2026-10-14T19:15:27.464Z"
+      },
+      "forced": null
+    },
+    "plates": {
+      "status": "closed",
+      "openedAt": "2026-10-14T19:15:27.464Z",
+      "closedAt": "2026-10-14T19:15:32.566Z",
+      "attempts": 1,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "no plates owed",
+        "at": "2026-10-14T19:15:32.565Z"
+      },
+      "forced": null
+    },
+    "hero": {
+      "status": "open",
+      "openedAt": "2026-10-14T19:15:32.566Z",
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [
+        {
+          "at": "2026-10-14T19:53:33.762Z",
+          "text": "User-directed refinement preserves the current composition while adding engineering context; the approved-comp hero gate currently reads 71.6% with text/layout region mismatches. No force advance used."
+        }
+      ],
+      "gate": {
+        "ok": false,
+        "reasons": [
+          "hero overall 71.6% < 72% (structure 72%, color 58%, detail 74%)",
+          "region projects-heading is missing (detail 0%, structure 73%): the comp shows material the build does not",
+          "region project-one-arrow is missing (detail 0%, structure 92%): the comp shows material the build does not",
+          "region project-two-art is missing (detail 2%, structure 60%): the comp shows material the build does not",
+          "region project-two-arrow is missing (detail 2%, structure 80%): the comp shows material the build does not",
+          "region writing-heading is missing (detail 0%, structure 70%): the comp shows material the build does not",
+          "region article-two-arrow is missing (detail 0%, structure 85%): the comp shows material the build does not",
+          "region article-three-arrow is missing (detail 7%, structure 84%): the comp shows material the build does not",
+          "region about-heading is missing (detail 0%, structure 70%): the comp shows material the build does not",
+          "region connect-heading is missing (detail 0%, structure 75%): the comp shows material the build does not",
+          "region site-name (text) is contradicted (structure 54%, detail added 13%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region nav-about (text) is contradicted (structure 74%, detail added 10%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region hero-summary (text) is contradicted (structure 71%, detail added 14%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region hero-articles-action (control) is contradicted (structure 54%, detail added 22%): this control does not read as the comp's: rebuild its chrome from the crop (border, fill, radius, chevron or arrow, label size) rather than from a component default",
+          "region project-one-title (text) is contradicted (structure 24%, detail added 20%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region project-two-title (text) is contradicted (structure 34%, detail added 16%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region all-articles (control) is contradicted (structure 63%, detail added 4%): this control does not read as the comp's: rebuild its chrome from the crop (border, fill, radius, chevron or arrow, label size) rather than from a component default",
+          "region about-copy (text) is contradicted (structure 54%, detail added 41%): the composition of this text region differs from the comp; re-derive it from the spec box",
+          "region social-github (control) is contradicted (structure 72%, detail added 9%): this control does not read as the comp's: rebuild its chrome from the crop (border, fill, radius, chevron or arrow, label size) rather than from a component default",
+          "control hero-projects-action drifts to 54% (structure 62%, color 58%): its chrome differs from the comp's; open .impeccable/review/diff/hero/regions/hero-projects-action.png and match the border, fill, radius, chevron or arrow, and label size",
+          "control article-one-arrow drifts to 63% (structure 89%, color 40%): its chrome differs from the comp's; open .impeccable/review/diff/hero/regions/article-one-arrow.png and match the border, fill, radius, chevron or arrow, and label size",
+          "control social-linkedin drifts to 64% (structure 75%, color 46%): its chrome differs from the comp's; open .impeccable/review/diff/hero/regions/social-linkedin.png and match the border, fill, radius, chevron or arrow, and label size",
+          "control social-dev drifts to 64% (structure 76%, color 51%): its chrome differs from the comp's; open .impeccable/review/diff/hero/regions/social-dev.png and match the border, fill, radius, chevron or arrow, and label size",
+          "region social-github: its ink sits in a 46x52px box in the comp and 28x29px in the build (padding, row height, or size); match the box, not only the position",
+          "READINGS, each one CSS edit (8 of 14, the rest after these):",
+          "text project-one-title: cap height 9.4px in the build, 28.7px in the comp (-67%); set font-size so the cap height renders at 28.7px",
+          "text project-two-title: cap height 8.4px in the build, 28.5px in the comp (-71%); set font-size so the cap height renders at 28.5px",
+          "text article-three: letter-spacing is wider than the comp's (gap 0.106 vs 0.071 of the cap height); set letter-spacing to close it by about 1px",
+          "text hero-summary: the face renders 37% heavier than the comp's (ink density 0.47 vs 0.34); drop a weight step or use the ranked face",
+          "text article-one: the face renders 41% heavier than the comp's (ink density 0.80 vs 0.56); drop a weight step or use the ranked face",
+          "text article-three: the face renders 42% heavier than the comp's (ink density 0.71 vs 0.50); drop a weight step or use the ranked face",
+          "text nav-projects: ink is #f1eaeb in the build, #afa1b1 in the comp; use the comp's colour",
+          "text nav-about: ink is #efe7e7 in the build, #45384e in the comp; use the comp's colour"
+        ],
+        "summary": "hero 72% (drift)",
+        "score": 0.7157,
+        "verdict": "drift",
+        "report": ".impeccable/review/diff/hero/report.json",
+        "sideBySide": "/Users/fabiorosado/github/fabiorosado.dev/.impeccable/review/diff/hero/side-by-side.png",
+        "worst": [
+          "project-one-title contradicted 33%",
+          "project-two-title contradicted 36%",
+          "project-two-frame contradicted 38%"
+        ],
+        "worstIds": [
+          "project-one-title",
+          "project-two-title",
+          "project-two-frame"
+        ],
+        "worstCrops": [
+          {
+            "id": "project-one-title",
+            "verdict": "contradicted",
+            "score": {
+              "overall": 0.326,
+              "structure": 0.2408,
+              "color": 0.525,
+              "colorIntersection": 0.0855,
+              "paletteMatch": 0.7617,
+              "detail": 0.2195,
+              "detailRaw": 0.3185,
+              "detailAdded": 0.1979,
+              "bands": 0.4143
+            },
+            "file": ".impeccable/review/diff/hero/regions/project-one-title.png"
+          },
+          {
+            "id": "project-two-title",
+            "verdict": "contradicted",
+            "score": {
+              "overall": 0.3625,
+              "structure": 0.3443,
+              "color": 0.3562,
+              "colorIntersection": 0.0616,
+              "paletteMatch": 0.5148,
+              "detail": 0.159,
+              "detailRaw": 0.2372,
+              "detailAdded": 0.1563,
+              "bands": 0.775
+            },
+            "file": ".impeccable/review/diff/hero/regions/project-two-title.png"
+          },
+          {
+            "id": "project-two-frame",
+            "verdict": "contradicted",
+            "score": {
+              "overall": 0.3841,
+              "structure": 0.45,
+              "color": 0.5214,
+              "colorIntersection": 0.1844,
+              "paletteMatch": 0.7029,
+              "detail": 0.0817,
+              "detailRaw": 0.2431,
+              "detailAdded": 0.3229,
+              "bands": 0.5055
+            },
+            "file": ".impeccable/review/diff/hero/regions/project-two-frame.png"
+          }
+        ],
+        "regionVerdicts": {
+          "site-name": "contradicted",
+          "nav-projects": "drift",
+          "nav-articles": "drift",
+          "nav-cheatsheets": "drift",
+          "nav-about": "contradicted",
+          "nav-social-divider": "drift",
+          "nav-linkedin": "drift",
+          "nav-github": "drift",
+          "nav-dev": "drift",
+          "nav-external-arrow": "drift",
+          "header-rule": "drift",
+          "hero-eyebrow-rule": "drift",
+          "hero-eyebrow": "drift",
+          "hero-name-first": "drift",
+          "hero-name-second": "drift",
+          "hero-role": "drift",
+          "hero-summary": "contradicted",
+          "hero-projects-action": "drift",
+          "hero-articles-action": "contradicted",
+          "hero-tagline": "drift",
+          "hero-geometry": "drift",
+          "projects-separator": "drift",
+          "projects-heading-rule": "drift",
+          "projects-heading": "missing",
+          "project-one-frame": "drift",
+          "project-one-art": "drift",
+          "project-one-title": "contradicted",
+          "project-one-arrow": "missing",
+          "project-two-frame": "contradicted",
+          "project-two-art": "missing",
+          "project-two-title": "contradicted",
+          "project-two-arrow": "missing",
+          "writing-divider": "match",
+          "writing-heading-rule": "match",
+          "writing-heading": "missing",
+          "article-one": "drift",
+          "article-one-arrow": "drift",
+          "article-rule-one": "contradicted",
+          "article-two": "drift",
+          "article-two-arrow": "missing",
+          "article-rule-two": "drift",
+          "article-three": "drift",
+          "article-three-arrow": "missing",
+          "article-rule-three": "drift",
+          "all-articles": "contradicted",
+          "content-rule": "drift",
+          "about-heading-rule": "drift",
+          "about-heading": "missing",
+          "about-copy": "contradicted",
+          "connect-divider": "drift",
+          "connect-heading-rule": "drift",
+          "connect-heading": "missing",
+          "social-linkedin": "drift",
+          "social-github": "contradicted",
+          "social-dev": "drift"
+        },
+        "at": "2026-10-14T19:52:42.608Z"
+      },
+      "forced": null,
+      "readingsSeen": {
+        "text project-one-title: cap height 9.4px in the build, 28.7px in the comp (-67%); set font-size so the cap height renders at 28.7px": 1,
+        "text project-two-title: cap height 8.4px in the build, 28.5px in the comp (-71%); set font-size so the cap height renders at 28.5px": 1,
+        "text article-three: letter-spacing is wider than the comp's (gap 0.106 vs 0.071 of the cap height); set letter-spacing to close it by about 1px": 1,
+        "text hero-summary: the face renders 37% heavier than the comp's (ink density 0.47 vs 0.34); drop a weight step or use the ranked face": 1,
+        "text article-one: the face renders 41% heavier than the comp's (ink density 0.80 vs 0.56); drop a weight step or use the ranked face": 1,
+        "text article-three: the face renders 42% heavier than the comp's (ink density 0.71 vs 0.50); drop a weight step or use the ranked face": 1,
+        "text nav-projects: ink is #f1eaeb in the build, #afa1b1 in the comp; use the comp's colour": 1,
+        "text nav-about: ink is #efe7e7 in the build, #45384e in the comp; use the comp's colour": 1,
+        "text hero-summary: ink is #bcadc6 in the build, #523f5f in the comp; use the comp's colour": 1,
+        "text hero-tagline: ink is #9787a3 in the build, #483858 in the comp; use the comp's colour": 1,
+        "text projects-heading: ink is #08f868 in the build, #0c2a1a in the comp; use the comp's colour": 1,
+        "text project-one-title: ink is #af9fb5 in the build, #f6f5f6 in the comp; use the comp's colour": 1,
+        "text project-two-title: ink is #a797b0 in the build, #f6f5f6 in the comp; use the comp's colour": 1,
+        "text writing-heading: its first line starts 13px higher than in the comp (3px vs 16px into the region box); the spacing above it is too small": 1
+      },
+      "records": 1
+    },
+    "sections": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "motion": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "responsive": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "review": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": null,
+  "plates": {}
+}

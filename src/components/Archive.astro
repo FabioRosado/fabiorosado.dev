@@ -1,0 +1,24 @@
+---
+import PageLayout from './PageLayout.astro';
+const { title, description, entries, routePrefix } = Astro.props;
+const isGridArchive = ['/blog/', '/cheatsheets/', '/projects/'].includes(routePrefix);
+const imagePath = (image) => image?.replace(/^\.\.\/\.\.\/images\//, '/images/');
+---
+
+<PageLayout title={`FabioRosado | ${title}`} socialTitle={`FabioRosado | ${title}`} description={description}>
+  <div class:list={['archive-content', isGridArchive && 'archive-content-wide']}>
+    <h1>{title}</h1>
+    <ul class:list={['archive-list', isGridArchive && 'archive-grid']} data-route-prefix={routePrefix}>
+      {entries.map((entry) => (
+        <li class={entry.data.image ? 'has-image' : undefined}>
+          <a href={`${routePrefix}${entry.data.slug}/`}>
+            {imagePath(entry.data.image) && <img src={imagePath(entry.data.image)} alt="" loading="lazy" />}
+            <h2>{entry.data.title}</h2>
+            {entry.data.excerpt && <p>{entry.data.excerpt}</p>}
+            {entry.data.date && <time datetime={new Date(entry.data.date).toISOString()}>{new Date(entry.data.date).toLocaleDateString('en-GB', { dateStyle: 'long', timeZone: 'UTC' })}</time>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</PageLayout>

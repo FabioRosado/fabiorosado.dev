@@ -1,0 +1,3036 @@
+{
+  "tool": "comp-spec",
+  "version": 1,
+  "createdAt": "2026-10-14T19:14:27.924Z",
+  "comp": ".impeccable/mocks/identity-hero.png",
+  "warnings": [
+    "region hero-geometry: \"codeDrawn\": true set in the regions file (the painted-material refusal is overridden: code draws this region)",
+    "region project-one-art: \"codeDrawn\": true set in the regions file (the painted-material refusal is overridden: code draws this region)",
+    "region project-two-art: \"codeDrawn\": true set in the regions file (the painted-material refusal is overridden: code draws this region)"
+  ],
+  "uncoveredInkCells": [
+    "A3",
+    "B3",
+    "C3",
+    "D3",
+    "E3",
+    "B5",
+    "C5",
+    "H6",
+    "I6",
+    "D7"
+  ],
+  "compSize": {
+    "width": 1536,
+    "height": 1024
+  },
+  "aspect": 1.5,
+  "orientation": "landscape",
+  "palette": [
+    {
+      "hex": "#190928",
+      "coverage": 0.8972
+    },
+    {
+      "hex": "#f83a58",
+      "coverage": 0.0575
+    },
+    {
+      "hex": "#f7f7f7",
+      "coverage": 0.0207
+    },
+    {
+      "hex": "#3b2249",
+      "coverage": 0.0153
+    },
+    {
+      "hex": "#080813",
+      "coverage": 0.0094
+    }
+  ],
+  "bands": [
+    {
+      "y": 0.0588,
+      "strength": 0.234
+    },
+    {
+      "y": 0.1529,
+      "strength": 0.254
+    },
+    {
+      "y": 0.2471,
+      "strength": 0.2687
+    },
+    {
+      "y": 0.3412,
+      "strength": 0.373
+    },
+    {
+      "y": 0.3647,
+      "strength": 0.2929
+    },
+    {
+      "y": 0.4,
+      "strength": 0.3558
+    },
+    {
+      "y": 0.4824,
+      "strength": 0.2291
+    },
+    {
+      "y": 0.5294,
+      "strength": 0.2428
+    },
+    {
+      "y": 0.7294,
+      "strength": 0.291
+    },
+    {
+      "y": 0.7765,
+      "strength": 0.2223
+    }
+  ],
+  "regions": [
+    {
+      "id": "site-name",
+      "kind": "text",
+      "note": "“Fabio Rosado” wordmark, with Rosado in coral.",
+      "grid": null,
+      "box": {
+        "x": 0.0436,
+        "y": 0.0234,
+        "w": 0.151,
+        "h": 0.043
+      },
+      "px": {
+        "x": 67,
+        "y": 24,
+        "w": 232,
+        "h": 44
+      },
+      "aspect": 5.2727,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.8268
+        },
+        {
+          "hex": "#f63467",
+          "coverage": 0.0752
+        },
+        {
+          "hex": "#f7f6f7",
+          "coverage": 0.0532
+        },
+        {
+          "hex": "#951f43",
+          "coverage": 0.0257
+        },
+        {
+          "hex": "#c42650",
+          "coverage": 0.0192
+        }
+      ],
+      "detail": {
+        "energy": 33.803
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 5,
+          "capHeightPx": 25,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6412,
+          "advTall": 0.6212,
+          "advX": 0.6813,
+          "gap": 0.0601,
+          "xRatio": 0.6594,
+          "stemW": 0.1863,
+          "contrast": 2.5233,
+          "serif": 1.5407,
+          "densTall": 0.4667,
+          "densX": 0.4971,
+          "weight": 0.4667
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "nav-projects",
+      "kind": "text",
+      "note": "Projects navigation link.",
+      "grid": null,
+      "box": {
+        "x": 0.3997,
+        "y": 0.0313,
+        "w": 0.0488,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 614,
+        "y": 32,
+        "w": 75,
+        "h": 32
+      },
+      "aspect": 2.3438,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.8561
+        },
+        {
+          "hex": "#150d1b",
+          "coverage": 0.0812
+        },
+        {
+          "hex": "#afa1b1",
+          "coverage": 0.0258
+        },
+        {
+          "hex": "#584258",
+          "coverage": 0.0185
+        },
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.0185
+        }
+      ],
+      "detail": {
+        "energy": 11.298
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 4,
+          "capHeightPx": 12,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5989,
+          "advTall": 0.4735,
+          "advX": 0.6685,
+          "gap": 0.0836,
+          "xRatio": 0.7666,
+          "stemW": 0.161,
+          "contrast": 0.9897,
+          "serif": null,
+          "densTall": 0.4718,
+          "densX": 0.5956,
+          "weight": 0.4718
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "nav-articles",
+      "kind": "text",
+      "note": "Articles navigation link.",
+      "grid": null,
+      "box": {
+        "x": 0.4544,
+        "y": 0.0313,
+        "w": 0.0495,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 698,
+        "y": 32,
+        "w": 76,
+        "h": 32
+      },
+      "aspect": 2.375,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.7814
+        },
+        {
+          "hex": "#0f0915",
+          "coverage": 0.1075
+        },
+        {
+          "hex": "#45344d",
+          "coverage": 0.0573
+        },
+        {
+          "hex": "#efecef",
+          "coverage": 0.0323
+        },
+        {
+          "hex": "#605868",
+          "coverage": 0.0215
+        }
+      ],
+      "detail": {
+        "energy": 17.5443
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 8,
+          "capHeightPx": 12.4,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.4823,
+          "advTall": 0.3082,
+          "advX": 0.5627,
+          "gap": 0.1072,
+          "xRatio": 0.688,
+          "stemW": 0.1621,
+          "contrast": 1.1754,
+          "serif": null,
+          "densTall": 0.6006,
+          "densX": 0.5337,
+          "weight": 0.6006
+        },
+        "widthClass": "condensed",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "nav-cheatsheets",
+      "kind": "text",
+      "note": "Cheatsheets navigation link.",
+      "grid": null,
+      "box": {
+        "x": 0.5195,
+        "y": 0.0313,
+        "w": 0.071,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 798,
+        "y": 32,
+        "w": 109,
+        "h": 32
+      },
+      "aspect": 3.4063,
+      "palette": [
+        {
+          "hex": "#190828",
+          "coverage": 0.7607
+        },
+        {
+          "hex": "#0e0913",
+          "coverage": 0.1612
+        },
+        {
+          "hex": "#56465c",
+          "coverage": 0.0378
+        },
+        {
+          "hex": "#432e4e",
+          "coverage": 0.0252
+        },
+        {
+          "hex": "#85788b",
+          "coverage": 0.0151
+        }
+      ],
+      "detail": {
+        "energy": 27.2038
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 11,
+          "capHeightPx": 12.6,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5959,
+          "advTall": 0.5959,
+          "advX": 0.5959,
+          "gap": 0.0795,
+          "xRatio": 0.6684,
+          "stemW": 0.1675,
+          "contrast": 1.119,
+          "serif": 0.4696,
+          "densTall": 0.4353,
+          "densX": 0.6345,
+          "weight": 0.4353
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "nav-about",
+      "kind": "text",
+      "note": "About anchor link.",
+      "grid": null,
+      "box": {
+        "x": 0.6185,
+        "y": 0.0313,
+        "w": 0.0404,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 950,
+        "y": 32,
+        "w": 62,
+        "h": 32
+      },
+      "aspect": 1.9375,
+      "palette": [
+        {
+          "hex": "#180827",
+          "coverage": 0.8496
+        },
+        {
+          "hex": "#08080f",
+          "coverage": 0.0487
+        },
+        {
+          "hex": "#45384e",
+          "coverage": 0.0487
+        },
+        {
+          "hex": "#bbadc3",
+          "coverage": 0.0265
+        },
+        {
+          "hex": "#e5dde8",
+          "coverage": 0.0265
+        }
+      ],
+      "detail": {
+        "energy": 13.9485
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 5,
+          "capHeightPx": 12.5,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6392,
+          "advTall": 0.739,
+          "advX": 0.6392,
+          "gap": 0.0999,
+          "xRatio": 0.6673,
+          "stemW": 0.1653,
+          "contrast": 1.1115,
+          "serif": null,
+          "densTall": 0.4651,
+          "densX": 0.5323,
+          "weight": 0.4651
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "nav-social-divider",
+      "kind": "chrome",
+      "note": "Thin vertical rule before social links.",
+      "grid": null,
+      "box": {
+        "x": 0.7526,
+        "y": 0.0352,
+        "w": 0.002,
+        "h": 0.0273
+      },
+      "px": {
+        "x": 1156,
+        "y": 36,
+        "w": 3,
+        "h": 28
+      },
+      "aspect": 0.1071,
+      "palette": [
+        {
+          "hex": "#583858",
+          "coverage": 0.8
+        },
+        {
+          "hex": "#281030",
+          "coverage": 0.2
+        }
+      ],
+      "detail": {
+        "energy": 1.3182
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "nav-linkedin",
+      "kind": "text",
+      "note": "LinkedIn social link.",
+      "grid": null,
+      "box": {
+        "x": 0.7832,
+        "y": 0.0313,
+        "w": 0.0514,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 1203,
+        "y": 32,
+        "w": 79,
+        "h": 32
+      },
+      "aspect": 2.4688,
+      "palette": [
+        {
+          "hex": "#190828",
+          "coverage": 0.8448
+        },
+        {
+          "hex": "#f7f7f7",
+          "coverage": 0.0448
+        },
+        {
+          "hex": "#ddd1e1",
+          "coverage": 0.0448
+        },
+        {
+          "hex": "#0d0a12",
+          "coverage": 0.0345
+        },
+        {
+          "hex": "#9a8da4",
+          "coverage": 0.031
+        }
+      ],
+      "detail": {
+        "energy": 16.5056
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 8,
+          "capHeightPx": 11.7,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.596,
+          "advTall": 0.5676,
+          "advX": 0.596,
+          "gap": 0.1419,
+          "xRatio": 0.696,
+          "stemW": 0.164,
+          "contrast": 1.0047,
+          "serif": 0.2951,
+          "densTall": 0.5014,
+          "densX": 0.5609,
+          "weight": 0.5014
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "nav-github",
+      "kind": "text",
+      "note": "GitHub social link.",
+      "grid": null,
+      "box": {
+        "x": 0.847,
+        "y": 0.0313,
+        "w": 0.0469,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 1301,
+        "y": 32,
+        "w": 72,
+        "h": 32
+      },
+      "aspect": 2.25,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.8617
+        },
+        {
+          "hex": "#f0e9f0",
+          "coverage": 0.0474
+        },
+        {
+          "hex": "#130f1c",
+          "coverage": 0.0356
+        },
+        {
+          "hex": "#7d6f7f",
+          "coverage": 0.0277
+        },
+        {
+          "hex": "#9d93a1",
+          "coverage": 0.0277
+        }
+      ],
+      "detail": {
+        "energy": 14.8835
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 6,
+          "capHeightPx": 11.8,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6096,
+          "advTall": 0.7088,
+          "advX": 0.5671,
+          "gap": 0.1418,
+          "xRatio": 0.696,
+          "stemW": 0.1721,
+          "contrast": 1.1085,
+          "serif": null,
+          "densTall": 0.4941,
+          "densX": 0.5705,
+          "weight": 0.4941
+        },
+        "widthClass": "condensed",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "nav-dev",
+      "kind": "text",
+      "note": "DEV social link.",
+      "grid": null,
+      "box": {
+        "x": 0.9121,
+        "y": 0.0313,
+        "w": 0.0313,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 1401,
+        "y": 32,
+        "w": 48,
+        "h": 32
+      },
+      "aspect": 1.5,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.8793
+        },
+        {
+          "hex": "#cac2d4",
+          "coverage": 0.046
+        },
+        {
+          "hex": "#93839d",
+          "coverage": 0.0402
+        },
+        {
+          "hex": "#f4f0f8",
+          "coverage": 0.023
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0115
+        }
+      ],
+      "detail": {
+        "energy": 8.7872
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 3,
+          "capHeightPx": 11.8,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.5947,
+          "advTall": 0.5947,
+          "advX": null,
+          "gap": 0.1982,
+          "xRatio": null,
+          "stemW": 0.1757,
+          "contrast": 1.0738,
+          "serif": null,
+          "densTall": 0.4653,
+          "densX": null,
+          "weight": 0.4653
+        },
+        "widthClass": "condensed",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "nav-external-arrow",
+      "kind": "control",
+      "note": "Small diagonal external-link arrow beside DEV.",
+      "grid": null,
+      "box": {
+        "x": 0.9447,
+        "y": 0.0313,
+        "w": 0.013,
+        "h": 0.0313
+      },
+      "px": {
+        "x": 1451,
+        "y": 32,
+        "w": 20,
+        "h": 32
+      },
+      "aspect": 0.625,
+      "palette": [
+        {
+          "hex": "#190927",
+          "coverage": 0.8961
+        },
+        {
+          "hex": "#0b0b18",
+          "coverage": 0.0649
+        },
+        {
+          "hex": "#ede8ed",
+          "coverage": 0.039
+        }
+      ],
+      "detail": {
+        "energy": 3.3995
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "header-rule",
+      "kind": "chrome",
+      "note": "Fine plum divider below navigation.",
+      "grid": null,
+      "box": {
+        "x": 0,
+        "y": 0.0918,
+        "w": 1,
+        "h": 0.002
+      },
+      "px": {
+        "x": 0,
+        "y": 94,
+        "w": 1536,
+        "h": 2
+      },
+      "aspect": 768,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.9375
+        },
+        {
+          "hex": "#f83959",
+          "coverage": 0.0527
+        },
+        {
+          "hex": "#100818",
+          "coverage": 0.0039
+        },
+        {
+          "hex": "#c83850",
+          "coverage": 0.0039
+        },
+        {
+          "hex": "#481828",
+          "coverage": 0.002
+        }
+      ],
+      "detail": {
+        "energy": 1.3702
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "hero-eyebrow-rule",
+      "kind": "chrome",
+      "note": "Short electric-green horizontal rule.",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.1201,
+        "w": 0.0378,
+        "h": 0.0029
+      },
+      "px": {
+        "x": 72,
+        "y": 123,
+        "w": 58,
+        "h": 3
+      },
+      "aspect": 19.3333,
+      "palette": [
+        {
+          "hex": "#180823",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 54.6945
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "hero-eyebrow",
+      "kind": "text",
+      "note": "Tracked electric-green label “SENIOR SOFTWARE ENGINEER”.",
+      "grid": null,
+      "box": {
+        "x": 0.0983,
+        "y": 0.1094,
+        "w": 0.1986,
+        "h": 0.0244
+      },
+      "px": {
+        "x": 151,
+        "y": 112,
+        "w": 305,
+        "h": 25
+      },
+      "aspect": 12.2,
+      "palette": [
+        {
+          "hex": "#170825",
+          "coverage": 0.8429
+        },
+        {
+          "hex": "#091413",
+          "coverage": 0.061
+        },
+        {
+          "hex": "#0de7aa",
+          "coverage": 0.0481
+        },
+        {
+          "hex": "#093927",
+          "coverage": 0.0258
+        },
+        {
+          "hex": "#0dec91",
+          "coverage": 0.0223
+        }
+      ],
+      "detail": {
+        "energy": 47.0157
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 23,
+          "capHeightPx": 10.7,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.6546,
+          "advTall": 0.6546,
+          "advX": null,
+          "gap": 0.4676,
+          "xRatio": null,
+          "stemW": 0.1938,
+          "contrast": 1.2543,
+          "serif": 0.4039,
+          "densTall": 0.5515,
+          "densX": null,
+          "weight": 0.5515
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "hero-name-first",
+      "kind": "text",
+      "note": "First display line “Fabio”, set in warm white.",
+      "grid": null,
+      "box": {
+        "x": 0.0443,
+        "y": 0.1445,
+        "w": 0.2344,
+        "h": 0.0996
+      },
+      "px": {
+        "x": 68,
+        "y": 148,
+        "w": 360,
+        "h": 102
+      },
+      "aspect": 3.5294,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.5781
+        },
+        {
+          "hex": "#f8f7f7",
+          "coverage": 0.39
+        },
+        {
+          "hex": "#b2a7b2",
+          "coverage": 0.0148
+        },
+        {
+          "hex": "#4b3d4f",
+          "coverage": 0.0094
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0077
+        }
+      ],
+      "detail": {
+        "energy": 41.6616
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 3,
+          "capHeightPx": 91.1,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.7244,
+          "advTall": 0.7244,
+          "advX": null,
+          "gap": 0.1098,
+          "xRatio": 0.6915,
+          "stemW": 0.2498,
+          "contrast": 3.2281,
+          "serif": 0.9363,
+          "densTall": 0.5029,
+          "densX": null,
+          "weight": 0.5029
+        },
+        "widthClass": "normal",
+        "weightClass": "medium",
+        "chosen": {
+          "family": "DM Serif Display",
+          "weight": 400,
+          "fontSizePx": 137,
+          "source": "shortlist",
+          "fp": {
+            "lines": 1,
+            "glyphs": 5,
+            "capHeightPx": 91.1,
+            "inkIsDark": true,
+            "allCaps": false,
+            "advance": 0.7467,
+            "advTall": 0.593,
+            "advX": 0.7467,
+            "gap": 0.0659,
+            "xRatio": 0.7363,
+            "stemW": 0.2199,
+            "contrast": 3.8309,
+            "serif": 1.144,
+            "densTall": 0.4879,
+            "densX": 0.5166,
+            "weight": 0.4879
+          },
+          "stamp": "26cf1d00f19b"
+        }
+      }
+    },
+    {
+      "id": "hero-name-second",
+      "kind": "text",
+      "note": "Second display line “Rosado”, set in coral.",
+      "grid": null,
+      "box": {
+        "x": 0.0443,
+        "y": 0.2432,
+        "w": 0.3092,
+        "h": 0.0996
+      },
+      "px": {
+        "x": 68,
+        "y": 249,
+        "w": 475,
+        "h": 102
+      },
+      "aspect": 4.6569,
+      "palette": [
+        {
+          "hex": "#180824",
+          "coverage": 0.5313
+        },
+        {
+          "hex": "#f73c58",
+          "coverage": 0.4288
+        },
+        {
+          "hex": "#3b1125",
+          "coverage": 0.0179
+        },
+        {
+          "hex": "#671932",
+          "coverage": 0.0149
+        },
+        {
+          "hex": "#902339",
+          "coverage": 0.0072
+        }
+      ],
+      "detail": {
+        "energy": 24.4772
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 3,
+          "capHeightPx": 99,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 1.7576,
+          "advTall": 1.7576,
+          "advX": null,
+          "gap": 0.0404,
+          "xRatio": 0.6667,
+          "stemW": 0.2555,
+          "contrast": 3.6219,
+          "serif": 1.5365,
+          "densTall": 0.4612,
+          "densX": null,
+          "weight": 0.4612
+        },
+        "widthClass": "wide",
+        "weightClass": "regular",
+        "chosen": {
+          "family": "DM Serif Display",
+          "weight": 400,
+          "fontSizePx": 149,
+          "source": "shortlist",
+          "fp": {
+            "lines": 1,
+            "glyphs": 6,
+            "capHeightPx": 99.2,
+            "inkIsDark": true,
+            "allCaps": false,
+            "advance": 0.746,
+            "advTall": 0.8468,
+            "advX": 0.7409,
+            "gap": 0.0706,
+            "xRatio": 0.7325,
+            "stemW": 0.2192,
+            "contrast": 3.4136,
+            "serif": 0.9169,
+            "densTall": 0.4965,
+            "densX": 0.5222,
+            "weight": 0.4965
+          },
+          "stamp": "59bb3166a9f5"
+        }
+      }
+    },
+    {
+      "id": "hero-role",
+      "kind": "text",
+      "note": "Display serif role “Senior Software Engineer”.",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.3506,
+        "w": 0.3971,
+        "h": 0.0527
+      },
+      "px": {
+        "x": 72,
+        "y": 359,
+        "w": 610,
+        "h": 54
+      },
+      "aspect": 11.2963,
+      "palette": [
+        {
+          "hex": "#180923",
+          "coverage": 0.7186
+        },
+        {
+          "hex": "#f7f6f7",
+          "coverage": 0.1989
+        },
+        {
+          "hex": "#403447",
+          "coverage": 0.037
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0233
+        },
+        {
+          "hex": "#b8b3bb",
+          "coverage": 0.0222
+        }
+      ],
+      "detail": {
+        "energy": 112.0839
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 18,
+          "capHeightPx": 38.5,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6761,
+          "advTall": 0.6761,
+          "advX": 0.6891,
+          "gap": 0.052,
+          "xRatio": 0.6619,
+          "stemW": 0.1916,
+          "contrast": 2.3172,
+          "serif": 1.1756,
+          "densTall": 0.4672,
+          "densX": 0.5166,
+          "weight": 0.4672
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "hero-summary",
+      "kind": "text",
+      "note": "Two-line description “Software work, technical writing, and an archive.”",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.4111,
+        "w": 0.3099,
+        "h": 0.0566
+      },
+      "px": {
+        "x": 72,
+        "y": 421,
+        "w": 476,
+        "h": 58
+      },
+      "aspect": 8.2069,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.9124
+        },
+        {
+          "hex": "#523f5f",
+          "coverage": 0.0321
+        },
+        {
+          "hex": "#dccae3",
+          "coverage": 0.026
+        },
+        {
+          "hex": "#846f92",
+          "coverage": 0.0157
+        },
+        {
+          "hex": "#af9abb",
+          "coverage": 0.0138
+        }
+      ],
+      "detail": {
+        "energy": 39.8315
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 40,
+          "capHeightPx": 17,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5898,
+          "advTall": 0.5898,
+          "advX": 0.5898,
+          "gap": 0.1769,
+          "xRatio": 0.696,
+          "stemW": 0.1285,
+          "contrast": 1.1002,
+          "serif": 0.3209,
+          "densTall": 0.3408,
+          "densX": 0.4898,
+          "weight": 0.3408
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "hero-projects-action",
+      "kind": "control",
+      "note": "Coral button with label “View my projects” and a small right arrow.",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.4824,
+        "w": 0.1471,
+        "h": 0.0469
+      },
+      "px": {
+        "x": 72,
+        "y": 494,
+        "w": 226,
+        "h": 48
+      },
+      "aspect": 4.7083,
+      "palette": [
+        {
+          "hex": "#f83c58",
+          "coverage": 0.7903
+        },
+        {
+          "hex": "#0e0818",
+          "coverage": 0.0852
+        },
+        {
+          "hex": "#ca3248",
+          "coverage": 0.0769
+        },
+        {
+          "hex": "#3b0f24",
+          "coverage": 0.0242
+        },
+        {
+          "hex": "#9d2539",
+          "coverage": 0.0234
+        }
+      ],
+      "detail": {
+        "energy": 16.9618
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "hero-articles-action",
+      "kind": "control",
+      "note": "Text link “Read Articles” with a fine green underline.",
+      "grid": null,
+      "box": {
+        "x": 0.2194,
+        "y": 0.4854,
+        "w": 0.1035,
+        "h": 0.0391
+      },
+      "px": {
+        "x": 337,
+        "y": 497,
+        "w": 159,
+        "h": 40
+      },
+      "aspect": 3.975,
+      "palette": [
+        {
+          "hex": "#180927",
+          "coverage": 0.8225
+        },
+        {
+          "hex": "#08281d",
+          "coverage": 0.0563
+        },
+        {
+          "hex": "#ede6eb",
+          "coverage": 0.0505
+        },
+        {
+          "hex": "#176338",
+          "coverage": 0.0462
+        },
+        {
+          "hex": "#655466",
+          "coverage": 0.0245
+        }
+      ],
+      "detail": {
+        "energy": 34.6789
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "hero-tagline",
+      "kind": "text",
+      "note": "Small stacked mono statement “BETTER SOFTWARE BRIGHTER DAYS”.",
+      "grid": null,
+      "box": {
+        "x": 0.8249,
+        "y": 0.123,
+        "w": 0.0814,
+        "h": 0.0859
+      },
+      "px": {
+        "x": 1267,
+        "y": 126,
+        "w": 125,
+        "h": 88
+      },
+      "aspect": 1.4205,
+      "palette": [
+        {
+          "hex": "#190929",
+          "coverage": 0.5437
+        },
+        {
+          "hex": "#391941",
+          "coverage": 0.4548
+        },
+        {
+          "hex": "#483858",
+          "coverage": 0.0016
+        }
+      ],
+      "detail": {
+        "energy": 1.0932
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": null,
+        "measuredAt": "2026-10-14T19:14:33.548Z",
+        "note": "no separable lettering in the crop; size by the region box"
+      }
+    },
+    {
+      "id": "hero-geometry",
+      "kind": "chrome",
+      "note": "Flat coral circle, plum diagonal ribbons, rules, squares and dot fields; responsive CSS geometry, not an image.",
+      "grid": null,
+      "codeDrawn": true,
+      "box": {
+        "x": 0.4824,
+        "y": 0.0859,
+        "w": 0.4557,
+        "h": 0.4326
+      },
+      "px": {
+        "x": 741,
+        "y": 88,
+        "w": 700,
+        "h": 443
+      },
+      "aspect": 1.5801,
+      "palette": [
+        {
+          "hex": "#1c0a2a",
+          "coverage": 0.767
+        },
+        {
+          "hex": "#f83958",
+          "coverage": 0.1739
+        },
+        {
+          "hex": "#391d48",
+          "coverage": 0.0508
+        },
+        {
+          "hex": "#0e0e1e",
+          "coverage": 0.0048
+        },
+        {
+          "hex": "#08f085",
+          "coverage": 0.0035
+        }
+      ],
+      "detail": {
+        "energy": 6.8867
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "projects-separator",
+      "kind": "chrome",
+      "note": "Fine plum divider below the hero.",
+      "grid": null,
+      "box": {
+        "x": 0,
+        "y": 0.5469,
+        "w": 1,
+        "h": 0.0029
+      },
+      "px": {
+        "x": 0,
+        "y": 560,
+        "w": 1536,
+        "h": 3
+      },
+      "aspect": 512,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 9.0933
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "projects-heading-rule",
+      "kind": "chrome",
+      "note": "Short vertical electric-green rule.",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.5693,
+        "w": 0.0026,
+        "h": 0.0283
+      },
+      "px": {
+        "x": 72,
+        "y": 583,
+        "w": 4,
+        "h": 29
+      },
+      "aspect": 0.1379,
+      "palette": [
+        {
+          "hex": "#089646",
+          "coverage": 0.45
+        },
+        {
+          "hex": "#08181a",
+          "coverage": 0.4
+        },
+        {
+          "hex": "#180828",
+          "coverage": 0.1
+        },
+        {
+          "hex": "#082818",
+          "coverage": 0.05
+        }
+      ],
+      "detail": {
+        "energy": 3.719
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "projects-heading",
+      "kind": "text",
+      "note": "Tracked label “FEATURED PROJECTS”.",
+      "grid": null,
+      "box": {
+        "x": 0.0983,
+        "y": 0.5625,
+        "w": 0.1504,
+        "h": 0.0273
+      },
+      "px": {
+        "x": 151,
+        "y": 576,
+        "w": 231,
+        "h": 28
+      },
+      "aspect": 8.25,
+      "palette": [
+        {
+          "hex": "#180825",
+          "coverage": 0.897
+        },
+        {
+          "hex": "#0c0f14",
+          "coverage": 0.0412
+        },
+        {
+          "hex": "#0c2a1a",
+          "coverage": 0.0275
+        },
+        {
+          "hex": "#0fcc84",
+          "coverage": 0.0179
+        },
+        {
+          "hex": "#0d452b",
+          "coverage": 0.0165
+        }
+      ],
+      "detail": {
+        "energy": 23.8688
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 16,
+          "capHeightPx": 9.4,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.6734,
+          "advTall": 0.6734,
+          "advX": null,
+          "gap": 0.4253,
+          "xRatio": null,
+          "stemW": 0.2085,
+          "contrast": 1.2149,
+          "serif": null,
+          "densTall": 0.5982,
+          "densX": null,
+          "weight": 0.5982
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "project-one-frame",
+      "kind": "chrome",
+      "note": "Fine outlined panel for Following Imperfectly.",
+      "grid": null,
+      "box": {
+        "x": 0.0469,
+        "y": 0.6045,
+        "w": 0.3001,
+        "h": 0.207
+      },
+      "px": {
+        "x": 72,
+        "y": 619,
+        "w": 461,
+        "h": 212
+      },
+      "aspect": 2.1745,
+      "palette": [
+        {
+          "hex": "#1d0a28",
+          "coverage": 0.8551
+        },
+        {
+          "hex": "#f23955",
+          "coverage": 0.0569
+        },
+        {
+          "hex": "#f6f5f6",
+          "coverage": 0.0384
+        },
+        {
+          "hex": "#441834",
+          "coverage": 0.0316
+        },
+        {
+          "hex": "#0b0b16",
+          "coverage": 0.018
+        }
+      ],
+      "detail": {
+        "energy": 21.4549
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "project-one-art",
+      "kind": "chrome",
+      "note": "Abstract flat coral disc and plum geometric field; code-drawn shapes, not product imagery.",
+      "grid": null,
+      "codeDrawn": true,
+      "box": {
+        "x": 0.0475,
+        "y": 0.6055,
+        "w": 0.1146,
+        "h": 0.2051
+      },
+      "px": {
+        "x": 73,
+        "y": 620,
+        "w": 176,
+        "h": 210
+      },
+      "aspect": 0.8381,
+      "palette": [
+        {
+          "hex": "#1d0c29",
+          "coverage": 0.682
+        },
+        {
+          "hex": "#f33955",
+          "coverage": 0.1487
+        },
+        {
+          "hex": "#441a36",
+          "coverage": 0.0941
+        },
+        {
+          "hex": "#9a2642",
+          "coverage": 0.0415
+        },
+        {
+          "hex": "#711939",
+          "coverage": 0.0337
+        }
+      ],
+      "detail": {
+        "energy": 5.7049
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "project-one-title",
+      "kind": "text",
+      "note": "Two-line serif project link “Following Imperfectly”.",
+      "grid": null,
+      "box": {
+        "x": 0.1387,
+        "y": 0.6943,
+        "w": 0.14,
+        "h": 0.082
+      },
+      "px": {
+        "x": 213,
+        "y": 711,
+        "w": 215,
+        "h": 84
+      },
+      "aspect": 2.5595,
+      "palette": [
+        {
+          "hex": "#190924",
+          "coverage": 0.6996
+        },
+        {
+          "hex": "#f6f5f6",
+          "coverage": 0.196
+        },
+        {
+          "hex": "#8c8190",
+          "coverage": 0.0445
+        },
+        {
+          "hex": "#433648",
+          "coverage": 0.0403
+        },
+        {
+          "hex": "#0b0b0b",
+          "coverage": 0.0196
+        }
+      ],
+      "detail": {
+        "energy": 53.5227
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 14,
+          "capHeightPx": 28.7,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6242,
+          "advTall": 0.5412,
+          "advX": 0.6242,
+          "gap": 0.0351,
+          "xRatio": 0.6842,
+          "stemW": 0.2087,
+          "contrast": 2.6624,
+          "serif": 0.4102,
+          "densTall": 0.5238,
+          "densX": 0.5337,
+          "weight": 0.5238
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "project-one-arrow",
+      "kind": "control",
+      "note": "Small right-pointing project link arrow.",
+      "grid": null,
+      "box": {
+        "x": 0.3086,
+        "y": 0.7529,
+        "w": 0.0189,
+        "h": 0.0332
+      },
+      "px": {
+        "x": 474,
+        "y": 771,
+        "w": 29,
+        "h": 34
+      },
+      "aspect": 0.8529,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.8083
+        },
+        {
+          "hex": "#110b18",
+          "coverage": 0.1
+        },
+        {
+          "hex": "#756878",
+          "coverage": 0.0417
+        },
+        {
+          "hex": "#f5f2f5",
+          "coverage": 0.0417
+        },
+        {
+          "hex": "#382838",
+          "coverage": 0.0083
+        }
+      ],
+      "detail": {
+        "energy": 4.8989
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "project-two-frame",
+      "kind": "chrome",
+      "note": "Fine outlined panel for MetaDen Scripts.",
+      "grid": null,
+      "box": {
+        "x": 0.3561,
+        "y": 0.6045,
+        "w": 0.2962,
+        "h": 0.207
+      },
+      "px": {
+        "x": 547,
+        "y": 619,
+        "w": 455,
+        "h": 212
+      },
+      "aspect": 2.1462,
+      "palette": [
+        {
+          "hex": "#1b0f2a",
+          "coverage": 0.8342
+        },
+        {
+          "hex": "#084935",
+          "coverage": 0.059
+        },
+        {
+          "hex": "#132c2c",
+          "coverage": 0.0554
+        },
+        {
+          "hex": "#f6f6f7",
+          "coverage": 0.0294
+        },
+        {
+          "hex": "#3b2b3f",
+          "coverage": 0.022
+        }
+      ],
+      "detail": {
+        "energy": 19.8751
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "project-two-art",
+      "kind": "chrome",
+      "note": "Flat diagonal coral and plum bands with an electric-green dot field.",
+      "grid": null,
+      "codeDrawn": true,
+      "box": {
+        "x": 0.4831,
+        "y": 0.6055,
+        "w": 0.1686,
+        "h": 0.2051
+      },
+      "px": {
+        "x": 742,
+        "y": 620,
+        "w": 259,
+        "h": 210
+      },
+      "aspect": 1.2333,
+      "palette": [
+        {
+          "hex": "#1b132a",
+          "coverage": 0.7215
+        },
+        {
+          "hex": "#094935",
+          "coverage": 0.1096
+        },
+        {
+          "hex": "#122a2b",
+          "coverage": 0.0955
+        },
+        {
+          "hex": "#581833",
+          "coverage": 0.0378
+        },
+        {
+          "hex": "#b82848",
+          "coverage": 0.0356
+        }
+      ],
+      "detail": {
+        "energy": 8.2882
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "project-two-title",
+      "kind": "text",
+      "note": "Two-line serif project link “MetaDen Scripts”.",
+      "grid": null,
+      "box": {
+        "x": 0.3783,
+        "y": 0.6943,
+        "w": 0.1191,
+        "h": 0.082
+      },
+      "px": {
+        "x": 581,
+        "y": 711,
+        "w": 183,
+        "h": 84
+      },
+      "aspect": 2.1786,
+      "palette": [
+        {
+          "hex": "#190924",
+          "coverage": 0.7317
+        },
+        {
+          "hex": "#f6f5f6",
+          "coverage": 0.1708
+        },
+        {
+          "hex": "#413447",
+          "coverage": 0.0376
+        },
+        {
+          "hex": "#0c0c0c",
+          "coverage": 0.0321
+        },
+        {
+          "hex": "#766e7e",
+          "coverage": 0.0279
+        }
+      ],
+      "detail": {
+        "energy": 41.4739
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 12,
+          "capHeightPx": 28.5,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6316,
+          "advTall": 0.9825,
+          "advX": 0.5965,
+          "gap": 0.0351,
+          "xRatio": 0.6895,
+          "stemW": 0.2074,
+          "contrast": 2.3457,
+          "serif": 0.4444,
+          "densTall": 0.4747,
+          "densX": 0.5056,
+          "weight": 0.4747
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "project-two-arrow",
+      "kind": "control",
+      "note": "Small right-pointing project link arrow.",
+      "grid": null,
+      "box": {
+        "x": 0.6152,
+        "y": 0.7529,
+        "w": 0.0189,
+        "h": 0.0332
+      },
+      "px": {
+        "x": 945,
+        "y": 771,
+        "w": 29,
+        "h": 34
+      },
+      "aspect": 0.8529,
+      "palette": [
+        {
+          "hex": "#181528",
+          "coverage": 0.8667
+        },
+        {
+          "hex": "#182828",
+          "coverage": 0.075
+        },
+        {
+          "hex": "#f0f0f0",
+          "coverage": 0.0333
+        },
+        {
+          "hex": "#a0a0b0",
+          "coverage": 0.0167
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0083
+        }
+      ],
+      "detail": {
+        "energy": 4.9288
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "writing-divider",
+      "kind": "chrome",
+      "note": "Thin vertical plum divider between projects and writing.",
+      "grid": null,
+      "box": {
+        "x": 0.6738,
+        "y": 0.5771,
+        "w": 0.0013,
+        "h": 0.2119
+      },
+      "px": {
+        "x": 1035,
+        "y": 591,
+        "w": 2,
+        "h": 217
+      },
+      "aspect": 0.0092,
+      "palette": [
+        {
+          "hex": "#18081f",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 2.7969
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "writing-heading-rule",
+      "kind": "chrome",
+      "note": "Short vertical electric-green rule.",
+      "grid": null,
+      "box": {
+        "x": 0.7259,
+        "y": 0.5693,
+        "w": 0.0026,
+        "h": 0.0283
+      },
+      "px": {
+        "x": 1115,
+        "y": 583,
+        "w": 4,
+        "h": 29
+      },
+      "aspect": 0.1379,
+      "palette": [
+        {
+          "hex": "#082321",
+          "coverage": 0.35
+        },
+        {
+          "hex": "#087846",
+          "coverage": 0.35
+        },
+        {
+          "hex": "#0d1323",
+          "coverage": 0.15
+        },
+        {
+          "hex": "#086040",
+          "coverage": 0.1
+        },
+        {
+          "hex": "#083828",
+          "coverage": 0.05
+        }
+      ],
+      "detail": {
+        "energy": 4.48
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "writing-heading",
+      "kind": "text",
+      "note": "Tracked label “LATEST WRITING”.",
+      "grid": null,
+      "box": {
+        "x": 0.7474,
+        "y": 0.5625,
+        "w": 0.1367,
+        "h": 0.0273
+      },
+      "px": {
+        "x": 1148,
+        "y": 576,
+        "w": 210,
+        "h": 28
+      },
+      "aspect": 7.5,
+      "palette": [
+        {
+          "hex": "#180827",
+          "coverage": 0.8671
+        },
+        {
+          "hex": "#0b0f13",
+          "coverage": 0.0916
+        },
+        {
+          "hex": "#0f9d63",
+          "coverage": 0.0177
+        },
+        {
+          "hex": "#0dbd71",
+          "coverage": 0.0133
+        },
+        {
+          "hex": "#114831",
+          "coverage": 0.0103
+        }
+      ],
+      "detail": {
+        "energy": 19.8139
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 12,
+          "capHeightPx": 10.1,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.6288,
+          "advTall": 0.6288,
+          "advX": null,
+          "gap": 0.4137,
+          "xRatio": null,
+          "stemW": 0.2066,
+          "contrast": 1.2312,
+          "serif": null,
+          "densTall": 0.6246,
+          "densX": null,
+          "weight": 0.6246
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "article-one",
+      "kind": "text",
+      "note": "Article link “How to setup DynamoDB locally”.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.6113,
+        "w": 0.2246,
+        "h": 0.0332
+      },
+      "px": {
+        "x": 1118,
+        "y": 626,
+        "w": 345,
+        "h": 34
+      },
+      "aspect": 10.1471,
+      "palette": [
+        {
+          "hex": "#180925",
+          "coverage": 0.8733
+        },
+        {
+          "hex": "#f5f5f5",
+          "coverage": 0.051
+        },
+        {
+          "hex": "#c8c0d0",
+          "coverage": 0.027
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0247
+        },
+        {
+          "hex": "#8b7e8f",
+          "coverage": 0.024
+        }
+      ],
+      "detail": {
+        "energy": 63.2002
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 25,
+          "capHeightPx": 14,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6419,
+          "advTall": 0.7846,
+          "advX": 0.6597,
+          "gap": 0.0713,
+          "xRatio": 0.6685,
+          "stemW": 0.1821,
+          "contrast": 1.4961,
+          "serif": 1.3426,
+          "densTall": 0.5648,
+          "densX": 0.5791,
+          "weight": 0.5648
+        },
+        "widthClass": "normal",
+        "weightClass": "bold"
+      }
+    },
+    {
+      "id": "article-one-arrow",
+      "kind": "control",
+      "note": "Small right arrow at the end of the first article row.",
+      "grid": null,
+      "box": {
+        "x": 0.9453,
+        "y": 0.6104,
+        "w": 0.0137,
+        "h": 0.0322
+      },
+      "px": {
+        "x": 1452,
+        "y": 625,
+        "w": 21,
+        "h": 33
+      },
+      "aspect": 0.6364,
+      "palette": [
+        {
+          "hex": "#190928",
+          "coverage": 0.8701
+        },
+        {
+          "hex": "#0d0815",
+          "coverage": 0.0779
+        },
+        {
+          "hex": "#f0f0f0",
+          "coverage": 0.0519
+        }
+      ],
+      "detail": {
+        "energy": 3.4643
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "article-rule-one",
+      "kind": "chrome",
+      "note": "Fine horizontal separator after the first article.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.6504,
+        "w": 0.2253,
+        "h": 0.002
+      },
+      "px": {
+        "x": 1118,
+        "y": 666,
+        "w": 346,
+        "h": 2
+      },
+      "aspect": 173,
+      "palette": [
+        {
+          "hex": "#382739",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 13.0882
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "article-two",
+      "kind": "text",
+      "note": "Two-line article link “How to create and use indexes in DynamoDB”.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.665,
+        "w": 0.2194,
+        "h": 0.0488
+      },
+      "px": {
+        "x": 1118,
+        "y": 681,
+        "w": 337,
+        "h": 50
+      },
+      "aspect": 6.74,
+      "palette": [
+        {
+          "hex": "#180926",
+          "coverage": 0.8849
+        },
+        {
+          "hex": "#f5f4f5",
+          "coverage": 0.0527
+        },
+        {
+          "hex": "#9d94a3",
+          "coverage": 0.0221
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0215
+        },
+        {
+          "hex": "#786b7c",
+          "coverage": 0.0188
+        }
+      ],
+      "detail": {
+        "energy": 56.2586
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 31,
+          "capHeightPx": 14,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6768,
+          "advTall": 0.7312,
+          "advX": 0.6428,
+          "gap": 0.0714,
+          "xRatio": 0.6711,
+          "stemW": 0.1814,
+          "contrast": 1.5141,
+          "serif": 0.9352,
+          "densTall": 0.5026,
+          "densX": 0.561,
+          "weight": 0.5026
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "article-two-arrow",
+      "kind": "control",
+      "note": "Small right arrow at the end of the second article row.",
+      "grid": null,
+      "box": {
+        "x": 0.9453,
+        "y": 0.667,
+        "w": 0.0137,
+        "h": 0.0439
+      },
+      "px": {
+        "x": 1452,
+        "y": 683,
+        "w": 21,
+        "h": 45
+      },
+      "aspect": 0.4667,
+      "palette": [
+        {
+          "hex": "#180827",
+          "coverage": 0.9333
+        },
+        {
+          "hex": "#f8f8f8",
+          "coverage": 0.0381
+        },
+        {
+          "hex": "#786878",
+          "coverage": 0.019
+        },
+        {
+          "hex": "#a898a8",
+          "coverage": 0.0095
+        }
+      ],
+      "detail": {
+        "energy": 2.4956
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "article-rule-two",
+      "kind": "chrome",
+      "note": "Fine horizontal separator after the second article.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.7227,
+        "w": 0.2253,
+        "h": 0.002
+      },
+      "px": {
+        "x": 1118,
+        "y": 740,
+        "w": 346,
+        "h": 2
+      },
+      "aspect": 173,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 0.32
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "article-three",
+      "kind": "text",
+      "note": "Article link “How to run PyScript in React”.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.7363,
+        "w": 0.2168,
+        "h": 0.0352
+      },
+      "px": {
+        "x": 1118,
+        "y": 754,
+        "w": 333,
+        "h": 36
+      },
+      "aspect": 9.25,
+      "palette": [
+        {
+          "hex": "#180926",
+          "coverage": 0.885
+        },
+        {
+          "hex": "#f3f2f4",
+          "coverage": 0.0644
+        },
+        {
+          "hex": "#b5adb9",
+          "coverage": 0.0245
+        },
+        {
+          "hex": "#080808",
+          "coverage": 0.0138
+        },
+        {
+          "hex": "#807788",
+          "coverage": 0.0123
+        }
+      ],
+      "detail": {
+        "energy": 51.1513
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 21,
+          "capHeightPx": 14.1,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.6026,
+          "advTall": 0.7267,
+          "advX": 0.6203,
+          "gap": 0.0709,
+          "xRatio": 0.6654,
+          "stemW": 0.1796,
+          "contrast": 1.4572,
+          "serif": 1.0358,
+          "densTall": 0.4974,
+          "densX": 0.542,
+          "weight": 0.4974
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "article-three-arrow",
+      "kind": "control",
+      "note": "Small right arrow at the end of the third article row.",
+      "grid": null,
+      "box": {
+        "x": 0.9453,
+        "y": 0.7354,
+        "w": 0.0137,
+        "h": 0.0352
+      },
+      "px": {
+        "x": 1452,
+        "y": 753,
+        "w": 21,
+        "h": 36
+      },
+      "aspect": 0.5833,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 0.881
+        },
+        {
+          "hex": "#130d1b",
+          "coverage": 0.0714
+        },
+        {
+          "hex": "#f4f4f4",
+          "coverage": 0.0476
+        }
+      ],
+      "detail": {
+        "energy": 3.204
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "article-rule-three",
+      "kind": "chrome",
+      "note": "Fine horizontal separator after the third article.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.7725,
+        "w": 0.2253,
+        "h": 0.002
+      },
+      "px": {
+        "x": 1118,
+        "y": 791,
+        "w": 346,
+        "h": 2
+      },
+      "aspect": 173,
+      "palette": [
+        {
+          "hex": "#180819",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 8.7407
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "all-articles",
+      "kind": "control",
+      "note": "Text link “View all articles” with electric-green underline and arrow.",
+      "grid": null,
+      "box": {
+        "x": 0.7279,
+        "y": 0.7832,
+        "w": 0.1204,
+        "h": 0.0342
+      },
+      "px": {
+        "x": 1118,
+        "y": 802,
+        "w": 185,
+        "h": 35
+      },
+      "aspect": 5.2857,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.8324
+        },
+        {
+          "hex": "#08f096",
+          "coverage": 0.0651
+        },
+        {
+          "hex": "#ece6eb",
+          "coverage": 0.0485
+        },
+        {
+          "hex": "#c6b9c4",
+          "coverage": 0.0319
+        },
+        {
+          "hex": "#948798",
+          "coverage": 0.0222
+        }
+      ],
+      "detail": {
+        "energy": 37.5408
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "content-rule",
+      "kind": "chrome",
+      "note": "Fine plum divider above the about and contact row.",
+      "grid": null,
+      "box": {
+        "x": 0,
+        "y": 0.8271,
+        "w": 1,
+        "h": 0.002
+      },
+      "px": {
+        "x": 0,
+        "y": 847,
+        "w": 1536,
+        "h": 2
+      },
+      "aspect": 768,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 0.3286
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "about-heading-rule",
+      "kind": "chrome",
+      "note": "Short vertical electric-green rule.",
+      "grid": null,
+      "box": {
+        "x": 0.0475,
+        "y": 0.8564,
+        "w": 0.0026,
+        "h": 0.0264
+      },
+      "px": {
+        "x": 73,
+        "y": 877,
+        "w": 4,
+        "h": 27
+      },
+      "aspect": 0.1481,
+      "palette": [
+        {
+          "hex": "#180827",
+          "coverage": 0.6111
+        },
+        {
+          "hex": "#08f88d",
+          "coverage": 0.3333
+        },
+        {
+          "hex": "#08b868",
+          "coverage": 0.0556
+        }
+      ],
+      "detail": {
+        "energy": 2.5503
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "about-heading",
+      "kind": "text",
+      "note": "Tracked label “ABOUT”.",
+      "grid": null,
+      "box": {
+        "x": 0.0996,
+        "y": 0.8486,
+        "w": 0.0677,
+        "h": 0.0322
+      },
+      "px": {
+        "x": 153,
+        "y": 869,
+        "w": 104,
+        "h": 33
+      },
+      "aspect": 3.1515,
+      "palette": [
+        {
+          "hex": "#180827",
+          "coverage": 0.896
+        },
+        {
+          "hex": "#0a0e18",
+          "coverage": 0.0533
+        },
+        {
+          "hex": "#0be489",
+          "coverage": 0.0293
+        },
+        {
+          "hex": "#0c9c70",
+          "coverage": 0.0107
+        },
+        {
+          "hex": "#0cd090",
+          "coverage": 0.0107
+        }
+      ],
+      "detail": {
+        "energy": 9.7383
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 5,
+          "capHeightPx": 10.4,
+          "inkIsDark": false,
+          "allCaps": true,
+          "advance": 0.7039,
+          "advTall": 0.7039,
+          "advX": null,
+          "gap": 0.384,
+          "xRatio": null,
+          "stemW": 0.1947,
+          "contrast": 1.0289,
+          "serif": null,
+          "densTall": 0.5283,
+          "densX": null,
+          "weight": 0.5283
+        },
+        "widthClass": "normal",
+        "weightClass": "medium"
+      }
+    },
+    {
+      "id": "about-copy",
+      "kind": "text",
+      "note": "Concise about sentence “Software work, technical writing, and an archive.”",
+      "grid": null,
+      "box": {
+        "x": 0.0475,
+        "y": 0.9043,
+        "w": 0.2852,
+        "h": 0.0605
+      },
+      "px": {
+        "x": 73,
+        "y": 926,
+        "w": 438,
+        "h": 62
+      },
+      "aspect": 7.0645,
+      "palette": [
+        {
+          "hex": "#190827",
+          "coverage": 0.914
+        },
+        {
+          "hex": "#c2afce",
+          "coverage": 0.0266
+        },
+        {
+          "hex": "#5a4867",
+          "coverage": 0.0206
+        },
+        {
+          "hex": "#8c7799",
+          "coverage": 0.0199
+        },
+        {
+          "hex": "#090917",
+          "coverage": 0.0189
+        }
+      ],
+      "detail": {
+        "energy": 26.5694
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 2,
+          "glyphs": 40,
+          "capHeightPx": 14.4,
+          "inkIsDark": false,
+          "allCaps": false,
+          "advance": 0.5923,
+          "advTall": 0.6066,
+          "advX": 0.5923,
+          "gap": 0.1742,
+          "xRatio": 0.697,
+          "stemW": 0.1411,
+          "contrast": 1.0731,
+          "serif": 0.7335,
+          "densTall": 0.3782,
+          "densX": 0.5213,
+          "weight": 0.3782
+        },
+        "widthClass": "normal",
+        "weightClass": "regular"
+      }
+    },
+    {
+      "id": "connect-divider",
+      "kind": "chrome",
+      "note": "Thin vertical plum divider before the contact links.",
+      "grid": null,
+      "box": {
+        "x": 0.6738,
+        "y": 0.8496,
+        "w": 0.0013,
+        "h": 0.1104
+      },
+      "px": {
+        "x": 1035,
+        "y": 870,
+        "w": 2,
+        "h": 113
+      },
+      "aspect": 0.0177,
+      "palette": [
+        {
+          "hex": "#3e2c49",
+          "coverage": 0.7105
+        },
+        {
+          "hex": "#180827",
+          "coverage": 0.2895
+        }
+      ],
+      "detail": {
+        "energy": 0.3544
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "connect-heading-rule",
+      "kind": "chrome",
+      "note": "Short vertical electric-green rule.",
+      "grid": null,
+      "box": {
+        "x": 0.7227,
+        "y": 0.8564,
+        "w": 0.0026,
+        "h": 0.0264
+      },
+      "px": {
+        "x": 1110,
+        "y": 877,
+        "w": 4,
+        "h": 27
+      },
+      "aspect": 0.1481,
+      "palette": [
+        {
+          "hex": "#180826",
+          "coverage": 0.8333
+        },
+        {
+          "hex": "#08f0a8",
+          "coverage": 0.1111
+        },
+        {
+          "hex": "#08c898",
+          "coverage": 0.0556
+        }
+      ],
+      "detail": {
+        "energy": 1.1912
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "connect-heading",
+      "kind": "text",
+      "note": "Tracked label “CONNECT”.",
+      "grid": null,
+      "box": {
+        "x": 0.7448,
+        "y": 0.8486,
+        "w": 0.0996,
+        "h": 0.0322
+      },
+      "px": {
+        "x": 1144,
+        "y": 869,
+        "w": 153,
+        "h": 33
+      },
+      "aspect": 4.6364,
+      "palette": [
+        {
+          "hex": "#180828",
+          "coverage": 1
+        }
+      ],
+      "detail": {
+        "energy": 0.4425
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null,
+      "type": {
+        "comp": {
+          "lines": 1,
+          "glyphs": 4,
+          "capHeightPx": 31.9,
+          "inkIsDark": true,
+          "allCaps": true,
+          "advance": 0.2662,
+          "advTall": 0.7046,
+          "advX": null,
+          "gap": 0.2505,
+          "xRatio": null,
+          "stemW": 0.0685,
+          "contrast": 1.1423,
+          "serif": null,
+          "densTall": 0.3367,
+          "densX": null,
+          "weight": 0.3367
+        },
+        "widthClass": "normal",
+        "weightClass": "light"
+      }
+    },
+    {
+      "id": "social-linkedin",
+      "kind": "control",
+      "note": "Outlined square social link with a small LinkedIn icon.",
+      "grid": null,
+      "box": {
+        "x": 0.7246,
+        "y": 0.9131,
+        "w": 0.0449,
+        "h": 0.0752
+      },
+      "px": {
+        "x": 1113,
+        "y": 935,
+        "w": 69,
+        "h": 77
+      },
+      "aspect": 0.8961,
+      "palette": [
+        {
+          "hex": "#190927",
+          "coverage": 0.7617
+        },
+        {
+          "hex": "#f7f6f7",
+          "coverage": 0.1275
+        },
+        {
+          "hex": "#45364e",
+          "coverage": 0.0537
+        },
+        {
+          "hex": "#b5b1b9",
+          "coverage": 0.0302
+        },
+        {
+          "hex": "#090918",
+          "coverage": 0.0268
+        }
+      ],
+      "detail": {
+        "energy": 8.5726
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "social-github",
+      "kind": "control",
+      "note": "Outlined square social link with a small GitHub icon.",
+      "grid": null,
+      "box": {
+        "x": 0.7904,
+        "y": 0.9131,
+        "w": 0.0449,
+        "h": 0.0752
+      },
+      "px": {
+        "x": 1214,
+        "y": 935,
+        "w": 69,
+        "h": 77
+      },
+      "aspect": 0.8961,
+      "palette": [
+        {
+          "hex": "#1a0929",
+          "coverage": 0.8704
+        },
+        {
+          "hex": "#f5f5f5",
+          "coverage": 0.0657
+        },
+        {
+          "hex": "#483348",
+          "coverage": 0.0404
+        },
+        {
+          "hex": "#0a0a1a",
+          "coverage": 0.0152
+        },
+        {
+          "hex": "#cbc2cb",
+          "coverage": 0.0084
+        }
+      ],
+      "detail": {
+        "energy": 6.6629
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    },
+    {
+      "id": "social-dev",
+      "kind": "control",
+      "note": "Outlined square social link with the DEV wordmark.",
+      "grid": null,
+      "box": {
+        "x": 0.8464,
+        "y": 0.9131,
+        "w": 0.0449,
+        "h": 0.0752
+      },
+      "px": {
+        "x": 1300,
+        "y": 935,
+        "w": 69,
+        "h": 77
+      },
+      "aspect": 0.8961,
+      "palette": [
+        {
+          "hex": "#1a0a29",
+          "coverage": 0.8387
+        },
+        {
+          "hex": "#f1f0f2",
+          "coverage": 0.0672
+        },
+        {
+          "hex": "#443348",
+          "coverage": 0.0571
+        },
+        {
+          "hex": "#090912",
+          "coverage": 0.0252
+        },
+        {
+          "hex": "#a398a6",
+          "coverage": 0.0118
+        }
+      ],
+      "detail": {
+        "energy": 8.238
+      },
+      "medium": "semantic",
+      "plate": null,
+      "text": null
+    }
+  ]
+}

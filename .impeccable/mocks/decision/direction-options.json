@@ -1,0 +1,236 @@
+{
+  "title": "Choose the visual direction",
+  "question": "The roll assigned the Service Manual Index. Choose it, adopt an alternate, or re-roll. Every direction keeps the agreed content, routes, palette, and contact path.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Service Manual Index",
+      "kicker": "THE ROLL",
+      "lineage": "Industrial service manuals and parts lists",
+      "thesis": "A precise, human-readable index of current work and the technical archive behind it.",
+      "palette": [
+        "#251333",
+        "#fc4056",
+        "#0efb69",
+        "#f3ede8"
+      ],
+      "materials": [
+        "matte plum stock",
+        "ruled technical ink",
+        "revision marks"
+      ],
+      "viewport": "The name and role sit on a manual cover; two current projects occupy the main work plate; Articles, Cheatsheets, and Projects read as direct index entries.",
+      "risk": "Too much machine language could make a personal portfolio feel impersonal.",
+      "raised": [
+        {
+          "from": "challenger-gravity-rain",
+          "raise": "Use accent color only to clarify a path or active state."
+        },
+        {
+          "from": "challenger-deep-dive",
+          "raise": "Keep current work visibly at the surface and the historical archive one clear step deeper."
+        },
+        {
+          "from": "challenger-drum-machine",
+          "raise": "Give navigation one deliberate active state, with no decorative looping motion."
+        },
+        {
+          "from": "challenger-minihompy",
+          "raise": "Reserve one quiet, human sentence inside the technical index."
+        }
+      ],
+      "comp": "http://127.0.0.1:64256/assigned.png"
+    },
+    {
+      "id": "model-pick",
+      "label": "Three Routes Through the Work",
+      "kicker": "IMPECCABLE\u2019S PICK",
+      "lineage": "Railway wayfinding maps and interchange diagrams",
+      "thesis": "A small route map makes the portfolio\u2019s next useful destination obvious.",
+      "palette": [
+        "#251333",
+        "#fc4056",
+        "#0efb69",
+        "#f3ede8"
+      ],
+      "materials": [
+        "printed route lines",
+        "station dots",
+        "wayfinding type"
+      ],
+      "viewport": "Fabio Rosado is the origin; two featured projects are the largest destinations; clearly labeled routes lead to Articles, Cheatsheets, Projects, and LinkedIn.",
+      "risk": "If the lines stop acting as real links, the map becomes decoration.",
+      "comp": "http://127.0.0.1:64256/model-pick.png"
+    },
+    {
+      "id": "challenger-star-atlas",
+      "label": "Star Atlas of Work",
+      "verdict": "competitive",
+      "lineage": "Celestial star atlases and coordinate charts",
+      "thesis": "A precise chart lets technical work and writing be explored as a field of labeled points.",
+      "palette": [
+        "#251333",
+        "#fc4056",
+        "#0efb69",
+        "#f3ede8"
+      ],
+      "materials": [
+        "matte chart ink",
+        "fine coordinate rules",
+        "registered points"
+      ],
+      "viewport": "Two featured projects are the brightest labeled objects; the article and archive links form a measured index alongside them.",
+      "risk": "The astronomy language could obscure the direct paths employers and readers need.",
+      "case": "Holds audience identification through technical charts and data graphics; loses narrowly on product clarity because the star-map metaphor adds translation.",
+      "hero": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/notation-diagram-systems-star-atlas.webp",
+      "comp": "http://127.0.0.1:64256/challenger-star-atlas.png"
+    },
+    {
+      "id": "challenger-soundsystem-poster",
+      "label": "Work in One Broadside",
+      "verdict": "competitive",
+      "lineage": "Screen-printed dancehall handbills",
+      "thesis": "One high-contrast printed sheet gives current work and writing an unmistakable voice.",
+      "palette": [
+        "#251333",
+        "#fc4056",
+        "#0efb69",
+        "#f3ede8"
+      ],
+      "materials": [
+        "screen-printed ink",
+        "overprinted rules",
+        "heavy display type"
+      ],
+      "viewport": "A large name and role lead a single print surface; the two current projects take clear top billing, with writing and archives arranged below.",
+      "risk": "Large lettering can consume the room needed for scanning and long-form reading.",
+      "case": "Holds product clarity with a strict hierarchy and direct labels; loses on audience identification because dancehall billing carries an unrelated cultural code.",
+      "hero": "https://impeccable.style/worlds/cards/posters-covers-sleeves-soundsystem-dance-poster-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/posters-covers-sleeves-soundsystem-dance-poster.webp",
+      "comp": "http://127.0.0.1:64256/challenger-soundsystem-poster.png"
+    },
+    {
+      "id": "challenger-gravity-rain",
+      "label": "Gravity-Rain Garden",
+      "verdict": "declined",
+      "lineage": "Surreal gardens with local gravity fields",
+      "thesis": "A landscape of changing forces invites exploratory browsing.",
+      "palette": [
+        "#425348",
+        "#7dbbd0",
+        "#e64f43",
+        "#101010"
+      ],
+      "materials": [
+        "garden illustration",
+        "colored water paths",
+        "soft labels"
+      ],
+      "viewport": "Browse regions by cloud, direction, and destination.",
+      "risk": "The visual system competes with the portfolio\u2019s actual routes.",
+      "case": "Loses on audience identification and product clarity; the metaphor supplies no useful route that the site actually contains.",
+      "kept": "Color will still mark real navigation and active states, never serve as decoration.",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-gravity-rain-garden-hero.webp"
+    },
+    {
+      "id": "challenger-deep-dive",
+      "label": "Mesophotic Deep Dive",
+      "verdict": "declined",
+      "lineage": "Technical dive charts and mesophotic field records",
+      "thesis": "Descending layers turn a complex subject into a sequence of discoveries.",
+      "palette": [
+        "#071b31",
+        "#13bdd0",
+        "#f2f0e7",
+        "#fc4056"
+      ],
+      "materials": [
+        "depth profile",
+        "marine-snow grain",
+        "instrument typography"
+      ],
+      "viewport": "Move from surface entries through a vertical dive profile into selected observations.",
+      "risk": "The ocean story is unrelated to Fabio\u2019s current work.",
+      "case": "Loses on audience identification and product clarity; the subject itself creates a false signal.",
+      "kept": "The hierarchy will distinguish current work from deeper historical archives.",
+      "hero": "https://impeccable.style/worlds/cards/rivers-tides-ocean-depths-mesophotic-deep-dive-hero.webp"
+    },
+    {
+      "id": "challenger-drum-machine",
+      "label": "Drum Machine Step Row",
+      "verdict": "declined",
+      "lineage": "Early-80s rhythm-machine step sequencers",
+      "thesis": "A running step row gives a collection a visible, repeating pulse.",
+      "palette": [
+        "#29251f",
+        "#eb4b4e",
+        "#ef9b36",
+        "#f5eadc"
+      ],
+      "materials": [
+        "silkscreened panel",
+        "step keys",
+        "indicator LEDs"
+      ],
+      "viewport": "The first view uses a sixteen-step row as a browsable timeline.",
+      "risk": "A sequencer suggests audio features the portfolio does not have.",
+      "case": "Loses on audience identification and product clarity; a continuous loop would add needless motion.",
+      "kept": "Navigation gets one restrained active indicator and no decorative loop.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-drum-machine-step-row-hero.webp"
+    },
+    {
+      "id": "challenger-minihompy",
+      "label": "Minihompy Room",
+      "verdict": "declined",
+      "lineage": "Personal homepages and decorated diary rooms",
+      "thesis": "A small room makes a personal profile feel inhabited.",
+      "palette": [
+        "#e8c7cf",
+        "#a8b9de",
+        "#f4ecde",
+        "#4c4653"
+      ],
+      "materials": [
+        "tile wallpaper",
+        "sticker outlines",
+        "isometric furniture"
+      ],
+      "viewport": "A profile room sits beside a diary and friend ledger.",
+      "risk": "Visitor counts and furnishings suggest social features that no longer exist.",
+      "case": "Loses on audience identification and product clarity; its interaction model is absent from the requested site.",
+      "kept": "A single concise personal note will balance the project index.",
+      "hero": "https://impeccable.style/worlds/cards/cyworld-minihompy-room-hero.webp"
+    }
+  ],
+  "reroll": {
+    "registers": [
+      "safer",
+      "bolder"
+    ]
+  },
+  "buildPath": {
+    "value": "comp",
+    "toggle": true
+  },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A conventional portfolio, executed with sharp hierarchy and the confirmed brand colors.",
+    "palette": [
+      "#251333",
+      "#fc4056",
+      "#0efb69",
+      "#f3ede8"
+    ],
+    "materials": [
+      "clean grid",
+      "project imagery",
+      "editorial text"
+    ],
+    "viewport": "Name and role in a hero, two featured project cards, recent writing, a short About section, and social links.",
+    "risk": "The composition is familiar by design and may feel close to the supplied references.",
+    "comp": "http://127.0.0.1:64256/canon.png"
+  },
+  "steer": true
+}

@@ -54,9 +54,11 @@ typings/
 # dotenv environment variable files
 .env*
 
-# gatsby files
-.cache/
-public
+# Astro build output
+/.astro/
+/dist/
+/.netlify/db/
+/.netlify/netlify.toml
 
 # Mac files
 .DS_Store
